@@ -24,5 +24,7 @@ namespace SUP_G6
         {
             InitializeComponent();
         }
+
+        
     }
 }
