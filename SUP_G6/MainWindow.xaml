@@ -7,13 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="407,217,0,0" VerticalAlignment="Top"/>
-        <Button Content="Olivia" HorizontalAlignment="Left" Margin="341,197,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="Mjurtas_knapp" Content="Mårtens nya" HorizontalAlignment="Left" Margin="43,98,0,0" VerticalAlignment="Top"/>
-
-
-
-
+        <Button Content="Johanna" HorizontalAlignment="Left" Margin="407,217,0,0" VerticalAlignment="Top"/>
+        <Button Content="Olivia" HorizontalAlignment="Left" Margin="325,222,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
