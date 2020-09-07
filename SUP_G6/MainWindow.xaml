@@ -5,11 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SUP_G6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920">
+    
     <Grid>
-        <Button Content="Johanna" HorizontalAlignment="Left" Margin="483,252,0,0" VerticalAlignment="Top"/>
-        <Button Content="Olivia" HorizontalAlignment="Left" Margin="325,222,0,0" VerticalAlignment="Top"/>
-        <Button Content="Mårten" HorizontalAlignment="Left" Margin="39,61,0,0" VerticalAlignment="Top"/>
-        <Button Content="Magnus" HorizontalAlignment="Left" Margin="325,81,0,0" VerticalAlignment="Top"/>
+        <Grid.Background>
+            <ImageBrush    ImageSource="/Assets/Images/background.jpg" Stretch="UniformToFill" />
+        </Grid.Background>
+        <StackPanel>
+            <Frame x:Name="Main">
+
+            </Frame>
+            
+        </StackPanel>
+
     </Grid>
 </Window>

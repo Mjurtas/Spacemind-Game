@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUP_G6.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace SUP_G6
         public MainWindow()
         {
             InitializeComponent();
+            var page = new StartPage();
+            Main.Content = page;
         }
 
         

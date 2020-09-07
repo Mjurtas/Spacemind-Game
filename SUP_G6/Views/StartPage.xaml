@@ -5,10 +5,29 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SUP_G6.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="StartPage">
 
     <Grid>
-        
+
+        <Border
+            Background="White"
+            CornerRadius="70"
+            Width="1000"
+            Height="1080"
+            Opacity="0.76"
+            >
+
+
+
+        </Border>
+        <StackPanel>
+        <Label Content="SPACEMIND" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 200 0 0" FontSize="60"/>
+            <Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
+            <Button Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
+            <Button Content="{Binding ViewHighScoreButton , FallbackValue=HighScore}" Command="{Binding ViewHighScoreCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
+            <ListBox ItemsSource="{Binding HighScores}"></ListBox>
+        </StackPanel>
+
     </Grid>
 </Page>

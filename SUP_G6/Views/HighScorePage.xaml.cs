@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUP_G6.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +22,12 @@ namespace SUP_G6.Views
         public HighScorePage()
         {
             InitializeComponent();
+            DataContext = new HighScoreViewModel();
+            
+            
+            
+            
+            
         }
     }
 }
