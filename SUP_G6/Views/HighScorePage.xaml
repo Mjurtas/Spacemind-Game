@@ -18,8 +18,6 @@
             Opacity="0.76"
             >
 
-
-
         </Border>
         <StackPanel>
             <Label Content="Highscore" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 200 0 0" FontSize="60"/>

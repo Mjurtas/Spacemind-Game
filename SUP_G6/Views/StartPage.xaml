@@ -14,7 +14,7 @@
             Background="White"
             CornerRadius="70"
             Width="1000"
-            Height="1080"
+            Height="810"
             Opacity="0.76"
             >
 
@@ -22,11 +22,11 @@
 
         </Border>
         <StackPanel>
-        <Label Content="SPACEMIND" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 200 0 0" FontSize="60"/>
-            <Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
-            <Button Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
+        <Label Content="SPACEMIND" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100 0 0" FontSize="60" FontWeight="Bold" Foreground="#FFF2FC08"/>
+            <Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 200 0 0" Height="90" Width="177"/>
+            <Button Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 10" Height="90" Width="177"/>
             <Button Content="{Binding ViewHighScoreButton , FallbackValue=HighScore}" Command="{Binding ViewHighScoreCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177"/>
-            <ListBox ItemsSource="{Binding HighScores}"></ListBox>
+            <!--<ListBox ItemsSource="{Binding HighScores}"></ListBox>-->
         </StackPanel>
 
     </Grid>

@@ -1,4 +1,5 @@
-﻿using SUP_G6.Views;
+﻿using SUP_G6.ViewModels;
+using SUP_G6.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,5 @@ namespace SUP_G6
             var page = new StartPage();
             Main.Content = page;
         }
-
-        
     }
 }
