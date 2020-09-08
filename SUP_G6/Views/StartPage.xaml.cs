@@ -37,5 +37,16 @@ namespace SUP_G6.Views
         {
             ChangePage();
         }
+
+        public void ChangeToChoosePlayerPage()
+        {
+            var page = new ChoosePlayerPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ChangeToChoosePlayerPage();
+        }
     }
 }
