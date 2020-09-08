@@ -5,38 +5,23 @@ using System.Text;
 
 namespace SUP_G6.Other
 {
-     class GameLogic
+     static class GameLogic
     {
-        Random random = new Random();
-        public char[] SecretCode { get; set; }
-        public char[] Guess { get; set; }
-        public int NumberOfGuesses { get; set; } = 10;
 
-        //public char[] GenerateSecretCode() 
-        //{
-        //    char[] generatedCode = new char[4];
-        //    for (int i = 0; i < generatedCode.Length; i++)
-        //    {
-        //        int generatednumber = random.Next(1 , 7);
-        //        generatedCode[i] = (char)generatednumber;
-        //    }
-
-        //    return generatedCode;
-        //}
-
-        public void GenerateSecretCode()
+        public static char[] GenerateSecretCode()
         {
+            Random random = new Random();
             char[] generatedCode = new char[4];
             for (int i = 0; i < generatedCode.Length; i++)
             {
-                int generatednumber = random.Next(1 , 7);
+                int generatednumber = random.Next(1, 7);
                 generatedCode[i] = (char)generatednumber;
             }
 
-            SecretCode = generatedCode;
+            return generatedCode;
         }
 
-        private char [] Feedback(char [] secretCode, char [] guess)
+        public static char [] Feedback(char [] secretCode, char [] guess)
         {
 
             char[] feedbackList = new char[3];
@@ -80,7 +65,7 @@ namespace SUP_G6.Other
             return feedbackList;
 
         }
-        public int NumbersOfTriesLeft(int numberOfGuesses)
+        public static int NumbersOfTriesLeft(int numberOfGuesses)
         {
             numberOfGuesses = 10 - numberOfGuesses;
             return numberOfGuesses;
