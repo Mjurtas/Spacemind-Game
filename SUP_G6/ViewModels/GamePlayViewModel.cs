@@ -6,6 +6,7 @@ namespace SUP_G6.ViewModels
 {
     class GamePlayViewModel
     {
+        public char[] Guess { get; set; }
         public int NumberOfTotallyWrongPegs { get; set; }
         public int NumberOfCorrectSymbolPegs { get; set; }
         public int NumberOfTotallyCorrectPegs { get; set; }

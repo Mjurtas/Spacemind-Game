@@ -10,11 +10,49 @@
       Title="GamePlayPage">
 
     <Grid>
-        <local1:Peg1/>
-        <local1:Peg1 Margin="219,98,491,262"/>
-        <local1:Peg1 Margin="450,98,260,262"/>
-        <local1:Peg1 Margin="520,225,190,135"/>
-        <local1:Peg1 Margin="219,225,491,135"/>
-        <local1:Peg1 Margin="565,98,145,262"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition MinWidth="150"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="0" >
+            <local1:Peg1 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="1" >
+            <local1:Peg2/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="2" >
+            <local1:Peg3/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="3" >
+            <local1:Peg4/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="4" >
+            <local1:Peg5/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Background="White" Grid.Row="5">
+            <local1:Peg6 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0"
+            AllowDrop="True"
+            DragOver="panel_DragOver"
+            Drop="panel_Drop"
+                    Background="Azure">
+        </StackPanel>
+        <StackPanel x:Name="stpGuessRow2" Grid.Column="1" Grid.Row="1"
+            AllowDrop="False"
+            DragOver="panel_DragOver"
+            Drop="panel_Drop"
+                    Background="LightGray">
+        </StackPanel>
     </Grid>
 </Page>

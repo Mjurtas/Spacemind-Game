@@ -19,4 +19,40 @@
     <Resource Include="Assets\Images\background.jpg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Views\Pegs\Peg6.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pegs\Peg5.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pegs\Peg4.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pegs\Peg3.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\Pegs\Peg2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Views\Pegs\Peg6.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pegs\Peg5.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pegs\Peg4.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pegs\Peg3.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\Pegs\Peg2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
 </Project>
