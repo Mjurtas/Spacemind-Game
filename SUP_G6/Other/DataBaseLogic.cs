@@ -14,7 +14,7 @@ namespace SUP_G6.Other
         #region CREATE
         public static int AddPlayer(Player player)
         {
-            string stmt = "INSERT INTO player(name) values (@name) returning id;";
+            string stmt = "INSERT INTO player(name) values (@name) returning player_id;";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -22,7 +22,7 @@ namespace SUP_G6.Other
                 {
                     conn.Open();
                     command.Parameters.AddWithValue("name", player.Name);
-                    command.Parameters.AddWithValue("id", player.Id);
+                    command.Parameters.AddWithValue("player_id", player.Id);
                     int id = (int)command.ExecuteScalar();
                     return id;
                 }
@@ -33,7 +33,7 @@ namespace SUP_G6.Other
         #region READ
         public static Player GetPlayer(int id)
         {
-            string stmt = "select id, name from player where id=@id";
+            string stmt = "select player_id, name from player where player_id=@player_id";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -41,14 +41,14 @@ namespace SUP_G6.Other
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
-                    command.Parameters.AddWithValue("id", id);
+                    command.Parameters.AddWithValue("player_id", id);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
                             player = new Player
                             {
-                                Id = (int)reader["id"],
+                                Id = (int)reader["player_id"],
                                 Name = (string)reader["name"]
                             };
                         }
@@ -60,7 +60,7 @@ namespace SUP_G6.Other
 
         public static IEnumerable<Player> GetPlayers()
         {
-            string stmt = "select * from player";
+            string stmt = "select player_id, name from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -75,7 +75,7 @@ namespace SUP_G6.Other
                         {
                             player = new Player
                             {
-                                Id = (int)reader["id"],
+                                Id = (int)reader["player_id"],
                                 Name = (string)reader["name"]
                             };
                             players.Add(player);
