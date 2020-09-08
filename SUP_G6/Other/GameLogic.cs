@@ -17,7 +17,7 @@ namespace SUP_G6.Other
         //    char[] generatedCode = new char[4];
         //    for (int i = 0; i < generatedCode.Length; i++)
         //    {
-        //        int generatednumber = random.Next(1 - 7);
+        //        int generatednumber = random.Next(1 , 7);
         //        generatedCode[i] = (char)generatednumber;
         //    }
 
@@ -29,7 +29,7 @@ namespace SUP_G6.Other
             char[] generatedCode = new char[4];
             for (int i = 0; i < generatedCode.Length; i++)
             {
-                int generatednumber = random.Next(1 - 7);
+                int generatednumber = random.Next(1 , 7);
                 generatedCode[i] = (char)generatednumber;
             }
 
@@ -79,6 +79,11 @@ namespace SUP_G6.Other
             feedbackList = finalList;
             return feedbackList;
 
+        }
+        public int NumbersOfTriesLeft(int numberOfGuesses)
+        {
+            numberOfGuesses = 10 - numberOfGuesses;
+            return numberOfGuesses;
         }
     }
 }
