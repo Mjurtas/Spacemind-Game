@@ -15,5 +15,9 @@ namespace SUP_G6.ViewModels
             NumberOfCorrectSymbolPegs = feedback[1];
             NumberOfTotallyCorrectPegs = feedback[2];
         }
+        public void DropPeg() 
+        { 
+
+        }
     }
 }

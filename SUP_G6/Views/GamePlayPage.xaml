@@ -4,11 +4,17 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SUP_G6.Views"
+      xmlns:local1="clr-namespace:SUP_G6"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePlayPage">
 
     <Grid>
-        
+        <local1:Peg1/>
+        <local1:Peg1 Margin="219,98,491,262"/>
+        <local1:Peg1 Margin="450,98,260,262"/>
+        <local1:Peg1 Margin="520,225,190,135"/>
+        <local1:Peg1 Margin="219,225,491,135"/>
+        <local1:Peg1 Margin="565,98,145,262"/>
     </Grid>
 </Page>

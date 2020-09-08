@@ -21,6 +21,14 @@ namespace SUP_G6.Views
         public GamePlayPage()
         {
             InitializeComponent();
+            //var redPeg = new Peg1(1);
+            //var bluePeg = new Peg1(2);
+            //var yellowPeg = new Peg1(3);
+            //var greenPeg = new Peg1(4);
+            //var purplePeg = new Peg1(5);
+            //var pinkPeg = new Peg1(6);
+
         }
+
     }
 }
