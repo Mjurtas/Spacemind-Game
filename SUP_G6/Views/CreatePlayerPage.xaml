@@ -9,6 +9,27 @@
       Title="CreatePlayerPage">
 
     <Grid>
-        
+
+        <Border
+            Background="White"
+            CornerRadius="70"
+            Width="1000"
+            Height="810"
+            Opacity="0.76"
+            >
+
+
+        </Border>
+        <StackPanel>
+            <Label Content="Create player" HorizontalAlignment="Center" Margin="0 200 0 40" FontSize="60"/>
+            <TextBox x:Name="text" TextWrapping="Wrap" Width="120"/>
+
+
+        </StackPanel>
+        <StackPanel>
+            <Button x:Name="BtnCreatePlayer" Content="Create" Height="25" Width="118" Margin="0 400 0 0" Click="BtnCreatePlayer_Click"/>
+            <Button x:Name="BtnGoBackToStart" Content="Back" Height="25" Width="118" Click="BtnGoBackToStart_Click"/>
+        </StackPanel>
+
     </Grid>
 </Page>
