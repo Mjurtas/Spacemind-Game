@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SUP_G6.ViewModels.BaseViewModel
 {
-    public class BaseViewModel : MainWindow,  Interface.INotifyPropertyChanged
+    public class BaseViewModel : Interface.INotifyPropertyChanged
 
     {
         public event PropertyChangedEventHandler PropertyChanged;

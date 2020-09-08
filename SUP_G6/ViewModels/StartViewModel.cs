@@ -10,13 +10,13 @@ using System.Windows.Input;
 
 namespace SUP_G6.ViewModels
 {
-    public class StartViewModel : INotifyPropertyChanged
+    public class StartViewModel : BaseViewModel.BaseViewModel
     {
         public StartViewModel()
         {
             //HighScores = new ObservableCollection<HighScore>();
             //HighScores.Add(new HighScore());
-            ViewHighScorePage = new RelayCommand(ViewHighScore);
+         
         }
         //public ObservableCollection<HighScore> HighScores { get; set; }
         public string CreatePlayerButton { get; set; } = "CREATE PLAYER";
@@ -25,13 +25,10 @@ namespace SUP_G6.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public ICommand ViewHighScorePage { get; set; }
+        
 
         
 
-        public void ViewHighScore()
-        {
-            var page = new HighScorePage();
-        }
+        
     }
 }

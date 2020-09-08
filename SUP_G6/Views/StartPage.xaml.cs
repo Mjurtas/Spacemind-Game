@@ -24,5 +24,18 @@ namespace SUP_G6.Views
             InitializeComponent();
             DataContext = new StartViewModel();
         }
+
+
+
+        public void ChangePage()
+        {
+            var page1 = new HighScorePage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePage();
+        }
     }
 }
