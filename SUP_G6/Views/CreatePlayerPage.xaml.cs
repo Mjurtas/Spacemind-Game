@@ -1,5 +1,6 @@
 ﻿using SUP_G6.Models;
 using SUP_G6.Other;
+using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,18 +24,10 @@ namespace SUP_G6.Views
         public CreatePlayerPage()
         {
             InitializeComponent();
+            DataContext = new CreatePlayerViewModel();
         }
 
-        private void BtnCreatePlayer_Click(object sender, RoutedEventArgs e)
-        {
-            Player player = new Player
-            {
-                Name = text.Text
-            };
-
-            DataBaseLogic.AddPlayer(player);
-
-        }
+ 
 
         private void BtnGoBackToStart_Click(object sender, RoutedEventArgs e)
         {
