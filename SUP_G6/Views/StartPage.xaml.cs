@@ -51,5 +51,16 @@ namespace SUP_G6.Views
             var page1 = new HighScorePage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
+
+        public void ChangePageToChoosePlayerPage()
+        {
+            var page = new ChoosePlayerPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            ChangePageToChoosePlayerPage();
+        }
     }
 }
