@@ -22,12 +22,12 @@
         </Border>
         <StackPanel>
             <Label Content="Create player" HorizontalAlignment="Center" Margin="0 200 0 40" FontSize="60"/>
-            <TextBox x:Name="text" TextWrapping="Wrap" Width="120"/>
+            <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" TextWrapping="Wrap" Width="120"/>
 
 
         </StackPanel>
         <StackPanel>
-            <Button x:Name="BtnCreatePlayer" Content="Create" Height="25" Width="118" Margin="0 400 0 0" Click="BtnCreatePlayer_Click"/>
+            <Button x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="Create" Height="25" Width="118" Margin="0 400 0 0" />
             <Button x:Name="BtnGoBackToStart" Content="Back" Height="25" Width="118" Click="BtnGoBackToStart_Click"/>
         </StackPanel>
 
