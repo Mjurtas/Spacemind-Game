@@ -27,15 +27,29 @@ namespace SUP_G6.Views
 
 
 
-        public void ChangePage()
-        {
-            var page1 = new HighScorePage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
-        }
+        
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ChangePage();
+            ChangePageToHighScorePage();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            ChangePageToCreatePlayerPage();
+        }
+
+        private void ChangePageToCreatePlayerPage()
+        {
+            var page1 = new CreatePlayerPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
+
+        }
+
+        private void ChangePageToHighScorePage()
+        {
+            var page1 = new HighScorePage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
     }
 }

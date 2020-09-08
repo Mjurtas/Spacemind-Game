@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SUP_G6.Models;
+using SUP_G6.Other;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -21,6 +23,30 @@ namespace SUP_G6.Views
         public CreatePlayerPage()
         {
             InitializeComponent();
+        }
+
+        private void BtnCreatePlayer_Click(object sender, RoutedEventArgs e)
+        {
+            Player player = new Player
+            {
+                Name = text.Text
+            };
+
+            DataBaseLogic.AddPlayer(player);
+
+        }
+
+        private void BtnGoBackToStart_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePageToStart();
+        }
+
+
+
+        public void ChangePageToStart()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
     }
 }
