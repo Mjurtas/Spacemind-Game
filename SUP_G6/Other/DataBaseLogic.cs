@@ -9,7 +9,7 @@ namespace SUP_G6.Other
 {
     public static class DataBaseLogic
     {
-        private static string connectionString = ConfigurationManager.ConnectionStrings["dbLocal"].ConnectionString;
+        private static string connectionString = ConfigurationManager.ConnectionStrings["dbServer"].ConnectionString;
 
         #region CREATE
         public static int AddPlayer(Player player)
@@ -60,7 +60,7 @@ namespace SUP_G6.Other
 
         public static IEnumerable<Player> GetPlayers()
         {
-            string stmt = "select id, name from player";
+            string stmt = "select * from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
