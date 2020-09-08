@@ -23,11 +23,18 @@ namespace SUP_G6.Views
         {
             InitializeComponent();
             DataContext = new HighScoreViewModel();
-            
-            
-            
-            
-            
+                    
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePage();
+        }
+
+        public void ChangePage()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
     }
 }
