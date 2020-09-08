@@ -52,15 +52,15 @@ namespace SUP_G6.Views
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
 
-        public void ChangeToChoosePlayerPage()
+        public void ChangePageToChoosePlayerPage()
         {
             var page = new ChoosePlayerPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            ChangeToChoosePlayerPage();
+            ChangePageToChoosePlayerPage();
         }
     }
 }
