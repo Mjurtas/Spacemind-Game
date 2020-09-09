@@ -19,7 +19,7 @@ namespace SUP_G6.ViewModels
 
         public CreatePlayerViewModel()
         {
-            
+
             CreatePlayerCommand = new RelayCommand(CreatePlayer);
         }
         
