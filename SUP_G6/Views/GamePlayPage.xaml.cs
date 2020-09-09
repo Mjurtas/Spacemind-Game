@@ -1,4 +1,7 @@
-﻿using System;
+﻿using SUP_G6.Models;
+using SUP_G6.Other;
+using SUP_G6.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,9 +21,18 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class GamePlayPage : Page
     {
-        public GamePlayPage()
+        public GamePlayPage(Player player)
         {
+            
             InitializeComponent();
+            DataContext = new GamePlayViewModel();
+            GameResult gameResult = new GameResult()
+            {
+                PlayerId = player.Id
+               
+            };
+
+            DataBaseLogic.AddGameResult(gameResult);
 
         }
         private void MakeNextGuessAvailable(StackPanel GuessRow) 

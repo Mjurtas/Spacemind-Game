@@ -16,7 +16,7 @@ namespace SUP_G6.Models
 
         public int Tries { get; set; } = 0;
 
-        public DateTime Time_start { get; set; }
+        public DateTime Time_start { get; set; } = DateTime.Now;
 
         public DateTime Time_end { get; set; }
 
