@@ -5,13 +5,13 @@ using System.Text;
 
 namespace SUP_G6.Other
 {
-     static class GameLogic
+     public static class GameLogic
     {
 
         public static char[] GenerateSecretCode(int numberOfColors)
         {
             Random random = new Random();
-            char[] generatedCode = new char[4];
+            char[] generatedCode = new char[3];
             for (int i = 0; i < generatedCode.Length; i++)
             {
                 int generatednumber = random.Next(1, numberOfColors);
