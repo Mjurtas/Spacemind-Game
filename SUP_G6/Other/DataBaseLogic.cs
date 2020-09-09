@@ -93,7 +93,7 @@ namespace SUP_G6.Other
 
         public static int AddGameResult(GameResult gameResult)
         {
-            string stmt = "INSERT INTO game_result (player_id, time_start, tries, level ) values (@Id, @Time_start, @Tries, ) returning game_id;";
+            string stmt = "INSERT INTO game_result (player_id, time_start, tries, level ) values (@PlayerId, @Time_start, @Tries, @Level ) returning game_id;";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {

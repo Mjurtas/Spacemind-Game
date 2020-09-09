@@ -20,9 +20,9 @@ namespace SUP_G6.Models
 
         public DateTime Time_end { get; set; }
 
-        public string ElapsedTime { get; set; }
+        public string ElapsedTime { get; set; } = "";
 
-        public string Level { get; set; }
+        public string Level { get; set; } = "";
 
         public bool Win { get; set; } = false;
 

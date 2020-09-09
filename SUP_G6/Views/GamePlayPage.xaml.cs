@@ -28,8 +28,9 @@ namespace SUP_G6.Views
             DataContext = new GamePlayViewModel();
             GameResult gameResult = new GameResult()
             {
-                PlayerId = player.Id
-               
+                PlayerName = player.Name,
+                PlayerId = player.Id,
+                
             };
 
             DataBaseLogic.AddGameResult(gameResult);
