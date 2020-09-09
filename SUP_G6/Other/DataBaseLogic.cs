@@ -91,7 +91,7 @@ namespace SUP_G6.Other
         #region CREATE GAME RESULT
 
 
-        public static int AddGameResult(Player player, GameResult gameResult)
+        public static int AddGameResult(GameResult gameResult)
         {
             string stmt = "INSERT INTO game_result (player_id, time_start, tries, level ) values (@Id, @Time_start, @Tries, ) returning game_id;";
 
@@ -100,7 +100,7 @@ namespace SUP_G6.Other
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
                     conn.Open();
-                    command.Parameters.AddWithValue("player_id", player.Id);
+                    command.Parameters.AddWithValue("player_id", gameResult.PlayerId);
                     command.Parameters.AddWithValue("time_start", gameResult.Time_start);
 
                     command.Parameters.AddWithValue("tries", gameResult.Tries);
