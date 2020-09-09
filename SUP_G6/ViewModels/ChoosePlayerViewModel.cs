@@ -13,10 +13,6 @@ namespace SUP_G6.ViewModels
         public ICommand CurrentPlayer { get; set; }
 
 
-
-
-
-
         
     }
 }

@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Configuration;
+using System.Linq;
 using System.Text;
 
 namespace SUP_G6.Other
@@ -93,18 +94,20 @@ namespace SUP_G6.Other
 
         public static int AddGameResult(GameResult gameResult)
         {
-            string stmt = "INSERT INTO game_result (player_id, time_start, tries, level ) values (@Id, @Time_start, @Tries, ) returning game_id;";
+            string stmt = "INSERT INTO game_result (player_id, time_start, time_end, tries, level, win ) values (@Id, @Time_start,@Time_end, @Tries, @Level, @Win) returning game_id;";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
                     conn.Open();
-                    command.Parameters.AddWithValue("player_id", gameResult.PlayerId);
-                    command.Parameters.AddWithValue("time_start", gameResult.Time_start);
+                    command.Parameters.AddWithValue("Id", gameResult.PlayerId);
+                    command.Parameters.AddWithValue("Time_start", gameResult.Time_start);
+                    command.Parameters.AddWithValue("Time_end", gameResult.Time_end);
+                    command.Parameters.AddWithValue("Tries", gameResult.Tries);
+                    command.Parameters.AddWithValue("Level", gameResult.Level);
+                    command.Parameters.AddWithValue("Win", gameResult.Win);
 
-                    command.Parameters.AddWithValue("tries", gameResult.Tries);
-                    command.Parameters.AddWithValue("player_id", gameResult.Level);
                     int id = (int)command.ExecuteScalar();
                     return id;
                 }
@@ -134,7 +137,7 @@ namespace SUP_G6.Other
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
                                 Time_start = (DateTime)reader["time_start"],
-                                Time_end = (DateTime)reader["time_end"],
+                                //Time_end = (DateTime)reader["time_end"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (string)reader["level"]
@@ -154,6 +157,7 @@ namespace SUP_G6.Other
             {
                 GameResult gameResult = null;
                 ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
+
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
@@ -175,9 +179,9 @@ namespace SUP_G6.Other
                         }
                     }
                 }
-                return gameResults;
+                return new ObservableCollection<GameResult>(gameResults.OrderBy(result => result.ElapsedTimeInSeconds));
+                //return (ObservableCollection<GameResult>) gameResults.OrderBy(result => result.ElapsedTimeInSeconds);
             }
-        }
         
         #endregion
     }

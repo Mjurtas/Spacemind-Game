@@ -23,11 +23,6 @@ namespace SUP_G6.Views
  
     public partial class ChoosePlayerPage : Page
     {
-       
-
-
-
-
         public ChoosePlayerPage()
         {
             InitializeComponent();
@@ -41,8 +36,8 @@ namespace SUP_G6.Views
 
         private void ChangePageToGamePlayPage()
         {
-            
-            var page = new GamePlayPage();
+            Player player = (Player)playerListbox.SelectedItem;
+            var page = new GamePlayPage(player);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
 

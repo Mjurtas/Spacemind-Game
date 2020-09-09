@@ -26,14 +26,16 @@ namespace SUP_G6.Views
             
             InitializeComponent();
             DataContext = new GamePlayViewModel();
+            TimeSpan timeSpan = new TimeSpan();
+
             GameResult gameResult = new GameResult()
             {
-                PlayerId = player.Id
-               
+                PlayerId = player.Id,
+                PlayerName = player.Name,
+                Level = "Easy"
             };
 
-            DataBaseLogic.AddGameResult(gameResult);
-
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
         }
         private void MakeNextGuessAvailable(StackPanel GuessRow) 
         {

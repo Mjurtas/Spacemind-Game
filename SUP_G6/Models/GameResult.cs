@@ -20,7 +20,7 @@ namespace SUP_G6.Models
 
         public DateTime Time_end { get; set; }
 
-        public string ElapsedTime { get; set; }
+        public double ElapsedTimeInSeconds => (Time_end - Time_start).TotalSeconds;
 
         public string Level { get; set; }
 
@@ -28,9 +28,12 @@ namespace SUP_G6.Models
 
         public override string ToString()
         {
-            return $"{PlayerName} {Tries} {ElapsedTime} {Level}";
+            return $"Name: {PlayerName} Tries: {Tries} Time: {GetTime()} {Level}";
         }
-        
 
+        private object GetTime()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
