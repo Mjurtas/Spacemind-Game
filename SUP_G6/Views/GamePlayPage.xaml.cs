@@ -3,6 +3,7 @@ using SUP_G6.Other;
 using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,6 +27,9 @@ namespace SUP_G6.Views
             
             InitializeComponent();
             DataContext = new GamePlayViewModel();
+
+            //Stopwatch stopWatch = new Stopwatch();
+            //stopWatch.Start();
 
             GameResult gameResult = new GameResult()
             {

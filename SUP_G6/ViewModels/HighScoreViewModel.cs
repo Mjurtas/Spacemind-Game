@@ -9,7 +9,7 @@ namespace SUP_G6.ViewModels
 {
     public class HighScoreViewModel
     {
-        //public ObservableCollection<GameResult> Test { get; set; } = (ObservableCollection<GameResult>)DataBaseLogic.GetGameResult();
+        public ObservableCollection<GameResult> HighScoreStandard { get; set; } = DataBaseLogic.GetGameResults();
 
 
     }
