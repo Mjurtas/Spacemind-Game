@@ -11,7 +11,7 @@ namespace SUP_G6.Other
         public static char[] GenerateSecretCode(int numberOfColors)
         {
             Random random = new Random();
-            char[] generatedCode = new char[3];
+            char[] generatedCode = new char[4];
             for (int i = 0; i < generatedCode.Length; i++)
             {
                 int generatednumber = random.Next(1, numberOfColors);
