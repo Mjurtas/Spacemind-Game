@@ -1,4 +1,5 @@
-﻿using SUP_G6.ViewModels;
+﻿using SUP_G6.Models;
+using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -17,8 +18,16 @@ namespace SUP_G6.Views
     /// <summary>
     /// Interaction logic for ChoosePlayerPage.xaml
     /// </summary>
+    /// 
+
+ 
     public partial class ChoosePlayerPage : Page
     {
+       
+
+
+
+
         public ChoosePlayerPage()
         {
             InitializeComponent();
@@ -32,9 +41,12 @@ namespace SUP_G6.Views
 
         private void ChangePageToGamePlayPage()
         {
-
+            
             var page = new GamePlayPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
+
+
+
     }
 }
