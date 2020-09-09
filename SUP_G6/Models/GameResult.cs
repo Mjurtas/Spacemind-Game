@@ -6,7 +6,7 @@ namespace SUP_G6.Models
 {
     public class GameResult
     {
-        // 1. Skapa alla props
+        
 
         public int GameId { get; set; }
 
