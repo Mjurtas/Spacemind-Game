@@ -24,5 +24,17 @@ namespace SUP_G6.Views
             InitializeComponent();
             DataContext = new ChoosePlayerViewModel();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePageToGamePlayPage();
+        }
+
+        private void ChangePageToGamePlayPage()
+        {
+
+            var page = new GamePlayPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
     }
 }
