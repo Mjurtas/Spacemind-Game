@@ -29,6 +29,7 @@
         <StackPanel>
             <Button x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="Create" Height="25" Width="118" Margin="0 400 0 0" />
             <Button x:Name="BtnGoBackToStart" Content="Back" Height="25" Width="118" Click="BtnGoBackToStart_Click"/>
+          <!--<Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="20" Width="177" Click="Button_Click_3"/>--> 
         </StackPanel>
 
     </Grid>

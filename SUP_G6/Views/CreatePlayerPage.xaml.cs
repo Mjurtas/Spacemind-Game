@@ -41,5 +41,15 @@ namespace SUP_G6.Views
             var page1 = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
+        /*private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            ChangePageToGamePlayPage();
+        }
+        private void ChangePageToGamePlayPage()
+        {
+            Player testPlayer = new Player();
+            GamePlayPage page12 = new GamePlayPage(testPlayer);
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page12;
+        }*/
     }
 }

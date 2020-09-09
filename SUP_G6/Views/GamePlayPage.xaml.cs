@@ -86,13 +86,13 @@ namespace SUP_G6.Views
                                 MasterPeg peg;
                                 switch (colorId)
                                 {
-                                    case 1: 
+                                    case 1:
                                         peg = new Peg1();
                                         break;
-                                    case 2: 
+                                    case 2:
                                         peg = new Peg2();
                                         break;
-                                    case 3: 
+                                    case 3:
                                         peg = new Peg3();
                                         break;
                                     case 4:
@@ -109,11 +109,20 @@ namespace SUP_G6.Views
                                         peg = new Peg6();
                                         break;
                                 }
-                                _panel.Children.Add(peg);
+                                if (_panel.Children.Count == 0)
+                                {
+                                    _panel.Children.Add(peg);
+                                }
+                                else
+                                {
+                                    _panel.Children.Clear();
+                                    _panel.Children.Add(peg);
+                                }
+                                // set the value to return to the DoDragDrop call
+                                //e.Effects = DragDropEffects.Copy;
                             }
-                            // set the value to return to the DoDragDrop call
-                            e.Effects = DragDropEffects.Copy;
                         }
+                    }
                         //else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
                         //{
                         //    _parent.Children.Remove(_element);
@@ -132,4 +141,4 @@ namespace SUP_G6.Views
 
         }
     }
-}
+
