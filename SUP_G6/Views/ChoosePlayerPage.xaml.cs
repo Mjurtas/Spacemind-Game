@@ -41,7 +41,6 @@ namespace SUP_G6.Views
 
         private void ChangePageToGamePlayPage()
         {
-            
             var page = new GamePlayPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
