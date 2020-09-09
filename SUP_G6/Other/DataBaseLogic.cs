@@ -123,7 +123,7 @@ namespace SUP_G6.Other
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
-                GameResult gameResult  =  null;
+                GameResult gameResult = null;
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
@@ -182,7 +182,8 @@ namespace SUP_G6.Other
                 return new ObservableCollection<GameResult>(gameResults.OrderBy(result => result.ElapsedTimeInSeconds));
                 //return (ObservableCollection<GameResult>) gameResults.OrderBy(result => result.ElapsedTimeInSeconds);
             }
-        
-        #endregion
+
+            #endregion
+        }
     }
 }
