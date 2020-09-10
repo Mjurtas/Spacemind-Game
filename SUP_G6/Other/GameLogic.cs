@@ -7,24 +7,20 @@ namespace SUP_G6.Other
 {
      public static class GameLogic
     {
-
-        public static char[] GenerateSecretCode(int numberOfColors)
+        
+        public static char[] GenerateSecretCode()
         {
             Random random = new Random();
-            char[] generatedCode = new char[3];
-            for (int i = 0; i < generatedCode.Length; i++)
-            {
-                int generatednumber = random.Next(1, numberOfColors);
-                generatedCode[i] = (char)generatednumber;
-            }
+            char[] generatedCode = random.Next(1, 9999).ToString().ToCharArray();
+           
 
             return generatedCode;
         }
 
         public static char [] Feedback(char [] secretCode, char [] guess)
         {
-
-            char[] feedbackList = new char[3];
+            
+            char[] feedbackList = new char[4];
             int correctLetterLocation = 0;
             int correctLetter = 0;
             int totallyWrong = 0;
@@ -65,10 +61,6 @@ namespace SUP_G6.Other
             return feedbackList;
 
         }
-        public static int NumbersOfTriesLeft(int numberOfGuesses)
-        {
-            numberOfGuesses = 10 - numberOfGuesses;
-            return numberOfGuesses;
-        }
+
     }
 }

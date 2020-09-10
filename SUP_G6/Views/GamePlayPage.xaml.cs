@@ -26,7 +26,7 @@ namespace SUP_G6.Views
         {
             
             InitializeComponent();
-            DataContext = new GamePlayViewModel();
+            DataContext = new GamePlayViewModel(GameLogic.GenerateSecretCode());
 
             //Stopwatch stopWatch = new Stopwatch();
             //stopWatch.Start();
@@ -39,6 +39,8 @@ namespace SUP_G6.Views
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
+            
+            
         }
         private void MakeNextGuessAvailable(StackPanel GuessRow) 
         {

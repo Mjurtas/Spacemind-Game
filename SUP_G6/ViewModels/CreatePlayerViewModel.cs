@@ -12,7 +12,9 @@ namespace SUP_G6.ViewModels
 {
     public class CreatePlayerViewModel : BaseViewModel.BaseViewModel
     {
-        public IPlayer Player { get; set; }
+        private Player player;
+
+        public Player Player { get; set; }
         public ICommand CreatePlayerCommand { get; set; }
         public string Name { get; set; }
 
@@ -30,9 +32,12 @@ namespace SUP_G6.ViewModels
             Player player = new Player
             {
                 Name = this.Name
-            };
-
+                
+        };
+            Player = this.player;
             DataBaseLogic.AddPlayer(player);
+            
+ 
         }
 
     }
