@@ -31,19 +31,19 @@ namespace SUP_G6.Views
    
         }
 
-        private int [] CompareGuessWithSecretCode(Panel guessPanel)
-        {
-            UIElementCollection guessedPegs = guessPanel.Children;
-            int[] guess = new int[4];
+        //private int [] CompareGuessWithSecretCode(Panel guessPanel)
+        //{
+        //    UIElementCollection guessedPegs = guessPanel.Children;
+        //    int[] guess = new int[4];
 
-            foreach (MasterPeg peg in guessedPegs)
-            {
-                int colorId = peg.ColorId;
-                int position = guessedPegs.IndexOf(peg);
-                guess.SetValue(colorId, position);
-            }
-            return guess;
-        }
+        //    foreach (MasterPeg peg in guessedPegs)
+        //    {
+        //        int colorId = peg.ColorId;
+        //        int position = guessedPegs.IndexOf(peg);
+        //        guess.SetValue(colorId, position);
+        //    }
+        //    return guess;
+        //}
         private bool IsGuessDone(Panel currentPanel)
         {
             if (currentPanel.Children.Count == 4)
@@ -217,7 +217,8 @@ namespace SUP_G6.Views
                     MessageBox.Show("Du har spelat på alla rader");
 
                 }
-                CompareGuessWithSecretCode(currentGuessRow);
+                //GameLogic.Feedback(secretCode, CompareGuessWithSecretCode(currentGuessRow));
+                //CompareGuessWithSecretCode(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
                 

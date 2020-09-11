@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace SUP_G6.ViewModels
@@ -12,14 +13,14 @@ namespace SUP_G6.ViewModels
     class GamePlayViewModel
     {
 
-        private char[] secretcode;
-        public char[] guess = 1234.ToString().ToCharArray();
-        public char[] Guess { get; set; }
-        public char[] SecretCode { get; set; }
+        private int[] secretcode;
+        public int[] gues;
+        public int[] Guess { get; set; }
+        public int[] SecretCode { get; set; }
         public int NumberOfTotallyWrongPegs { get; set; }
         public int NumberOfCorrectSymbolPegs { get; set; }
         public int NumberOfTotallyCorrectPegs { get; set; }
-        public char[] feedbacklist;
+        public PegPosition[] feedbacklist;
         public Player player;
 
         public ICommand CheckFeedBackCommand { get; set; }
@@ -42,6 +43,25 @@ namespace SUP_G6.ViewModels
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+        }
+
+        private void ThisWillBeEdited() 
+        {
+            //GameLogic.Feedback(secretCode, CompareGuessWithSecretCode(currentGuessRow));
+            //CompareGuessWithSecretCode(currentGuessRow);
+        }
+        private int[] CompareGuessWithSecretCode(Panel guessPanel)
+        {
+            UIElementCollection guessedPegs = guessPanel.Children;
+            int[] guess = new int[4];
+
+            foreach (MasterPeg peg in guessedPegs)
+            {
+                int colorId = peg.ColorId;
+                int position = guessedPegs.IndexOf(peg);
+                guess.SetValue(colorId, position);
+            }
+            return guess;
         }
 
         private void CreateNewGameResult()

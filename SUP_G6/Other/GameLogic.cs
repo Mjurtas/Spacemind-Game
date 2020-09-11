@@ -7,55 +7,63 @@ namespace SUP_G6.Other
 {
     public static class GameLogic
     {
-
-        public static char[] GenerateSecretCode()
+        public static int[] GenerateSecretCode()
         {
             Random random = new Random();
-            char[] generatedCode = random.Next(1, 9999).ToString().ToCharArray();
-
+            int[] generatedCode = new int[4];
+            for (int i = 0; i < generatedCode.Length; i++)
+            {
+                int generatednumber = random.Next(1, 7);
+                generatedCode[i] = generatednumber;
+            }
 
             return generatedCode;
         }
 
-        public static bool[] Feedback(int[] secretCode, int[] guess)
+        public static PegPosition[] Feedback(int[] secretCode, int[] guess)
         {
             bool win = false;
-            bool[] feedbackList = new bool[4];
+            PegPosition[] feedbackList = new PegPosition[4];
 
 
             if (guess == secretCode)
             {
-                feedbackList = new bool[] { true, true, true, true };
+                feedbackList = new PegPosition[] { PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition };
                 win = true;
                 return feedbackList;
             }
-
-            int[] clonedSecretNumber = secretCode;
-            for (var i = 0; i < clonedSecretNumber.Length; i++)
+            List<int> clonedCode = new List<int>();
+            foreach (int id in secretCode)
             {
-                if (guess[i] == clonedSecretNumber[i])
+                clonedCode.Add(id);
+            }
+            for (int i = 0; i < secretCode.Length; i++)
+            {
+                if (clonedCode[i] == guess[i])
                 {
-                    feedbackList[i] = true;
-                    int numToRemove = clonedSecretNumber[i];
-                    clonedSecretNumber = clonedSecretNumber.Where(val => val != numToRemove).ToArray();
+                    feedbackList[i] = PegPosition.CorrectColorAndPosition;
+
+                    clonedCode.RemoveAt(i);
+                    clonedCode.Insert(i, 0);
+                }
+                else if (clonedCode.Contains(guess[i]))
+                {
+                    feedbackList[i] = PegPosition.CorrectColorWrongPosition;
+                    clonedCode.RemoveAt(i);
+                    clonedCode.Insert(i, 0);
+                }
+                else
+                {
+                    feedbackList[i] = PegPosition.TotallyWrong;
+                    clonedCode.RemoveAt(i);
+                    clonedCode.Insert(i, 0);
                 }
             }
 
-            int[] clonedSecret = clonedSecretNumber;
-
-            for (var i = 0; i < secretCode.Length; i++)
-            {
-                if (clonedSecret.Contains(guess[i]))
-
-                {
-                    feedbackList[i] = true;
-                    int numToRemove = clonedSecret[i];
-                    clonedSecret = clonedSecret.Where(val => val != numToRemove).ToArray();
-                }
-            }
             return feedbackList;
 
         }
+
         public static int NumbersOfTriesLeft(int numberOfGuesses)
         {
             numberOfGuesses = 10 - numberOfGuesses;
