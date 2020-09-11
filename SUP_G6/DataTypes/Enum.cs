@@ -6,8 +6,8 @@ namespace SUP_G6
 {
     public enum PegPosition
     {
-        CorrectColorWrongPosition,
         CorrectColorAndPosition,
+        CorrectColorWrongPosition,
         TotallyWrong
     }
 }

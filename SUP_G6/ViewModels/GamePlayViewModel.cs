@@ -22,6 +22,15 @@ namespace SUP_G6.ViewModels
         public int NumberOfTotallyCorrectPegs { get; set; }
         public PegPosition[] feedbacklist;
         public Player player;
+        
+        //private PegPosition FeedBackPeg;
+
+        public PegPosition FeedBackPeg
+        {
+            get { return FeedBackPeg; }
+            set { FeedBackPeg = PegPosition.TotallyWrong; }
+        }
+
 
         public ICommand CheckFeedBackCommand { get; set; }
        
