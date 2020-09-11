@@ -25,38 +25,37 @@ namespace SUP_G6.Other
             bool win = false;
             PegPosition[] feedbackList = new PegPosition[4];
 
-
             if (guess == secretCode)
             {
                 feedbackList = new PegPosition[] { PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition };
                 win = true;
                 return feedbackList;
             }
-            List<int> clonedCode = new List<int>();
-            foreach (int id in secretCode)
-            {
-                clonedCode.Add(id);
-            }
+            //List<int> clonedCode = new List<int>();
+            //foreach (int id in secretCode)
+            //{
+            //    clonedCode.Add(id);
+            //}
             for (int i = 0; i < secretCode.Length; i++)
             {
-                if (clonedCode[i] == guess[i])
+                if (secretCode[i] == guess[i])
                 {
                     feedbackList[i] = PegPosition.CorrectColorAndPosition;
 
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
+                    //clonedCode.RemoveAt(i);
+                    //clonedCode.Insert(i, 0);
                 }
-                else if (clonedCode.Contains(guess[i]))
+                else if (secretCode.Contains(guess[i]))
                 {
                     feedbackList[i] = PegPosition.CorrectColorWrongPosition;
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
+                    //clonedCode.RemoveAt(i);
+                    //clonedCode.Insert(i, 0);
                 }
                 else
                 {
                     feedbackList[i] = PegPosition.TotallyWrong;
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
+                    //clonedCode.RemoveAt(i);
+                    //clonedCode.Insert(i, 0);
                 }
             }
 

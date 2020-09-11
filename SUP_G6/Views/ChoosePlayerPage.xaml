@@ -16,27 +16,34 @@
             Height="810"
             Opacity="0.76"
             >
-            
+
 
 
 
         </Border>
         <Grid>
-        <StackPanel Orientation="Vertical" Margin="0,0,24,260">
-                <RadioButton IsChecked="{Binding Path=Easy, Mode=TwoWay}">EASY</RadioButton>
-                    <Label Content="CHOOSE YOUR PLAYER" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
-            <ListBox x:Name="playerListbox" ItemsSource="{Binding Players}" BorderBrush="#FF0D319B" Height="274" Width="630"/>
-            <Button Content="PLAY GAME" Command="" Height="62" Width="284" Click="Button_Click"/>
+            <StackPanel Orientation="Vertical" Margin="0,0,24,260">
+                <Label Content="CHOOSE YOUR PLAYER" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
+                
+                <StackPanel Orientation="Horizontal">
+                    <ListBox x:Name="playerListbox" ItemsSource="{Binding Players}" BorderBrush="#FF0D319B" Height="274" Width="630"/>
+                    <StackPanel>
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" Content="EASY"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" Content="MEDIUM"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButtonIsChecked}" Content="HARD"/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="PLAY GAME" Command="" Height="62" Width="284" Click="Button_Click"/>
             </StackPanel>
         </Grid>
 
         <Grid VerticalAlignment="Bottom">
-        <StackPanel Orientation="Horizontal"  Width="200">
-            <!--<Button Content="{Binding EasyButton, FallbackValue=Button}" Command="CreateEasyGameButtonCommand" Height="59" />
+            <StackPanel Orientation="Horizontal"  Width="200">
+                <!--<Button Content="{Binding EasyButton, FallbackValue=Button}" Command="CreateEasyGameButtonCommand" Height="59" />
                 <Button Content="{Binding MediumButton, FallbackValue=Button}" Command="CreateMediumGameButtonCommand" Height="59" />
              <Button Content="{Binding HardButton, FallbackValue=Button}" Command="CreateHardGameButtonCommand" Height="59" />-->
             </StackPanel>
         </Grid>
     </Grid>
-    
+
 </Page>
