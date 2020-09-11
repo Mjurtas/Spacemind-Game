@@ -19,7 +19,7 @@ namespace SUP_G6.ViewModels
         public ICommand CreateMediumGameButtonGameCommand { get; set; }
         public ICommand CreateHardGameButtonCommand { get; set; }
 
-        public string EasyButton { get; set;  }  = "EASY" ;
+        public bool EasyButton { get; set;  }
         public string MediumButton { get; set; } = "MEDIUM";
         public string HardButton { get; set; } = "HARD";
 
