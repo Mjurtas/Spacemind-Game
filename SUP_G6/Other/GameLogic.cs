@@ -8,14 +8,10 @@ namespace SUP_G6.Other
     public static class GameLogic
     {
 
-        public static int[] GenerateSecretCode()
+        public static char[] GenerateSecretCode()
         {
             Random random = new Random();
-            int[] generatedCode = new int[4];
-            for ( int i = 0; i < 4; i++ )
-            {
-                generatedCode[i] = random.Next(1, 4);
-            }
+            char[] generatedCode = random.Next(1, 9999).ToString().ToCharArray();
 
 
             return generatedCode;
@@ -40,7 +36,7 @@ namespace SUP_G6.Other
                 if (guess[i] == clonedSecretNumber[i])
                 {
                     feedbackList[i] = true;
-                    int numToRemove = Array.IndexOf(clonedSecretNumber, i) + 1;
+                    int numToRemove = clonedSecretNumber[i];
                     clonedSecretNumber = clonedSecretNumber.Where(val => val != numToRemove).ToArray();
                 }
             }

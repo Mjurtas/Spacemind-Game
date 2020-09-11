@@ -220,7 +220,6 @@ namespace SUP_G6.Views
                 CompareGuessWithSecretCode(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
-               
                 
             }
             else
