@@ -5,62 +5,61 @@ using System.Text;
 
 namespace SUP_G6.Other
 {
-     public static class GameLogic
+    public static class GameLogic
     {
-        
+
         public static char[] GenerateSecretCode()
         {
             Random random = new Random();
             char[] generatedCode = random.Next(1, 9999).ToString().ToCharArray();
-           
+
 
             return generatedCode;
         }
 
-        public static char [] Feedback(char [] secretCode, char [] guess)
+        public static bool[] Feedback(int[] secretCode, int[] guess)
         {
-            
-            char[] feedbackList = new char[4];
-            int correctLetterLocation = 0;
-            int correctLetter = 0;
-            int totallyWrong = 0;
+            bool win = false;
+            bool[] feedbackList = new bool[4];
+
 
             if (guess == secretCode)
             {
-                char [] win = { (char)0, (char)0, (char)4 };
-                feedbackList = win;
+                feedbackList = new bool[] { true, true, true, true };
+                win = true;
                 return feedbackList;
             }
-            
-            char[] clonedSecretNumber = secretCode;
+
+            int[] clonedSecretNumber = secretCode;
             for (var i = 0; i < clonedSecretNumber.Length; i++)
             {
                 if (guess[i] == clonedSecretNumber[i])
                 {
-                    correctLetterLocation++;
-                    clonedSecretNumber[i] = ' ';
+                    feedbackList[i] = true;
+                    int numToRemove = clonedSecretNumber[i];
+                    clonedSecretNumber = clonedSecretNumber.Where(val => val != numToRemove).ToArray();
                 }
             }
 
-            char[] clonedSecret = clonedSecretNumber;
+            int[] clonedSecret = clonedSecretNumber;
 
             for (var i = 0; i < secretCode.Length; i++)
             {
                 if (clonedSecret.Contains(guess[i]))
 
                 {
-                    correctLetter++;
-                    clonedSecretNumber[i] = ' ';
+                    feedbackList[i] = true;
+                    int numToRemove = clonedSecret[i];
+                    clonedSecret = clonedSecret.Where(val => val != numToRemove).ToArray();
                 }
             }
-
-            int totalcorrect = correctLetter + correctLetterLocation;
-            totallyWrong = 4 - totalcorrect;
-            char[] finalList = { (char)totallyWrong, (char)correctLetter, (char)correctLetterLocation };
-            feedbackList = finalList;
             return feedbackList;
 
         }
-
+        public static int NumbersOfTriesLeft(int numberOfGuesses)
+        {
+            numberOfGuesses = 10 - numberOfGuesses;
+            return numberOfGuesses;
+        }
     }
 }

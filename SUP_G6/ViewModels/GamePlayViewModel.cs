@@ -42,9 +42,6 @@ namespace SUP_G6.ViewModels
 
         public void CheckGuess()
         {
-            
-            feedbacklist = GameLogic.Feedback(SecretCode, guess);
-            
            
         }
 

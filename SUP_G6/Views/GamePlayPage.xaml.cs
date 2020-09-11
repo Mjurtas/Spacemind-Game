@@ -39,10 +39,9 @@ namespace SUP_G6.Views
                 Level = "Easy"
             };
 
-            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
-            
-            
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);      
         }
+
         private int [] CompareGuessWithSecretCode(Panel guessPanel)
         {
             UIElementCollection guessedPegs = guessPanel.Children;
