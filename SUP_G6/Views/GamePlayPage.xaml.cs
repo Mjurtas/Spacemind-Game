@@ -48,7 +48,7 @@ namespace SUP_G6.Views
 
             foreach (MasterPeg peg in guessedPegs)
             {
-               int colorId = peg.ColorId;
+                int colorId = peg.ColorId;
                 int position = guessedPegs.IndexOf(peg);
                 guess.SetValue(colorId, position);
             }
