@@ -1,8 +1,10 @@
-﻿using SUP_G6.Models;
+﻿using SUP_G6.Interface;
+using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,9 +25,12 @@ namespace SUP_G6.Views
     {
         public GamePlayPage(Player player)
         {
-            
+
             InitializeComponent();
-            DataContext = new GamePlayViewModel();
+            DataContext = new GamePlayViewModel(GameLogic.GenerateSecretCode());
+
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
             GameResult gameResult = new GameResult()
             {
@@ -34,12 +39,40 @@ namespace SUP_G6.Views
                 Level = "Easy"
             };
 
-            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);      
         }
-        private void MakeNextGuessAvailable(StackPanel GuessRow) 
+
+        private int [] CompareGuessWithSecretCode(Panel guessPanel)
+        {
+            UIElementCollection guessedPegs = guessPanel.Children;
+            int[] guess = new int[4];
+
+            foreach (MasterPeg peg in guessedPegs)
+            {
+                int colorId = peg.ColorId;
+                int position = guessedPegs.IndexOf(peg);
+                guess.SetValue(colorId, position);
+            }
+            return guess;
+        }
+        private bool IsGuessDone(Panel currentPanel)
+        {
+            if (currentPanel.Children.Count == 4)
+            {
+                currentPanel.AllowDrop = false;
+                currentPanel.Background = Brushes.LightGray;
+                foreach (MasterPeg peg in currentPanel.Children)
+                {
+                    peg.IsEnabled = false;
+                }
+                return true;
+            }
+            return false;
+        }
+        private void MakeNextGuessAvailable(Panel GuessRow)
         {
             GuessRow.AllowDrop = true;
-            GuessRow.Background = Brushes.Azure;
+            GuessRow.Background = Brushes.LightYellow;
         }
 
         private void panel_DragOver(object sender, DragEventArgs e)
@@ -85,13 +118,13 @@ namespace SUP_G6.Views
                                 MasterPeg peg;
                                 switch (colorId)
                                 {
-                                    case 1: 
+                                    case 1:
                                         peg = new Peg1();
                                         break;
-                                    case 2: 
+                                    case 2:
                                         peg = new Peg2();
                                         break;
-                                    case 3: 
+                                    case 3:
                                         peg = new Peg3();
                                         break;
                                     case 4:
@@ -108,27 +141,100 @@ namespace SUP_G6.Views
                                         peg = new Peg6();
                                         break;
                                 }
-                                _panel.Children.Add(peg);
+                                if (_panel.Children.Count < 4)
+                                {
+                                    _panel.Children.Add(peg);
+                                }
+                                else
+                                {
+                                    _panel.Children.Clear();
+                                    _panel.Children.Add(peg);
+                                }
+                                // set the value to return to the DoDragDrop call
+                                //e.Effects = DragDropEffects.Copy;
                             }
-                            // set the value to return to the DoDragDrop call
-                            e.Effects = DragDropEffects.Copy;
                         }
-                        //else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                        //{
-                        //    _parent.Children.Remove(_element);
-                        //    _panel.Children.Add(_element);
-                        //    if (_element is MasterPeg)
-                        //    {
-                        //        var colorId = ((MasterPeg)_element).ColorId;
-                        //    }
-
-                        //    // set the value to return to the DoDragDrop call
-                        //    e.Effects = DragDropEffects.Move;
-                        //}
                     }
+                    //else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
+                    //{
+                    //    _parent.Children.Remove(_element);
+                    //    _panel.Children.Add(_element);
+                    //    if (_element is MasterPeg)
+                    //    {
+                    //        var colorId = ((MasterPeg)_element).ColorId;
+                    //    }
+
+                    //    // set the value to return to the DoDragDrop call
+                    //    e.Effects = DragDropEffects.Move;
+                    //}
                 }
             }
+        }
 
+        int numberOfTries = 1;
+        Panel currentGuessRow;
+        Panel nextGuessRow;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GameLogic.NumbersOfTriesLeft(numberOfTries);
+            switch (numberOfTries)
+            {
+                case 1:
+                    currentGuessRow = stp1;
+                    nextGuessRow = stp2;
+                    break;
+                case 2:
+                    currentGuessRow = stp2;
+                    nextGuessRow = stp3;
+                    break;
+                case 3:
+                    currentGuessRow = stp3;
+                    nextGuessRow = stp4;
+                    break;
+                case 4:
+                    currentGuessRow = stp4;
+                    nextGuessRow = stp5;
+                    break;
+                case 5:
+                    currentGuessRow = stp5;
+                    nextGuessRow = stp6;
+                    break;
+                case 6:
+                    currentGuessRow = stp6;
+                    nextGuessRow = stp7;
+                    break;
+                case 7:
+                    currentGuessRow = stp7;
+                    nextGuessRow = stp8;
+                    break;
+                case 8:
+                    currentGuessRow = stp8;
+                    nextGuessRow = stp9;
+                    break;
+                case 9:
+                    currentGuessRow = stp9;
+                    nextGuessRow = stp10;
+                    break;
+                case 10:
+                    currentGuessRow = stp10;
+                    break;
+                default:
+                    break;
+            }
+            if (IsGuessDone(currentGuessRow))
+            {
+                if (currentGuessRow == stp10)
+                {
+                    MessageBox.Show("Du har spelat på alla rader");
+                }
+                CompareGuessWithSecretCode(currentGuessRow);
+                MakeNextGuessAvailable(nextGuessRow);
+                numberOfTries++;
+            }
+            else
+            {
+                MessageBox.Show("Du måste gissa minst fyra färger");
+            }
         }
     }
 }

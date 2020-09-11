@@ -6,17 +6,26 @@
       xmlns:local="clr-namespace:SUP_G6.Views"
       xmlns:local1="clr-namespace:SUP_G6"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+d:DesignHeight="450" d:DesignWidth="800"
       Title="GamePlayPage">
-
-  <Grid>
+ <Border
+            Background="White"
+            CornerRadius="70"
+            Width="1000"
+            Height="810"
+            Opacity="0.76"
+            >
+     <Grid Margin="0,0,120,23">
+       
     <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="1*"/>
       <ColumnDefinition Width="1*"/>
       <ColumnDefinition Width="1.5*"/>
       <ColumnDefinition Width="1.5*"/>
       <ColumnDefinition Width="1.5*"/>
       <ColumnDefinition Width="1.5*"/>
       <ColumnDefinition Width="1.5*"/>
+      <ColumnDefinition Width="1*"/>
       <ColumnDefinition Width="1*"/>
     </Grid.ColumnDefinitions>
     <Grid.RowDefinitions>
@@ -30,61 +39,116 @@
       <RowDefinition Height="1*"/>
       <RowDefinition Height="1*"/>
       <RowDefinition Height="1*"/>
+      <RowDefinition Height="1*"/>
+      <RowDefinition Height="1*"/>
     </Grid.RowDefinitions>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="0" >
-      <local1:Peg1/>
+    <StackPanel Grid.Column="1" Grid.Row="1" >
+                <local1:Peg1/>
     </StackPanel>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="1">
+    <StackPanel Grid.Column="1" Grid.Row="2">
       <local1:Peg2/>
     </StackPanel>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="2">
+    <StackPanel Grid.Column="1" Grid.Row="3">
       <local1:Peg3/>
     </StackPanel>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="3">
+    <StackPanel Grid.Column="1" Grid.Row="4">
       <local1:Peg4/>
     </StackPanel>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="4">
+    <StackPanel Grid.Column="1" Grid.Row="5">
       <local1:Peg5/>
     </StackPanel>
-    <StackPanel Grid.Column="0" Background="White" Grid.Row="5">
+    <StackPanel Grid.Column="1" Grid.Row="6">
       <local1:Peg6 HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </StackPanel>
-    <StackPanel Grid.Column="1" Grid.Row="0"
-        AllowDrop="True"
-        DragOver="panel_DragOver"
-        Drop="panel_Drop"
-                Background="Azure">
-    </StackPanel>
-    <StackPanel Grid.Column="2" Grid.Row="0"
+            <WrapPanel x:Name="stp1"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4"
+               AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow" >
+            </WrapPanel>
+       <StackPanel Grid.Column="6" Grid.Row="1" Background="Orange">
+                <Button Content="Gissa!" Click="Button_Click"></Button>
+       </StackPanel>
+       <!--<StackPanel Grid.Column="3" Grid.Row="1"
 AllowDrop="True"
 DragOver="panel_DragOver"
-Drop="panel_Drop"
-        Background="Azure">
+Drop="panel_Drop" Background="LightGray">
+        <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Stroke="Black" Width="50" AllowDrop="True" Fill="LightGray"/>
     </StackPanel>
-    <StackPanel Grid.Column="3" Grid.Row="0"
+    <StackPanel Grid.Column="4" Grid.Row="1"
 AllowDrop="True"
 DragOver="panel_DragOver"
-Drop="panel_Drop"
-        Background="Azure">
+Drop="panel_Drop" Background="White">
+       <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Stroke="Black" Width="50" AllowDrop="True" Fill="White"/>
     </StackPanel>
-    <StackPanel Grid.Column="4" Grid.Row="0"
+    <StackPanel Grid.Column="5" Grid.Row="1"
 AllowDrop="True"
 DragOver="panel_DragOver"
-Drop="panel_Drop"
-        Background="Azure">
-    </StackPanel>
-    <StackPanel x:Name="stpGuessRow2" Grid.Column="1" Grid.Row="1"
-        AllowDrop="False"
-        DragOver="panel_DragOver"
-        Drop="panel_Drop"
-                Background="LightGray">
-    </StackPanel>
-    <Grid Grid.Column="6" Grid.Row="0"
-                Background="AliceBlue">
-      <Ellipse x:Name="feedback1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-      <Ellipse x:Name="feedback2" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-      <Ellipse x:Name="feedback3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-      <Ellipse x:Name="feedback4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-    </Grid>
-  </Grid>
-</Page>
+Drop="panel_Drop" Background="LightGray">
+        <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Stroke="Black" Width="50" AllowDrop="True" Fill="LightGray"/>
+    </StackPanel>-->
+       <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray">
+       </WrapPanel>
+       <Grid Grid.Column="7" Grid.Row="1">
+         <Ellipse x:Name="feedback1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+         <Ellipse x:Name="feedback2" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+         <Ellipse x:Name="feedback3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+         <Ellipse x:Name="feedback4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+       </Grid>
+            <Grid Grid.Column="7" Grid.Row="2">
+                <Label Name="gissning" Content=""/>
+            </Grid>
+            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray">
+            </WrapPanel>
+            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4"
+           AllowDrop="False"
+           DragOver="panel_DragOver"
+           Drop="panel_Drop"
+                   Background="LightGray" >
+            </WrapPanel>
+        </Grid>
+   </Border>
+ </Page>

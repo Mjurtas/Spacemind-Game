@@ -93,8 +93,8 @@ namespace SUP_G6.Other
 
 
         public static int AddGameResult(GameResult gameResult)
-        {
-            string stmt = "INSERT INTO game_result (player_id, time, tries, level, win ) values (@Id, @Time, @Tries, @Level, @Win) returning game_id;";
+        {                                                       //OBS, LÄGG TILL TIME!           //@time
+            string stmt = $"INSERT INTO game_result (player_id, tries, level, win ) values (@Id, @Tries, @Level, @Win) returning game_id;";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -102,7 +102,7 @@ namespace SUP_G6.Other
                 {
                     conn.Open();
                     command.Parameters.AddWithValue("Id", gameResult.PlayerId);
-                    command.Parameters.AddWithValue("Time", gameResult.ElapsedTimeInSeconds);
+                    //command.Parameters.AddWithValue("Time", gameResult.ElapsedTimeInSeconds);
                     command.Parameters.AddWithValue("Tries", gameResult.Tries);
                     command.Parameters.AddWithValue("Level", gameResult.Level);
                     command.Parameters.AddWithValue("Win", gameResult.Win);
@@ -135,7 +135,7 @@ namespace SUP_G6.Other
                             {
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
-
+                                ElapsedTimeInSeconds=(double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (string)reader["level"]
@@ -149,7 +149,8 @@ namespace SUP_G6.Other
 
         public static ObservableCollection<GameResult> GetGameResults()
         {
-            string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
+            //string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
+            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id ;";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -167,7 +168,8 @@ namespace SUP_G6.Other
                             {
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
-                                
+                                PlayerName = (string)reader["name"],
+                                //ElapsedTimeInSeconds=(double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (string)reader["level"]
