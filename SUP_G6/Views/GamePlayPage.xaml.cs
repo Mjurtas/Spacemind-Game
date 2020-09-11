@@ -27,19 +27,8 @@ namespace SUP_G6.Views
         {
 
             InitializeComponent();
-            DataContext = new GamePlayViewModel(GameLogic.GenerateSecretCode());
-
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
-            GameResult gameResult = new GameResult()
-            {
-                PlayerId = player.Id,
-                PlayerName = player.Name,
-                Level = "Easy"
-            };
-
-            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);      
+            DataContext = new GamePlayViewModel( player);
+   
         }
 
         private int [] CompareGuessWithSecretCode(Panel guessPanel)
@@ -226,10 +215,12 @@ namespace SUP_G6.Views
                 if (currentGuessRow == stp10)
                 {
                     MessageBox.Show("Du har spelat på alla rader");
+
                 }
                 CompareGuessWithSecretCode(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
+                
             }
             else
             {

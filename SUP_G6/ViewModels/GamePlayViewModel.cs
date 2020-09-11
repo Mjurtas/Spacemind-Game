@@ -1,7 +1,9 @@
-﻿using SUP_G6.Other;
+﻿using SUP_G6.Models;
+using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Windows.Input;
 
@@ -18,6 +20,7 @@ namespace SUP_G6.ViewModels
         public int NumberOfCorrectSymbolPegs { get; set; }
         public int NumberOfTotallyCorrectPegs { get; set; }
         public char[] feedbacklist;
+        public Player player;
 
         public ICommand CheckFeedBackCommand { get; set; }
        
@@ -30,20 +33,30 @@ namespace SUP_G6.ViewModels
             NumberOfTotallyCorrectPegs = feedback[2];
         }
 
-        public GamePlayViewModel(char [] _secretCode)
+        public GamePlayViewModel(Player player)
         {
-            SecretCode = _secretCode;
+            this.player = player;
+            SecretCode = GameLogic.GenerateSecretCode();
+            CreateNewGameResult();
 
-            CheckGuess();
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
         }
 
-
-
-        public void CheckGuess()
+        private void CreateNewGameResult()
         {
-           
+            GameResult gameResult = new GameResult()
+            {
+                PlayerId = player.Id,
+                PlayerName = player.Name,
+                Level = "Easy"
+            };
+
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
         }
+
+        
 
 
        
