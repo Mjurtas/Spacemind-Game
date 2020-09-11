@@ -13,9 +13,9 @@ namespace SUP_G6.ViewModels
     {
 
         private char[] secretcode;
-        public char[] guess = 1234.ToString().ToCharArray();
+        public int[] guess = new int[] { 1, 2, 3, 4 };
         public char[] Guess { get; set; }
-        public char[] SecretCode { get; set; }
+        public int[] SecretCode { get; set; }
         public int NumberOfTotallyWrongPegs { get; set; }
         public int NumberOfCorrectSymbolPegs { get; set; }
         public int NumberOfTotallyCorrectPegs { get; set; }
@@ -42,6 +42,7 @@ namespace SUP_G6.ViewModels
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+            GameLogic.Feedback(SecretCode, guess);
         }
 
         private void CreateNewGameResult()

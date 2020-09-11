@@ -135,7 +135,7 @@ namespace SUP_G6.Other
                             {
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
-                                ElapsedTimeInSeconds=(double)reader["time"],
+                                ElapsedTimeInSeconds = (double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (string)reader["level"]
@@ -183,6 +183,33 @@ namespace SUP_G6.Other
             }
 
             #endregion
+        }
+
+        #region UPDATE
+
+        public static void UpdateGameResult(int id, TimeSpan time)
+        {
+            string stmt = "update game_result set time=@time where game_id=@id";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+
+
+
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+
+                    conn.Open();
+                    command.Parameters.AddWithValue("id", id);
+                    command.Parameters.AddWithValue("time", time);
+                    command.ExecuteScalar();
+                }
+
+            }
+
+
+            #endregion
+
         }
     }
 }
