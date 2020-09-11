@@ -15,137 +15,137 @@ d:DesignHeight="450" d:DesignWidth="800"
             Height="810"
             Opacity="0.76"
             >
-     <Grid Margin="0,0,120,23">
-         
-    <!-- Rad- och kolumndefinitioner --> 
-    <Grid.ColumnDefinitions>
-      <ColumnDefinition Width="1*"/>
-      <ColumnDefinition Width="1*"/>
-      <ColumnDefinition Width="1.5*"/>
-      <ColumnDefinition Width="1.5*"/>
-      <ColumnDefinition Width="1.5*"/>
-      <ColumnDefinition Width="1.5*"/>
-      <ColumnDefinition Width="1.5*"/>
-      <ColumnDefinition Width="1*"/>
-      <ColumnDefinition Width="1*"/>
-    </Grid.ColumnDefinitions>
-         
-    <Grid.RowDefinitions>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-      <RowDefinition Height="1*"/>
-    </Grid.RowDefinitions>
-         
-    <!-- Färgplupparna -->
-    <StackPanel Grid.Column="1" Grid.Row="1" >
-      <local1:Peg1/>
-    </StackPanel>
-         
-    <StackPanel Grid.Column="1" Grid.Row="2">
-      <local1:Peg2/>
-    </StackPanel>
-         
-    <StackPanel Grid.Column="1" Grid.Row="3">
-      <local1:Peg3/>
-    </StackPanel>
-         
-    <StackPanel Grid.Column="1" Grid.Row="4">
-      <local1:Peg4/>
-    </StackPanel>
-         
-    <StackPanel Grid.Column="1" Grid.Row="5">
-      <local1:Peg5/>
-    </StackPanel>
-         
-    <StackPanel Grid.Column="1" Grid.Row="6">
-      <local1:Peg6 HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </StackPanel>
-         
-    <!-- Spelplanen -->
+        <Grid Margin="0,0,120,23">
+
+            <!-- Rad- och kolumndefinitioner -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Färgplupparna -->
+            <StackPanel Grid.Column="1" Grid.Row="1" >
+                <local1:Peg1/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="2">
+                <local1:Peg2/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="3">
+                <local1:Peg3/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="4">
+                <local1:Peg4/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="5">
+                <local1:Peg5/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Grid.Row="6">
+                <local1:Peg6 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Spelplanen -->
             <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4"
                AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
+
             <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
-         
-    <!-- Spelknappen -->
+
+            <!-- Spelknappen -->
             <StackPanel Grid.Column="6" Grid.Row="1" Background="Orange">
                 <Button Content="Gissa!" Click="Button_Click"></Button>
             </StackPanel>
-         
-       <!--<StackPanel Grid.Column="3" Grid.Row="1"
+
+            <!--<StackPanel Grid.Column="3" Grid.Row="1"
 AllowDrop="True"
 DragOver="panel_DragOver"
 Drop="panel_Drop" Background="LightGray">
@@ -163,16 +163,68 @@ DragOver="panel_DragOver"
 Drop="panel_Drop" Background="LightGray">
         <Ellipse VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Stroke="Black" Width="50" AllowDrop="True" Fill="LightGray"/>
     </StackPanel>-->
-         
-    <!-- Feedbackpluppar -->
-       <Grid Grid.Column="7" Grid.Row="1">
-         <Ellipse x:Name="feedback1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-         <Ellipse x:Name="feedback2" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-         <Ellipse x:Name="feedback3" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-         <Ellipse x:Name="feedback4" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-       </Grid>
+
+            <!-- Feedbackpluppar -->
+
+            <Grid  Grid.Column="7" Grid.Row="1">
+                <Ellipse x:Name="feedback11" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback12" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback13" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback14" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
             <Grid Grid.Column="7" Grid.Row="2">
-                <Label Name="gissning" Content=""/>
+                <Ellipse x:Name="feedback21" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback22" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid  Grid.Column="7" Grid.Row="3">
+                <Ellipse x:Name="feedback31" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback32" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback33" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid    Grid.Column="7" Grid.Row="4">
+                <Ellipse x:Name="feedback41" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback42" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback44" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid  Grid.Column="7" Grid.Row="5">
+                <Ellipse x:Name="feedback51" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback52" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback53" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid   Grid.Column="7" Grid.Row="6">
+                <Ellipse x:Name="feedback61" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback62" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback63" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid  Grid.Column="7" Grid.Row="7">
+                <Ellipse x:Name="feedback71" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback72" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback73" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback74" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid   Grid.Column="7" Grid.Row="8">
+                <Ellipse x:Name="feedback81" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback82" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback83" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback84" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid  Grid.Column="7" Grid.Row="9">
+                <Ellipse x:Name="feedback91" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback92" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback93" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback94" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+            </Grid>
+            <Grid Grid.Column="7" Grid.Row="10">
+                <Ellipse x:Name="feedback101" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback102" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback103" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse x:Name="feedback104" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
             </Grid>
         </Grid>
    </Border>

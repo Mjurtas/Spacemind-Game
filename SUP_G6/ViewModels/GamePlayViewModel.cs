@@ -64,6 +64,7 @@ namespace SUP_G6.ViewModels
             return guess;
         }
 
+        #region VM till DB
         private void CreateNewGameResult()
         {
             GameResult gameResult = new GameResult()
@@ -75,10 +76,11 @@ namespace SUP_G6.ViewModels
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
         }
+        #endregion
 
-        
 
 
-       
+
+
     }
 }
