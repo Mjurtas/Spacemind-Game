@@ -75,69 +75,69 @@ d:DesignHeight="450" d:DesignWidth="800"
             </StackPanel>
 
             <!-- Spelplanen -->
-            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
                AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
 
-            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
 
-            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4"
+            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="65"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
