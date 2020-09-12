@@ -6,8 +6,6 @@ namespace SUP_G6.Models
 {
     public class GameResult
     {
-        
-
         public int GameId { get; set; }
 
         public int PlayerId { get; set; }
@@ -16,15 +14,13 @@ namespace SUP_G6.Models
 
         public int Tries { get; set; } = 0;
 
-        public DateTime Time_start { get; set; } = DateTime.Now;
+        public double ElapsedTimeInSeconds { get; set; }
 
-        public DateTime Time_end { get; set; }
-
-        public double ElapsedTimeInSeconds { get; set; } = 3.3; /*=> (Time_end - Time_start).TotalSeconds;*/
+        public long ElapsedTicks { get; set; }
      
         public string Level { get; set; }
 
-        public bool Win { get; set; } = false;
+        public bool Win { get; set; }
 
         public override string ToString()
         {
@@ -33,22 +29,27 @@ namespace SUP_G6.Models
 
         private object GetTime()
         {
-            TimeSpan t = TimeSpan.FromSeconds(ElapsedTimeInSeconds);
-            if (ElapsedTimeInSeconds <= 60)
-            {
-                string answer = string.Format("{0:D2}s",
-                                t.Seconds);
-                return answer;
-            }
-            
+            var minutes = new DateTime(ElapsedTicks).Minute;
 
-            else
-            {
-                string answer = string.Format("{0:D2}m:{1:D2}s",
-                                t.Minutes,
-                                t.Seconds);
-                return answer;
-            }
+            var seconds = new DateTime(ElapsedTicks).Second;
+
+            return $"{minutes} {seconds}";
+            //TimeSpan t = TimeSpan.FromSeconds(ElapsedTimeInSeconds);
+            //if (ElapsedTimeInSeconds <= 60)
+            //{
+            //    string answer = string.Format("{0:D2}s",
+            //                    t.Seconds);
+            //    return answer;
+            //}
+
+
+            //else
+            //{
+            //    string answer = string.Format("{0:D2}m:{1:D2}s",
+            //                    t.Minutes,
+            //                    t.Seconds);
+            //    return answer;
+            //}
         }
     }
 }

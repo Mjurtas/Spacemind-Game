@@ -37,11 +37,25 @@ namespace SUP_G6.Views
         private void ChangePageToGamePlayPage()
         {
             Player player = (Player)playerListbox.SelectedItem;
-            var page = new GamePlayPage(player);
+            string level = GetLevel();
+            var page = new GamePlayPage(player, level);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
 
-
-
+        private string GetLevel()
+        {
+            if ((bool)easyRadioButton.IsChecked)
+            {
+                return "Easy";
+            }
+            else if ((bool)mediumRadioButton.IsChecked)
+            {
+                return "Medium";
+            }
+            else
+            {
+                return "Hard";
+            }
+        }
     }
 }

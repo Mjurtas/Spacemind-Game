@@ -15,22 +15,12 @@ namespace SUP_G6.ViewModels
     {
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
 
-        public ICommand CreateEasyGameButtonCommand { get; set;  }        
-        public ICommand CreateMediumGameButtonGameCommand { get; set; }
-        public ICommand CreateHardGameButtonCommand { get; set; }
-
-        public bool EasyButton { get; set;  }
-        public string MediumButton { get; set; } = "MEDIUM";
-        public string HardButton { get; set; } = "HARD";
-
-
         public ChoosePlayerViewModel()
         {
             //CreateGameCommand = new RelayCommand(CreateGame);
             //CreateMediumGameCommand = new RelayCommand(CreateMediumGame);
             //CreateHardGameCommand = new RelayCommand(CreateHardGame);
 
-            CreateEasyGameButtonCommand = new RelayCommand(CreateEasyGame);
         }
 
         private void CreateEasyGame()

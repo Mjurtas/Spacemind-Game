@@ -23,11 +23,11 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class GamePlayPage : Page
     {
-        public GamePlayPage(Player player)
+        public GamePlayPage(Player player, string level)
         {
 
             InitializeComponent();
-            DataContext = new GamePlayViewModel( player);
+            DataContext = new GamePlayViewModel( player, level);
    
         }
 
