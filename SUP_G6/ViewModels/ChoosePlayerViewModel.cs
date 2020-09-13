@@ -14,18 +14,34 @@ namespace SUP_G6.ViewModels
     public class ChoosePlayerViewModel
     {
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
+        public string Level { get; set; }
+        public bool EasyRadioButton { get; set; } = true;
+        public bool MediumRadioButton { get; set; } = false;
+        public bool HardRadioButton { get; set; } = false;
 
         public ChoosePlayerViewModel()
         {
             //CreateGameCommand = new RelayCommand(CreateGame);
             //CreateMediumGameCommand = new RelayCommand(CreateMediumGame);
             //CreateHardGameCommand = new RelayCommand(CreateHardGame);
+            
 
         }
 
-        private void CreateEasyGame()
+        public void CreateGame()
         {
-            
+            if (EasyRadioButton)
+            {
+                Level = "Easy";
+            }
+            else if (MediumRadioButton)
+            {
+                Level = "Medium";
+            }
+            else
+            {
+                Level = "Hard";
+            }
 
         }
     }

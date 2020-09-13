@@ -28,9 +28,9 @@
                 <StackPanel Orientation="Horizontal">
                     <ListBox x:Name="playerListbox" ItemsSource="{Binding Players}" BorderBrush="#FF0D319B" Height="274" Width="630"/>
                     <StackPanel>
-                        <RadioButton GroupName="Level" x:Name="easyRadioButton" Content="EASY"/>
-                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" Content="MEDIUM"/>
-                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButtonIsChecked}" Content="HARD"/>
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD"/>
                     </StackPanel>
                 </StackPanel>
                 <Button Content="PLAY GAME" Command="" Height="62" Width="284" Click="Button_Click"/>

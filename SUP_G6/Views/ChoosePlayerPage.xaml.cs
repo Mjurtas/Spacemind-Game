@@ -23,10 +23,12 @@ namespace SUP_G6.Views
  
     public partial class ChoosePlayerPage : Page
     {
+        ChoosePlayerViewModel viewModel;
         public ChoosePlayerPage()
         {
             InitializeComponent();
-            DataContext = new ChoosePlayerViewModel();
+            viewModel = new ChoosePlayerViewModel();
+            DataContext = viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -37,25 +39,10 @@ namespace SUP_G6.Views
         private void ChangePageToGamePlayPage()
         {
             Player player = (Player)playerListbox.SelectedItem;
-            string level = GetLevel();
+            viewModel.CreateGame();
+            string level = viewModel.Level;
             var page = new GamePlayPage(player, level);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
-        }
-
-        private string GetLevel()
-        {
-            if ((bool)easyRadioButton.IsChecked)
-            {
-                return "Easy";
-            }
-            else if ((bool)mediumRadioButton.IsChecked)
-            {
-                return "Medium";
-            }
-            else
-            {
-                return "Hard";
-            }
         }
     }
 }

@@ -28,23 +28,27 @@ namespace SUP_G6.ViewModels
         public int[] Guess { get; set; }
         public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
-        public int NumberOfTotallyWrongPegs { get; set; }
-        public int NumberOfCorrectSymbolPegs { get; set; }
-        public int NumberOfTotallyCorrectPegs { get; set; }
+
+
         public PegPosition[] feedbacklist;
         public Player player;
         private Stopwatch _stopWatch;
         private readonly string level;
         public Panel MyProperty { get; set; }
 
+
+        #region Feedback-pegs Propertys
         public PegPosition FeedbackPeg1 { get; set; }
         public PegPosition FeedbackPeg2 { get; set; }
         public PegPosition FeedbackPeg3 { get; set; }
         public PegPosition FeedbackPeg4 { get; set; }
+
         public bool FeedbackPeg1Visibility { get; set; } = false;
         public bool FeedbackPeg2Visibility { get; set; } = false;
         public bool FeedbackPeg3Visibility { get; set; } = false;
         public bool FeedbackPeg4Visibility { get; set; } = false;
+        #endregion
+
         //public PegPosition FeedbackPeg
         //{
         //    get { return FeedbackPeg; }
