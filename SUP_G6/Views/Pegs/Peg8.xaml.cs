@@ -32,7 +32,7 @@ namespace SUP_G6
                 Stroke = Brushes.Black,
                 StrokeThickness = 2
             };
-            ColorId = 4;
+            ColorId = 8;
             LevelVisibility = Level.Hard;
             master.Children.Add(ellipse);
         }
