@@ -37,10 +37,14 @@ namespace SUP_G6.ViewModels
         private readonly string level;
         public Panel MyProperty { get; set; }
 
-        public PegPosition FeedbackPeg1 { get; set; } = PegPosition.CorrectColorWrongPosition;
-        public PegPosition FeedbackPeg2 { get; set; } = PegPosition.CorrectColorWrongPosition;
-        public PegPosition FeedbackPeg3 { get; set; } = PegPosition.CorrectColorWrongPosition;
-        public PegPosition FeedbackPeg4 { get; set; } = PegPosition.CorrectColorWrongPosition;
+        public PegPosition FeedbackPeg1 { get; set; }
+        public PegPosition FeedbackPeg2 { get; set; }
+        public PegPosition FeedbackPeg3 { get; set; }
+        public PegPosition FeedbackPeg4 { get; set; }
+        public bool FeedbackPeg1Visibility { get; set; } = false;
+        public bool FeedbackPeg2Visibility { get; set; } = false;
+        public bool FeedbackPeg3Visibility { get; set; } = false;
+        public bool FeedbackPeg4Visibility { get; set; } = false;
         //public PegPosition FeedbackPeg
         //{
         //    get { return FeedbackPeg; }
@@ -88,15 +92,19 @@ namespace SUP_G6.ViewModels
                 {
                     case 0:
                         FeedbackPeg1 = feedback[i];
+                        FeedbackPeg1Visibility = true;
                         break;
                     case 1:
                         FeedbackPeg2 = feedback[i];
+                        FeedbackPeg2Visibility = true;
                         break;
                     case 2:
                         FeedbackPeg3 = feedback[i];
+                        FeedbackPeg3Visibility = true;
                         break;
                     case 3:
                         FeedbackPeg4 = feedback[i];
+                        FeedbackPeg4Visibility = true;
                         break;
                     default:
                         break;
