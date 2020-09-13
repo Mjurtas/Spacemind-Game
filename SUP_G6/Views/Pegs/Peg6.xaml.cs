@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUP_G6.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -31,7 +32,9 @@ namespace SUP_G6
                 Stroke = Brushes.Black,
                 StrokeThickness = 2
             };
+
             ColorId = 6;
+            LevelVisibility = Level.Medium;
             master.Children.Add(ellipse);
         }
     }

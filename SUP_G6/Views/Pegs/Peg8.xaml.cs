@@ -1,5 +1,5 @@
-﻿using SUP_G6.DataTypes;
-using System;
+﻿using System;
+using SUP_G6.DataTypes;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -17,9 +17,9 @@ namespace SUP_G6
     /// <summary>
     /// Interaction logic for Peg1.xaml
     /// </summary>
-    public partial class Peg5 : MasterPeg
+    public partial class Peg8 : MasterPeg
     {
-        public Peg5()
+        public Peg8()
         {
             InitializeComponent();
             CreatePeg();
@@ -28,12 +28,12 @@ namespace SUP_G6
         {
             Ellipse ellipse = new Ellipse
             {
-                Fill = Brushes.Purple,
+                Fill = Brushes.Orange,
                 Stroke = Brushes.Black,
                 StrokeThickness = 2
             };
-            ColorId = 5;
-            LevelVisibility = Level.Medium;
+            ColorId = 4;
+            LevelVisibility = Level.Hard;
             master.Children.Add(ellipse);
         }
     }

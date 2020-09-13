@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using SUP_G6.DataTypes;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -8,6 +9,8 @@ namespace SUP_G6
     public class MasterPeg : UserControl
     {
         public int ColorId { get; set; }
+
+        public Level LevelVisibility { get; set; }
 
         public MasterPeg()
         {

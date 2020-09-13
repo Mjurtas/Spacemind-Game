@@ -1,4 +1,5 @@
-﻿using SUP_G6.Interface;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels;
@@ -24,7 +25,7 @@ namespace SUP_G6.Views
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
-        public GamePlayPage(Player player, string level)
+        public GamePlayPage(Player player, Level level)
         {
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);

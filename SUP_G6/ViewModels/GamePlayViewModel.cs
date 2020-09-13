@@ -1,4 +1,5 @@
-﻿using SUP_G6.Models;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
 using System;
@@ -14,28 +15,41 @@ namespace SUP_G6.ViewModels
 {
     class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
-        public GamePlayViewModel(Player player, string level)
+        public GamePlayViewModel(Player player, Level level)
         {
             this.player = player;
             this.level = level;
+            SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode();
             CreateNewGameResult();
-
-
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
         }
         public int[] Guess { get; set; }
         public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
-
-
+        public bool MediumLevel { get; set;  } = false;
+        public bool HardLevel { get; set; } = false;
         public PegPosition[] feedbacklist;
         public Player player;
         private Stopwatch _stopWatch;
-        private readonly string level;
+        public Level level;
         public Panel MyProperty { get; set; }
 
+        public void SetLevelVisibility()
+        { 
+            if (level == Level.Medium)
+            {
+                MediumLevel = true;
+
+            }
+            if (level == Level.Hard)
+            {
+                MediumLevel = true;
+                HardLevel = true;
+
+            }
+        }
 
         #region Feedback-pegs Propertys
         public PegPosition FeedbackPeg1 { get; set; }

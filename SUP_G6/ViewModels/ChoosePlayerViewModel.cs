@@ -1,4 +1,5 @@
-﻿using SUP_G6.Models;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
 using SUP_G6.Views;
@@ -14,7 +15,7 @@ namespace SUP_G6.ViewModels
     public class ChoosePlayerViewModel
     {
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
-        public string Level { get; set; }
+        public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
@@ -32,15 +33,15 @@ namespace SUP_G6.ViewModels
         {
             if (EasyRadioButton)
             {
-                Level = "Easy";
+                Level = Level.Easy;
             }
             else if (MediumRadioButton)
             {
-                Level = "Medium";
+                Level = Level.Medium;
             }
             else
             {
-                Level = "Hard";
+                Level = Level.Hard;
             }
 
         }

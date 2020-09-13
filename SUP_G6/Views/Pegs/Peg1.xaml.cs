@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUP_G6.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -33,6 +34,7 @@ namespace SUP_G6
                 StrokeThickness = 2
             };
             ColorId = 1;
+            LevelVisibility = Level.Easy;
             master.Children.Add(ellipse);
         }
         //private void CreateRedPeg()

@@ -1,4 +1,5 @@
-﻿using SUP_G6.Models;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Models;
 using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ namespace SUP_G6.Views
         {
             Player player = (Player)playerListbox.SelectedItem;
             viewModel.CreateGame();
-            string level = viewModel.Level;
+            Level level = viewModel.Level;
             var page = new GamePlayPage(player, level);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
