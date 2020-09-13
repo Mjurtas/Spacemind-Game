@@ -4,6 +4,7 @@ using SUP_G6.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Text;
 using System.Windows.Controls;
@@ -11,11 +12,19 @@ using System.Windows.Input;
 
 namespace SUP_G6.ViewModels
 {
-    class GamePlayViewModel
+    class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
+        public GamePlayViewModel(Player player, string level)
+        {
+            this.player = player;
+            this.level = level;
+            SecretCode = GameLogic.GenerateSecretCode();
+            CreateNewGameResult();
 
-        private int[] secretcode;
-        public int[] gues;
+
+            _stopWatch = new Stopwatch();
+            _stopWatch.Start();
+        }
         public int[] Guess { get; set; }
         public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
@@ -26,14 +35,17 @@ namespace SUP_G6.ViewModels
         public Player player;
         private Stopwatch _stopWatch;
         private readonly string level;
+        public Panel MyProperty { get; set; }
 
-        //private PegPosition FeedBackPeg;
-
-        public PegPosition FeedBackPeg
-        {
-            get { return FeedBackPeg; }
-            set { FeedBackPeg = PegPosition.TotallyWrong; }
-        }
+        public PegPosition FeedbackPeg1 { get; set; } = PegPosition.CorrectColorWrongPosition;
+        public PegPosition FeedbackPeg2 { get; set; } = PegPosition.CorrectColorWrongPosition;
+        public PegPosition FeedbackPeg3 { get; set; } = PegPosition.CorrectColorWrongPosition;
+        public PegPosition FeedbackPeg4 { get; set; } = PegPosition.CorrectColorWrongPosition;
+        //public PegPosition FeedbackPeg
+        //{
+        //    get { return FeedbackPeg; }
+        //    set { FeedbackPeg = PegPosition.CorrectColorAndPosition; }
+        //}
 
 
         //public ICommand CheckFeedBackCommand { get; set; }
@@ -50,47 +62,48 @@ namespace SUP_G6.ViewModels
         {
             //nån kod här
             var feedback = GameLogic.Feedback(SecretCode, Guess);
+            SetFeedbackPegs(feedback);
 
-            if (gameHasEnded)
+            //if (gameHasEnded)
+            //{
+            //    _stopWatch.Stop();
+            //    GameResult results = new GameResult
+            //    {
+            //        PlayerId = player.Id,
+            //        PlayerName = player.Name,
+            //        Tries = NumberOfTries,
+            //        ElapsedTicks = _stopWatch.ElapsedTicks,
+            //        Level = level,
+            //        Win = false
+            //    };
+            //    SaveToDatabase(gameresult);
+            //}
+        }
+
+        public void SetFeedbackPegs(PegPosition[] feedback)
+        {
+            for (int i = 0; i < feedback.Length; i++)
             {
-                _stopWatch.Stop();
-                GameResult results = new GameResult
+                switch (i)
                 {
-                    PlayerId = player.Id,
-                    PlayerName = player.Name,
-                    Tries = NumberOfTries,
-                    ElapsedTicks = _stopWatch.ElapsedTicks,
-                    Level = level,
-                    Win = false
-                };
-                SaveToDatabase(gameresult);
+                    case 0:
+                        FeedbackPeg1 = feedback[i];
+                        break;
+                    case 1:
+                        FeedbackPeg2 = feedback[i];
+                        break;
+                    case 2:
+                        FeedbackPeg3 = feedback[i];
+                        break;
+                    case 3:
+                        FeedbackPeg4 = feedback[i];
+                        break;
+                    default:
+                        break;
+                }
             }
         }
-
-        public void SetFeedbackPegs(char[] feedback)
-        {
-            NumberOfTotallyWrongPegs = feedback[0];
-            NumberOfCorrectSymbolPegs = feedback[1];
-            NumberOfTotallyCorrectPegs = feedback[2];
-        }
-
-        public GamePlayViewModel(Player player, string level)
-        {
-            this.player = player;
-            this.level = level;
-            SecretCode = GameLogic.GenerateSecretCode();
-            CreateNewGameResult();
-
-            _stopWatch = new Stopwatch();
-            _stopWatch.Start();
-        }
-
-        private void ThisWillBeEdited()
-        {
-            //GameLogic.Feedback(secretCode, CompareGuessWithSecretCode(currentGuessRow));
-            //CompareGuessWithSecretCode(currentGuessRow);
-        }
-        private int[] CompareGuessWithSecretCode(Panel guessPanel)
+        public void SetGuess(Panel guessPanel)
         {
             UIElementCollection guessedPegs = guessPanel.Children;
             int[] guess = new int[4];
@@ -101,7 +114,7 @@ namespace SUP_G6.ViewModels
                 int position = guessedPegs.IndexOf(peg);
                 guess.SetValue(colorId, position);
             }
-            return guess;
+            Guess = guess;
         }
 
         #region VM till DB

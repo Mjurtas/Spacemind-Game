@@ -146,7 +146,7 @@ d:DesignHeight="450" d:DesignWidth="800"
 
             <!-- Spelknappen -->
             <StackPanel Grid.Column="6" Grid.Row="1" Background="Orange">
-                <Button Content="Gissa!" Click="Button_Click"></Button>
+                <Button Content="Gissa!" Click="Button_Click" Command="{Binding GuessCommand}"></Button>
             </StackPanel>
 
             <!--<StackPanel Grid.Column="3" Grid.Row="1"
@@ -171,10 +171,10 @@ Drop="panel_Drop" Background="LightGray">
             <!-- Feedbackpluppar -->
 
             <Grid  Grid.Column="7" Grid.Row="1">
-                <Ellipse Fill="{Binding FeedbackPeg, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-               <Ellipse Fill="{Binding FeedbackPeg, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-              <Ellipse Fill="{Binding FeedbackPeg, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-              <Ellipse Fill="{Binding FeedbackPeg, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPeg1, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPeg2, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPeg3, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPeg4, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
             </Grid>
             <Grid Grid.Column="7" Grid.Row="2">
                 <Ellipse x:Name="feedback21" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>

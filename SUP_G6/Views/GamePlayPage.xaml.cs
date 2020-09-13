@@ -23,12 +23,13 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class GamePlayPage : Page
     {
+        private GamePlayViewModel viewModel;
         public GamePlayPage(Player player, string level)
         {
-
             InitializeComponent();
-            DataContext = new GamePlayViewModel( player, level);
-   
+            viewModel = new GamePlayViewModel(player, level);
+            DataContext = viewModel;
+
         }
 
         //private int [] CompareGuessWithSecretCode(Panel guessPanel)
@@ -217,8 +218,7 @@ namespace SUP_G6.Views
                     MessageBox.Show("Du har spelat på alla rader");
 
                 }
-                //GameLogic.Feedback(secretCode, CompareGuessWithSecretCode(currentGuessRow));
-                //CompareGuessWithSecretCode(currentGuessRow);
+                viewModel.SetGuess(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
                 

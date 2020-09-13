@@ -11,8 +11,7 @@ namespace SUP_G6.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            PegPosition pegPosition;
-            pegPosition = (PegPosition)value;
+            var pegPosition = (PegPosition)value;
 
             switch (pegPosition)
             {
