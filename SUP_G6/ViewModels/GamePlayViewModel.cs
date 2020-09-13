@@ -25,7 +25,7 @@ namespace SUP_G6.ViewModels
             this.player = player;
             this.level = level;
             SetLevelVisibility();
-            SecretCode = GameLogic.GenerateSecretCode();
+            SecretCode = GameLogic.GenerateSecretCode(level);
             CreateNewGameResult();
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
