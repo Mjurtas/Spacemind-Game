@@ -18,7 +18,7 @@ namespace SUP_G6.Converter
                 case true:
                     return Visibility.Visible;
                 case false:
-                    return Visibility.Hidden;
+                    return Visibility.Collapsed;
             };
         }
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

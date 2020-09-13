@@ -39,8 +39,13 @@ namespace SUP_G6.ViewModels
         public Player player;
         private Stopwatch _stopWatch;
         public Level level;
+
+        #region Feedback-pegs Propertys
         public ObservableCollection<PegPosition> feedbackPegs = new ObservableCollection<PegPosition>();
         public ObservableCollection<PegPosition> FeedbackPegs { get; set; }
+        public ObservableCollection<bool> feedbackPegsVisibility = new ObservableCollection<bool>();
+        public ObservableCollection<bool> FeedbackPegsVisibility { get; set; }
+        #endregion
 
         public void SetLevelVisibility()
         { 
@@ -56,18 +61,6 @@ namespace SUP_G6.ViewModels
 
             }
         }
-
-        #region Feedback-pegs Propertys
-        public PegPosition FeedbackPeg1 { get; set; }
-        public PegPosition FeedbackPeg2 { get; set; }
-        public PegPosition FeedbackPeg3 { get; set; }
-        public PegPosition FeedbackPeg4 { get; set; }
-
-        public bool FeedbackPeg1Visibility { get; set; } = false;
-        public bool FeedbackPeg2Visibility { get; set; } = false;
-        public bool FeedbackPeg3Visibility { get; set; } = false;
-        public bool FeedbackPeg4Visibility { get; set; } = false;
-        #endregion
 
         //public PegPosition FeedbackPeg
         //{
@@ -110,9 +103,11 @@ namespace SUP_G6.ViewModels
             for (int i = 0; i < feedback.Length; i++)
             {
                 feedbackPegs.Add(feedback[i]);
+                feedbackPegsVisibility.Add(true);
 
             }
             FeedbackPegs = feedbackPegs;
+            FeedbackPegsVisibility = feedbackPegsVisibility;
             int counter = 0;
             for (int i = FeedbackPegs.Count-4; i < FeedbackPegs.Count; i++)
             {
@@ -120,19 +115,19 @@ namespace SUP_G6.ViewModels
                 {
                     case 0:
                         FeedbackPegs[i] = feedback[0];
-                        FeedbackPeg1Visibility = true;
+                        FeedbackPegsVisibility[i] = true;
                         break;
                     case 1:
                         FeedbackPegs[i] = feedback[1];
-                        FeedbackPeg2Visibility = true;
+                        FeedbackPegsVisibility[i] = true;
                         break;
                     case 2:
                         FeedbackPegs[i] = feedback[2];
-                        FeedbackPeg3Visibility = true;
+                        FeedbackPegsVisibility[i] = true;
                         break;
                     case 3:
                         FeedbackPegs[i] = feedback[3];
-                        FeedbackPeg4Visibility = true;
+                        FeedbackPegsVisibility[i] = true;
                         break;
                     default:
                         break;
