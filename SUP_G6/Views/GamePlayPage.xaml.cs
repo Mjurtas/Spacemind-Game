@@ -127,6 +127,12 @@ namespace SUP_G6.Views
                                     case 6:
                                         peg = new Peg6();
                                         break;
+                                    case 7:
+                                        peg = new Peg7();
+                                        break;
+                                    case 8:
+                                        peg = new Peg8();
+                                        break;
 
                                     default:
                                         peg = new Peg6();
