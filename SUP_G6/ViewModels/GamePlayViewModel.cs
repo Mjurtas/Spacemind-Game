@@ -10,6 +10,9 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Shapes;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace SUP_G6.ViewModels
 {
@@ -17,6 +20,8 @@ namespace SUP_G6.ViewModels
     {
         public GamePlayViewModel(Player player, Level level)
         {
+
+            GuessCommand = new RelayCommand(ExecuteGuess);
             this.player = player;
             this.level = level;
             SetLevelVisibility();
@@ -26,7 +31,7 @@ namespace SUP_G6.ViewModels
             _stopWatch.Start();
         }
         public int[] Guess { get; set; }
-        public List<object> GuessOne { get; set; }
+        //public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set;  } = false;
         public bool HardLevel { get; set; } = false;
@@ -34,7 +39,8 @@ namespace SUP_G6.ViewModels
         public Player player;
         private Stopwatch _stopWatch;
         public Level level;
-        public Panel MyProperty { get; set; }
+        public ObservableCollection<PegPosition> feedbackPegs = new ObservableCollection<PegPosition>();
+        public ObservableCollection<PegPosition> FeedbackPegs { get; set; }
 
         public void SetLevelVisibility()
         { 
@@ -72,13 +78,8 @@ namespace SUP_G6.ViewModels
 
         //public ICommand CheckFeedBackCommand { get; set; }
 
-        public ICommand GuessCommand
-        {
-            get
-            {
-                return new RelayCommand(ExecuteGuess);
-            }
-        }
+        public ICommand GuessCommand { get; set; }
+      
 
         private void ExecuteGuess()
         {
@@ -104,29 +105,56 @@ namespace SUP_G6.ViewModels
 
         public void SetFeedbackPegs(PegPosition[] feedback)
         {
+            PegPosition feedback1;
+            PegPosition feedback2;
+            PegPosition feedback3;
+            PegPosition feedback4;
+
+            //Random rnd = new Random();
+            //PegPosition array = array.OrderBy(x => rnd.Next()).ToArray();
             for (int i = 0; i < feedback.Length; i++)
             {
-                switch (i)
-                {
-                    case 0:
-                        FeedbackPeg1 = feedback[i];
-                        FeedbackPeg1Visibility = true;
-                        break;
-                    case 1:
-                        FeedbackPeg2 = feedback[i];
-                        FeedbackPeg2Visibility = true;
-                        break;
-                    case 2:
-                        FeedbackPeg3 = feedback[i];
-                        FeedbackPeg3Visibility = true;
-                        break;
-                    case 3:
-                        FeedbackPeg4 = feedback[i];
-                        FeedbackPeg4Visibility = true;
-                        break;
-                    default:
-                        break;
-                }
+                feedbackPegs.Add(feedback[i]);
+                feedback1 = feedback[0];
+                feedback2 = feedback[1];
+                feedback3 = feedback[2];
+                feedback4 = feedback[3];
+
+            }
+          
+            FeedbackPegs = feedbackPegs;
+            for (int i = feedbackPegs.Count-4; i < feedbackPegs.Count; i++)
+            {
+
+                //FeedbackPegs[i] = feedback1;
+                //FeedbackPegs[i] = feedback2;
+                //FeedbackPegs[i] = feedback3;
+                //FeedbackPegs[i] = feedback4;
+
+
+
+                //switch ()
+                //    {
+                //        case 0:
+                //            FeedbackPegs[i] = feedback[p];
+                //            FeedbackPeg1Visibility = true;
+                //            break;
+                //        case 1:
+                //            FeedbackPegs[i] = feedback[p];
+                //            FeedbackPeg2Visibility = true;
+                //            break;
+                //        case 2:
+                //            FeedbackPegs[i] = feedback[p];
+                //            FeedbackPeg3Visibility = true;
+                //            break;
+                //        case 3:
+                //            FeedbackPegs[i] = feedback[p];
+                //            FeedbackPeg4Visibility = true;
+                //            break;
+                //        default:
+                //            break;
+                //    }
+
             }
         }
         public void SetGuess(Panel guessPanel)
@@ -150,7 +178,7 @@ namespace SUP_G6.ViewModels
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
-                Level = "Easy"
+                Level = this.level
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);

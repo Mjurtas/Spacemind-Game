@@ -1,4 +1,5 @@
 ﻿using Npgsql;
+using SUP_G6.DataTypes;
 using SUP_G6.Models;
 using System;
 using System.Collections.Generic;
@@ -96,15 +97,20 @@ namespace SUP_G6.Other
         {                                                       //OBS, LÄGG TILL TIME!           //@time
             string stmt = $"INSERT INTO game_result (player_id, tries, level, win ) values (@Id, @Tries, @Level, @Win) returning game_id;";
 
+
             using (var conn = new NpgsqlConnection(connectionString))
+                
+
             {
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
+                    
                     conn.Open();
+                    conn.TypeMapper.MapEnum<Level>("level");
                     command.Parameters.AddWithValue("Id", gameResult.PlayerId);
                     //command.Parameters.AddWithValue("Time", gameResult.ElapsedTimeInSeconds);
                     command.Parameters.AddWithValue("Tries", gameResult.Tries);
-                    command.Parameters.AddWithValue("Level", gameResult.Level);
+                    command.Parameters.AddWithValue("level", gameResult.Level);
                     command.Parameters.AddWithValue("Win", gameResult.Win);
 
                     int id = (int)command.ExecuteScalar();
@@ -138,7 +144,7 @@ namespace SUP_G6.Other
                                 ElapsedTimeInSeconds=(double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
-                                Level = (string)reader["level"]
+                                Level = (Level)reader["level"]
                             };
                         }
                     }
@@ -172,7 +178,7 @@ namespace SUP_G6.Other
                                 //ElapsedTimeInSeconds=(double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
-                                Level = (string)reader["level"]
+                                Level = (Level)reader["level"]
                             };
                             gameResults.Add(gameResult);
                         }

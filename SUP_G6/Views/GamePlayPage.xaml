@@ -12,7 +12,7 @@ d:DesignHeight="450" d:DesignWidth="800"
   <Page.Resources>
     <local2:ColorConverter x:Key="ColorConverter"/>
     <local2:VisibilityConverter x:Key="VisibilityConverter"/>
-    <local2:LevelVisibilityConverter x:Key="LevelVisibilityConverter" />
+     <local2:LevelVisibilityConverter x:Key="LevelVisibilityConverter" />
     </Page.Resources>  
  <Border
             Background="White"
@@ -164,64 +164,64 @@ Drop="panel_Drop" Background="LightGray">
             <!-- Feedbackpluppar -->
 
             <Grid  Grid.Column="7" Grid.Row="1">
-                <Ellipse Fill="{Binding FeedbackPeg1, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
-                <Ellipse Fill="{Binding FeedbackPeg2, Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
-                <Ellipse Fill="{Binding FeedbackPeg3, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
-                <Ellipse Fill="{Binding FeedbackPeg4, Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[0], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[1], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[2], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[3], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid Grid.Column="7" Grid.Row="2">
-                <Ellipse x:Name="feedback21" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback22" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback24" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[4], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[5], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[6], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[7], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid  Grid.Column="7" Grid.Row="3">
-                <Ellipse x:Name="feedback31" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback32" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback33" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback34" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[8], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[9], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[10], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[11], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid    Grid.Column="7" Grid.Row="4">
-                <Ellipse x:Name="feedback41" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback42" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback43" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback44" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[12], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[13], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[14], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[15], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid  Grid.Column="7" Grid.Row="5">
-                <Ellipse x:Name="feedback51" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback52" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback53" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[16], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[17], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[18], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[19], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid   Grid.Column="7" Grid.Row="6">
-                <Ellipse x:Name="feedback61" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback62" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback63" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback64" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[20], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[21], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[22], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[23], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid  Grid.Column="7" Grid.Row="7">
-                <Ellipse x:Name="feedback71" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback72" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback73" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback74" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[24], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[25], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[26], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[27], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid   Grid.Column="7" Grid.Row="8">
-                <Ellipse x:Name="feedback81" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback82" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback83" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback84" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[29], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[30], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[31], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid  Grid.Column="7" Grid.Row="9">
-                <Ellipse x:Name="feedback91" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback92" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback93" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback94" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[32], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[33], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[34], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[35], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
             <Grid Grid.Column="7" Grid.Row="10">
-                <Ellipse x:Name="feedback101" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback102" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback103" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15"/>
-                <Ellipse x:Name="feedback104" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15"/>
+                <Ellipse Fill="{Binding FeedbackPegs[36], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg1Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg2Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg3Visibility, Converter={StaticResource VisibilityConverter}}"/>
+                <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPeg4Visibility, Converter={StaticResource VisibilityConverter}}"/>
             </Grid>
         </Grid>
    </Border>

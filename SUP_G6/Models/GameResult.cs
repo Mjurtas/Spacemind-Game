@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SUP_G6.DataTypes;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -18,7 +19,7 @@ namespace SUP_G6.Models
 
         public long ElapsedTicks { get; set; }
      
-        public string Level { get; set; }
+        public Level Level { get; set; }
 
         public bool Win { get; set; }
 
