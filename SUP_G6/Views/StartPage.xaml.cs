@@ -63,5 +63,10 @@ namespace SUP_G6.Views
             ChangePageToChoosePlayerPage();
         }
 
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            var page = new GameRulesPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
     }
 }
