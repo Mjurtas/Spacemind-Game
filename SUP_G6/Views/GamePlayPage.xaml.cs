@@ -34,6 +34,20 @@ namespace SUP_G6.Views
 
         }
 
+        public static int[] SetGuessHelper(Panel guessPanel)
+        {
+            UIElementCollection guessedPegs = guessPanel.Children;
+            int[] guess = new int[4];
+
+            foreach (MasterPeg peg in guessedPegs)
+            {
+                int colorId = peg.ColorId;
+                int position = guessedPegs.IndexOf(peg);
+                guess.SetValue(colorId, position);
+            }
+            return guess;
+        }
+
         //private int [] CompareGuessWithSecretCode(Panel guessPanel)
         //{
         //    UIElementCollection guessedPegs = guessPanel.Children;
@@ -226,7 +240,7 @@ namespace SUP_G6.Views
                     MessageBox.Show("Du har spelat på alla rader");
 
                 }
-                viewModel.SetGuess(currentGuessRow);
+                viewModel.Guess = SetGuessHelper(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
                 

@@ -30,7 +30,7 @@ namespace SUP_G6.ViewModels
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
         }
-        public int[] Guess { get; set; }
+        public int[] Guess { get; set; } 
         //public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set;  } = false;
@@ -135,19 +135,19 @@ namespace SUP_G6.ViewModels
                 counter++;
             }
         }
-        public void SetGuess(Panel guessPanel)
-        {
-            UIElementCollection guessedPegs = guessPanel.Children;
-            int[] guess = new int[4];
+        //public void SetGuess(Panel guessPanel)
+        //{
+        //    UIElementCollection guessedPegs = guessPanel.Children;
+        //    int[] guess = new int[4];
 
-            foreach (MasterPeg peg in guessedPegs)
-            {
-                int colorId = peg.ColorId;
-                int position = guessedPegs.IndexOf(peg);
-                guess.SetValue(colorId, position);
-            }
-            Guess = guess;
-        }
+        //    foreach (MasterPeg peg in guessedPegs)
+        //    {
+        //        int colorId = peg.ColorId;
+        //        int position = guessedPegs.IndexOf(peg);
+        //        guess.SetValue(colorId, position);
+        //    }
+        //    Guess = guess;
+        //}
 
         #region VM till DB
         private void CreateNewGameResult()
