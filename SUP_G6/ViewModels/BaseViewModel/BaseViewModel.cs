@@ -12,6 +12,8 @@ namespace SUP_G6.ViewModels.BaseViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+     
+
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));

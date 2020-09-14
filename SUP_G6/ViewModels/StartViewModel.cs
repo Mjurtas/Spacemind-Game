@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Input;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SUP_G6.ViewModels
 {
@@ -26,7 +27,10 @@ namespace SUP_G6.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        
+       
+
+
+       
 
         
 
