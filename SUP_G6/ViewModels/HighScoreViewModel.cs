@@ -1,15 +1,58 @@
 ﻿using SUP_G6.Models;
 using SUP_G6.Other;
+using SUP_G6.ViewModels.BaseViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
 using System.Text;
+using System.Windows.Input;
 
 namespace SUP_G6.ViewModels
 {
-    public class HighScoreViewModel
+    public class HighScoreViewModel : BaseViewModel.BaseViewModel
     {
-        public ObservableCollection<GameResult> HighScoreStandard { get; set; } = DataBaseLogic.GetGameResults();
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public ObservableCollection<GameResult> HighScoreStandard = new ObservableCollection<GameResult>(DataBaseLogic.GetGameResults());
+        public ObservableCollection<GameResult> highScoreStandard { get; set; }
+
+
+        public bool SortHighScoreStandard { get; set; } = false;
+        public bool SortHighScoreByName { get; set; } = true;
+        public bool SortHighScoreByTries { get; set; } = false;
+
+        public ICommand SortHighScoreCommand { get; set; }
+
+        public HighScoreViewModel()
+        {
+            //SortHighScoreCommand = new RelayCommand(SortHighscore);
+        }
+
+        //public void SortHighscore()
+        //{
+        //    if (SortHighScoreStandard)
+        //    {
+        //        highScoreStandard = HighScoreStandard;
+
+        //    }
+        //    else if (SortHighScoreByName)
+        //    {
+        //       highScoreStandard = HighScoreStandard.OrderBy(o => o.PlayerName);
+
+        //    }
+
+        //    else if (SortHighScoreByTries)
+        //    {
+        //        highScoreStandard = HighScoreStandard.OrderByDescending(o => o.Tries );
+
+        //    }
+        //}
+
+
+
+
 
 
     }
