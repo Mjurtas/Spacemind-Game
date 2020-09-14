@@ -22,6 +22,7 @@ namespace SUP_G6.ViewModels
         public string CreatePlayerButton { get; set; } = "CREATE PLAYER";
         public string ChoosePlayerButton { get; set; } = "CHOOSE PLAYER";
         public string ViewHighScoreButton { get; set; } = "VIEW HIGHSCORE";
+        public string ViewGameRulesButton { get; set; } = "GAME RULES";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
