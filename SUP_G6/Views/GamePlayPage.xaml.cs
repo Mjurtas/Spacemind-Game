@@ -30,6 +30,7 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
+            
 
         }
 

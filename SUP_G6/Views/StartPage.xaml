@@ -26,7 +26,7 @@
             <Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 200 0 0" Height="90" Width="177" Click="Button_Click_1"/>
             <Button Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 10" Height="90" Width="177" Click="Button_Click_2"/>
             <Button Content="{Binding ViewHighScoreButton , FallbackValue=HighScore}" Command="{Binding ViewHighScoreCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="90" Width="177" Click="Button_Click"/>
-            <Button Content="{Binding ViewGameRulesButton , FallbackValue=Game Rules}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="90" Width="177" Click="Button_Click_3"/>
+            <Button Content="{Binding ViewGameRulesButton , FallbackValue=Spelregler}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="90" Width="177" Click="Button_Click_3"/>
             <!--<ListBox ItemsSource="{Binding HighScores}"></ListBox>-->
             <!--<Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="20" Width="177" Click="Button_Click_3"/>-->
         </StackPanel>

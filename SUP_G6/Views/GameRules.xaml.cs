@@ -27,6 +27,12 @@ namespace SUP_G6.Views
             DataContext = viewModel;
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
+        }
+
         private void ChangePageToViewGameRules()
         {
             
