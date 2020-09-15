@@ -4,16 +4,23 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SUP_G6.Views"
+            xmlns:local1="clr-namespace:SUP_G6"
+      xmlns:converter="clr-namespace:SUP_G6.Converter"
       mc:Ignorable="d"
-      Title="ChoosePlayerPage" Height="843" Width="1001">
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
+      Title="ChoosePlayerPage">
+    <Page.Resources>
+        <converter:RatioConverter x:Key="RatioConverter"/>
+    </Page.Resources>
 
     <Grid>
 
         <Border
             Background="Black"
             CornerRadius="70"
-            Width="1000"
-            Height="810"
+            Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.50"
             >
 
@@ -21,16 +28,16 @@
         <Grid>
             <StackPanel Orientation="Vertical" Margin="0,0,24,260">
                 <Label Content="CHOOSE YOUR PLAYER" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
-                
-                <StackPanel Orientation="Horizontal">
-                    <ListBox x:Name="playerListbox" ItemsSource="{Binding Players}" BorderBrush="Yellow" BorderThickness="2" Margin="200 0 0 0"  Height="274" Width="300"/>
-                    <StackPanel>
-                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" Margin="20 0 0 0" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" Margin="20 20 0 20" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" Margin="20 0 0 0" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+
+                <StackPanel Orientation="Horizontal" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.7' }">
+                    <ListBox x:Name="playerListbox" ItemsSource="{Binding Players}" BorderBrush="Yellow" BorderThickness="2" Margin="0 0 0 0"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
+                    <StackPanel Margin="20 0 0 0">
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                     </StackPanel>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="40 10 0 0" Click="Button_Click" FontWeight="Bold" FontSize="22"/>
                 </StackPanel>
-                <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="" Height="71" Width="285" Margin="0 10 0 0" Click="Button_Click" FontWeight="Bold" FontSize="22"/>
             </StackPanel>
         </Grid>
 

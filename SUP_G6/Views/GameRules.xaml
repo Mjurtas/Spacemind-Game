@@ -4,24 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SUP_G6.Views"
+      xmlns:converter="clr-namespace:SUP_G6.Converter"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="GameRules" Height="843" Width="1001">
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
+      Title="GameRules">
+    <Page.Resources>
+        <converter:RatioConverter x:Key="RatioConverter"/>
+    </Page.Resources>
 
     <Grid>
         <Border
             Background="Black"
             CornerRadius="70"
-            Width="1000"
-            Height="810"
+            Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}}"
+            Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}}"
             Opacity="0.50"
             >
 
         </Border>
         <StackPanel Orientation="Vertical" Margin="24,0,24,260">
             <Label Content="Game Rules" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
-            <TextBox Text="{Binding GameRules}" FontSize="24" TextWrapping="Wrap" MaxHeight="250" VerticalScrollBarVisibility="Visible"></TextBox>
+            <TextBox Text="{Binding GameRules}" FontSize="24" TextWrapping="Wrap"></TextBox>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackButton , FallbackValue=Tillbaka}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="71" Width="285" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Click="BackButton_Click"/>
         </StackPanel>
-        </Grid>
+    </Grid>
 </Page>

@@ -41,6 +41,7 @@ namespace SUP_G6.ViewModels
         public Player player;
         private Stopwatch _stopWatch;
         public Level level;
+        public string ToMessageBox { get; set; }
         #endregion
 
         #region Feedback-pegs Properties
@@ -83,8 +84,16 @@ namespace SUP_G6.ViewModels
 
         private void ExecuteGuess()
         {
-            var feedback = GameLogic.Feedback(SecretCode, Guess);
-            SetFeedbackPegs(feedback);
+            if (Guess != null)
+            {
+                ToMessageBox = "";
+                var feedback = GameLogic.Feedback(SecretCode, Guess);
+                SetFeedbackPegs(feedback);
+            }
+            else
+            {
+                ToMessageBox = "Du måste gissa minst fyra färger";
+            }
 
             //if (gameHasEnded)
             //{
