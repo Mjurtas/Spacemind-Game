@@ -5,13 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SUP_G6.Views" xmlns:local2="clr-namespace:SUP_G6.Converter"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
-      Title="HighScorePage">
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }"
+      Title="GamePlayPage">
     <Page.Resources>
-       
         <local2:HighScoreSortingConverter x:Key="HighScoreSortingConverter"/>
-    
-
+        <local2:RatioConverter x:Key="RatioConverter"/>
     </Page.Resources>
 
     <Grid>
@@ -19,27 +18,22 @@
         <Border
             Background="Black"
             CornerRadius="70"
-            Width="1000"
-            Height="810"
+            Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.50"
             >
-            
+
 
 
         </Border>
         <StackPanel>
             <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold"/>
-            <ListBox ItemsSource="{Binding  ListOfGameResults}" BorderBrush="Yellow" BorderThickness="2" Height="442" Width="630"/>
-            <Label  Foreground="Yellow" FontSize="20" Content="SORT BY" HorizontalAlignment="Center"></Label>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                
-
-            <Button Command="{Binding SortByTimeCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40"/>
-                <Button Command="{Binding SortByNameCommand}" Content="NAME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
-                <Button Command="{Binding SortByTriesCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
-            </StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" Content="Back" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
-
+            <ListBox ItemsSource="{Binding OrderedList}" BorderBrush="Yellow" BorderThickness="2" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.3' }" Width="630"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="Back" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
+            <RadioButton IsChecked="{Binding SortHighScoreStandard}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Senaste spel" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreNyName}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Sortera efter namn" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreByTries}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Sortera efter försök" HorizontalAlignment="Center"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="Button" Command="{Binding SortHighScoreCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285"/>
 
         </StackPanel>
 

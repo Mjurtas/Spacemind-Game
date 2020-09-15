@@ -4,9 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SUP_G6"
+        xmlns:converter="clr-namespace:SUP_G6.Converter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="840" Width="1545" WindowStartupLocation="CenterScreen">
-    
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
+        WindowStartupLocation="CenterScreen">
+
     <Grid>
         <Grid.Background>
             <ImageBrush    ImageSource="/Assets/Images/background.jpg" Stretch="UniformToFill" />
@@ -15,7 +18,7 @@
             <Frame x:Name="Main">
 
             </Frame>
-            
+
         </StackPanel>
 
     </Grid>
