@@ -13,10 +13,15 @@ namespace SUP_G6.ViewModels
 {
     public class HighScoreViewModel : BaseViewModel.BaseViewModel
     {
+
+
+       
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ObservableCollection<GameResult> HighScoreStandard = new ObservableCollection<GameResult>(DataBaseLogic.GetGameResults());
         public ObservableCollection<GameResult> highScoreStandard { get; set; }
+
+        public IOrderedEnumerable<GameResult> OrderedList { get; set; }
 
 
         public bool SortHighScoreStandard { get; set; } = false;
@@ -27,28 +32,36 @@ namespace SUP_G6.ViewModels
 
         public HighScoreViewModel()
         {
-            //SortHighScoreCommand = new RelayCommand(SortHighscore);
+            SortHighScoreCommand = new RelayCommand(SortHighscore);
         }
 
-        //public void SortHighscore()
-        //{
-        //    if (SortHighScoreStandard)
-        //    {
-        //        highScoreStandard = HighScoreStandard;
+        public void SortHighscore()
+        {
 
-        //    }
-        //    else if (SortHighScoreByName)
-        //    {
-        //       highScoreStandard = HighScoreStandard.OrderBy(o => o.PlayerName);
+           
+            if (SortHighScoreStandard)
+            {
+                //this.OrderedList = HighScoreStandard;
+            }
 
-        //    }
+            else if (SortHighScoreByName)
+            {
+                this.OrderedList = HighScoreStandard.OrderBy(o => o.PlayerName);
 
-        //    else if (SortHighScoreByTries)
-        //    {
-        //        highScoreStandard = HighScoreStandard.OrderByDescending(o => o.Tries );
 
-        //    }
-        //}
+            }
+
+            else
+            {
+                this.OrderedList = HighScoreStandard.OrderByDescending(o => o.Tries);
+
+            }
+
+            
+
+
+
+        }
 
 
 

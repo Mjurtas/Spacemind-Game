@@ -185,7 +185,7 @@ namespace SUP_G6.Other
                         }
                     }
                 }
-                return new ObservableCollection<GameResult>(gameResults.OrderBy(result => result.ElapsedTimeInSeconds));
+                return gameResults;
                 //return (ObservableCollection<GameResult>) gameResults.OrderBy(result => result.ElapsedTimeInSeconds);
             }
 
