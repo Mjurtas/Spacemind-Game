@@ -252,7 +252,7 @@ namespace SUP_G6.Views
             }
             else
             {
-                MessageBox.Show("Du måste gissa minst fyra färger");
+                MessageBox.Show($"{viewModel.ToMessageBox}");
             }
         }
         #endregion
