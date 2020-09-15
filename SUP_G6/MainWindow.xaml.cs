@@ -31,7 +31,7 @@ namespace SUP_G6
             Main.Content = page;
 
             var myPlayer = new System.Media.SoundPlayer();
-            myPlayer.SoundLocation = @"c:\SUP_Music\starwars.wav";
+            myPlayer.SoundLocation = @"c:\Music\starwars.wav";
             myPlayer.PlayLooping();
         }
     }

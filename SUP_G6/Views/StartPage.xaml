@@ -25,7 +25,7 @@
 
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Image Source="/Views/darthWelcome.png" Height="760" Width="559" Margin="50 30 0 0" />
+            <Image Source="/Views/darthWelcome.png" Height="600" Width="559" Margin="50 30 0 0" />
         </StackPanel>
         <StackPanel>
             <Label Content="SPACEMIND" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100 0 0" FontSize="60" FontWeight="Bold" Foreground="#FFF2FC08"/>
