@@ -54,7 +54,7 @@ d:DesignHeight="450" d:DesignWidth="800"
             <!-- Färgplupparna -->
             <WrapPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4" ItemWidth="65" ItemHeight="65">
                 <local1:Peg1/>
-                <local1:Peg2/>
+                <local1:Peg2 />
                 <local1:Peg3/>
                 <local1:Peg4/>
             </WrapPanel>

@@ -40,10 +40,14 @@ namespace SUP_G6.Views
         private void ChangePageToGamePlayPage()
         {
             Player player = (Player)playerListbox.SelectedItem;
-            viewModel.CreateGame();
-            Level level = viewModel.Level;
-            var page = new GamePlayPage(player, level);
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+
+            if(player != null)
+            {
+                viewModel.CreateGame();
+                Level level = viewModel.Level;
+                var page = new GamePlayPage(player, level);
+                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            }
         }
     }
 }

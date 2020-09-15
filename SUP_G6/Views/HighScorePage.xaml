@@ -3,28 +3,37 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SUP_G6.Views"
+      xmlns:local="clr-namespace:SUP_G6.Views" xmlns:local2="clr-namespace:SUP_G6.Converter"
       mc:Ignorable="d" 
       d:DesignHeight="1080" d:DesignWidth="1920"
       Title="HighScorePage">
+    <Page.Resources>
+       
+        <local2:HighScoreSortingConverter x:Key="HighScoreSortingConverter"/>
+        
+    </Page.Resources>
 
     <Grid>
 
         <Border
-            Background="Black"
+            Background="White"
             CornerRadius="70"
             Width="1000"
             Height="810"
-            Opacity="0.50"
+            Opacity="0.76"
             >
+            
 
 
         </Border>
         <StackPanel>
-            <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" Foreground="Yellow"/>
-            <ListBox ItemsSource="{Binding HighScoreStandard}" BorderBrush="Yellow" Height="442" Width="630" BorderThickness="2"/>
-            <Button Style="{StaticResource ButtonTemplate}" Content="BACK" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click" FontSize="22" FontWeight="Bold" Foreground="Yellow"/>
-
+            <Label Content="Highscore" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60"/>
+            <ListBox ItemsSource="{Binding OrderedList}" BorderBrush="#FF0D319B" Height="442" Width="630"/>
+            <Button Content="Back" Height="62" Width="284" Margin="0 30 0 0" Click="Button_Click"/>
+            <RadioButton IsChecked="{Binding SortHighScoreStandard}" Content="Senaste spel" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreNyName}" Content="Sortera efter namn" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreByTries}" Content="Sortera efter försök" HorizontalAlignment="Center"/>
+            <Button Content="Button" Command="{Binding SortHighScoreCommand}"/>
 
         </StackPanel>
 

@@ -27,12 +27,17 @@ namespace SUP_G6
 
         private void CreatePeg()
         {
+
+            
             Ellipse ellipse = new Ellipse
-            {
+            {      
                 Fill = Brushes.Red,
                 Stroke = Brushes.Black,
                 StrokeThickness = 2
             };
+
+           
+
             ColorId = 1;
             LevelVisibility = Level.Easy;
             master.Children.Add(ellipse);

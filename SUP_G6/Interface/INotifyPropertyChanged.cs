@@ -8,5 +8,7 @@ namespace SUP_G6.Interface
    public interface INotifyPropertyChanged
     {
         event PropertyChangedEventHandler PropertyChanged;
+
+        
     }
 }
