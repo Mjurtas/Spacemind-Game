@@ -30,25 +30,30 @@ namespace SUP_G6.ViewModels
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
         }
-        public int[] Guess { get; set; } 
+
+        #region Variables
+        public int[] Guess { get; set; }
         //public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
-        public bool MediumLevel { get; set;  } = false;
+        public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;
-        public PegPosition[] feedbacklist;
+        //public PegPosition[] feedbacklist;
         public Player player;
         private Stopwatch _stopWatch;
         public Level level;
+        #endregion
 
-        #region Feedback-pegs Propertys
+        #region Feedback-pegs Properties
         public ObservableCollection<PegPosition> feedbackPegs = new ObservableCollection<PegPosition>();
         public ObservableCollection<PegPosition> FeedbackPegs { get; set; }
         public ObservableCollection<bool> feedbackPegsVisibility = new ObservableCollection<bool>();
         public ObservableCollection<bool> FeedbackPegsVisibility { get; set; }
         #endregion
 
+        #region Set Level Visibility
+
         public void SetLevelVisibility()
-        { 
+        {
             if (level == Level.Medium)
             {
                 MediumLevel = true;
@@ -62,21 +67,22 @@ namespace SUP_G6.ViewModels
             }
         }
 
+        #endregion
+
         //public PegPosition FeedbackPeg
         //{
         //    get { return FeedbackPeg; }
         //    set { FeedbackPeg = PegPosition.CorrectColorAndPosition; }
         //}
 
+        #region Command for Guess Button
 
         //public ICommand CheckFeedBackCommand { get; set; }
 
         public ICommand GuessCommand { get; set; }
-      
 
         private void ExecuteGuess()
         {
-            //nån kod här
             var feedback = GameLogic.Feedback(SecretCode, Guess);
             SetFeedbackPegs(feedback);
 
@@ -96,6 +102,10 @@ namespace SUP_G6.ViewModels
             //}
         }
 
+        #endregion
+
+        #region Set and show feedback pegs
+
         public void SetFeedbackPegs(PegPosition[] feedback)
         {
             //Random rnd = new Random();
@@ -109,7 +119,7 @@ namespace SUP_G6.ViewModels
             FeedbackPegs = feedbackPegs;
             FeedbackPegsVisibility = feedbackPegsVisibility;
             int counter = 0;
-            for (int i = FeedbackPegs.Count-4; i < FeedbackPegs.Count; i++)
+            for (int i = FeedbackPegs.Count - 4; i < FeedbackPegs.Count; i++)
             {
                 switch (counter)
                 {
@@ -149,7 +159,10 @@ namespace SUP_G6.ViewModels
         //    Guess = guess;
         //}
 
+        #endregion
+            
         #region VM till DB
+
         private void CreateNewGameResult()
         {
             GameResult gameResult = new GameResult()
@@ -161,6 +174,7 @@ namespace SUP_G6.ViewModels
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
         }
+
         #endregion
 
 

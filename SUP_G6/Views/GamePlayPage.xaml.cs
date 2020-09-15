@@ -25,16 +25,24 @@ namespace SUP_G6.Views
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
+
         public GamePlayPage(Player player, Level level)
         {
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
-            
-
         }
 
+        #region Variables
+
+        int numberOfTries = 1;
+        Panel currentGuessRow;
+        Panel nextGuessRow;
+
+        #endregion
+
         #region Helper function(s)
+
         public static int[] ExtractGuessFromPanel(Panel guessPanel)
         {
             UIElementCollection guessedPegs = guessPanel.Children;
@@ -48,8 +56,11 @@ namespace SUP_G6.Views
             }
             return guess;
         }
+
         #endregion
-        
+
+        #region Handle Guesses
+
         private bool IsGuessDone(Panel currentPanel)
         {
             if (currentPanel.Children.Count == 4)
@@ -71,6 +82,9 @@ namespace SUP_G6.Views
             GuessRow.Background = Brushes.LightYellow;
         }
 
+        #endregion
+
+        #region Drag and Drop
 
         private void panel_DragOver(object sender, DragEventArgs e)
         {
@@ -89,7 +103,6 @@ namespace SUP_G6.Views
             }
         }
 
-        #region Drag and Drop
         private void panel_Drop(object sender, DragEventArgs e)
         {
             // If an element in the panel has already handled the drop,
@@ -174,12 +187,10 @@ namespace SUP_G6.Views
                 }
             }
         }
-        #endregion
-        
 
-        int numberOfTries = 1;
-        Panel currentGuessRow;
-        Panel nextGuessRow;
+        #endregion
+
+        #region Event Handler for Guess Button
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             GameLogic.NumbersOfTriesLeft(numberOfTries);
@@ -237,12 +248,13 @@ namespace SUP_G6.Views
                 viewModel.Guess = ExtractGuessFromPanel(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
-                
+
             }
             else
             {
                 MessageBox.Show("Du måste gissa minst fyra färger");
             }
         }
+        #endregion
     }
 }
