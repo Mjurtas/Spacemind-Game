@@ -4,15 +4,18 @@ using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
 using SUP_G6.Views;
 using System;
+using System.Windows;
+using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+
 
 namespace SUP_G6.ViewModels
 {
     public class CreatePlayerViewModel : BaseViewModel.BaseViewModel
     {
-        private Player player;
+        //private Player player;
 
         public Player Player { get; set; }
         public ICommand CreatePlayerCommand { get; set; }
@@ -33,11 +36,13 @@ namespace SUP_G6.ViewModels
             {
                 Name = this.Name
                 
-        };
-            Player = this.player;
+            };
+            Player = player;
             DataBaseLogic.AddPlayer(player);
-            
- 
+
+            var page = new ChoosePlayerPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+
         }
 
     }
