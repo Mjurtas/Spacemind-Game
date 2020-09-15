@@ -232,7 +232,7 @@ namespace SUP_G6.Views
                 if (currentGuessRow == stp10)
                 {
                     MessageBox.Show("Du har spelat på alla rader");
-
+                    
                 }
                 viewModel.Guess = ExtractGuessFromPanel(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);

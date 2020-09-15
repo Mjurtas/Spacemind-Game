@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Media;
 
 namespace SUP_G6
 {
@@ -29,13 +30,9 @@ namespace SUP_G6
             var page = new StartPage();
             Main.Content = page;
 
-            //MediaPlayer mediaPlayer = new MediaPlayer();
-            //string songName;
-
-            //OpenFileDialog fileDialog = new OpenFileDialog
-            //{
-            //    DefaultExt = "Star Wars (Main Theme).mp3"
-            //};
+            var myPlayer = new System.Media.SoundPlayer();
+            myPlayer.SoundLocation = @"c:\SUP_Music\starwars.wav";
+            myPlayer.PlayLooping();
         }
     }
 }

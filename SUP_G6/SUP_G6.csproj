@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Assets\background.jpg" />
+    <None Remove="Views\darthWelcome.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -17,6 +18,7 @@
 
   <ItemGroup>
     <Resource Include="Assets\Images\background.jpg" />
+    <Resource Include="Views\darthWelcome.png" />
   </ItemGroup>
 
   <ItemGroup>

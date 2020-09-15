@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SUP_G6.Models;
 
 namespace SUP_G6.Other
 {
@@ -38,6 +39,7 @@ namespace SUP_G6.Other
 
         public static PegPosition[] Feedback(int[] secretCode, int[] guess)
         {
+            GameResult gameResult = new GameResult();
             //skapar listan med feedback
             PegPosition[] feedbackList = new PegPosition[4];
 
@@ -45,6 +47,7 @@ namespace SUP_G6.Other
             if (guess == secretCode)
             {
                 feedbackList = new PegPosition[] { PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition };
+                gameResult.Win = true;
                 return feedbackList;
             }
 

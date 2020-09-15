@@ -12,13 +12,11 @@
                     <ControlTemplate TargetType="Button">
                         <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="2" BorderBrush="Yellow">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
-                                
                             </ContentPresenter>
                         </Border>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-
         </Style>
     </Application.Resources>
 </Application>
