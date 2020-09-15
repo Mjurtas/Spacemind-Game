@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SUP_G6.Interface
 {
-   public interface INotifyPropertyChanged
+   public interface TestInterFace
     {
         event PropertyChangedEventHandler PropertyChanged;
 

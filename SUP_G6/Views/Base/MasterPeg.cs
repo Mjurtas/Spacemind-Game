@@ -14,9 +14,9 @@ namespace SUP_G6
 
         public MasterPeg()
         {
-            Height = 50;
+            Height = 30;
             Name = "Peg";
-            Width = 50;
+            Width = 30;
         }
 
         protected override void OnMouseMove(MouseEventArgs e)

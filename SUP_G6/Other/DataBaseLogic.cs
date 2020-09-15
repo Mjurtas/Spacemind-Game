@@ -122,41 +122,45 @@ namespace SUP_G6.Other
 
         #region READ GAME RESULT
 
-        public static GameResult GetGameResult(int id)
-        {
-            string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
+        //public static GameResult GetGameResult(int id)
+        //{
+        //    string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
 
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                GameResult gameResult = null;
-                conn.Open();
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    command.Parameters.AddWithValue("game_id", id);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            gameResult = new GameResult()
-                            {
-                                GameId = (int)reader["game_id"],
-                                PlayerId = (int)reader["player_id"],
-                                ElapsedTimeInSeconds=(double)reader["time"],
-                                Tries = (int)reader["tries"],
-                                Win = (bool)reader["win"],
-                                Level = (Level)reader["level"]
-                            };
-                        }
-                    }
-                }
-                return gameResult;
-            }
-        }
+        //    using (var conn = new NpgsqlConnection(connectionString))
+        //    {
+        //        GameResult gameResult = null;
+        //        ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
+        //        conn.Open();
+        //        using (var command = new NpgsqlCommand(stmt, conn))
+        //        {
+
+                    
+        //            command.Parameters.AddWithValue("game_id", id);
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    gameResult = new GameResult()
+        //                    {
+        //                        GameId = (int)reader["game_id"],
+        //                        PlayerId = (int)reader["player_id"],
+        //                        ElapsedTimeInSeconds=(double)reader["time"],
+        //                        Tries = (int)reader["tries"],
+        //                        Win = (bool)reader["win"],
+        //                        Level = (Level)reader["level"]
+        //                    };
+        //                    gameResults.Add(gameResult);
+        //                }
+        //            }
+        //        }
+        //        return gameResults;
+        //    }
+        //}
 
         public static ObservableCollection<GameResult> GetGameResults()
         {
             //string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id ;";
+            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id ";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -185,8 +189,8 @@ namespace SUP_G6.Other
                         }
                     }
                 }
+                //return gameResults;
                 return gameResults;
-                //return (ObservableCollection<GameResult>) gameResults.OrderBy(result => result.ElapsedTimeInSeconds);
             }
 
 
