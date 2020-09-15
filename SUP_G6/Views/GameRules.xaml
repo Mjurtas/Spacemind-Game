@@ -19,8 +19,8 @@
 
         </Border>
         <StackPanel Orientation="Vertical" Margin="24,0,24,260">
-            <Label Content="Spelregler" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
-            <TextBox Text="{Binding GameRules}" FontSize="24" TextWrapping="Wrap"></TextBox>
+            <Label Content="Game Rules" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60" FontWeight="Bold" FontFamily="Arial Black" Foreground="#FFF4FF00"/>
+            <TextBox Text="{Binding GameRules}" FontSize="24" TextWrapping="Wrap" MaxHeight="250" VerticalScrollBarVisibility="Visible"></TextBox>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackButton , FallbackValue=Tillbaka}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="71" Width="285" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Click="BackButton_Click"/>
         </StackPanel>
         </Grid>
