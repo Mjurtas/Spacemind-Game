@@ -34,7 +34,8 @@ namespace SUP_G6.Views
 
         }
 
-        public static int[] SetGuessHelper(Panel guessPanel)
+        #region Helper function(s)
+        public static int[] ExtractGuessFromPanel(Panel guessPanel)
         {
             UIElementCollection guessedPegs = guessPanel.Children;
             int[] guess = new int[4];
@@ -47,20 +48,8 @@ namespace SUP_G6.Views
             }
             return guess;
         }
-
-        //private int [] CompareGuessWithSecretCode(Panel guessPanel)
-        //{
-        //    UIElementCollection guessedPegs = guessPanel.Children;
-        //    int[] guess = new int[4];
-
-        //    foreach (MasterPeg peg in guessedPegs)
-        //    {
-        //        int colorId = peg.ColorId;
-        //        int position = guessedPegs.IndexOf(peg);
-        //        guess.SetValue(colorId, position);
-        //    }
-        //    return guess;
-        //}
+        #endregion
+        
         private bool IsGuessDone(Panel currentPanel)
         {
             if (currentPanel.Children.Count == 4)
@@ -75,11 +64,13 @@ namespace SUP_G6.Views
             }
             return false;
         }
+
         private void MakeNextGuessAvailable(Panel GuessRow)
         {
             GuessRow.AllowDrop = true;
             GuessRow.Background = Brushes.LightYellow;
         }
+
 
         private void panel_DragOver(object sender, DragEventArgs e)
         {
@@ -98,6 +89,7 @@ namespace SUP_G6.Views
             }
         }
 
+        #region Drag and Drop
         private void panel_Drop(object sender, DragEventArgs e)
         {
             // If an element in the panel has already handled the drop,
@@ -182,6 +174,8 @@ namespace SUP_G6.Views
                 }
             }
         }
+        #endregion
+        
 
         int numberOfTries = 1;
         Panel currentGuessRow;
@@ -240,7 +234,7 @@ namespace SUP_G6.Views
                     MessageBox.Show("Du har spelat på alla rader");
 
                 }
-                viewModel.Guess = SetGuessHelper(currentGuessRow);
+                viewModel.Guess = ExtractGuessFromPanel(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
                 
