@@ -20,22 +20,22 @@
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
-            Opacity="0.50"
+            Opacity="1"
             >
 
 
 
         </Border>
         <StackPanel>
-            <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold"/>
+            <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold" />
             <ListBox ItemsSource="{Binding  ListOfGameResults}" BorderBrush="Yellow" BorderThickness="2" Height="442" Width="630"/>
             <Label  Foreground="Yellow" FontSize="20" Content="SORT BY" HorizontalAlignment="Center"></Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 
 
-            <Button Command="{Binding SortByTimeCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40"/>
+            <Button Command="{Binding SortByTimeCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}"  Width="75" Height="40"/>
                 <Button Command="{Binding SortByNameCommand}" Content="NAME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
-                <Button Command="{Binding SortByTriesCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
+                <Button Command="{Binding SortByTriesCommand}" Content="TRIES" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
             </StackPanel>
             <Button Style="{StaticResource ButtonTemplate}" Content="Back" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
 

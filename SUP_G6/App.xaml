@@ -18,5 +18,11 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="StarWarsFont" TargetType="Label">
+            <Setter Property="TextElement.FontFamily"
+                    Value="/Assets/Fonts/#Star Jedi Hollow">
+                
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

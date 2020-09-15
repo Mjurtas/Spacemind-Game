@@ -19,16 +19,16 @@
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
-            Opacity="0.50"
+            Opacity="1"
             >
 
 
         </Border>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-            <Image Source="/Views/darthWelcome.png" Height="760" Width="559" Margin="50 30 0 0" />
+            <Image Source="/Views/darthWelcome.png" Height="760" Width="559" Margin="60 30 0 0" />
         </StackPanel>
         <StackPanel>
-            <Label Content="SPACEMIND" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100 0 0" FontSize="60" FontWeight="Bold" Foreground="#FFF2FC08"/>
+            <Label Content="Spacemind" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 100 0 0" Style="{StaticResource StarWarsFont}" FontSize="100" FontWeight="Bold" Foreground="#FFFFED3A"  Background="{x:Null}" OpacityMask="#FFCB9898" BorderBrush="#FFF0E6CC"/>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" Margin="0 100 0 0" Height="71" Width="285" Click="Button_Click_1" FontWeight="Bold" FontSize="22"/>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" Margin="0 10 0 10" Height="71" Width="285" Click="Button_Click_2" FontWeight="Bold" FontSize="22"/>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ViewHighScoreButton , FallbackValue=HighScore}" Command="{Binding ViewHighScoreCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71" Width="285" Click="Button_Click" FontWeight="Bold" FontSize="22"/>

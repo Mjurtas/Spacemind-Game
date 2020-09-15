@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Assets\background.jpg" />
+    <None Remove="Assets\Fonts\Starjout.ttf" />
     <None Remove="Views\darthWelcome.png" />
   </ItemGroup>
 
@@ -17,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Assets\Fonts\Starjout.ttf" />
     <Resource Include="Assets\Images\background.jpg" />
     <Resource Include="Views\darthWelcome.png" />
   </ItemGroup>
