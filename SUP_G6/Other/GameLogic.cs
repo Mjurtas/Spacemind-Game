@@ -36,45 +36,39 @@ namespace SUP_G6.Other
             return generatedCode;
         }
 
-        public static PegPosition[] Feedback(int[] secretCode, int[] guess)
+        public static PegPosition[] Feedback(int[] secretCode, int[] guesses)
         {
-            bool win = false;
-            PegPosition[] feedbackList = new PegPosition[4];
+            secretCode = new int[]{ 2, 1, 1, 5};
+            // Kolla att varje gissning existerar i secretCode exakt en gång
+            var guessValidator = new GuessValidator(secretCode);
+            List<Tuple<int, PegPosition>> results = new List<Tuple<int, PegPosition>>();
 
-            if (guess == secretCode)
+            var correctGuesses = guessValidator.FindTotallyCorrects(guesses);
+            foreach (var guess in correctGuesses)
             {
-                feedbackList = new PegPosition[] { PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition };
-                win = true;
-                return feedbackList;
+                //secrets.Add(new Secret(guess.Color, guess.Index));
+                results.Add(new Tuple<int, PegPosition>(guess.Index, PegPosition.CorrectColorAndPosition));
             }
-            List<int> clonedCode = new List<int>();
-            foreach (int id in secretCode)
+
+            var totallyWrongs = guessValidator.FindTotallyWrongs(guesses);
+            foreach (var guess in totallyWrongs)
             {
-                clonedCode.Add(id);
+                //secrets.Add(new Secret(guess.Color, guess.Index));
+                results.Add(new Tuple<int, PegPosition>(guess.Index, PegPosition.TotallyWrong));
             }
-            for (int i = 0; i < clonedCode.Count; i++)
+
+            var wrongPositioned = guessValidator.FindWrongPositioned(guesses);
+            foreach (var guess in wrongPositioned)
             {
-                if (clonedCode[i] == guess[i])
-                {
-                    feedbackList[i] = PegPosition.CorrectColorAndPosition;
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
-                }
-                else if (clonedCode.Contains(guess[i]))
-                {
-                    feedbackList[i] = PegPosition.CorrectColorWrongPosition;
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
-                }
-                else
-                {
-                    feedbackList[i] = PegPosition.TotallyWrong;
-                    clonedCode.RemoveAt(i);
-                    clonedCode.Insert(i, 0);
-                }
+                results.Add(new Tuple<int, PegPosition>(guess.Index, PegPosition.CorrectColorWrongPosition));
             }
-            return feedbackList;
+
+            return results
+                .OrderBy(item => item.Item1)
+                .Select(item => item.Item2)
+                .ToArray();
         }
+
 
         public static int NumbersOfTriesLeft(int numberOfGuesses)
         {
