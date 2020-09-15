@@ -16,24 +16,24 @@
     <Grid>
 
         <Border
-            Background="White"
+            Background="Black"
             CornerRadius="70"
             Width="1000"
             Height="810"
-            Opacity="0.76"
+            Opacity="0.50"
             >
             
 
 
         </Border>
         <StackPanel>
-            <Label Content="Highscore" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="60"/>
-            <ListBox ItemsSource="{Binding OrderedList}" BorderBrush="#FF0D319B" Height="442" Width="630"/>
-            <Button Content="Back" Height="62" Width="284" Margin="0 30 0 0" Click="Button_Click"/>
-            <RadioButton IsChecked="{Binding SortHighScoreStandard}" Content="Senaste spel" HorizontalAlignment="Center"/>
-            <RadioButton IsChecked="{Binding SortHighScoreNyName}" Content="Sortera efter namn" HorizontalAlignment="Center"/>
-            <RadioButton IsChecked="{Binding SortHighScoreByTries}" Content="Sortera efter försök" HorizontalAlignment="Center"/>
-            <Button Content="Button" Command="{Binding SortHighScoreCommand}"/>
+            <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold"/>
+            <ListBox ItemsSource="{Binding OrderedList}" BorderBrush="Yellow" BorderThickness="2" Height="442" Width="630"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="Back" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
+            <RadioButton IsChecked="{Binding SortHighScoreStandard}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Senaste spel" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreNyName}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Sortera efter namn" HorizontalAlignment="Center"/>
+            <RadioButton IsChecked="{Binding SortHighScoreByTries}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Content="Sortera efter försök" HorizontalAlignment="Center"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="Button" Command="{Binding SortHighScoreCommand}" Height="71" Width="285"/>
 
         </StackPanel>
 
