@@ -85,10 +85,12 @@ namespace SUP_G6.ViewModels
 
         private void ExecuteGuess()
         {
+            int[] testkod = new int[] { 1, 2, 3, 4 };
+            
             if (Guess != null)
             {
                 ToMessageBox = "";
-                var feedback = GameLogic.Feedback(SecretCode, Guess);
+                var feedback = GameLogic.Feedback(/*SecretCode, Guess*/testkod, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
             }
@@ -184,11 +186,13 @@ namespace SUP_G6.ViewModels
                 PlayerName = player.Name,
                 Level = this.level,
                 Win = true,
-                ElapsedTimeInSeconds = _stopWatch.ElapsedTicks
+                ElapsedTimeInSeconds = _stopWatch.Elapsed.TotalSeconds,
+                Tries = this.NumberOfTries
                 
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
+            
         }
 
         #endregion
