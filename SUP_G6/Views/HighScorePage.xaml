@@ -3,7 +3,8 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:SUP_G6.Views" xmlns:local2="clr-namespace:SUP_G6.Converter"
+      xmlns:local="clr-namespace:SUP_G6.Views" 
+      xmlns:local2="clr-namespace:SUP_G6.Converter"
       mc:Ignorable="d" 
       Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }" 
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }"
@@ -27,13 +28,13 @@
 
         </Border>
         <StackPanel>
-            <Label  Style="{StaticResource StarWarsFont}" Content="Highscore" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="80" FontWeight="Bold" />
+            <Label Content="HIGHSCORE" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold" />
             <ListBox ItemsSource="{Binding  ListOfGameResults}" BorderBrush="Yellow" BorderThickness="2" Height="442" Width="630"/>
             <Label  Foreground="Yellow" FontSize="20" Content="SORT BY" HorizontalAlignment="Center"></Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                
 
-            <Button Command="{Binding SortByTimeCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}"  Width="75" Height="40"/>
+
+                <Button Command="{Binding SortByTimeCommand}" Content="TIME" Style="{StaticResource ButtonTemplate}"  Width="75" Height="40"/>
                 <Button Command="{Binding SortByNameCommand}" Content="NAME" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
                 <Button Command="{Binding SortByTriesCommand}" Content="TRIES" Style="{StaticResource ButtonTemplate}" Width="75" Height="40" />
             </StackPanel>
