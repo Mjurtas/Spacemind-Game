@@ -1,0 +1,32 @@
+﻿<Page x:Class="SUP_G6.Views.GameRulesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SUP_G6.Views"
+      xmlns:converter="clr-namespace:SUP_G6.Converter"
+      mc:Ignorable="d" 
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
+      Title="GameRules">
+    <Page.Resources>
+        <converter:RatioConverter x:Key="RatioConverter"/>
+    </Page.Resources>
+
+    <Grid>
+        <Border
+            Background="Black"
+            CornerRadius="70"
+            Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Opacity="1"
+            >
+
+        </Border>
+        <StackPanel Orientation="Vertical" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }">
+            <Label Style="{StaticResource StarWarsFont}" Content="game rules" HorizontalAlignment="Center" FontSize="60" FontWeight="Bold" Margin="0 20 0 100"/>
+            <TextBox Text="{Binding GameRules}" FontSize="24" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.35' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.5' }" BorderBrush="Yellow" BorderThickness="2"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackButton , FallbackValue=Tillbaka}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="71" Width="285" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Click="BackButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
