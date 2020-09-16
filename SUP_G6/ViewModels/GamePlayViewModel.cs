@@ -37,9 +37,9 @@ namespace SUP_G6.ViewModels
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;
+        private Stopwatch _stopWatch;
         //public PegPosition[] feedbacklist;
         public Player player;
-        private Stopwatch _stopWatch;
         public Level level;
         public string ToMessageBox { get; set; }
         public int NumberOfTries { get; set; } = 1;
@@ -82,6 +82,7 @@ namespace SUP_G6.ViewModels
         //public ICommand CheckFeedBackCommand { get; set; }
 
         public ICommand GuessCommand { get; set; }
+        public static object Stopwatch1 { get; private set; }
 
         private void ExecuteGuess()
         {
