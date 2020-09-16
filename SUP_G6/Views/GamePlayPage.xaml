@@ -147,8 +147,13 @@
 
             <!-- Number of Tries -->
             <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" >
-                <TextBlock Text="Number of Tries:" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="15" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Text="Tries:" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="15" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
                 <TextBlock Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="5" Grid.RowSpan="2" >
+                <TextBlock Text="Time:" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="15" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock x:Name="UITimerTextBlock" Text="{Binding UITimerProp, Mode=TwoWay}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
 
             <!-- Feedbackpluppar -->

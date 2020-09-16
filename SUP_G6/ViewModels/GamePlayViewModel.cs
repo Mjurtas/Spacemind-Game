@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Media;
+using System.Windows;
 
 namespace SUP_G6.ViewModels
 {
@@ -47,6 +48,7 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
+        public int UITimerProp { get; set; } = 0;
         #endregion
 
         #region Feedback-pegs Properties
@@ -90,6 +92,8 @@ namespace SUP_G6.ViewModels
                 var feedback = GameLogic.Feedback(SecretCode, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
+                // debugkod för timern
+                //MessageBox.Show(UITimerProp.ToString());
             }
             else
             {

@@ -17,6 +17,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SUP_G6.Views
 {
@@ -26,6 +27,7 @@ namespace SUP_G6.Views
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
+        private DispatcherTimer dispatcherTimer;
         
         public GamePlayPage(Player player, Level level)
         {
@@ -33,6 +35,11 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
+
+            dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
         }
 
         #region Variables
@@ -40,6 +47,7 @@ namespace SUP_G6.Views
         int numberOfTries = 1;
         Panel currentGuessRow;
         Panel nextGuessRow;
+        int tick = 0;
 
         #endregion
 
@@ -60,6 +68,16 @@ namespace SUP_G6.Views
         }
 
         #endregion
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            // Updating the Label which displays the current second
+            tick += 1;
+            UITimerTextBlock.Text = tick.ToString();
+
+            // Forcing the CommandManager to raise the RequerySuggested event
+            //CommandManager.InvalidateRequerySuggested();
+        }
 
         #region Handle Guesses
 
