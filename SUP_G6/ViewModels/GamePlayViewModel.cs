@@ -46,7 +46,7 @@ namespace SUP_G6.ViewModels
         public Player player;
         public Level level;
         public string ToMessageBox { get; set; }
-        public int NumberOfTries { get; set; } = 1;
+        public int NumberOfTries { get; set; } = 0;
         #endregion
 
         #region Feedback-pegs Properties
