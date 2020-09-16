@@ -19,9 +19,10 @@
             </Setter>
         </Style>
         <Style x:Key="StarWarsFont" TargetType="Label">
+            <Setter Property="Foreground" Value="Yellow"/>
             <Setter Property="TextElement.FontFamily"
                     Value="/Assets/Fonts/#Star Jedi">
-                
+
             </Setter>
         </Style>
     </Application.Resources>
