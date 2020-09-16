@@ -13,14 +13,18 @@ using System.Windows.Input;
 using System.Windows.Shapes;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Media;
 
 namespace SUP_G6.ViewModels
 {
     class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
+        SoundPlayer snd;
         public GamePlayViewModel(Player player, Level level)
         {
-
+            snd = new SoundPlayer(Properties.Resources.cantinaband);
+            snd.Play();
+            
             GuessCommand = new RelayCommand(ExecuteGuess);
             this.player = player;
             this.level = level;

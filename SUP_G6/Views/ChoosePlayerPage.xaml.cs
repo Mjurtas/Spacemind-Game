@@ -49,5 +49,7 @@ namespace SUP_G6.Views
                 ((MainWindow)Application.Current.MainWindow).Main.Content = page;
             }
         }
+
+       
     }
 }

@@ -22,23 +22,23 @@
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="1"
-            >
-
-        </Border>
+            />
         <Grid>
             <StackPanel Orientation="Vertical" Margin="0,0,24,260">
                 <Label Style="{StaticResource StarWarsFont}" Content="Choose your player" HorizontalAlignment="Center" Margin="0 100 0 40" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00"/>
 
-                <StackPanel Orientation="Horizontal" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.7' }">
-                    <ListBox x:Name="playerListbox" Background="Black"  ItemsSource="{Binding Players}" BorderBrush="Yellow" BorderThickness="2" Margin="0 0 0 0"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
-                    <StackPanel Margin="20 0 0 0">
-                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <StackPanel Orientation="Vertical" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.7' }">
+                    <ListBox x:Name="playerListbox" Background="Black" Foreground="Yellow" ItemsSource="{Binding Players}" BorderBrush="Yellow" FontWeight="ExtraBold" BorderThickness="2" Margin="0 0 0 0"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300" />
+                    <StackPanel Margin="20 0 0 0" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" Margin="20 0 0 0"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" Margin="20 0 0 0"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" Margin="20 0 0 0"/>
                     </StackPanel>
                     <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="40 10 0 0" Click="Button_Click" FontWeight="Bold" FontSize="22"/>
                 </StackPanel>
+               
             </StackPanel>
+            <Image Source="/Views/yoda text.png" Height="500" Width="500" Margin="1126,498,102,82" />
         </Grid>
 
         <Grid VerticalAlignment="Bottom">
