@@ -40,14 +40,5 @@
                 <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" Click="Button_Click"  FontWeight="Bold" FontSize="22"/>
             </StackPanel>
         </Grid>
-
-        <Grid VerticalAlignment="Bottom">
-            <StackPanel Orientation="Horizontal"  Width="200">
-                <!--<Button Content="{Binding EasyButton, FallbackValue=Button}" Command="CreateEasyGameButtonCommand" Height="59" />
-                <Button Content="{Binding MediumButton, FallbackValue=Button}" Command="CreateMediumGameButtonCommand" Height="59" />
-             <Button Content="{Binding HardButton, FallbackValue=Button}" Command="CreateHardGameButtonCommand" Height="59" />-->
-            </StackPanel>
-        </Grid>
     </Grid>
-
 </Page>

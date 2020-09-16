@@ -37,16 +37,16 @@ namespace SUP_G6.ViewModels
 
         #region Public Propertys
         public int[] Guess { get; set; }
-        //public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;
         private Stopwatch _stopWatch;
-        //public PegPosition[] feedbacklist;
         public Player player;
         public Level level;
         public string ToMessageBox { get; set; }
         public int NumberOfTries { get; set; } = 0;
+        public bool WinPanelVisibility = false;
+        public bool LosePanelVisibility = false;
         #endregion
 
         #region Feedback-pegs Properties
@@ -75,11 +75,6 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
-        //public PegPosition FeedbackPeg
-        //{
-        //    get { return FeedbackPeg; }
-        //    set { FeedbackPeg = PegPosition.CorrectColorAndPosition; }
-        //}
 
         #region Command for Guess Button
 
@@ -169,18 +164,25 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
-        public void CheckWin (ObservableCollection<PegPosition> feedbackPegs)
+        public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
-            
-                if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
-                {
-                    _stopWatch.Stop();
-                    CreateNewGameResult();
-                }
-                
-            
+
+            if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
+            {
+                _stopWatch.Stop();
+                CreateNewGameResult();
+                WinPanelVisibility = true;
+
+            }
+
+            else if (NumberOfTries > 10)
+            {
+                LosePanelVisibility = true;
+            }
+
+
         }
-            
+
         #region VM till DB
 
         private void CreateNewGameResult()
