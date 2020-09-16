@@ -42,6 +42,7 @@ namespace SUP_G6.ViewModels
         private Stopwatch _stopWatch;
         public Level level;
         public string ToMessageBox { get; set; }
+        public int NumberOfTries { get; set; } = 1;
         #endregion
 
         #region Feedback-pegs Properties
@@ -89,6 +90,7 @@ namespace SUP_G6.ViewModels
                 ToMessageBox = "";
                 var feedback = GameLogic.Feedback(SecretCode, Guess);
                 SetFeedbackPegs(feedback);
+                NumberOfTries += 1;
             }
             else
             {
