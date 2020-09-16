@@ -10,7 +10,6 @@
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }"
       Title="GamePlayPage">
     <Page.Resources>
-        <local2:HighScoreSortingConverter x:Key="HighScoreSortingConverter"/>
         <local2:RatioConverter x:Key="RatioConverter"/>
     </Page.Resources>
 
