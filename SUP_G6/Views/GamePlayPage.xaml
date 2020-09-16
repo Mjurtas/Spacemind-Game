@@ -143,13 +143,13 @@
             <WrapPanel Grid.Column="7" Grid.Row="1" ItemWidth="75" ItemHeight="45">
                 <Button Style="{StaticResource ButtonTemplate}" Content="Gissa!" Click="Button_Click" Command="{Binding GuessCommand}" Margin="5 0 0 0" Height="45" FontSize="20" FontWeight="Bold"></Button>
             </WrapPanel>
-            
+
             <!-- Number of Tries -->
             <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" >
                 <TextBlock Text="Number of Tries:" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="15" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
                 <TextBlock Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
-                       
+
             <!-- Feedbackpluppar -->
 
             <Grid Grid.Column="6" Grid.Row="1">
@@ -212,6 +212,7 @@
                 <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="30,0,0,5"/>
                 <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,30,5"/>
             </Grid>
+
         </Grid>
    </Border>
  </Page>
