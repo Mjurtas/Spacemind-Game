@@ -26,12 +26,12 @@ namespace SUP_G6.ViewModels
             this.level = level;
             SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode(level);
-            CreateNewGameResult();
+           
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
         }
 
-        #region Variables
+        #region Public Propertys
         public int[] Guess { get; set; }
         //public List<object> GuessOne { get; set; }
         public int[] SecretCode { get; set; }
@@ -95,20 +95,8 @@ namespace SUP_G6.ViewModels
                 ToMessageBox = "Du måste gissa minst fyra färger";
             }
 
-            //if (gameHasEnded)
-            //{
-            //    _stopWatch.Stop();
-            //    GameResult results = new GameResult
-            //    {
-            //        PlayerId = player.Id,
-            //        PlayerName = player.Name,
-            //        Tries = NumberOfTries,
-            //        ElapsedTicks = _stopWatch.ElapsedTicks,
-            //        Level = level,
-            //        Win = false
-            //    };
-            //    SaveToDatabase(gameresult);
-            //}
+          
+
         }
 
         #endregion
@@ -153,6 +141,8 @@ namespace SUP_G6.ViewModels
                 }
                 counter++;
             }
+
+            CheckWin(feedbackPegs);
         }
         //public void SetGuess(Panel guessPanel)
         //{
@@ -169,6 +159,18 @@ namespace SUP_G6.ViewModels
         //}
 
         #endregion
+
+        public void CheckWin (ObservableCollection<PegPosition> feedbackPegs)
+        {
+            
+                if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
+                {
+                    _stopWatch.Stop();
+                    CreateNewGameResult();
+                }
+                
+            
+        }
             
         #region VM till DB
 
@@ -178,7 +180,10 @@ namespace SUP_G6.ViewModels
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
-                Level = this.level
+                Level = this.level,
+                Win = true,
+                ElapsedTimeInSeconds = _stopWatch.ElapsedTicks
+                
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);

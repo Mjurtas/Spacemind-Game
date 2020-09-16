@@ -157,6 +157,9 @@ namespace SUP_G6.Other
         //    }
         //}
 
+
+
+
         public static ObservableCollection<GameResult> GetGameResults()
         {
             //string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";

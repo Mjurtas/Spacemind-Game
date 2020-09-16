@@ -36,8 +36,8 @@ namespace SUP_G6
             //myPlayer.SoundLocation = @"c:\Music\starwars.wav";
             //myPlayer.PlayLooping();
 
-            snd = new SoundPlayer(Properties.Resources.starwars);
-            snd.Play();
+            //snd = new SoundPlayer(Properties.Resources.starwars);
+            //snd.Play();
 
         }
 
