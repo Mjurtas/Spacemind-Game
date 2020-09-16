@@ -43,7 +43,7 @@ namespace SUP_G6.Views
 
         #region Helper function(s)
 
-        public static int[] ExtractGuessFromPanel(Panel guessPanel)
+        public static int[] ExtractGuessFromUIPanel(Panel guessPanel)
         {
             UIElementCollection guessedPegs = guessPanel.Children;
             int[] guess = new int[4];
@@ -245,7 +245,7 @@ namespace SUP_G6.Views
                     MessageBox.Show("Du har spelat på alla rader");
                     
                 }
-                viewModel.Guess = ExtractGuessFromPanel(currentGuessRow);
+                viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
                 MakeNextGuessAvailable(nextGuessRow);
                 numberOfTries++;
 
