@@ -6,6 +6,7 @@ using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,9 +26,10 @@ namespace SUP_G6.Views
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
-
+        
         public GamePlayPage(Player player, Level level)
         {
+           
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;

@@ -39,15 +39,15 @@ namespace SUP_G6.Other
 
         public static PegPosition[] Feedback(int[] secretCode, int[] guess)
         {
-            GameResult gameResult = new GameResult();
+            
             //skapar listan med feedback
             PegPosition[] feedbackList = new PegPosition[4];
-
+            
             //om den hemliga koden stämmer med gissningen helt så körs denna kod
             if (guess == secretCode)
             {
                 feedbackList = new PegPosition[] { PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition, PegPosition.CorrectColorAndPosition };
-                gameResult.Win = true;
+                //gameResult.Win = true;
                 return feedbackList;
             }
 

@@ -30,9 +30,8 @@ namespace SUP_G6.Models
 
         private object GetTime()
         {
-            var minutes = new DateTime(ElapsedTicks).Minute;
-
-            var seconds = new DateTime(ElapsedTicks).Second;
+            var minutes = new DateTime((long)ElapsedTimeInSeconds);
+            var seconds = new DateTime((long)ElapsedTimeInSeconds);
 
             return $"{minutes} {seconds}";
             //TimeSpan t = TimeSpan.FromSeconds(ElapsedTimeInSeconds);

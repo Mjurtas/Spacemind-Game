@@ -95,7 +95,7 @@ namespace SUP_G6.Other
 
         public static int AddGameResult(GameResult gameResult)
         {                                                       //OBS, LÄGG TILL TIME!           //@time
-            string stmt = $"INSERT INTO game_result (player_id, tries, level, win ) values (@Id, @Tries, @Level, @Win) returning game_id;";
+            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
 
 
             using (var conn = new NpgsqlConnection(connectionString))
@@ -107,12 +107,11 @@ namespace SUP_G6.Other
                     
                     conn.Open();
                     conn.TypeMapper.MapEnum<Level>("level");
-                    command.Parameters.AddWithValue("Id", gameResult.PlayerId);
-                    //command.Parameters.AddWithValue("Time", gameResult.ElapsedTimeInSeconds);
+                    command.Parameters.AddWithValue("Id", gameResult.PlayerId);               
                     command.Parameters.AddWithValue("Tries", gameResult.Tries);
-                    command.Parameters.AddWithValue("level", gameResult.Level);
                     command.Parameters.AddWithValue("Win", gameResult.Win);
-
+                    command.Parameters.AddWithValue("level", gameResult.Level);
+                    command.Parameters.AddWithValue("time", gameResult.ElapsedTimeInSeconds);                
                     int id = (int)command.ExecuteScalar();
                     return id;
                 }
@@ -157,10 +156,13 @@ namespace SUP_G6.Other
         //    }
         //}
 
+
+
+
         public static ObservableCollection<GameResult> GetGameResults()
         {
             //string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id ";
+            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id where win = true";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {

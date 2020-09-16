@@ -61,11 +61,40 @@ namespace SUP_G6.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream cantinaband {
+            get {
+                return ResourceManager.GetStream("cantinaband", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         public static byte[] imperial_march_ringtone {
             get {
                 object obj = ResourceManager.GetObject("imperial_march_ringtone", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] starjedi_hollow_sample {
+            get {
+                object obj = ResourceManager.GetObject("starjedi_hollow_sample", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] starjedi_sample {
+            get {
+                object obj = ResourceManager.GetObject("starjedi_sample", resourceCulture);
                 return ((byte[])(obj));
             }
         }
