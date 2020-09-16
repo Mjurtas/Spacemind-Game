@@ -141,7 +141,7 @@
 
             <!-- Spelknappen -->
             <WrapPanel Grid.Column="7" Grid.Row="1" ItemWidth="75" ItemHeight="45">
-                <Button Style="{StaticResource ButtonTemplate}" Content="Gissa!" Click="Button_Click" Command="{Binding GuessCommand}" Margin="5 0 0 0" Height="45" FontSize="20" FontWeight="Bold"></Button>
+                <Button Style="{StaticResource ButtonTemplate}" Content="Gissa!" Click="Button_Click" Command="{Binding GuessCommand}" Margin="5 0 0 0" Height="45" Width="70" FontSize="20" FontWeight="Bold"></Button>
             </WrapPanel>
 
             <!-- Number of Tries -->
