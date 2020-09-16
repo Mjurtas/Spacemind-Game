@@ -29,10 +29,10 @@
         </StackPanel>
         <StackPanel>
             <Label Content="Spacemind" Style="{StaticResource StarWarsFont}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 90 0 0" FontSize="80" FontWeight="Bold" Foreground="#FFF2FC08"/>
-            <Button Style="{StaticResource ButtonTemplate}" Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" Margin="0 60 0 0" Height="71" Width="285" Click="Button_Click_1" FontWeight="Bold" FontSize="22" FontFamily="Star Jedi Hollow"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" Margin="0 60 0 0" Height="71" Width="285" Click="Button_Click_1" FontWeight="Bold" FontSize="22"/>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ChoosePlayerButton , FallbackValue=Välj}" HorizontalAlignment="Center" Margin="0 10 0 10" Height="71" Width="285" Click="Button_Click_2" FontWeight="Bold" FontSize="22"/>
             <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ViewHighScoreButton , FallbackValue=HighScore}" Command="{Binding ViewHighScoreCommand}" HorizontalAlignment="Center" VerticalAlignment="Center" Height="71" Width="285" Click="Button_Click" FontWeight="Bold" FontSize="22"/>
-            <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ViewGameRulesButton , FallbackValue=Spelregler}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="71" Width="285" Click="Button_Click_3" FontWeight="Bold" FontSize="22" FontStyle="Normal"/>
+            <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ViewGameRulesButton , FallbackValue=Spelregler}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="71" Width="285" Click="Button_Click_3" FontWeight="Bold" FontSize="22"/>
         </StackPanel>
     </Grid>
 </Page>
