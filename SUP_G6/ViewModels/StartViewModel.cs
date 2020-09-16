@@ -17,8 +17,12 @@ namespace SUP_G6.ViewModels
         {
             //HighScores = new ObservableCollection<HighScore>();
             //HighScores.Add(new HighScore());
+            
          
         }
+
+      
+
         //public ObservableCollection<HighScore> HighScores { get; set; }
         public string CreatePlayerButton { get; set; } = "CREATE PLAYER";
         public string ChoosePlayerButton { get; set; } = "CHOOSE PLAYER";
