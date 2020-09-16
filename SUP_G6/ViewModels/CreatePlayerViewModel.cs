@@ -15,8 +15,6 @@ namespace SUP_G6.ViewModels
 {
     public class CreatePlayerViewModel : BaseViewModel.BaseViewModel
     {
-        //private Player player;
-
         public Player Player { get; set; }
         public ICommand CreatePlayerCommand { get; set; }
         public string Name { get; set; }

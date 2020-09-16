@@ -20,15 +20,6 @@ namespace SUP_G6.ViewModels
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
 
-        public ChoosePlayerViewModel()
-        {
-            //CreateGameCommand = new RelayCommand(CreateGame);
-            //CreateMediumGameCommand = new RelayCommand(CreateMediumGame);
-            //CreateHardGameCommand = new RelayCommand(CreateHardGame);
-            
-
-        }
-
         public void CreateGame()
         {
             if (EasyRadioButton)

@@ -23,8 +23,8 @@ namespace SUP_G6.ViewModels
         public GamePlayViewModel(Player player, Level level)
         {
             snd = new SoundPlayer(Properties.Resources.cantinaband);
-            snd.Play();
-            
+            snd.PlayLooping();
+
             GuessCommand = new RelayCommand(ExecuteGuess);
             this.player = player;
             this.level = level;
@@ -45,8 +45,8 @@ namespace SUP_G6.ViewModels
         public Level level;
         public string ToMessageBox { get; set; }
         public int NumberOfTries { get; set; } = 0;
-        public bool WinPanelVisibility = false;
-        public bool LosePanelVisibility = false;
+        public bool WinPanelVisibility { get; set; } = false;
+        public bool LosePanelVisibility { get; set; } = false;
         #endregion
 
         #region Feedback-pegs Properties
@@ -77,9 +77,6 @@ namespace SUP_G6.ViewModels
 
 
         #region Command for Guess Button
-
-        //public ICommand CheckFeedBackCommand { get; set; }
-
         public ICommand GuessCommand { get; set; }
         public static object Stopwatch1 { get; private set; }
 
@@ -90,7 +87,7 @@ namespace SUP_G6.ViewModels
             if (Guess != null)
             {
                 ToMessageBox = "";
-                var feedback = GameLogic.Feedback(/*SecretCode, Guess*/testkod, Guess );
+                var feedback = GameLogic.Feedback(SecretCode, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
             }
@@ -109,8 +106,6 @@ namespace SUP_G6.ViewModels
 
         public void SetFeedbackPegs(PegPosition[] feedback)
         {
-            //Random rnd = new Random();
-            //PegPosition array = array.OrderBy(x => rnd.Next()).ToArray();
             for (int i = 0; i < feedback.Length; i++)
             {
                 feedbackPegs.Add(feedback[i]);
@@ -148,19 +143,6 @@ namespace SUP_G6.ViewModels
 
             CheckWin(feedbackPegs);
         }
-        //public void SetGuess(Panel guessPanel)
-        //{
-        //    UIElementCollection guessedPegs = guessPanel.Children;
-        //    int[] guess = new int[4];
-
-        //    foreach (MasterPeg peg in guessedPegs)
-        //    {
-        //        int colorId = peg.ColorId;
-        //        int position = guessedPegs.IndexOf(peg);
-        //        guess.SetValue(colorId, position);
-        //    }
-        //    Guess = guess;
-        //}
 
         #endregion
 

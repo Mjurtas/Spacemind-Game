@@ -24,7 +24,7 @@
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.90"
             >
-        <Grid Margin="0,0,120,23">
+        <Grid>
 
             <!-- Rad- och kolumndefinitioner -->
             <Grid.ColumnDefinitions>
@@ -202,19 +202,20 @@
                 <Ellipse Fill="{Binding FeedbackPegs[31], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[31], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,40,5"/>
             </Grid>
             <Grid  Grid.Column="6" Grid.Row="9">
-                <Ellipse Fill="{Binding FeedbackPegs[32], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[32], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="30,5,0,0"/>
-                <Ellipse Fill="{Binding FeedbackPegs[33], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[33], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,5,30,0"/>
-                <Ellipse Fill="{Binding FeedbackPegs[34], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[34], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="30,0,0,5"/>
-                <Ellipse Fill="{Binding FeedbackPegs[35], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[35], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,30,5"/>
+                <Ellipse Fill="{Binding FeedbackPegs[32], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[32], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="40,5,0,0"/>
+                <Ellipse Fill="{Binding FeedbackPegs[33], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[33], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,5,40,0"/>
+                <Ellipse Fill="{Binding FeedbackPegs[34], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[34], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="40,0,0,5"/>
+                <Ellipse Fill="{Binding FeedbackPegs[35], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[35], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,40,5"/>
             </Grid>
             <Grid Grid.Column="6" Grid.Row="10">
-                <Ellipse Fill="{Binding FeedbackPegs[36], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[36], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="30,5,0,0"/>
-                <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[37], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,5,30,0"/>
-                <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="30,0,0,5"/>
-                <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,30,5"/>
+                <Ellipse Fill="{Binding FeedbackPegs[36], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[36], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="40,5,0,0"/>
+                <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[37], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,5,40,0"/>
+                <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="40,0,0,5"/>
+                <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,40,5"/>
             </Grid>
+
             <!--Panel för vinst-->
-            <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="7" Visibility="{Binding WinPanelVisibility, FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}">
+            <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
                 <Label Style="{StaticResource StarWarsFont}" Content="CoNGRATuLATioNS" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
@@ -238,8 +239,8 @@
             </StackPanel>
 
             <!--Panel för förlust-->
-            <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="7" Visibility="{Binding LoosePanelVisibility, FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}">
-                <Label Style="{StaticResource StarWarsFont}" Content="GAME oVER" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
+            <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding LosePanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
+                <Label Style="{StaticResource StarWarsFont}" Content="GAME ovER" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
                     <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
                     <Ellipse  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[0], Converter={StaticResource EndGamePegsColorConverter}}"/>

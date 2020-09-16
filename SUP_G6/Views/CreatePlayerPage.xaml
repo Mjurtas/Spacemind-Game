@@ -33,7 +33,6 @@
         <StackPanel>
             <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="Create player" Height="71" Width="285" Margin="0 400 0 10" FontSize="22" FontWeight="Bold" />
             <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Content="Back" Height="71" Width="285" Click="BtnGoBackToStart_Click" FontSize="22" FontWeight="Bold"/>
-          <!--<Button Content="{Binding CreatePlayerButton , FallbackValue=Skapa}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 10 0 0" Height="20" Width="177" Click="Button_Click_3"/>--> 
         </StackPanel>
 
     </Grid>

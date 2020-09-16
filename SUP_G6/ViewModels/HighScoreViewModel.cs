@@ -17,7 +17,6 @@ namespace SUP_G6.ViewModels
 
         public HighScoreViewModel()
         {
-            //SortHighScoreCommand = new RelayCommand(SortHighscore);
             SortByNameCommand = new RelayCommand(SortByName);
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
@@ -27,7 +26,6 @@ namespace SUP_G6.ViewModels
 
         public ObservableCollection<GameResult> GetList { get; set; } = DataBaseLogic.GetGameResults();
         public ObservableCollection<GameResult> ListOfGameResults { get; set; } 
-        //public event PropertyChangedEventHandler PropertyChanged;
 
 
         public ICommand SortByTimeCommand { get; set; }
@@ -58,39 +56,5 @@ namespace SUP_G6.ViewModels
         {
             ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries));
         }
-
-
-        //public void SortHighscore()
-        //{
-
-        //    if (SortHighScoreStandard)
-        //    {
-        //        ListOfGameResults = new ObservableCollection<GameResult>(ListOfGameResults.OrderBy(x => x.ElapsedTimeInSeconds));
-                
-        //    }
-
-        //    else if (SortHighScoreByName)
-        //    {
-        //        ListOfGameResults = new ObservableCollection<GameResult>(ListOfGameResults.OrderBy(x => x.PlayerName));
-
-        //    }
-
-        //    else
-        //    {
-        //        ListOfGameResults = new ObservableCollection<GameResult>(ListOfGameResults.OrderByDescending(x => x.Tries));
-
-        //    }
-
-
-
-
-
-        //}
-
-
-
-
-
-
     }
 }

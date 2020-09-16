@@ -169,23 +169,9 @@ namespace SUP_G6.Views
                                     _panel.Children.Clear();
                                     _panel.Children.Add(peg);
                                 }
-                                // set the value to return to the DoDragDrop call
-                                //e.Effects = DragDropEffects.Copy;
                             }
                         }
                     }
-                    //else if (e.AllowedEffects.HasFlag(DragDropEffects.Move))
-                    //{
-                    //    _parent.Children.Remove(_element);
-                    //    _panel.Children.Add(_element);
-                    //    if (_element is MasterPeg)
-                    //    {
-                    //        var colorId = ((MasterPeg)_element).ColorId;
-                    //    }
-
-                    //    // set the value to return to the DoDragDrop call
-                    //    e.Effects = DragDropEffects.Move;
-                    //}
                 }
             }
         }
@@ -242,14 +228,9 @@ namespace SUP_G6.Views
             }
             if (IsGuessDone(currentGuessRow))
             {
-                if (currentGuessRow == stp10)
-                {
-                    MessageBox.Show("Du har spelat på alla rader");
-                    
-                }
-                viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
-                MakeNextGuessAvailable(nextGuessRow);
-                numberOfTries++;
+                    viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
+                    MakeNextGuessAvailable(nextGuessRow);
+                    numberOfTries++;
 
             }
             else

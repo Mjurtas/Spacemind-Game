@@ -34,22 +34,6 @@ namespace SUP_G6.Models
             var seconds = new DateTime((long)ElapsedTimeInSeconds);
 
             return $"{minutes} {seconds}";
-            //TimeSpan t = TimeSpan.FromSeconds(ElapsedTimeInSeconds);
-            //if (ElapsedTimeInSeconds <= 60)
-            //{
-            //    string answer = string.Format("{0:D2}s",
-            //                    t.Seconds);
-            //    return answer;
-            //}
-
-
-            //else
-            //{
-            //    string answer = string.Format("{0:D2}m:{1:D2}s",
-            //                    t.Minutes,
-            //                    t.Seconds);
-            //    return answer;
-            //}
         }
     }
 }
