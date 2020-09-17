@@ -12,6 +12,7 @@
     <None Remove="Assets\background.jpg" />
     <None Remove="Assets\Fonts\Starjedi.ttf" />
     <None Remove="Assets\Fonts\Starjout.ttf" />
+    <None Remove="Assets\Images\darth1.png" />
     <None Remove="Assets\Images\peg1av.png" />
     <None Remove="Assets\Images\peg2av.png" />
     <None Remove="Assets\Images\peg3av.png" />
@@ -64,6 +65,7 @@
     <Resource Include="Assets\Fonts\Starjedi.ttf" />
     <Resource Include="Assets\Fonts\Starjout.ttf" />
     <Resource Include="Assets\Images\background.jpg" />
+    <Resource Include="Assets\Images\darth1.png" />
     <Resource Include="Assets\Images\Starfield.gif" />
     <Resource Include="Views\darthWelcome.png" />
     <Resource Include="Views\resizedyoda.png" />
