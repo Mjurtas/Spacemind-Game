@@ -27,22 +27,21 @@
 
         </Border>
         <StackPanel>
-            <Label Style="{StaticResource StarWarsFont}" Content="Highscore" HorizontalAlignment="Center" Margin="0 100 0 40" Foreground="Yellow" FontSize="60" FontWeight="Bold" />
-            <ListBox ItemsSource="{Binding  ListOfGameResults}" BorderBrush="Yellow" BorderThickness="2" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="630"/>
-            <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center"></Label>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-
-
+            <Label Style="{StaticResource StarWarsFont}" Content="Highscore" HorizontalAlignment="Center" Margin="0 100 0 0" Foreground="Yellow" FontSize="60" FontWeight="Bold" />
+            <WrapPanel ItemWidth="250" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }">
                 <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40"/>
                 <Button Command="{Binding SortByNameCommand}" Content="Name" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
                 <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
+                <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
+            </WrapPanel>
+            <ListBox ItemsSource="{Binding  HighScoreList}" BorderBrush="Yellow" BorderThickness="2" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="630"/>
+            <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center"></Label>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
             </StackPanel>
             <Button Style="{StaticResource ButtonTemplate}" Content="Back" FontSize="40" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
-
-
         </StackPanel>
 
     </Grid>

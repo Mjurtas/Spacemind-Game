@@ -88,6 +88,34 @@ namespace SUP_G6.Other
                 return players;
             }
         }
+        public static ObservableCollection<Player> GetDiligentPlayers()
+        {
+            string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id GROUP BY game_result.player_id, player.name ORDER BY COUNT DESC; ";
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                Player player = null;
+                ObservableCollection<Player> diligentPlayers = new ObservableCollection<Player>();
+
+                conn.Open();
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            player = new Player()
+                            {
+                                Id = (int)reader["player_id"],
+                                Name = (string)reader["name"],
+                                NumberOfGamesPlayed = (Int64)reader["COUNT"]
+                            };
+                            diligentPlayers.Add(player);
+                        }
+                    }
+                }
+                return new ObservableCollection<Player>(diligentPlayers);
+            }
+        }
         #endregion
 
         #region CREATE GAME RESULT

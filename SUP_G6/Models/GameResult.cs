@@ -1,11 +1,12 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SUP_G6.Models
 {
-    public class GameResult
+    public class GameResult : IExistInDatabase
     {
         public int GameId { get; set; }
 

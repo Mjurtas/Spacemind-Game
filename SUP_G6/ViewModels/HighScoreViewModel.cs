@@ -1,4 +1,5 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
@@ -21,12 +22,16 @@ namespace SUP_G6.ViewModels
             SortByNameCommand = new RelayCommand(SortByName);
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
+            ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
         }
 
 
 
         public ObservableCollection<GameResult> GetList { get; set; } = DataBaseLogic.GetGameResults();
         public ObservableCollection<GameResult> ListOfGameResults { get; set; }
+        public ObservableCollection<Player> ListOfDiligentPlayers { get; set; } = DataBaseLogic.GetDiligentPlayers();
+        public ObservableCollection<IExistInDatabase> HighScoreList { get; set; }
+
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
@@ -37,6 +42,7 @@ namespace SUP_G6.ViewModels
         public ICommand SortByTimeCommand { get; set; }
         public ICommand SortByNameCommand { get; set; }
         public ICommand SortByTriesCommand { get; set; }
+        public ICommand ShowDiligentPlayersCommand { get; set; }
 
 
 
@@ -68,18 +74,45 @@ namespace SUP_G6.ViewModels
         {
             SetLevelFromRadioButton();
             ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds).Where(x => x.Level == Level).Take(3));
+            HighScoreList = new ObservableCollection<IExistInDatabase>();
+            HighScoreList.Clear();
+            foreach (var gameResult in ListOfGameResults)
+            {
+                HighScoreList.Add(gameResult);
+            }
         }
 
         public void SortByName()
         {
             SetLevelFromRadioButton();
             ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Where(x => x.Level == Level));
+            HighScoreList = new ObservableCollection<IExistInDatabase>();
+            HighScoreList.Clear();
+            foreach (var gameResult in ListOfGameResults)
+            {
+                HighScoreList.Add(gameResult);
+            }
         }
 
         public void SortByTries()
         {
             SetLevelFromRadioButton();
             ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries).Where(x => x.Level == Level).Take(3));
+            HighScoreList = new ObservableCollection<IExistInDatabase>();
+            HighScoreList.Clear();
+            foreach (var gameResult in ListOfGameResults)
+            {
+                HighScoreList.Add(gameResult);
+            }
+        }
+        public void GetDiligentPlayers()
+        {
+            HighScoreList = new ObservableCollection<IExistInDatabase>();
+            HighScoreList.Clear();
+            foreach (var player in ListOfDiligentPlayers)
+            {
+                HighScoreList.Add(player);
+            }
         }
     }
 }
