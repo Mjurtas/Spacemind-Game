@@ -44,17 +44,17 @@ namespace SUP_G6.ViewModels
        
         public void SortByTime()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds));
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds ).Take(3));
         }
 
         public void SortByName()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName));
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Take(3));
         }
 
         public void SortByTries()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries));
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries).Take(3));
         }
     }
 }
