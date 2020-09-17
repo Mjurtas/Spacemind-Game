@@ -36,6 +36,9 @@
                 <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40"/>
                 <Button Command="{Binding SortByNameCommand}" Content="Name" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
                 <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
+                <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
             </StackPanel>
             <Button Style="{StaticResource ButtonTemplate}" Content="Back" FontSize="40" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
 

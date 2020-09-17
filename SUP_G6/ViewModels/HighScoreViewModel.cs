@@ -1,4 +1,5 @@
-﻿using SUP_G6.Models;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Models;
 using SUP_G6.Other;
 using SUP_G6.ViewModels.BaseViewModel;
 using System;
@@ -25,7 +26,12 @@ namespace SUP_G6.ViewModels
 
 
         public ObservableCollection<GameResult> GetList { get; set; } = DataBaseLogic.GetGameResults();
-        public ObservableCollection<GameResult> ListOfGameResults { get; set; } 
+        public ObservableCollection<GameResult> ListOfGameResults { get; set; }
+        public Level Level { get; set; }
+        public bool EasyRadioButton { get; set; } = true;
+        public bool MediumRadioButton { get; set; } = false;
+        public bool HardRadioButton { get; set; } = false;
+
 
 
         public ICommand SortByTimeCommand { get; set; }
@@ -41,20 +47,39 @@ namespace SUP_G6.ViewModels
         public bool SortHighScoreByTries { get; set; } = false;
 
         public ICommand SortHighScoreCommand { get; set; }
-       
+
+        public void SetLevelFromRadioButton()
+        {
+            if (EasyRadioButton)
+            {
+                Level = Level.Easy;
+            }
+            else if (MediumRadioButton)
+            {
+                Level = Level.Medium;
+            }
+            else
+            {
+                Level = Level.Hard;
+            }
+        }
+
         public void SortByTime()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds ).Take(3));
+            SetLevelFromRadioButton();
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds).Where(x => x.Level == Level).Take(3));
         }
 
         public void SortByName()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Take(3));
+            SetLevelFromRadioButton();
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Where(x => x.Level == Level));
         }
 
         public void SortByTries()
         {
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries).Take(3));
+            SetLevelFromRadioButton();
+            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries).Where(x => x.Level == Level).Take(3));
         }
     }
 }
