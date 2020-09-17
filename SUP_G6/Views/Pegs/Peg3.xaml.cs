@@ -26,15 +26,17 @@ namespace SUP_G6
         }
         private void CreatePeg()
         {
+            ImageBrush imageSource = new ImageBrush();
+            imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg3av.png", UriKind.Relative));
             Ellipse ellipse = new Ellipse
             {
-                Fill = Brushes.Yellow,
-                Stroke = Brushes.Black,
-                StrokeThickness = 2
+                Fill = imageSource
             };
             ColorId = 3;
             LevelVisibility = Level.Easy;
             master.Children.Add(ellipse);
         }
+            
+        
     }
 }

@@ -26,11 +26,11 @@ namespace SUP_G6
         }
         private void CreatePeg()
         {
+            ImageBrush imageSource = new ImageBrush();
+            imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg2av.png", UriKind.Relative));
             Ellipse ellipse = new Ellipse
             {
-                Fill = Brushes.Blue,
-                Stroke = Brushes.Black,
-                StrokeThickness = 2
+                Fill = imageSource
             };
             ColorId = 2;
             LevelVisibility = Level.Easy;

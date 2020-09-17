@@ -12,10 +12,45 @@
     <None Remove="Assets\background.jpg" />
     <None Remove="Assets\Fonts\Starjedi.ttf" />
     <None Remove="Assets\Fonts\Starjout.ttf" />
+    <None Remove="Assets\Images\peg1av.png" />
+    <None Remove="Assets\Images\peg2av.png" />
+    <None Remove="Assets\Images\peg3av.png" />
+    <None Remove="Assets\Images\peg4av.png" />
+    <None Remove="Assets\Images\peg5av.png" />
+    <None Remove="Assets\Images\peg6av.png" />
+    <None Remove="Assets\Images\peg7av.png" />
+    <None Remove="Assets\Images\peg8av.png" />
     <None Remove="Assets\Music\starwars.wav" />
     <None Remove="Views\darthWelcome.png" />
     <None Remove="Views\resizedyoda.png" />
     <None Remove="Views\yodatext.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\Images\peg1av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg2av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg3av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg4av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg5av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg6av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg7av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg8av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
