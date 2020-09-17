@@ -51,6 +51,7 @@ namespace SUP_G6.ViewModels
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
         public int UITimerProp { get; set; } = 0;
+        string FormatString;
         #endregion
 
         #region Feedback-pegs Properties
@@ -110,6 +111,9 @@ namespace SUP_G6.ViewModels
                 NumberOfTries += 1;
                 // debugkod för timern
                 //MessageBox.Show(UITimerProp.ToString());
+                //TimeSpan time = TimeSpan.FromSeconds(TimeLabel);
+                //FormatString = time.ToString(@"hh\:mm\:ss\:fff");
+                //MessageBox.Show(FormatString);
             }
             else
             {
