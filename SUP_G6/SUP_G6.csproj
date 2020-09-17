@@ -12,6 +12,8 @@
     <None Remove="Assets\Fonts\Starjout.ttf" />
     <None Remove="Assets\Music\starwars.wav" />
     <None Remove="Views\darthWelcome.png" />
+    <None Remove="Views\resizedyoda.png" />
+    <None Remove="Views\yodatext.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +26,8 @@
     <Resource Include="Assets\Fonts\Starjout.ttf" />
     <Resource Include="Assets\Images\background.jpg" />
     <Resource Include="Views\darthWelcome.png" />
+    <Resource Include="Views\resizedyoda.png" />
+    <Resource Include="Views\yodatext.png" />
   </ItemGroup>
 
   <ItemGroup>

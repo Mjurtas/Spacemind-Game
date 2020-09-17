@@ -50,8 +50,7 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
-        public int UITimerProp { get; set; } = 0;
-        string FormatString;
+        
         #endregion
 
         #region Feedback-pegs Properties
@@ -101,19 +100,16 @@ namespace SUP_G6.ViewModels
 
         private void ExecuteGuess()
         {
-            int[] testkod = new int[] { 1, 2, 3, 4 };
+            //int[] testkod = new int[] { 1, 2, 3, 4 };
             
             if (Guess != null)
             {
                 ToMessageBox = "";
-                var feedback = GameLogic.Feedback(testkod, Guess );
+                var feedback = GameLogic.Feedback(SecretCode, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
                 // debugkod för timern
                 //MessageBox.Show(UITimerProp.ToString());
-                //TimeSpan time = TimeSpan.FromSeconds(TimeLabel);
-                //FormatString = time.ToString(@"hh\:mm\:ss\:fff");
-                //MessageBox.Show(FormatString);
             }
             else
             {
@@ -173,7 +169,7 @@ namespace SUP_G6.ViewModels
         public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
 
-            if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
+            if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
                 dispatcherTimer.Stop();
                 CreateNewGameResult();
