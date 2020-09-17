@@ -50,7 +50,7 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
-        public int UITimerProp { get; set; } = 0;
+        
         #endregion
 
         #region Feedback-pegs Properties
@@ -100,12 +100,12 @@ namespace SUP_G6.ViewModels
 
         private void ExecuteGuess()
         {
-            int[] testkod = new int[] { 1, 2, 3, 4 };
+            //int[] testkod = new int[] { 1, 2, 3, 4 };
             
             if (Guess != null)
             {
                 ToMessageBox = "";
-                var feedback = GameLogic.Feedback(testkod, Guess );
+                var feedback = GameLogic.Feedback(SecretCode, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
                 // debugkod för timern
