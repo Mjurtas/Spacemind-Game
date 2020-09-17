@@ -37,7 +37,7 @@ namespace SUP_G6.ViewModels
             _stopWatch.Start();
         }
 
-        #region Public Propertys
+        #region Public Properties
         public int[] Guess { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
@@ -82,12 +82,12 @@ namespace SUP_G6.ViewModels
         public void CreateTimer()
         {
             dispatcherTimer = new DispatcherTimer();
-            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
             dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
             dispatcherTimer.Start();
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             TimeLabel++;
         }
