@@ -169,7 +169,7 @@ namespace SUP_G6.ViewModels
         public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
 
-            if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
+            if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
                 dispatcherTimer.Stop();
                 CreateNewGameResult();
