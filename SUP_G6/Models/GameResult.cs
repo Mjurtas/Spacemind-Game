@@ -25,15 +25,9 @@ namespace SUP_G6.Models
 
         public override string ToString()
         {
-            return $"Name: {PlayerName}              Tries: {Tries}                 Time: {GetTime()}             Level  {Level}";
+            return $"Name: {PlayerName}              Tries: {Tries}                 Time: {ElapsedTimeInSeconds}             Level  {Level}";
         }
 
-        private object GetTime()
-        {
-            var minutes = new DateTime((long)ElapsedTimeInSeconds);
-            var seconds = new DateTime((long)ElapsedTimeInSeconds);
 
-            return $"{minutes} {seconds}";
-        }
     }
 }
