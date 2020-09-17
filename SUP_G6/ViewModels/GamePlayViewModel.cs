@@ -16,6 +16,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Media;
 using System.Windows;
 using System.Windows.Threading;
+using SUP_G6.Views;
 
 namespace SUP_G6.ViewModels
 {
@@ -35,6 +36,9 @@ namespace SUP_G6.ViewModels
             CreateTimer();
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
+            RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
+            BackToStartCommand = new RelayCommand(GoBackToStartPage);
+
         }
 
         #region Public Properties
@@ -51,6 +55,8 @@ namespace SUP_G6.ViewModels
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
         string FormatString;
+        public ICommand RestartGameCommand { get; set; }
+        public ICommand BackToStartCommand { get; set; }
         #endregion
 
         #region Feedback-pegs Properties
@@ -172,7 +178,7 @@ namespace SUP_G6.ViewModels
         public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
 
-            if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
+            if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) && !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
                 dispatcherTimer.Stop();
                 CreateNewGameResult();
@@ -187,6 +193,19 @@ namespace SUP_G6.ViewModels
             }
 
 
+        }
+        public void ReloadGamePlayPage()
+        {
+            var page = new GamePlayPage(player, level);
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
+
+        public void GoBackToStartPage()
+        {
+            snd = new SoundPlayer(Properties.Resources.starwars);
+            snd.Play();
+            var page = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
 
         #region VM till DB

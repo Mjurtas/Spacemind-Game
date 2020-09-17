@@ -238,8 +238,8 @@
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
 
@@ -254,10 +254,10 @@
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[3], Converter={StaticResource EndGamePegsColorConverter}}"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="40" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
         </Grid>
-   </Border>
+    </Border>
  </Page>
