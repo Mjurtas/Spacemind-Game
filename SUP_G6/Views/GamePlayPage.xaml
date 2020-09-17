@@ -55,20 +55,20 @@
             </Grid.RowDefinitions>
 
             <!-- Färgplupparna -->
-            <WrapPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4" ItemWidth="50" ItemHeight="45">
+            <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4">
                 <local1:Peg1/>
                 <local1:Peg2 />
                 <local1:Peg3/>
                 <local1:Peg4/>
-            </WrapPanel>
-            <WrapPanel Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2" ItemWidth="50" ItemHeight="45">
+            </StackPanel>
+            <StackPanel Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
                 <local1:Peg5/>
                 <local1:Peg6/>
-            </WrapPanel>
-            <WrapPanel Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2" ItemWidth="50" ItemHeight="45">
+            </StackPanel>
+            <StackPanel Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
                 <local1:Peg7/>
                 <local1:Peg8/>
-            </WrapPanel>
+            </StackPanel>
 
             <!-- Spelplanen -->
             <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
