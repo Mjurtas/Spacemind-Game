@@ -82,6 +82,16 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Starfield {
+            get {
+                object obj = ResourceManager.GetObject("Starfield", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] starjedi_hollow_sample {
             get {
                 object obj = ResourceManager.GetObject("starjedi_hollow_sample", resourceCulture);

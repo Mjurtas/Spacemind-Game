@@ -5,15 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SUP_G6"
         xmlns:converter="clr-namespace:SUP_G6.Converter"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
       Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
         WindowStartupLocation="CenterScreen">
 
     <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="/Assets/Images/background.jpg" Stretch="UniformToFill" />
-        </Grid.Background>
+        <Image x:Name="StarlfieldGif" 
+               Stretch="UniformToFill"              
+               gif:ImageBehavior.RepeatBehavior="Forever"
+               gif:ImageBehavior.AnimatedSource="/Assets/Images/Starfield.gif" 
+               Source="/Assets/Images/Starfield.gif"/>
+
         <StackPanel>
             <Frame x:Name="Main">
 
