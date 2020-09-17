@@ -107,5 +107,14 @@ namespace SUP_G6.Properties {
                 return ResourceManager.GetStream("starwars", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream win_fanfare {
+            get {
+                return ResourceManager.GetStream("win_fanfare", resourceCulture);
+            }
+        }
     }
 }

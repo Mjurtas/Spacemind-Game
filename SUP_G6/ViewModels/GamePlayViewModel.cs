@@ -182,13 +182,16 @@ namespace SUP_G6.ViewModels
             {
                 dispatcherTimer.Stop();
                 CreateNewGameResult();
+                snd = new SoundPlayer(Properties.Resources.win_fanfare);
+                snd.Play();
                 WinPanelVisibility = true;
 
             }
 
-            else if (NumberOfTries > 10)
+            else if (NumberOfTries == 10)
             {
                 dispatcherTimer.Stop();
+                snd.Stop();
                 LosePanelVisibility = true;
             }
 
