@@ -15,6 +15,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Media;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace SUP_G6.ViewModels
 {
@@ -31,7 +32,7 @@ namespace SUP_G6.ViewModels
             this.level = level;
             SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode(level);
-           
+            CreateTimer();
             _stopWatch = new Stopwatch();
             _stopWatch.Start();
         }
@@ -42,6 +43,7 @@ namespace SUP_G6.ViewModels
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;
         private Stopwatch _stopWatch;
+        public int TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
         public string ToMessageBox { get; set; }
@@ -59,7 +61,7 @@ namespace SUP_G6.ViewModels
         #endregion
 
         #region Set Level Visibility
-
+        DispatcherTimer dispatcherTimer;
         public void SetLevelVisibility()
         {
             if (level == Level.Medium)
@@ -77,6 +79,20 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
+        public void CreateTimer()
+        {
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(dispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            TimeLabel++;
+        }
+
+
 
         #region Command for Guess Button
         public ICommand GuessCommand { get; set; }
@@ -89,7 +105,7 @@ namespace SUP_G6.ViewModels
             if (Guess != null)
             {
                 ToMessageBox = "";
-                var feedback = GameLogic.Feedback(SecretCode, Guess );
+                var feedback = GameLogic.Feedback(testkod, Guess );
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
                 // debugkod för timern
@@ -155,7 +171,7 @@ namespace SUP_G6.ViewModels
 
             if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
             {
-                _stopWatch.Stop();
+                dispatcherTimer.Stop();
                 CreateNewGameResult();
                 WinPanelVisibility = true;
 
@@ -163,6 +179,7 @@ namespace SUP_G6.ViewModels
 
             else if (NumberOfTries > 10)
             {
+                dispatcherTimer.Stop();
                 LosePanelVisibility = true;
             }
 
@@ -179,7 +196,7 @@ namespace SUP_G6.ViewModels
                 PlayerName = player.Name,
                 Level = this.level,
                 Win = true,
-                ElapsedTimeInSeconds = _stopWatch.Elapsed.TotalSeconds,
+                ElapsedTimeInSeconds = (double)TimeLabel,
                 Tries = this.NumberOfTries
                 
             };
