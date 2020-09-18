@@ -32,6 +32,7 @@ namespace SUP_G6.ViewModels
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
             ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
+            ViewStartPageCommand = new RelayCommand(ViewStartPage);
             
         }
 

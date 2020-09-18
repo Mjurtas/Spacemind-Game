@@ -41,7 +41,7 @@
                 <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
             </StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" Content="Back" FontSize="40" Height="71" Width="285" Margin="0 30 0 0" Click="Button_Click"/>
+            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="71" Width="285" Margin="0 30 0 0" />
         </StackPanel>
 
     </Grid>
