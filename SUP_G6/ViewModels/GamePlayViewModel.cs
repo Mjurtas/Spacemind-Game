@@ -107,7 +107,7 @@ namespace SUP_G6.ViewModels
         private void ExecuteGuess()
         {
             //int[] testkod = new int[] { 1, 2, 3, 4 };
-            
+
             if (Guess != null)
             {
                 ToMessageBox = "";
