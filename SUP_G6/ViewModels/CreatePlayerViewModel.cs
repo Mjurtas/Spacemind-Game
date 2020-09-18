@@ -38,7 +38,7 @@ namespace SUP_G6.ViewModels
             Player = player;
             DataBaseLogic.AddPlayer(player);
 
-            var page = new ChoosePlayerPage();
+            var page = new SelectLevelPage(player);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
 
         }
