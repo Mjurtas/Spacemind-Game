@@ -23,20 +23,7 @@ namespace SUP_G6.Views
         public GameRulesPage()
         {
             InitializeComponent();
-            viewModel = new GameRulesViewModel();
-            DataContext = viewModel;
-        }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            var page1 = new StartPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
-        }
-
-        private void ChangePageToViewGameRules()
-        {
-            
-
+            DataContext = new GameRulesViewModel();
         }
 
     }

@@ -1,13 +1,35 @@
-﻿using System;
+﻿using SUP_G6.DataTypes;
+using SUP_G6.Models;
+using SUP_G6.Other;
+using SUP_G6.ViewModels.BaseViewModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Text;
-using System.Windows.Media;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Shapes;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
+using System.Media;
+using System.Windows;
+using System.Windows.Threading;
+using SUP_G6.Views;
+using SUP_G6.Interface;
 
 namespace SUP_G6.ViewModels
 {
     class GameRulesViewModel
     {
+        public GameRulesViewModel()
+        {
+            ViewStartPageCommand = new RelayCommand(ViewStartPage);
+        }
         public string BackButton { get; set; } = "BACK";
+        public ICommand ViewStartPageCommand { get; set; }
+
         public string GameRules { get; set; } = "== How To Play ==\n \n" +
                                                 "The computer will create a secret code consisting of four colours. The goal of the game is to guess the secret code in 10 tries or less. The player may drag any of the coloured pegs to the game board to make a four-colour guess, and then press the Guess button. The computer will provide feedback to the guess with four smaller pegs to the right, one for each player peg:\n \n" +
                                                 "1. A Green feedback peg means a player peg is the right colour and in the right position.\n" +
@@ -30,8 +52,13 @@ namespace SUP_G6.ViewModels
                                                 "This page will present the best 3 players of any category.\n \n" +
                                                 "GAME RULES\n" +
                                                 "This page.";
-        
 
+        public void ViewStartPage()
+        {
+
+            var page = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
     }
 
 }
