@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SUP_G6.Converter
 {
@@ -15,22 +16,37 @@ namespace SUP_G6.Converter
             switch (color)
             {
                 case 1:
-                    return new SolidColorBrush(Colors.Red);
+                    ImageBrush imageSource = new ImageBrush();
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg1av.png", UriKind.Relative));
+                    return imageSource;
                 case 2:
-                    return new SolidColorBrush(Colors.Blue);
+                    ImageBrush imageSource2 = new ImageBrush();
+                    imageSource2.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg2av.png", UriKind.Relative));
+                    return imageSource2;
                 case 3:
-                    return new SolidColorBrush(Colors.Yellow);
+                    ImageBrush imageSource3 = new ImageBrush();
+                    imageSource3.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg3av.png", UriKind.Relative));
+                    return imageSource3;
                 case 4:
-                    return new SolidColorBrush(Colors.Green);
+                    ImageBrush imageSource4 = new ImageBrush();
+                    imageSource4.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource4;
                 case 5:
-                    return new SolidColorBrush(Colors.Purple);
+                    ImageBrush imageSource5 = new ImageBrush();
+                    imageSource5.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg5av.png", UriKind.Relative));
+                    return imageSource5;
                 case 6:
-                    return new SolidColorBrush(Colors.Pink);
+                    ImageBrush imageSource6 = new ImageBrush();
+                    imageSource6.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg6av.png", UriKind.Relative));
+                    return imageSource6;
                 case 7:
-                    return new SolidColorBrush(Colors.LightBlue);
+                    ImageBrush imageSource7 = new ImageBrush();
+                    imageSource7.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource7;
                 case 8:
-                    return new SolidColorBrush(Colors.Orange);
-               
+                    ImageBrush imageSource8 = new ImageBrush();
+                    imageSource8.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource8;
             };
             return new SolidColorBrush(Colors.White);
         }
