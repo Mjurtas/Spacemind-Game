@@ -12,41 +12,42 @@ namespace SUP_G6.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            ImageBrush imageSource = new ImageBrush();
             var color = value;
             switch (color)
             {
                 case 1:
-                    ImageBrush imageSource = new ImageBrush();
+                     
                     imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg1av.png", UriKind.Relative));
                     return imageSource;
                 case 2:
-                    ImageBrush imageSource2 = new ImageBrush();
-                    imageSource2.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg2av.png", UriKind.Relative));
-                    return imageSource2;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg2av.png", UriKind.Relative));
+                    return imageSource;
                 case 3:
-                    ImageBrush imageSource3 = new ImageBrush();
-                    imageSource3.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg3av.png", UriKind.Relative));
-                    return imageSource3;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg3av.png", UriKind.Relative));
+                    return imageSource;
                 case 4:
-                    ImageBrush imageSource4 = new ImageBrush();
-                    imageSource4.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
-                    return imageSource4;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource;
                 case 5:
-                    ImageBrush imageSource5 = new ImageBrush();
-                    imageSource5.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg5av.png", UriKind.Relative));
-                    return imageSource5;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg5av.png", UriKind.Relative));
+                    return imageSource;
                 case 6:
-                    ImageBrush imageSource6 = new ImageBrush();
-                    imageSource6.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg6av.png", UriKind.Relative));
-                    return imageSource6;
+                   
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg6av.png", UriKind.Relative));
+                    return imageSource;
                 case 7:
-                    ImageBrush imageSource7 = new ImageBrush();
-                    imageSource7.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
-                    return imageSource7;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource;
                 case 8:
-                    ImageBrush imageSource8 = new ImageBrush();
-                    imageSource8.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
-                    return imageSource8;
+                    
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    return imageSource;
             };
             return new SolidColorBrush(Colors.White);
         }

@@ -18,9 +18,6 @@ namespace SUP_G6.ViewModels
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
         public Player Player { get; set; }
         public Level Level { get; set; }
-        public bool EasyRadioButton { get; set; } = true;
-        public bool MediumRadioButton { get; set; } = false;
-        public bool HardRadioButton { get; set; } = false;
         public ICommand StartGameCommand { get; set; }
 
         public ChoosePlayerViewModel()

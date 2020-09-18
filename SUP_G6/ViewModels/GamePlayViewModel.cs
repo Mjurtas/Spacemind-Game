@@ -22,6 +22,7 @@ namespace SUP_G6.ViewModels
 {
     class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
+        #region constructor
         SoundPlayer snd;
         public GamePlayViewModel(Player player, Level level)
         {
@@ -39,13 +40,15 @@ namespace SUP_G6.ViewModels
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
 
         }
+        #endregion
+
 
         #region Public Properties
         public int[] Guess { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;
-        private Stopwatch _stopWatch;
+       
         public int TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
@@ -53,7 +56,7 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
-        string FormatString;
+        
         public ICommand RestartGameCommand { get; set; }
         public ICommand BackToStartCommand { get; set; }
         #endregion
@@ -66,7 +69,7 @@ namespace SUP_G6.ViewModels
         #endregion
 
         #region Set Level Visibility
-        DispatcherTimer dispatcherTimer;
+        
         public void SetLevelVisibility()
         {
             if (level == Level.Medium)
@@ -83,7 +86,8 @@ namespace SUP_G6.ViewModels
         }
 
         #endregion
-
+        #region Timer
+        DispatcherTimer dispatcherTimer;
         public void CreateTimer()
         {
             dispatcherTimer = new DispatcherTimer();
@@ -96,6 +100,8 @@ namespace SUP_G6.ViewModels
         {
             TimeLabel++;
         }
+        #endregion
+
 
 
 
@@ -169,6 +175,8 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
+        #region Check Win and EndPageNavigation
+
         public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
 
@@ -204,8 +212,10 @@ namespace SUP_G6.ViewModels
             var page = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
+        #endregion
+            
 
-        #region VM till DB
+        #region DataBase Communication
 
         private void CreateNewGameResult()
         {

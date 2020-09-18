@@ -25,7 +25,7 @@ namespace SUP_G6.ViewModels
     public class HighScoreViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
 
-
+        // Relays for ICommands
         public HighScoreViewModel()
         {
             SortByNameCommand = new RelayCommand(SortByName);
@@ -38,40 +38,22 @@ namespace SUP_G6.ViewModels
 
 
         #region List of GameResults and Players
+        /* Recieves data from DataBase*/
+
         public ObservableCollection<GameResult> GetList { get; set; } = DataBaseLogic.GetGameResults();
         public ObservableCollection<GameResult> ListOfGameResults { get; set; }
         public ObservableCollection<Player> ListOfDiligentPlayers { get; set; } = DataBaseLogic.GetDiligentPlayers();
         public ObservableCollection<IExistInDatabase> HighScoreList { get; set; }
         #endregion
 
+        #region Sort by level - radiobuttons
+        // Set true or false on Easy/Medium/Hard and sorts highscore-lists
+        /* based on user selection*/
+
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
-
-
-        #region ICommands
-        public ICommand SortByTimeCommand { get; set; }
-        public ICommand SortByNameCommand { get; set; }
-        public ICommand SortByTriesCommand { get; set; }
-        public ICommand ShowDiligentPlayersCommand { get; set; }
-        public ICommand ViewStartPageCommand { get; set; }
-        public ICommand SortHighScoreCommand { get; set; }
-        #endregion
-
-
-
-
-        #region Sorting IsChecked-Properties
-        public bool SortHighScoreStandard { get; set; } = false;
-        public bool SortHighScoreByName { get; set; } = true;
-        public bool SortHighScoreByTries { get; set; } = false;
-        #endregion
-
-
-
-        #region Sorting HighScore-Methods
-
 
         public void SetLevelFromRadioButton()
         {
@@ -88,6 +70,40 @@ namespace SUP_G6.ViewModels
                 Level = Level.Hard;
             }
         }
+
+        #endregion
+        #region ICommands
+
+
+        public ICommand SortByTimeCommand { get; set; }
+        public ICommand SortByNameCommand { get; set; }
+        public ICommand SortByTriesCommand { get; set; }
+        public ICommand ShowDiligentPlayersCommand { get; set; }
+        public ICommand ViewStartPageCommand { get; set; }
+        public ICommand SortHighScoreCommand { get; set; }
+        #endregion
+
+
+
+
+        #region Sorting IsChecked-Properties
+
+        // Different conditions when sorting highscorelist
+        public bool SortHighScoreStandard { get; set; } = false;
+        public bool SortHighScoreByName { get; set; } = true;
+        public bool SortHighScoreByTries { get; set; } = false;
+        #endregion
+
+
+
+        #region Sorting HighScore-Methods
+
+        /* Enables sorting of highscorelists. IExistInDataBase makes it possible to
+         keep both GameResults and Players in same list since both classes inherit from
+         the interface.*/
+
+
+        
         public void SortByTime()
         {
             SetLevelFromRadioButton();

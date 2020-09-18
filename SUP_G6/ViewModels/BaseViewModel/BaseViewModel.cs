@@ -7,6 +7,7 @@ using System.Text;
 
 namespace SUP_G6.ViewModels.BaseViewModel
 {
+    // All view models inherits from BaseViewModel which enables INotifyPropertyChanged.
     public class BaseViewModel : INotifyPropertyChanged
 
     {

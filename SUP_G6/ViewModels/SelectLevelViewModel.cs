@@ -13,7 +13,7 @@ namespace SUP_G6.ViewModels
 {
     class SelectLevelViewModel
     {
-        public Player player { get; set; }
+        public Player Player { get; set; }
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
@@ -22,7 +22,7 @@ namespace SUP_G6.ViewModels
 
         public SelectLevelViewModel(Player player)
         {
-            this.player = player;
+            this.Player = player;
             StartGameCommand = new RelayCommand(StartGame);
         }
 
@@ -44,11 +44,11 @@ namespace SUP_G6.ViewModels
 
         public void StartGame()
         {
-            if (player != null)
+            if (Player != null)
             {
                 CreateGame();
                 Level level = Level;
-                var page = new GamePlayPage(player, level);
+                var page = new GamePlayPage(Player, level);
                 ((MainWindow)Application.Current.MainWindow).Main.Content = page;
             }
         }
