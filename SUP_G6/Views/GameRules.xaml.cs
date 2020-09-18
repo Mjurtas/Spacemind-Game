@@ -19,7 +19,6 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class GameRulesPage : Page
     {
-        GameRulesViewModel viewModel;
         public GameRulesPage()
         {
             InitializeComponent();

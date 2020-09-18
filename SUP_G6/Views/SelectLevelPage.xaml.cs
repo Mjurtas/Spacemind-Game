@@ -21,12 +21,10 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class SelectLevelPage : Page
     {
-        private SelectLevelViewModel viewModel;
         public SelectLevelPage(Player player)
         {
             InitializeComponent();
-            viewModel = new SelectLevelViewModel(player);
-            DataContext = viewModel;
+            DataContext=new SelectLevelViewModel(player);
         }
     }
 }

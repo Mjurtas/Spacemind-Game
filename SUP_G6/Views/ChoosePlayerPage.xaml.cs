@@ -24,12 +24,10 @@ namespace SUP_G6.Views
  
     public partial class ChoosePlayerPage : Page
     {
-        ChoosePlayerViewModel viewModel;
         public ChoosePlayerPage()
         {
             InitializeComponent();
-            viewModel = new ChoosePlayerViewModel();
-            DataContext = viewModel;
+            DataContext = new ChoosePlayerViewModel();
         }     
     }
 }
