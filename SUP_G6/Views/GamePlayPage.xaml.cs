@@ -257,5 +257,10 @@ namespace SUP_G6.Views
             }
         }
         #endregion
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            currentGuessRow.Children.Clear();
+        }
     }
 }
