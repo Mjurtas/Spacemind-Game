@@ -34,8 +34,7 @@ namespace SUP_G6.ViewModels
             SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode(level);
             CreateTimer();
-            _stopWatch = new Stopwatch();
-            _stopWatch.Start();
+
             RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
 
@@ -110,15 +109,10 @@ namespace SUP_G6.ViewModels
 
             if (Guess != null)
             {
-                ToMessageBox = "";
-                var feedback = GameLogic.Feedback(SecretCode, Guess );
-                SetFeedbackPegs(feedback);
-                NumberOfTries += 1;
-                // debugkod för timern
-                //MessageBox.Show(UITimerProp.ToString());
-                //TimeSpan time = TimeSpan.FromSeconds(TimeLabel);
-                //FormatString = time.ToString(@"hh\:mm\:ss\:fff");
-                //MessageBox.Show(FormatString);
+              
+                    var feedback = GameLogic.Feedback(SecretCode, Guess);
+                    SetFeedbackPegs(feedback);
+                    NumberOfTries += 1;           
             }
             else
             {
