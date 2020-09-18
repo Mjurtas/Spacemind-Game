@@ -260,7 +260,7 @@ namespace SUP_G6.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            currentGuessRow.Children.Clear();
+            nextGuessRow.Children.Clear();
         }
     }
 }
