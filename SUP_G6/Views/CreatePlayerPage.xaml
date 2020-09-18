@@ -31,8 +31,8 @@
 
         </StackPanel>
         <StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="Create player" Height="71" Width="285" Margin="0 400 0 10" FontSize="22" FontWeight="Bold" />
-            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Content="Back" Height="71" Width="285" Click="BtnGoBackToStart_Click" FontSize="22" FontWeight="Bold"/>
+            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="{Binding CreatePlayerButton, FallbackValue=skapa spelare}" Height="71" Width="285" Margin="0 400 0 10" FontSize="22" FontWeight="Bold" />
+            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Command="{Binding BackButtonCommand}" Content="{Binding BackButton, FallbackValue=tillbaka}" Height="71" Width="285" FontSize="22" FontWeight="Bold"/>
         </StackPanel>
 
     </Grid>

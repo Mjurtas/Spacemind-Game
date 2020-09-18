@@ -15,18 +15,27 @@ namespace SUP_G6.ViewModels
 {
     public class CreatePlayerViewModel : BaseViewModel.BaseViewModel
     {
-        public Player Player { get; set; }
-        public ICommand CreatePlayerCommand { get; set; }
         public string Name { get; set; }
+        public Player Player { get; set; }
+        public string CreatePlayerButton { get; set; } = "create player";
+        public string BackButton { get; set; } = "back";
+
+        public ICommand CreatePlayerCommand { get; set; }
+        public ICommand BackButtonCommand { get; set; }
 
 
         public CreatePlayerViewModel()
         {
 
             CreatePlayerCommand = new RelayCommand(CreatePlayer);
+            BackButtonCommand = new RelayCommand(BackToStart);
         }
-        
 
+        private void BackToStart()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
+        }
 
         public void CreatePlayer()
         {
