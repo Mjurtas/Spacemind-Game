@@ -7,34 +7,38 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace SUP_G6.ViewModels
 {
     public class ChoosePlayerViewModel
     {
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
+        public Player Player { get; set; }
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
+        public ICommand StartGameCommand { get; set; }
 
-        public void CreateGame()
-        {
-            if (EasyRadioButton)
-            {
-                Level = Level.Easy;
-            }
-            else if (MediumRadioButton)
-            {
-                Level = Level.Medium;
-            }
-            else
-            {
-                Level = Level.Hard;
-            }
-
+        public ChoosePlayerViewModel()
+        {         
+            StartGameCommand = new RelayCommand(StartGame);
         }
+
+
+        //(Player) playerListbox.SelectedItem;
+        public void StartGame()
+        {
+            Player player = Player;
+
+            if (player != null)
+            {               
+                var page = new SelectLevelPage(player);
+                ((MainWindow) Application.Current.MainWindow).Main.Content = page;
+            }
+        }       
     }
 }
