@@ -26,7 +26,7 @@ namespace SUP_G6.Models
 
         public override string ToString()
         {
-            return $"Name: {PlayerName}\t\tTries: {Tries}\t\tTime: {ElapsedTimeInSeconds}\t\tLevel  {Level}";
+            return $" {PlayerName} \t\t{ElapsedTimeInSeconds}  \t\t {Tries}  ";
         }
 
 

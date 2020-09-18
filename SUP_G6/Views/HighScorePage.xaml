@@ -34,15 +34,67 @@
                 <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
                 <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="90" Height="40" />
             </WrapPanel>
-            <ListBox ItemsSource="{Binding  HighScoreList}" BorderBrush="Yellow" BorderThickness="2" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="630"/>
+            <ListBox ItemsSource="{Binding  HighScoreList}" BorderBrush="Yellow" BorderThickness="2" Height="9" Width="630"/>
             <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center"></Label>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
             </StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="71" Width="285" Margin="0 30 0 0" />
+            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="71" Width="284" />
+
+
+
+            <Grid>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition />
+                
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Column="1">
+                    <Label Content="NAME" Foreground="Yellow" FontSize="40" FontWeight="Bold" ></Label>
+                </StackPanel>
+                <StackPanel Grid.Column="2">
+                    <Label Content="TIME" Foreground="Yellow" FontSize="40" FontWeight="Bold" ></Label>
+                </StackPanel>
+                <StackPanel Grid.Column="3">
+                    <Label Content="TRIES" Foreground="Yellow" FontSize="40" FontWeight="Bold" ></Label>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3">
+                    
+
+                      
+                    
+                    <StackPanel Orientation="Horizontal" Background="Yellow" >
+                    
+            <Label  Content="{Binding HighScoreList[0].PlayerName, FallbackValue=Erik}" Foreground="Black" FontSize="50" FontWeight="Bold"/>
+                        
+            
+                </StackPanel>
+                    
+                <StackPanel Orientation="Horizontal" Background="Black" VerticalAlignment="Center" >
+                   
+                    <Label x:Name="player2" Content="{Binding HighScoreList[1], FallbackValue=Erik}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Background="Yellow"  >
+                 
+                    <Label x:Name="player3" Content="{Binding HighScoreList[2], FallbackValue=Erik}" Foreground="Black" FontSize="50" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+            </Grid>
         </StackPanel>
+    
 
     </Grid>
 </Page>
