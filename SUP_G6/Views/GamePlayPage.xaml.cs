@@ -69,15 +69,6 @@ namespace SUP_G6.Views
 
         #endregion
 
-        //private void dispatcherTimer_Tick(object sender, EventArgs e)
-        //{
-            // Updating the Label which displays the current second
-            //tick += 1;
-            //UITimerTextBlock.Text = tick.ToString();
-
-            // Forcing the CommandManager to raise the RequerySuggested event
-            //CommandManager.InvalidateRequerySuggested();
-        //}
 
         #region Handle Guesses
 
