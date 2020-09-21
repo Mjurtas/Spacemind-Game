@@ -73,13 +73,13 @@
                 <!--HighScoreTable   UI-->
               
                 <StackPanel Grid.Column="1">
-                    <Label Content="Name" Foreground="Yellow" FontSize="40"  ></Label>
+                    <Label Style="{StaticResource StarWarsFont}" Content="Name" Foreground="Yellow" FontSize="40"  ></Label>
                 </StackPanel>
                 <StackPanel Grid.Column="2">
-                    <Label Content="Time" Foreground="Yellow" FontSize="40"  ></Label>
+                    <Label Style="{StaticResource StarWarsFont}" Content="Time" Foreground="Yellow" FontSize="40"  ></Label>
                 </StackPanel>
                 <StackPanel Grid.Column="3">
-                    <Label Content="Tries" Foreground="Yellow" FontSize="40"  ></Label>
+                    <Label Style="{StaticResource StarWarsFont}" Content="Tries" Foreground="Yellow" FontSize="40"  ></Label>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="1" >
                     <Label  Content="{Binding HighScoreList[0].PlayerName, FallbackValue=PLayer 1}" Foreground="Black" FontSize="50" Background="Yellow" FontWeight="Bold"/>
@@ -94,22 +94,22 @@
 
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="2">
-                    <Label  Content="{Binding HighScoreList[1].PlayerName, FallbackValue=pl2}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[1].PlayerName, FallbackValue=pl2}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Grid.Column="2" Grid.Row="2">
-                    <Label  Content="{Binding HighScoreList[1].ElapsedTimeInSeconds, FallbackValue=pl2 tid}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[1].ElapsedTimeInSeconds, FallbackValue=pl2 tid}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Grid.Column="3" Grid.Row="2">
-                    <Label  Content="{Binding HighScoreList[1].Tries, FallbackValue=pl2 tries}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[1].Tries, FallbackValue=pl2 tries}" Foreground="Yellow" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1" Grid.Row="3">
-                    <Label  Content="{Binding HighScoreList[2].PlayerName, FallbackValue=pl2}" Background="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[2].PlayerName, FallbackValue=pl2}" Background="Yellow" Foreground="Black" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Grid.Column="2" Grid.Row="3">
-                    <Label  Content="{Binding HighScoreList[2].ElapsedTimeInSeconds, FallbackValue=pl2 tid}" Background="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[2].ElapsedTimeInSeconds, FallbackValue=pl2 tid}" Background="Yellow" Foreground="Black" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                 <StackPanel Grid.Column="3" Grid.Row="3">
-                    <Label  Content="{Binding HighScoreList[2].Tries, FallbackValue=pl2 tries}" Background="Yellow" FontSize="50" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}"  Content="{Binding HighScoreList[2].Tries, FallbackValue=pl2 tries}" Background="Yellow" Foreground="Black" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
                     
                  <!--HighScoreTable UI-->
@@ -128,22 +128,22 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <WrapPanel Orientation="Horizontal" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="0"/>
-                    <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="0"/>
-                    <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
+                    <Button Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="0"/>
+                    <Button Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="0"/>
+                    <Button Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelatmest}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
                </WrapPanel>
 
                 <WrapPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                     <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="40" Content="Sort by" HorizontalAlignment="Center"></Label>
                     <WrapPanel VerticalAlignment="Bottom">
-                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Style="{StaticResource StarWarsRadioButtonFont}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Style="{StaticResource StarWarsRadioButtonFont}" Content="{Binding RadioButtonMedium, FallbackValue=medium}" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Style="{StaticResource StarWarsRadioButtonFont}" Content="{Binding RadioButtonHard, FallbackValue=svårt}" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                     </WrapPanel>
                 </WrapPanel>
             </Grid>
 
-        <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="100" Width="285" Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Left"/>
+        <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="{Binding ButtonBack, FallbackValue=tillbaka}" FontSize="40" Height="100" Width="285" Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Left"/>
             </Grid>
         
 

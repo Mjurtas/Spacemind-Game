@@ -47,8 +47,7 @@ namespace SUP_G6.ViewModels
         public int[] Guess { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
-        public bool HardLevel { get; set; } = false;
-       
+        public bool HardLevel { get; set; } = false;       
         public int TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
@@ -56,12 +55,16 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
-
+        public static object Stopwatch1 { get; private set; }
         public string ButtonGuess { get; set; } = "guess!";
         public string ButtonReset { get; set; } = "reset";
+        #endregion
 
+        #region ICommands        
         public ICommand RestartGameCommand { get; set; }
         public ICommand BackToStartCommand { get; set; }
+        public ICommand GuessCommand { get; set; }
+
         #endregion
 
         #region Feedback-pegs Properties
@@ -89,6 +92,7 @@ namespace SUP_G6.ViewModels
         }
 
         #endregion
+
         #region Timer
         DispatcherTimer dispatcherTimer;
         public void CreateTimer()
@@ -105,12 +109,7 @@ namespace SUP_G6.ViewModels
         }
         #endregion
 
-
-
-
         #region Command for Guess Button
-        public ICommand GuessCommand { get; set; }
-        public static object Stopwatch1 { get; private set; }
 
         private void ExecuteGuess()
         {

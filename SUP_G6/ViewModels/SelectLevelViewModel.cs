@@ -13,12 +13,21 @@ namespace SUP_G6.ViewModels
 {
     class SelectLevelViewModel
     {
+        #region Properties
         public Player Player { get; set; }
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
-        public ICommand StartGameCommand{ get; set; }
+        public string ButtonPlayGame { get; set; } = "play game";
+        public string RadioButtonEasy { get; set; } = "easy";
+        public string RadioButtonMedium { get; set; } = "medium";
+        public string RadioButtonHard { get; set; } = "hard";
+        #endregion
+
+        #region ICommand
+        public ICommand StartGameCommand { get; set; }
+        #endregion
 
         public SelectLevelViewModel(Player player)
         {

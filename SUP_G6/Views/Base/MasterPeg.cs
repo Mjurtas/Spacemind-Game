@@ -8,9 +8,10 @@ namespace SUP_G6
 {
     public class MasterPeg : UserControl
     {
+        #region Properties
         public int ColorId { get; set; }
-
         public Level LevelVisibility { get; set; }
+        #endregion
 
         public MasterPeg()
         {

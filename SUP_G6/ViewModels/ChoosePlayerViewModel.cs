@@ -15,10 +15,15 @@ namespace SUP_G6.ViewModels
 {
     public class ChoosePlayerViewModel
     {
+        #region Properties
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
         public Player Player { get; set; }
         public Level Level { get; set; }
+        #endregion
+
+        #region ICommand
         public ICommand StartGameCommand { get; set; }
+        #endregion
 
         public ChoosePlayerViewModel()
         {         
