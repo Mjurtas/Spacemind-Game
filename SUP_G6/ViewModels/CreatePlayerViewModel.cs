@@ -39,6 +39,8 @@ namespace SUP_G6.ViewModels
 
         public void CreatePlayer()
         {
+            // limits på namn. Längd, tecken, finns redan i listan? UNIQUE try catch?
+
             Player player = new Player
             {
                 Name = this.Name

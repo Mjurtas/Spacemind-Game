@@ -120,9 +120,10 @@ namespace SUP_G6.Other
 
         #region CREATE GAME RESULT
 
+        /* Adds gameresult by when game is finished*/
 
         public static int AddGameResult(GameResult gameResult)
-        {                                                       //OBS, LÄGG TILL TIME!           //@time
+        {                                                     
             string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
 
 
@@ -148,41 +149,6 @@ namespace SUP_G6.Other
         #endregion
 
         #region READ GAME RESULT
-
-        //public static GameResult GetGameResult(int id)
-        //{
-        //    string stmt = "select game_id, player_id, time, tries, win, level from game_result where game_id=@game_id";
-
-        //    using (var conn = new NpgsqlConnection(connectionString))
-        //    {
-        //        GameResult gameResult = null;
-        //        ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
-        //        conn.Open();
-        //        using (var command = new NpgsqlCommand(stmt, conn))
-        //        {
-
-                    
-        //            command.Parameters.AddWithValue("game_id", id);
-        //            using (var reader = command.ExecuteReader())
-        //            {
-        //                while (reader.Read())
-        //                {
-        //                    gameResult = new GameResult()
-        //                    {
-        //                        GameId = (int)reader["game_id"],
-        //                        PlayerId = (int)reader["player_id"],
-        //                        ElapsedTimeInSeconds=(double)reader["time"],
-        //                        Tries = (int)reader["tries"],
-        //                        Win = (bool)reader["win"],
-        //                        Level = (Level)reader["level"]
-        //                    };
-        //                    gameResults.Add(gameResult);
-        //                }
-        //            }
-        //        }
-        //        return gameResults;
-        //    }
-        //}
 
 
 

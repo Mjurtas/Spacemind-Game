@@ -26,7 +26,6 @@ namespace SUP_G6.ViewModels
         }
 
 
-        //(Player) playerListbox.SelectedItem;
         public void StartGame()
         {
             Player player = Player;
@@ -36,6 +35,10 @@ namespace SUP_G6.ViewModels
                 var page = new SelectLevelPage(player);
                 ((MainWindow) Application.Current.MainWindow).Main.Content = page;
             }
+
+            // ELSE SATS-om man ej väljer spelare
+
+          
         }       
     }
 }
