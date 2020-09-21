@@ -251,7 +251,24 @@ namespace SUP_G6.Views
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            nextGuessRow.Children.Clear();
+            switch (numberOfTries)
+            {
+                case 1:
+                    currentGuessRow = stp1;
+                    nextGuessRow = stp2;
+                    break;
+            }
+            if (IsGuessDone(currentGuessRow) && numberOfTries == 1)
+            {
+                
+                viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
+                currentGuessRow.Children.Clear();
+                MakeNextGuessAvailable(currentGuessRow);
+            }
+            else
+            {
+                nextGuessRow.Children.Clear();
+            }
         }
     }
 }
