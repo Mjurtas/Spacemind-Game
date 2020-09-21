@@ -160,14 +160,14 @@
 
             <!-- Number of Tries -->
             <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" >
-                <TextBlock Text="TRIES" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
-                <TextBlock Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource StarWarsTextBlockFont}"  Text="{Binding LabelTries, FallbackValue=försök}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
             
             <!-- Time -->
             <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="5" Grid.RowSpan="2" >
-                <TextBlock Text="TIME" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
-                <TextBlock Text="{Binding TimeLabel}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding LabelTime, FallbackValue=tid}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
+                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding TimeLabel}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
 
             <!-- Feedbackpluppar -->
@@ -265,8 +265,8 @@
             </Grid>
              
             <!-- Replay and Guess Buttons -->
-            <Button Grid.Column="7" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ResetButton , FallbackValue=reset}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="75" Margin="0 0 0 5" RenderTransformOrigin="0.078,0.12" FontSize="18"  Click="Button_Click_1"/>
-            <Button Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding GuessButton, FallbackValue=gissa}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}"  Height="75" Width="200" FontSize="30" FontWeight="Bold"/>
+            <Button Grid.Column="7" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonReset , FallbackValue=reset}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="75" Margin="0 0 0 5" RenderTransformOrigin="0.078,0.12" FontSize="18"  Click="Button_Click_1"/>
+            <Button Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}"  Height="75" Width="200" FontSize="30" FontWeight="Bold"/>
  
 
             <!--Panel för vinst-->
