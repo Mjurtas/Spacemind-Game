@@ -24,7 +24,7 @@
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.9"
             >
-        <Grid>
+        <Grid ShowGridLines="True">
 
             <!-- Rad- och kolumndefinitioner -->
             <Grid.ColumnDefinitions>
@@ -55,85 +55,99 @@
             </Grid.RowDefinitions>
 
             <!-- Färgplupparna -->
-            <StackPanel Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4">
-                <local1:Peg1/>
-                <local1:Peg2 />
-                <local1:Peg3/>
-                <local1:Peg4/>
-            </StackPanel>
-            <StackPanel Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
-                <local1:Peg5/>
-                <local1:Peg6/>
-            </StackPanel>
-            <StackPanel Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
-                <local1:Peg7/>
-                <local1:Peg8/>
-            </StackPanel>
+            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <local1:Peg1 Grid.Row="0"/>
+                <local1:Peg2 Grid.Row="1"/>
+                <local1:Peg3 Grid.Row="2"/>
+                <local1:Peg4 Grid.Row="3"/>
+            </Grid>
+            <Grid Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <local1:Peg5 Grid.Row="0"/>
+                <local1:Peg6 Grid.Row="1"/>
+            </Grid>
+            <Grid Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <local1:Peg7 Grid.Row="0"/>
+                <local1:Peg8 Grid.Row="1"/>
+            </Grid>
 
             <!-- Spelplanen -->
-            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
                AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
 
-            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray">
             </WrapPanel>
 
-            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
                    Background="LightGray" >
             </WrapPanel>
 
-            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4" ItemWidth="112" ItemHeight="45"
+            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4" ItemWidth="160" ItemHeight="45"
            AllowDrop="False"
            DragOver="panel_DragOver"
            Drop="panel_Drop"
@@ -144,12 +158,13 @@
             <WrapPanel Grid.Column="7" Grid.Row="1" ItemWidth="75" ItemHeight="45"/>
 
             <!-- Number of Tries -->
-            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="4" Grid.RowSpan="2" >
+            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" >
                 <TextBlock Text="TRIES" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
                 <TextBlock Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
-
-            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="6" Grid.RowSpan="2" >
+            
+            <!-- Time -->
+            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="5" Grid.RowSpan="2" >
                 <TextBlock Text="TIME" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
                 <TextBlock Text="{Binding TimeLabel}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
             </StackPanel>
@@ -220,17 +235,12 @@
                 <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}}" VerticalAlignment="Top" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[37], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,5,40,0"/>
                 <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="40,0,0,5"/>
                 <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Height="15" Stroke="Black" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0,0,40,5"/>
-            
-               
             </Grid>
-                
-            <WrapPanel Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ResetButton , FallbackValue=igen}" HorizontalAlignment="Left" Grid.Row="2" VerticalAlignment="Top" Width="200" Height="75" RenderTransformOrigin="0.078,0.12" FontSize="18" Margin="10,5,0,0" Click="Button_Click_1"/>
-            </WrapPanel>
-
-            <WrapPanel Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding GuessButton, FallbackValue=gissa}" Click="Button_Click" Command="{Binding GuessCommand}" Margin="5,0,-15,0" Height="100" Width="200" FontSize="30" FontWeight="Bold"/>
-            </WrapPanel>
+             
+            <!-- Replay and Guess Buttons -->
+            <Button Grid.Column="7" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ResetButton , FallbackValue=igen}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="75" Margin="0 0 0 5" RenderTransformOrigin="0.078,0.12" FontSize="18"  Click="Button_Click_1"/>
+            <Button Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding GuessButton, FallbackValue=gissa}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}"  Height="75" Width="200" FontSize="30" FontWeight="Bold"/>
+ 
 
             <!--Panel för vinst-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
