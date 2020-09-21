@@ -13,14 +13,14 @@
     <Page.Resources>
         <converter:RatioConverter x:Key="RatioConverter"/>
     </Page.Resources>
-
-    <Border
+    <Grid>
+        <Border
             Background="Black"
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.5"
-            >
+            ></Border>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -41,5 +41,6 @@
             </StackPanel>
             <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonPlayGame, FallbackValue=Spela}" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" FontWeight="Bold" FontSize="22"/>
         </Grid>
-    </Border>
+    </Grid>
+
 </Page>
