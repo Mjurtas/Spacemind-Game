@@ -35,11 +35,11 @@
             </Grid.RowDefinitions>
             <Label Grid.ColumnSpan="3" Style="{StaticResource StarWarsFont}" Content="Choose your level" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00"/>
             <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <RadioButton GroupName="Level" x:Name="easyRadioButton" Padding="15" VerticalContentAlignment="Center" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                <RadioButton GroupName="Level" x:Name="mediumRadioButton" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                <RadioButton GroupName="Level" x:Name="hardRadioButton" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="easyRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15" VerticalContentAlignment="Center" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="mediumRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding MediumRadioButton}" Content="{Binding RadioButtonMedium, FallbackValue=medium}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="hardRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding HardRadioButton}" Content="{Binding RadioButtonHard,FallbackValue=svårt}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
             </StackPanel>
-            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" FontWeight="Bold" FontSize="22"/>
+            <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonPlayGame, FallbackValue=Spela}" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" FontWeight="Bold" FontSize="22"/>
         </Grid>
     </Border>
 </Page>

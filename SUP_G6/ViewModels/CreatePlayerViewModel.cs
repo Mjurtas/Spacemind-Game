@@ -15,14 +15,17 @@ namespace SUP_G6.ViewModels
 {
     public class CreatePlayerViewModel : BaseViewModel.BaseViewModel
     {
+        #region Properties
         public string Name { get; set; }
         public Player Player { get; set; }
         public string CreatePlayerButton { get; set; } = "create player";
         public string BackButton { get; set; } = "back";
+        #endregion
 
+        #region ICommand
         public ICommand CreatePlayerCommand { get; set; }
         public ICommand BackButtonCommand { get; set; }
-
+        #endregion
 
         public CreatePlayerViewModel()
         {

@@ -14,10 +14,22 @@ namespace SUP_G6.ViewModels
 {
     public class StartViewModel : BaseViewModel.BaseViewModel
     {
+
+        #region ICommands
         public ICommand CreatePlayerPageCommand { get; set; }
         public ICommand ChoosePlayerPageCommand { get; set; }
         public ICommand ViewHighScorePageCommand { get; set; }
         public ICommand ViewGameRulesPageCommand { get; set; }
+        #endregion
+
+        #region ButtonProperties
+        public string CreatePlayerButton { get; set; } = "create player";
+        public string ChoosePlayerButton { get; set; } = "choose player";
+        public string ViewHighScoreButton { get; set; } = "view highscore";
+        public string ViewGameRulesButton { get; set; } = "game rules";
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        #endregion
 
         public StartViewModel()
         {
@@ -26,6 +38,8 @@ namespace SUP_G6.ViewModels
             ViewHighScorePageCommand = new RelayCommand(ChangePageToHighScorePage);
             ViewGameRulesPageCommand = new RelayCommand(ChangePageToGameRulesPage);
         }
+
+        #region ChangePageMethods
 
         public void ChangePageToCreatePlayerPage()
         {
@@ -51,13 +65,10 @@ namespace SUP_G6.ViewModels
             var page = new GameRulesPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
+        #endregion
 
 
-        public string CreatePlayerButton { get; set; } = "create player";
-        public string ChoosePlayerButton { get; set; } = "choose player";
-        public string ViewHighScoreButton { get; set; } = "view highscore";
-        public string ViewGameRulesButton { get; set; } = "game rules";
-        //public event PropertyChangedEventHandler PropertyChanged;
+
 
 
 
