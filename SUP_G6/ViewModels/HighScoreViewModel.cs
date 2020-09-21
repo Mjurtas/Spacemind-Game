@@ -83,7 +83,11 @@ namespace SUP_G6.ViewModels
         public ICommand SortHighScoreCommand { get; set; }
         #endregion
 
-
+        #region ButtonProperty
+        public string ButtonTime { get; set; } = "time";
+        public string ButtonTries { get; set; } = "tries";
+        public string ButtonMostPlayed { get; set; } = "most played";
+        #endregion
 
 
         #region Sorting IsChecked-Properties

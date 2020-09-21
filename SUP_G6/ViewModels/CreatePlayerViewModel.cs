@@ -43,11 +43,14 @@ namespace SUP_G6.ViewModels
 
             Player player = new Player
             {
-                Name = this.Name
+                
+            Name = this.Name
                 
             };
             Player = player;
-            DataBaseLogic.AddPlayer(player);
+            Player.Id = DataBaseLogic.AddPlayer(player);
+            
+
 
             var page = new SelectLevelPage(player);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
