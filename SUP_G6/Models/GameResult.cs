@@ -23,6 +23,8 @@ namespace SUP_G6.Models
         public Level Level { get; set; }
 
         public bool Win { get; set; }
+        public string DisplayName { get; set; }
+        public Int64 DisplayCount { get; set; }
 
         public override string ToString()
         {

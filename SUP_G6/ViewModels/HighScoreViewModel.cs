@@ -45,6 +45,10 @@ namespace SUP_G6.ViewModels
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
 
+        //Labels over HighScoreTable content properties
+        public string HighScoreColumn1 { get; set; } = "Name";
+        public string HighScoreColumn2 { get; set; } = "Time";
+        public string HighScoreColumn3 { get; set; } = "Tries";
 
         // Different conditions when sorting highscorelist
         public bool SortHighScoreStandard { get; set; } = false;
@@ -54,7 +58,8 @@ namespace SUP_G6.ViewModels
 
         // Set true or false on Easy/Medium/Hard and sorts highscore-lists
         /* based on user selection*/
-        public Level Level { get; set; }
+        public Level Level { get; set; } = Level.Easy;
+        public string Sort { get; set; } = "time";
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
@@ -63,17 +68,16 @@ namespace SUP_G6.ViewModels
 
         #region List of GameResults and Players
         /* Recieves data from DataBase*/
-
-        public ObservableCollection<GameResult> GetList { get; set; } = DataBaseLogic.GetGameResults();
         public ObservableCollection<GameResult> ListOfGameResults { get; set; }
-        public ObservableCollection<Player> ListOfDiligentPlayers { get; set; } = DataBaseLogic.GetDiligentPlayers();
+        public ObservableCollection<Player> ListOfDiligentPlayers { get; set; }
         public ObservableCollection<IExistInDatabase> HighScoreList { get; set; }
         #endregion
 
         // Relays for ICommands
         public HighScoreViewModel()
         {
-            SortByNameCommand = new RelayCommand(SortByName);
+            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
+            UpdateHighScoreList("GameResult");
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
             ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
@@ -106,51 +110,49 @@ namespace SUP_G6.ViewModels
          keep both GameResults and Players in same list since both classes inherit from
          the interface.*/
 
-
-
+        public void UpdateHighScoreList(string listType) 
+        {
+            HighScoreList = new ObservableCollection<IExistInDatabase>();
+            HighScoreList.Clear();
+            if (listType == "GameResult")
+            {
+                foreach (var gameResult in ListOfGameResults)
+                {
+                    HighScoreList.Add(gameResult);
+                }
+                HighScoreColumn2 = "Time";
+                HighScoreColumn3 = "Tries";
+            }
+            else
+            {
+                foreach (var player in ListOfDiligentPlayers)
+                {
+                    HighScoreList.Add(player);
+                }
+                HighScoreColumn2 = "";
+                HighScoreColumn3 = "Games played";
+            }
+        }
         public void SortByTime()
         {
             SetLevelFromRadioButton();
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.ElapsedTimeInSeconds).Where(x => x.Level == Level).Take(3));
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            foreach (var gameResult in ListOfGameResults)
-            {
-                HighScoreList.Add(gameResult);
-            }
-        }
-
-        public void SortByName()
-        {
-            SetLevelFromRadioButton();
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Where(x => x.Level == Level));
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            foreach (var gameResult in ListOfGameResults)
-            {
-                HighScoreList.Add(gameResult);
-            }
+            Sort = "time";
+            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
+            UpdateHighScoreList("GameResult");
         }
 
         public void SortByTries()
         {
             SetLevelFromRadioButton();
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.Tries).Where(x => x.Level == Level).Take(3));
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            foreach (var gameResult in ListOfGameResults)
-            {
-                HighScoreList.Add(gameResult);
-            }
+            Sort = "tries";
+            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
+            UpdateHighScoreList("GameResult");
         }
         public void GetDiligentPlayers()
         {
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            foreach (var player in ListOfDiligentPlayers)
-            {
-                HighScoreList.Add(player);
-            }
+            SetLevelFromRadioButton();
+            ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
+            UpdateHighScoreList("Player");
         }
         #endregion
 
