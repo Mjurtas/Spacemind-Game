@@ -38,7 +38,7 @@ namespace SUP_G6.ViewModels
 
             RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
-
+            ResetButtonCommand = new RelayCommand(ResetButton);
         }
         #endregion
 
@@ -51,7 +51,7 @@ namespace SUP_G6.ViewModels
         public int TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
-        public string ToMessageBox { get; set; }
+        public string ToMessageBox { get; set; } = "You must use 4 avatars for acceptable guess";
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
@@ -66,6 +66,7 @@ namespace SUP_G6.ViewModels
         public ICommand RestartGameCommand { get; set; }
         public ICommand BackToStartCommand { get; set; }
         public ICommand GuessCommand { get; set; }
+        public ICommand ResetButtonCommand { get; set; }
 
         #endregion
 
@@ -217,7 +218,6 @@ namespace SUP_G6.ViewModels
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
         #endregion
-            
 
         #region DataBase Communication
 
@@ -238,6 +238,13 @@ namespace SUP_G6.ViewModels
             
         }
 
+        #endregion
+
+        #region Reset Button Method
+        private void ResetButton()
+        {
+
+        }
         #endregion
 
 
