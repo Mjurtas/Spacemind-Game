@@ -14,32 +14,41 @@
     </Page.Resources>
 
     <Grid>
-
+        
         <Border
             Background="Black"
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.5" Margin="0,-10,0,10"
-            >
-
-
-
-        </Border>
-        <StackPanel>
-            <Label Style="{StaticResource StarWarsFont}" Content="Highscore" HorizontalAlignment="Center" Margin="0 50 0 60" Foreground="Yellow" FontSize="100" FontWeight="Bold" />
-            <!--<WrapPanel ItemWidth="250" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }">
-               
-       
-            </WrapPanel>
-            <ListBox ItemsSource="{Binding  HighScoreList}" BorderBrush="Yellow" BorderThickness="2" Height="9" Width="630"/>-->
-            
-            
-            
-
-
-
+            ></Border>
             <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+               
+            </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StarWarsFont}" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="2" Content="Highscore" HorizontalAlignment="Center" Margin="0 0 0 0" Foreground="Yellow" FontSize="100" FontWeight="Bold"/>
+                
+                <Grid Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="7" Grid.RowSpan="5">
 
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -102,51 +111,66 @@
                 <StackPanel Grid.Column="3" Grid.Row="3">
                     <Label  Content="{Binding HighScoreList[2].Tries, FallbackValue=pl2 tries}" Background="Yellow" FontSize="50" FontWeight="Bold"/>
                 </StackPanel>
-               
+                    
+                 <!--HighScoreTable UI-->
+                    
+                </Grid>
+            <Grid Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="5" Grid.RowSpan="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <WrapPanel Orientation="Horizontal" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="0"/>
+                    <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="0"/>
+                    <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
+               </WrapPanel>
 
-                <!--HighScoreTable UI--> 
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="40" Content="Sort by" HorizontalAlignment="Center"></Label>
+                    <WrapPanel VerticalAlignment="Bottom">
+                        <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                        <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                    </WrapPanel>
+                </WrapPanel>
+            </Grid>
+
+        <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="100" Width="285" Grid.Column="5" Grid.Row="7" Grid.ColumnSpan="2" Grid.RowSpan="2" HorizontalAlignment="Left"/>
+            </Grid>
+        
+
+        
+
+        
+        
+        <StackPanel>
+            <!--<Label Style="{StaticResource StarWarsFont}" Content="Highscore" HorizontalAlignment="Center" Margin="0 50 0 60" Foreground="Yellow" FontSize="100" FontWeight="Bold" />-->
+            <!--<WrapPanel ItemWidth="250" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }">
+               
+       
+            </WrapPanel>
+            <ListBox ItemsSource="{Binding  HighScoreList}" BorderBrush="Yellow" BorderThickness="2" Height="9" Width="630"/>-->
+            
+            
+            
+
+
 
             
-            </Grid>
             
         </StackPanel>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-                <ColumnDefinition />
-
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
-            <WrapPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="4"/>
-            <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="4"/>
-      
-                <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
-            </WrapPanel>
-
-            <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5">
-                <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="40" Content="Sort by" HorizontalAlignment="Center"></Label>
-                <WrapPanel VerticalAlignment="Bottom">
-                <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                </WrapPanel>
-            </WrapPanel>
-
-            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="Back" FontSize="40" Height="100" Width="284" Grid.Column="2" Grid.Row="6"/>
-        </Grid>
+        
+            
+            
+        
        
     
 
