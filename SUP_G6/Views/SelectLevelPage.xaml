@@ -13,14 +13,14 @@
     <Page.Resources>
         <converter:RatioConverter x:Key="RatioConverter"/>
     </Page.Resources>
-
-    <Border
+    <Grid>
+        <Border
             Background="Black"
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.5"
-            >
+            ></Border>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -33,7 +33,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Label Grid.ColumnSpan="3" Style="{StaticResource StarWarsFont}" Content="Choose your level" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00"/>
+            <Label Grid.ColumnSpan="3" Style="{StaticResource StarWarsFont}" Content="Choose your level" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00" Opacity="1"/>
             <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <RadioButton GroupName="Level" x:Name="easyRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15" VerticalContentAlignment="Center" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
                 <RadioButton GroupName="Level" x:Name="mediumRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding MediumRadioButton}" Content="{Binding RadioButtonMedium, FallbackValue=medium}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
@@ -41,5 +41,6 @@
             </StackPanel>
             <Button Grid.Column="1" Grid.Row="3" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonPlayGame, FallbackValue=Spela}" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" FontWeight="Bold" FontSize="22"/>
         </Grid>
-    </Border>
+    </Grid>
+
 </Page>

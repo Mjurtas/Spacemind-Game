@@ -56,6 +56,8 @@ namespace SUP_G6.ViewModels
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
         public static object Stopwatch1 { get; private set; }
+        public string LabelTries { get; set; } = "tries";
+        public string LabelTime { get; set; } = "time";
         public string ButtonGuess { get; set; } = "guess!";
         public string ButtonReset { get; set; } = "reset";
         #endregion
