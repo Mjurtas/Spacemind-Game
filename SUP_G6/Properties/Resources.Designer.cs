@@ -92,9 +92,9 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Starfield {
+        public static byte[] Starfield__2_ {
             get {
-                object obj = ResourceManager.GetObject("Starfield", resourceCulture);
+                object obj = ResourceManager.GetObject("Starfield__2_", resourceCulture);
                 return ((byte[])(obj));
             }
         }

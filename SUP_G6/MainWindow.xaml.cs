@@ -38,7 +38,7 @@ namespace SUP_G6
 
             snd = new SoundPlayer(Properties.Resources.starwars);
 
-            snd.Play();
+            snd.PlayLooping();
 
         }
 

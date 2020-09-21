@@ -10,20 +10,21 @@
       Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
         WindowStartupLocation="CenterScreen">
-
-    <Grid>
-        <!--<Image x:Name="StarlfieldGif" 
-               Stretch="UniformToFill"              
+    <Viewbox Stretch="Uniform" StretchDirection="Both">
+        <Grid>
+            <Image x:Name="StarlfieldGif" 
+               Stretch="UniformToFill"             
                gif:ImageBehavior.RepeatBehavior="Forever"
-               gif:ImageBehavior.AnimatedSource="/Assets/Images/Starfield.gif" 
-               Source="/Assets/Images/Starfield.gif"/>-->
+               gif:ImageBehavior.AnimatedSource="/Assets/Images/Starfield (2).gif"
+               Source="/Assets/Images/Starfield (2).gif" />
 
-        <StackPanel>
-            <Frame x:Name="Main">
+            <StackPanel>
+                <Frame x:Name="Main">
 
-            </Frame>
+                </Frame>
 
-        </StackPanel>
+            </StackPanel>
 
-    </Grid>
+        </Grid>
+    </Viewbox>
 </Window>

@@ -130,10 +130,9 @@
                 <RowDefinition />
             </Grid.RowDefinitions>
             <WrapPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Command="{Binding SortByTimeCommand}" Content="Time" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="4"/>
-            <Button Command="{Binding SortByTriesCommand}" Content="Tries" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="4"/>
-      
-                <Button Command="{Binding ShowDiligentPlayersCommand}" Content="Most Played" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
+            <Button Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="1" Grid.Row="4"/>
+            <Button Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="150" Height="75" Grid.Column="2" Grid.Row="4"/>
+                      <Button Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelatmest}" Style="{StaticResource ButtonTemplate}" FontSize="20" Width="170" Height="75" />
             </WrapPanel>
 
             <WrapPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Column="2" Grid.Row="5">
