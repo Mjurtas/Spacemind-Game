@@ -56,7 +56,10 @@ namespace SUP_G6.ViewModels
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
-        
+
+        public string ButtonGuess { get; set; } = "guess!";
+        public string ButtonReset { get; set; } = "reset";
+
         public ICommand RestartGameCommand { get; set; }
         public ICommand BackToStartCommand { get; set; }
         #endregion
