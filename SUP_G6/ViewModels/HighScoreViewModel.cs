@@ -34,10 +34,13 @@ namespace SUP_G6.ViewModels
         #endregion
 
         #region Properties
+        //Button content properties
         public string ButtonTime { get; set; } = "time";
         public string ButtonTries { get; set; } = "tries";
         public string ButtonMostPlayed { get; set; } = "most played";
         public string ButtonBack { get; set; } = "back";
+
+        //RadioButton content properties
         public string RadioButtonEasy { get; set; } = "easy";
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
@@ -74,8 +77,7 @@ namespace SUP_G6.ViewModels
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
             ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
-            ViewStartPageCommand = new RelayCommand(ViewStartPage);
-            
+            ViewStartPageCommand = new RelayCommand(ViewStartPage);            
         }
 
         #region RadioButton Method - Sort by level

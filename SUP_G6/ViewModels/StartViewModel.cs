@@ -22,7 +22,7 @@ namespace SUP_G6.ViewModels
         public ICommand ViewGameRulesPageCommand { get; set; }
         #endregion
 
-        #region ButtonProperties
+        #region Properties
         public string CreatePlayerButton { get; set; } = "create player";
         public string ChoosePlayerButton { get; set; } = "choose player";
         public string ViewHighScoreButton { get; set; } = "view highscore";
