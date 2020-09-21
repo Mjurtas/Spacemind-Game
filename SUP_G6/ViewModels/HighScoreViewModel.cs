@@ -28,11 +28,12 @@ namespace SUP_G6.ViewModels
         // Relays for ICommands
         public HighScoreViewModel()
         {
-            SortByNameCommand = new RelayCommand(SortByName);
+            //SortByNameCommand = new RelayCommand(SortByName);
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
             ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
             ViewStartPageCommand = new RelayCommand(ViewStartPage);
+      
             
         }
 
@@ -120,15 +121,23 @@ namespace SUP_G6.ViewModels
             }
         }
 
-        public void SortByName()
+        public void SortByName(string name)
         {
-            SetLevelFromRadioButton();
-            ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).Where(x => x.Level == Level));
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            foreach (var gameResult in ListOfGameResults)
+            if (name != null)
             {
-                HighScoreList.Add(gameResult);
+                SetLevelFromRadioButton();
+                ListOfGameResults = new ObservableCollection<GameResult>(GetList.OrderBy(x => x.PlayerName).ThenBy(x => x.Tries).Where(x => x.Level == Level && x.PlayerName == name).Take(3));
+                HighScoreList = new ObservableCollection<IExistInDatabase>();
+                HighScoreList.Clear();
+                foreach (var gameResult in ListOfGameResults)
+                {
+                    HighScoreList.Add(gameResult);
+                }
+            }
+
+            else
+            {
+
             }
         }
 
