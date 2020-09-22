@@ -40,6 +40,7 @@ namespace SUP_G6.ViewModels
             RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
             ResetButtonCommand = new RelayCommand(ResetButton);
+            EndGameCommand = new RelayCommand(EndGame);
         }
         #endregion
 
@@ -61,6 +62,7 @@ namespace SUP_G6.ViewModels
         public string LabelTime { get; set; } = "time";
         public string ButtonGuess { get; set; } = "guess!";
         public string ButtonReset { get; set; } = "reset";
+        public string ButtonEndGame { get; set; } = "end game";
         public bool IsGuessButtonEnabled { get; set; } = true;
          #endregion
 
@@ -69,6 +71,7 @@ namespace SUP_G6.ViewModels
         public ICommand BackToStartCommand { get; set; }
         public ICommand GuessCommand { get; set; }
         public ICommand ResetButtonCommand { get; set; }
+        public ICommand EndGameCommand { get; set; }
 
         #endregion
 
@@ -261,6 +264,16 @@ namespace SUP_G6.ViewModels
         private void ResetButton()
         {
 
+        }
+        #endregion
+
+        #region End Game Method
+        public void EndGame()
+        {
+            snd = new SoundPlayer(Properties.Resources.starwars);
+            snd.Play();
+            var page = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
         #endregion
 
