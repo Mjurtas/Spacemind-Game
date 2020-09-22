@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
-
+using Npgsql;
 
 namespace SUP_G6.ViewModels
 {
@@ -57,10 +57,24 @@ namespace SUP_G6.ViewModels
                 };
 
                 Player = player;
-                Player.Id = DataBaseLogic.AddPlayer(player);
+                //Player.Id = DataBaseLogic.AddPlayer(player);
+                try
+                {
+                    Player.Id = DataBaseLogic.AddPlayer(player);
+                    var page = new SelectLevelPage(player);
+                    ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+                   
+                }
+                catch (PostgresException error)
+                {
+                    if (error.SqlState == "23505")
+                    {
+                        MessageBox.Show($"The name {player.Name} already exists. Pick another nickname.");
+                        this.Name = "";
+                    }
+                }
 
-                var page = new SelectLevelPage(player);
-                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+                
             }
         }
 

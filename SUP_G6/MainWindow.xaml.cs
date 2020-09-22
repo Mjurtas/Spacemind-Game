@@ -41,10 +41,25 @@ namespace SUP_G6
             snd.PlayLooping();
 
         }
-
+        bool sound = true;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            snd.Stop();
+            
+            if (sound == true)
+            {
+                snd.Stop();
+                sound = false;
+                SoundOnOff.Content = "Sound on";
+            }
+
+            else if (sound == false)
+            {
+                snd.PlayLooping();
+                sound = true;
+               SoundOnOff.Content = "Sound off";
+            }
         }
+
+
     }
 }
