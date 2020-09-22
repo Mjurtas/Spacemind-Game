@@ -17,6 +17,7 @@ using System.Media;
 using System.Windows;
 using System.Windows.Threading;
 using SUP_G6.Views;
+using System.Threading.Tasks;
 
 namespace SUP_G6.ViewModels
 {
@@ -60,7 +61,8 @@ namespace SUP_G6.ViewModels
         public string LabelTime { get; set; } = "time";
         public string ButtonGuess { get; set; } = "guess!";
         public string ButtonReset { get; set; } = "reset";
-        #endregion
+        public bool IsGuessButtonEnabled { get; set; } = true;
+         #endregion
 
         #region ICommands        
         public ICommand RestartGameCommand { get; set; }
@@ -118,8 +120,10 @@ namespace SUP_G6.ViewModels
         {
             //int[] testkod = new int[] { 1, 2, 3, 4 };
 
+            EnableButton();
             if (Guess != null)
             {
+               
               
                     var feedback = GameLogic.Feedback(SecretCode, Guess);
                     SetFeedbackPegs(feedback);
@@ -132,6 +136,13 @@ namespace SUP_G6.ViewModels
 
           
 
+        }
+
+        public async void EnableButton()
+        {
+            IsGuessButtonEnabled = false;
+            await Task.Delay(2000);
+            IsGuessButtonEnabled = true;
         }
 
         #endregion
