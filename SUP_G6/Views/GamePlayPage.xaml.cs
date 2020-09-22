@@ -192,8 +192,8 @@ namespace SUP_G6.Views
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.FontSize = 50;
-            ButtonFeedback(btn, 2500);
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 2500);
 
             GameLogic.NumbersOfTriesLeft(numberOfTries);
             switch (numberOfTries)
@@ -256,19 +256,13 @@ namespace SUP_G6.Views
             //btn.FontSize = 50;
             //ButtonFeedback(btn, 2500);
         }
-        #endregion
-
-        public async void ButtonFeedback(Button button, int delay)
-        {
-            await Task.Delay(delay);
-            button.FontSize = 30;
-        }
+        #endregion        
     
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.FontSize = 50;
-            ButtonFeedback(btn, 500);
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
 
             switch (numberOfTries)
             {

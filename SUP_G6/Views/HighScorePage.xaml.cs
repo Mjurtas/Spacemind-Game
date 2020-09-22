@@ -1,4 +1,5 @@
-﻿using SUP_G6.ViewModels;
+﻿using SUP_G6.Other;
+using SUP_G6.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -26,32 +27,32 @@ namespace SUP_G6.Views
             DataContext = new HighScoreViewModel();
                     
         }
-
-        public async void ButtonFeedback(Button button)
-        {
-            await Task.Delay(500);
-            button.FontSize = 20;
-        }
-
+       
         private void TimeButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.FontSize = 40;
-            ButtonFeedback(btn);
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
         }
 
         private void TriesButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.FontSize = 40;
-            ButtonFeedback(btn);
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
         }
 
         private void MostPlayedButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
-            btn.FontSize = 40;
-            ButtonFeedback(btn);
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
+        }
+
+        public void ButtonChange(Button button)
+        {
+            button.Foreground = Brushes.Black;
+            button.Background = Brushes.Yellow;
         }
     }
 }
