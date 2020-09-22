@@ -193,7 +193,7 @@ namespace SUP_G6.Views
         {
             var btn = sender as Button;
             btn.FontSize = 50;
-            ButtonFeedback(btn);
+            ButtonFeedback(btn, 2500);
 
             GameLogic.NumbersOfTriesLeft(numberOfTries);
             switch (numberOfTries)
@@ -254,21 +254,21 @@ namespace SUP_G6.Views
 
             //var btn = sender as Button;
             //btn.FontSize = 50;
-            //ButtonFeedback(btn);
+            //ButtonFeedback(btn, 2500);
         }
         #endregion
 
-        public async void ButtonFeedback(Button button)
+        public async void ButtonFeedback(Button button, int delay)
         {
-            await Task.Delay(500);
+            await Task.Delay(delay);
             button.FontSize = 30;
         }
-
+    
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn.FontSize = 50;
-            ButtonFeedback(btn);
+            ButtonFeedback(btn, 500);
 
             switch (numberOfTries)
             {
