@@ -80,7 +80,7 @@
 
                 <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" FontSize="20" Width="150" Height="75" Grid.Column="3" Grid.Row="7"/>
                 <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" FontSize="20" Width="150" Height="75" Grid.Column="4" Grid.Row="7"/>
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="20" Width="170" Height="75" Grid.Column="5" Grid.Row="7" />
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="20" Width="155" Height="75" Grid.Column="5" Grid.Row="7" HorizontalAlignment="Left" />
 
 
             <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="30" Content="Sort by" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="6" VerticalAlignment="Bottom" ></Label>
@@ -92,7 +92,7 @@
 
 
 
-            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="{Binding ButtonBack, FallbackValue=tillbaka}" FontSize="40" Height="100" Width="285" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="1" HorizontalAlignment="Left"/>
+            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="{Binding ButtonBack, FallbackValue=tillbaka}" FontSize="40" Height="75" Width="285" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Grid.RowSpan="1" HorizontalAlignment="Left"/>
 
 
 
