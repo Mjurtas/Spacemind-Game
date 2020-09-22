@@ -22,12 +22,12 @@
             Opacity="0.50"
             >
 
-
         </Border>
+       
         <StackPanel>
-            <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" Margin="0 200 0 40" FontSize="60" FontWeight="Bold" Foreground="Yellow"/>
-            <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" TextWrapping="Wrap" Width="120" BorderBrush="Yellow" BorderThickness="2"/>
-
+            <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" Margin="0 50 0 40" FontSize="60" FontWeight="Bold" Foreground="Yellow"/>
+            <Label Style="{StaticResource StarWarsFont}" Content="Name" HorizontalAlignment="Center" Margin="0 100 0 10" Width="279" FontSize="22"/>
+            <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" TextWrapping="Wrap" Width="279" BorderBrush="Yellow" BorderThickness="2" Height="44" />
 
         </StackPanel>
         <StackPanel>
