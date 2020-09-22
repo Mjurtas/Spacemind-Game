@@ -78,9 +78,9 @@
 
 
 
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" FontSize="20" Width="150" Height="75" Grid.Column="3" Grid.Row="7" Click="TimeButton_Click"/>
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" FontSize="20" Width="150" Height="75" Grid.Column="4" Grid.Row="7" Click="TriesButton_Click"/>
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="20" Width="155" Height="75" Grid.Column="5" Grid.Row="7" HorizontalAlignment="Left" Click="MostPlayedButton_Click" />
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" FontSize="20" Width="150" Height="75" Grid.Column="3" Grid.Row="7" Click="TimeButton_Click" ClickMode="Press"/>
+            <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" FontSize="20" Width="150" Height="75" Grid.Column="4" Grid.Row="7" Click="TriesButton_Click" ClickMode="Press"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="20" Width="155" Height="75" Grid.Column="5" Grid.Row="7" HorizontalAlignment="Left" Click="MostPlayedButton_Click" ClickMode="Press"/>
 
 
             <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="30" Content="Sort by" HorizontalAlignment="Center" Grid.Column="4" Grid.Row="6" VerticalAlignment="Bottom" ></Label>
