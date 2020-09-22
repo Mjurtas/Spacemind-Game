@@ -266,7 +266,7 @@
              
             <!-- Replay and Guess Buttons -->
             <Button Grid.Column="7" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonReset , FallbackValue=reset}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="75" Margin="0 0 0 5" RenderTransformOrigin="0.078,0.12" FontSize="18"  Click="Button_Click_1"/>
-            <Button Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}"  Height="75" Width="200" FontSize="30" FontWeight="Bold"/>
+            <Button Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2" Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="30" FontWeight="Bold"/>
  
 
             <!--Panel för vinst-->
