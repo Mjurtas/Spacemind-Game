@@ -43,21 +43,21 @@ namespace SUP_G6.ViewModels
         public void CreatePlayer()
         {
             // limits på namn. Längd, tecken, finns redan i listan? UNIQUE try catch?
-
-            Player player = new Player
+            if (Name != null)
             {
-                
-            Name = this.Name
-                
-            };
-            Player = player;
-            Player.Id = DataBaseLogic.AddPlayer(player);
-            
+                Player player = new Player
+                {
 
+                    Name = this.Name
 
-            var page = new SelectLevelPage(player);
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+                };
 
+                Player = player;
+                Player.Id = DataBaseLogic.AddPlayer(player);
+
+                var page = new SelectLevelPage(player);
+                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            }
         }
 
     }
