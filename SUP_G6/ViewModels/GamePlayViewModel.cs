@@ -50,7 +50,7 @@ namespace SUP_G6.ViewModels
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;       
-        public int TimeLabel { get; set; } = 0;
+        public double TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
         public string ToMessageBox { get; set; } = "You must use 4 avatars for acceptable guess";
@@ -123,7 +123,7 @@ namespace SUP_G6.ViewModels
         {
             //int[] testkod = new int[] { 1, 2, 3, 4 };
 
-            EnableButton();
+            //EnableButton();
             if (Guess != null)
             {
                
@@ -239,14 +239,17 @@ namespace SUP_G6.ViewModels
         #region DataBase Communication
 
         private void CreateNewGameResult()
+
         {
+
+            
             GameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
                 Level = this.level,
                 Win = true,
-                ElapsedTimeInSeconds = (double)TimeLabel,
+                ElapsedTimeInSeconds = Math.Round(TimeLabel, 2),
                 Tries = this.NumberOfTries
                 
             };

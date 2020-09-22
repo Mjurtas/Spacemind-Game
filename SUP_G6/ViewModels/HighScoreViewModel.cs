@@ -129,8 +129,8 @@ namespace SUP_G6.ViewModels
                 {
                     HighScoreList.Add(player);
                 }
-                HighScoreColumn2 = "";
-                HighScoreColumn3 = "Games played";
+                HighScoreColumn2 = "Games played";
+                HighScoreColumn3 = " ";
             }
         }
         public void SortByTime()
