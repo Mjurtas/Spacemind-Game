@@ -127,11 +127,14 @@ namespace SUP_G6.ViewModels
               
                     var feedback = GameLogic.Feedback(SecretCode, Guess);
                     SetFeedbackPegs(feedback);
-                    NumberOfTries += 1;           
+                    NumberOfTries += 1;
+                Guess = null;
+                
+                
             }
             else
             {
-                ToMessageBox = "Du måste gissa minst fyra färger";
+                ToMessageBox = "You must use 4 avatars for acceptable guess";
             }
 
           
