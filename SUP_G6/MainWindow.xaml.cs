@@ -42,6 +42,9 @@ namespace SUP_G6
 
         }
 
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            snd.Stop();
+        }
     }
 }

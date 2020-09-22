@@ -10,7 +10,7 @@
       Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
         WindowStartupLocation="CenterScreen">
-    <Viewbox Stretch="Uniform" StretchDirection="Both">
+    <Viewbox Stretch="UniformToFill" StretchDirection="Both">
         <Grid>
             <Image x:Name="StarlfieldGif" 
                Stretch="UniformToFill"             
@@ -20,10 +20,12 @@
 
             <StackPanel>
                 <Frame x:Name="Main">
-
+                    
                 </Frame>
+                
 
             </StackPanel>
+            <Button Style="{StaticResource ButtonTemplate}" Content="mute" HorizontalAlignment="Right" VerticalAlignment="Top" Width="50" Height="30" Margin="0 25 0 0" Click="Button_Click"/>
 
         </Grid>
     </Viewbox>
