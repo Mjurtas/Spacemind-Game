@@ -42,13 +42,17 @@ namespace SUP_G6.ViewModels
 
         public void CreatePlayer()
         {
-            // limits på namn. Längd, tecken, finns redan i listan? UNIQUE try catch?
+            if (Name.Length > 9)
+            {
+                MessageBox.Show($"Maximum ");
+                    
+            }
             if (Name != null)
             {
                 Player player = new Player
                 {
 
-                    Name = this.Name
+                    Name = this.Name.ToLower()  //The font convert text to ToUpper but doesnt render capitalized letters well in inputsstrings.
 
                 };
 
