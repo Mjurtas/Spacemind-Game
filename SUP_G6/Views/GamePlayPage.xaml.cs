@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Media;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -188,8 +189,12 @@ namespace SUP_G6.Views
         #endregion
 
         #region Event Handler for Guess Button
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
+            var btn = sender as Button;
+            btn.FontSize = 50;
+            ButtonFeedback(btn);
+
             GameLogic.NumbersOfTriesLeft(numberOfTries);
             switch (numberOfTries)
             {
@@ -246,11 +251,25 @@ namespace SUP_G6.Views
             {
                 MessageBox.Show($"{viewModel.ToMessageBox}");
             }
+
+            //var btn = sender as Button;
+            //btn.FontSize = 50;
+            //ButtonFeedback(btn);
         }
         #endregion
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        public async void ButtonFeedback(Button button)
         {
+            await Task.Delay(500);
+            button.FontSize = 30;
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.FontSize = 50;
+            ButtonFeedback(btn);
+
             switch (numberOfTries)
             {
                 case 1:
@@ -269,6 +288,6 @@ namespace SUP_G6.Views
             {
                 nextGuessRow.Children.Clear();
             }
-        }
+        } 
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -26,6 +27,31 @@ namespace SUP_G6.Views
                     
         }
 
+        public async void ButtonFeedback(Button button)
+        {
+            await Task.Delay(500);
+            button.FontSize = 20;
+        }
 
+        private void TimeButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.FontSize = 40;
+            ButtonFeedback(btn);
+        }
+
+        private void TriesButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.FontSize = 40;
+            ButtonFeedback(btn);
+        }
+
+        private void MostPlayedButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn.FontSize = 40;
+            ButtonFeedback(btn);
+        }
     }
 }
