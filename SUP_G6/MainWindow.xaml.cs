@@ -60,6 +60,11 @@ namespace SUP_G6
             }
         }
 
+        public void PLayCantina()
+        {
+            snd = new SoundPlayer(Properties.Resources.cantinaband);
+        }
+
 
     }
 }
