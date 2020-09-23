@@ -25,8 +25,9 @@ namespace SUP_G6
     /// </summary>
     public partial class MainWindow : Window
     {
-        SoundPlayer snd;
-        SoundPlayer snd2;
+        SoundPlayer starwarsMainTheme;
+        SoundPlayer CantinaBand;
+        SoundPlayer imperialMarch;
         List<SoundPlayer> soundList = new List<SoundPlayer>();
 
         int trackCounter = 0;
@@ -41,8 +42,9 @@ namespace SUP_G6
             //myPlayer.SoundLocation = @"c:\Music\starwars.wav";
             //myPlayer.PlayLooping();
 
-            soundList.Add (snd = new SoundPlayer(Properties.Resources.starwars));
-            soundList.Add(snd2 = new SoundPlayer(Properties.Resources.cantinaband));
+            soundList.Add (starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
+            soundList.Add(CantinaBand = new SoundPlayer(Properties.Resources.cantinaband));
+            soundList.Add(imperialMarch = new SoundPlayer(Properties.Resources.imperial));
 
             soundList[trackCounter].PlayLooping();
 
@@ -55,39 +57,77 @@ namespace SUP_G6
         bool sound = true;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            
             if (sound == true)
             {
                 soundList[trackCounter].Stop();
                 sound = false;
-                SoundOnOff.Content = "Sound on";
+                
             }
 
             else if (sound == false)
             {
                 soundList[trackCounter].PlayLooping();
                 sound = true;
-               SoundOnOff.Content = "Sound off";
+               
+            }
+        }
+        private void btnSoundOff_Click(object sender, RoutedEventArgs e)
+        {
+            soundList[trackCounter].Stop();
+            btnTurnSoundOff.Visibility = Visibility.Collapsed;
+            btnTurnSoundOn.Visibility = Visibility.Visible;
+
+        }
+        private void btnSoundOn_Click(object sender, RoutedEventArgs e)
+        {
+            soundList[trackCounter].Play();
+            btnTurnSoundOn.Visibility = Visibility.Collapsed;
+            btnTurnSoundOff.Visibility = Visibility.Visible;
+
+        }
+
+
+
+
+
+
+        private void btnNextSong_Click(object sender, RoutedEventArgs e)
+        {
+            var lastIndex = soundList.Count() - 1;
+            if (trackCounter == (int)lastIndex)
+            {
+                trackCounter = 0;
+                soundList[trackCounter].PlayLooping();
+            }
+
+            else
+            {
+                trackCounter++;
+                soundList[trackCounter].PlayLooping();
+            }
+
+        }
+
+        private void btnPrevSong_Click(object sender, RoutedEventArgs e)
+        {
+            if (trackCounter == 0)
+            {
+                trackCounter = soundList.Count();
+                trackCounter--;
+                soundList[trackCounter].PlayLooping();
+            }
+
+            else
+            {
+                trackCounter--;
+                soundList[trackCounter].PlayLooping();
             }
         }
 
-        public void PLayCantina()
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            snd = new SoundPlayer(Properties.Resources.cantinaband);
-        }
 
-        private void btnNext_Click(object sender, RoutedEventArgs e)
-        {
-         
-            trackCounter++;
-            soundList[trackCounter].PlayLooping();
-
-        }
-
-        private void btnPrevious_Click(object sender, RoutedEventArgs e)
-        {
-            trackCounter--;
-            soundList[trackCounter].PlayLooping();
         }
     }
 }

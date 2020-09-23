@@ -12,22 +12,63 @@
         WindowStartupLocation="CenterScreen">
     <Viewbox Stretch="UniformToFill" StretchDirection="Both">
         <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+
+            </Grid.RowDefinitions>
+
             <Image x:Name="StarlfieldGif" 
                Stretch="UniformToFill"             
                gif:ImageBehavior.RepeatBehavior="Forever"
                gif:ImageBehavior.AnimatedSource="/Assets/Images/Starfield (2).gif"
                Source="/Assets/Images/Starfield (2).gif" />
 
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 20, 40, 0" >
+                <Button  x:Name="btnPrevSong"   Background="Black" BorderThickness="0" Visibility="Visible" Grid.Column="4" Margin="0, 0,20, 0" Click="btnPrevSong_Click">
+                    <Image Source="\Assets\Images\bak.png" Height="15" Width="19" ></Image>
+                </Button>
+                <Button  x:Name="btnTurnSoundOff" Background="Black" BorderThickness="0" Click="btnSoundOff_Click">
+                    <Image Source="\Assets\Images\sound.png" Height="15" Width="19"></Image>
+                </Button>
+                <Button  x:Name="btnTurnSoundOn" Background="Black" BorderThickness="0" Visibility="Collapsed" Click="btnSoundOn_Click">
+                    <Image Source="\Assets\Images\off.png" Height="15" Width="19"></Image>
+                </Button>
+                <Button x:Name="btnNextSong" Background="Black" BorderThickness="0" Visibility="Visible"  Margin="20, 0, 0, 0" Click="btnNextSong_Click">
+                    <Image Source="\Assets\Images\fram.png" Height="15" Width="19"></Image>
+                </Button>
+
+            </WrapPanel>
+
             <StackPanel>
                 <Frame x:Name="Main">
 
                 </Frame>
 
+                  
 
-            </StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" x:Name="SoundOnOff" Content="Sound off" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="50" Margin="0,24,54,0" Click="Button_Click"/>
-            <Button  x:Name="btnPrevious"  Content="prev" HorizontalAlignment="Left" Margin="673,49,0,0" VerticalAlignment="Top" Click="btnPrevious_Click"/>
-            <Button x:Name="btnNext" Content="next" HorizontalAlignment="Left" Margin="740,49,0,0" VerticalAlignment="Top" Click="btnNext_Click"/>
+                </StackPanel>
+            
+            <!--<Button Style="{StaticResource ButtonTemplate}" x:Name="SoundOnOff" Content="Sound off" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="50" Margin="0,24,94,0" Click="Button_Click"/>-->
+            
+
+            
 
         </Grid>
     </Viewbox>
