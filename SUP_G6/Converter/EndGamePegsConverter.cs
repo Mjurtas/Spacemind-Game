@@ -42,11 +42,11 @@ namespace SUP_G6.Converter
                     return imageSource;
                 case 7:
                     
-                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg7av.png", UriKind.Relative));
                     return imageSource;
                 case 8:
                     
-                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg4av.png", UriKind.Relative));
+                    imageSource.ImageSource = new BitmapImage(new Uri(@".\Assets\Images\peg8av.png", UriKind.Relative));
                     return imageSource;
             };
             return new SolidColorBrush(Colors.White);
