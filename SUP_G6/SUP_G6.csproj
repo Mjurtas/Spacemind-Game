@@ -25,6 +25,7 @@
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
     <None Remove="Views\babyyoda2.png" />
+    <None Remove="Views\darthRanked.png" />
     <None Remove="Views\darthWelcome.png" />
     <None Remove="Views\resizedyoda.png" />
     <None Remove="Views\yodatext.png" />
@@ -53,6 +54,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\peg8av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Views\darthRanked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
