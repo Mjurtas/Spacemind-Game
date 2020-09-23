@@ -23,7 +23,7 @@
             >
 
         </Border>
-       
+
         <StackPanel>
             <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" Margin="0 50 0 40" FontSize="60" FontWeight="Bold" Foreground="Yellow"/>
             <Label Style="{StaticResource StarWarsFont}" Content="Name" HorizontalAlignment="Center" Margin="0 100 0 10" Width="279" FontSize="22"/>
@@ -34,6 +34,7 @@
             <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="{Binding CreatePlayerButton, FallbackValue=skapa spelare}" Height="71" Width="285" Margin="0 400 0 10" FontSize="22" FontWeight="Bold" />
             <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Command="{Binding BackButtonCommand}" Content="{Binding BackButton, FallbackValue=tillbaka}" Height="71" Width="285" FontSize="22" FontWeight="Bold"/>
         </StackPanel>
+        <Image Source="/Views/babyyoda2.png" Width="400" Height="400" Margin="813,216,169,162"/>
 
     </Grid>
 </Page>
