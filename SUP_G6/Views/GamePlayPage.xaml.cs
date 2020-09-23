@@ -35,6 +35,7 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
+            ((MainWindow)Application.Current.MainWindow).PLayCantina(); 
         }
 
         #region Variables
