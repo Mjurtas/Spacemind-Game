@@ -250,8 +250,25 @@ namespace SUP_G6.Views
             //btn.FontSize = 50;
             //ButtonFeedback(btn, 2500);
         }
-        #endregion        
-    
+        #endregion
+
+        #region Check Avatars In First Wrap Panel
+        private bool CheckFirstWrapPanel(Panel currentPanel)
+        {
+            if (currentPanel.Children.Count >= 1)
+            {
+                currentPanel.AllowDrop = false;
+                currentPanel.Background = Brushes.LightGray;
+                foreach (MasterPeg peg in currentPanel.Children)
+                {
+                    peg.IsEnabled = false;
+                }
+                return true;
+            }
+            return false;
+        }
+        #endregion
+
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
@@ -265,7 +282,7 @@ namespace SUP_G6.Views
                     nextGuessRow = stp2;
                     break;
             }
-            if (IsGuessDone(currentGuessRow) && numberOfTries == 1)
+            if (CheckFirstWrapPanel(currentGuessRow) && numberOfTries == 1)
             {
                 
                 viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
