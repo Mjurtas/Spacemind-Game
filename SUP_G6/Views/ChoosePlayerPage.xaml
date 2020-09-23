@@ -31,7 +31,7 @@
                 <Label Style="{StaticResource StarWarsFont}" Content="Choose your player" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Margin="0, 180, 0, 0" >
-                <ListBox x:Name="playerListbox" HorizontalAlignment="Center" Background="Black" SelectedItem="{Binding Player, Mode=TwoWay}" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" VerticalAlignment="Top"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
+                <ListBox Style="{StaticResource StarWarsListBoxFont}" x:Name="playerListbox" HorizontalAlignment="Center" Background="Black" SelectedItem="{Binding Player, Mode=TwoWay}" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" VerticalAlignment="Top"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
                 
                 <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0"  FontWeight="Bold" FontSize="22"/>
             </StackPanel>
