@@ -12,6 +12,7 @@
     <None Remove="Assets\background.jpg" />
     <None Remove="Assets\Fonts\Starjedi.ttf" />
     <None Remove="Assets\Fonts\Starjout.ttf" />
+    <None Remove="Assets\Images\babyyoda2.png" />
     <None Remove="Assets\Images\darth1.png" />
     <None Remove="Assets\Images\peg1av.png" />
     <None Remove="Assets\Images\peg2av.png" />
@@ -23,6 +24,7 @@
     <None Remove="Assets\Images\peg8av.png" />
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
+    <None Remove="Views\babyyoda2.png" />
     <None Remove="Views\darthWelcome.png" />
     <None Remove="Views\resizedyoda.png" />
     <None Remove="Views\yodatext.png" />
@@ -64,9 +66,11 @@
   <ItemGroup>
     <Resource Include="Assets\Fonts\Starjedi.ttf" />
     <Resource Include="Assets\Fonts\Starjout.ttf" />
+    <Resource Include="Assets\Images\babyyoda2.png" />
     <Resource Include="Assets\Images\background.jpg" />
     <Resource Include="Assets\Images\darth1.png" />
     <Resource Include="Assets\Images\Starfield (2).gif" />
+    <Resource Include="Views\babyyoda2.png" />
     <Resource Include="Views\darthWelcome.png" />
     <Resource Include="Views\resizedyoda.png" />
     <Resource Include="Views\yodatext.png" />
