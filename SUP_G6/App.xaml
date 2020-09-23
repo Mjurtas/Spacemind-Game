@@ -47,5 +47,11 @@
 
             </Setter>
         </Style>
+        <Style x:Key="StarWarsListBoxFont" TargetType="ListBox">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi">
+
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
