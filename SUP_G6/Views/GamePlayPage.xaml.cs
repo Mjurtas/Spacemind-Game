@@ -291,7 +291,9 @@ namespace SUP_G6.Views
             }
             else
             {
-                nextGuessRow.Children.Clear();
+                viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
+                currentGuessRow.Children.Clear();
+                MakeNextGuessAvailable(currentGuessRow);
             }
         } 
     }
