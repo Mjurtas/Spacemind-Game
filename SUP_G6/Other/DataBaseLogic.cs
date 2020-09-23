@@ -13,7 +13,7 @@ namespace SUP_G6.Other
     public static class DataBaseLogic
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["dbServer"].ConnectionString;
-
+#region CREATE
         #region CREATE PLAYER
         public static int AddPlayer(Player player)
         {
@@ -31,8 +31,41 @@ namespace SUP_G6.Other
                 }
             }
         }
+
         #endregion
 
+        #region CREATE GAME RESULT
+
+        /* Adds gameresult by when game is finished*/
+
+        public static int AddGameResult(GameResult gameResult)
+        {
+            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
+
+
+            using (var conn = new NpgsqlConnection(connectionString))
+
+
+            {
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+
+                    conn.Open();
+                    conn.TypeMapper.MapEnum<Level>("level");
+                    command.Parameters.AddWithValue("Id", gameResult.PlayerId);
+                    command.Parameters.AddWithValue("Tries", gameResult.Tries);
+                    command.Parameters.AddWithValue("Win", gameResult.Win);
+                    command.Parameters.AddWithValue("level", gameResult.Level);
+                    command.Parameters.AddWithValue("time", gameResult.ElapsedTimeInSeconds);
+                    int id = (int)command.ExecuteScalar();
+                    return id;
+                }
+            }
+        }
+        #endregion
+        #endregion
+
+        #region READ
         #region READ PLAYER
         public static Player GetPlayer(int id)
         {
@@ -148,35 +181,7 @@ namespace SUP_G6.Other
         }
         #endregion
 
-        #region CREATE GAME RESULT
 
-        /* Adds gameresult by when game is finished*/
-
-        public static int AddGameResult(GameResult gameResult)
-        {                                                     
-            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
-
-
-            using (var conn = new NpgsqlConnection(connectionString))
-                
-
-            {
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    
-                    conn.Open();
-                    conn.TypeMapper.MapEnum<Level>("level");
-                    command.Parameters.AddWithValue("Id", gameResult.PlayerId);               
-                    command.Parameters.AddWithValue("Tries", gameResult.Tries);
-                    command.Parameters.AddWithValue("Win", gameResult.Win);
-                    command.Parameters.AddWithValue("level", gameResult.Level);
-                    command.Parameters.AddWithValue("time", gameResult.ElapsedTimeInSeconds);                
-                    int id = (int)command.ExecuteScalar();
-                    return id;
-                }
-            }
-        }
-        #endregion
 
         #region READ GAME RESULT
 
@@ -256,6 +261,7 @@ namespace SUP_G6.Other
                 return gameResults;
             }
         }
+        #endregion
         #endregion
     }
 }

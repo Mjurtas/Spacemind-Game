@@ -26,6 +26,11 @@ namespace SUP_G6
     public partial class MainWindow : Window
     {
         SoundPlayer snd;
+        SoundPlayer snd2;
+        List<SoundPlayer> soundList = new List<SoundPlayer>();
+
+        int trackCounter = 0;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -36,25 +41,31 @@ namespace SUP_G6
             //myPlayer.SoundLocation = @"c:\Music\starwars.wav";
             //myPlayer.PlayLooping();
 
-            snd = new SoundPlayer(Properties.Resources.starwars);
+            soundList.Add (snd = new SoundPlayer(Properties.Resources.starwars));
+            soundList.Add(snd2 = new SoundPlayer(Properties.Resources.cantinaband));
 
-            snd.PlayLooping();
+            soundList[trackCounter].PlayLooping();
 
+           
         }
+
+        
+
+        
         bool sound = true;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
             if (sound == true)
             {
-                snd.Stop();
+                soundList[trackCounter].Stop();
                 sound = false;
                 SoundOnOff.Content = "Sound on";
             }
 
             else if (sound == false)
             {
-                snd.PlayLooping();
+                soundList[trackCounter].PlayLooping();
                 sound = true;
                SoundOnOff.Content = "Sound off";
             }
@@ -65,6 +76,18 @@ namespace SUP_G6
             snd = new SoundPlayer(Properties.Resources.cantinaband);
         }
 
+        private void btnNext_Click(object sender, RoutedEventArgs e)
+        {
+         
+            trackCounter++;
+            soundList[trackCounter].PlayLooping();
 
+        }
+
+        private void btnPrevious_Click(object sender, RoutedEventArgs e)
+        {
+            trackCounter--;
+            soundList[trackCounter].PlayLooping();
+        }
     }
 }

@@ -26,6 +26,8 @@
 
             </StackPanel>
             <Button Style="{StaticResource ButtonTemplate}" x:Name="SoundOnOff" Content="Sound off" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="50" Margin="0,24,54,0" Click="Button_Click"/>
+            <Button  x:Name="btnPrevious"  Content="prev" HorizontalAlignment="Left" Margin="673,49,0,0" VerticalAlignment="Top" Click="btnPrevious_Click"/>
+            <Button x:Name="btnNext" Content="next" HorizontalAlignment="Left" Margin="740,49,0,0" VerticalAlignment="Top" Click="btnNext_Click"/>
 
         </Grid>
     </Viewbox>
