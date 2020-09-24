@@ -41,6 +41,8 @@ namespace SUP_G6.ViewModels
         public string ButtonTries { get; set; } = "tries";
         public string ButtonMostPlayed { get; set; } = "most played";
         public string ButtonBack { get; set; } = "back";
+        public string Unit1 { get; set; } = "seconds";
+        public string Unit2 { get; set; } = "tries";
 
         //RadioButton content properties
         public string RadioButtonEasy { get; set; } = "easy";
@@ -142,6 +144,8 @@ namespace SUP_G6.ViewModels
         }
         public void SortByTime()
         {
+            Unit1 = "seconds";
+            Unit2 = "tries";
             SetLevelFromRadioButton();
             Sort = "time";
             listType = "GameResult";
@@ -151,6 +155,8 @@ namespace SUP_G6.ViewModels
 
         public void SortByTries()
         {
+            Unit1 = "seconds";
+            Unit2 = "tries";
             SetLevelFromRadioButton();
             Sort = "tries";
             listType = "GameResult";
@@ -159,6 +165,8 @@ namespace SUP_G6.ViewModels
         }
         public void GetDiligentPlayers()
         {
+            Unit1 = " played";
+            Unit2 = "times";
             SetLevelFromRadioButton();
             listType = "Player";
             ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);

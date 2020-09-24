@@ -228,11 +228,11 @@ namespace SUP_G6.Other
             string stmt = "";
             if (sort == "time")
             {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY time ASC LIMIT 3;";
+                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY time ASC, tries ASC LIMIT 3;";
             }
             else if (sort == "tries")
             {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC LIMIT 3;";
+                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
             }
             using (var conn = new NpgsqlConnection(connectionString))
             {
