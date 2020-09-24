@@ -133,6 +133,9 @@
   <data name="fram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Icon_metro_exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon metro-exit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="imperial" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imperial.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
