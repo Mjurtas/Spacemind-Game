@@ -61,7 +61,7 @@ namespace SUP_G6.ViewModels
         public string LabelTries { get; set; } = "tries";
         public string LabelTime { get; set; } = "time";
         public string ButtonGuess { get; set; } = "guess!";
-        public string ButtonReset { get; set; } = "reset";
+        public string ButtonDelete { get; set; } = "delete";
         public string ButtonEndGame { get; set; } = "exit";
         public bool IsGuessButtonEnabled { get; set; } = true;
          #endregion
