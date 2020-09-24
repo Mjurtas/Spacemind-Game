@@ -41,10 +41,13 @@ namespace SUP_G6.ViewModels
 
         #region ChangePageMethods
 
+        public MainWindowPage window;
+
         public void ChangePageToCreatePlayerPage()
         {
             var page = new CreatePlayerPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            window.main2.Content = page;
+            //((MainWindow)Application.Current.MainWindow).Main.Content = page;
 
         }
 

@@ -7,22 +7,25 @@ using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using static System.Windows.Application;
 
 namespace SUP_G6.ViewModels
 {
-    class MainWindowViewModel : BaseViewModel.BaseViewModel
+    public class MainWindowViewModel : BaseViewModel.BaseViewModel
     {
         SoundPlayer starwarsMainTheme;
         SoundPlayer CantinaBand;
         SoundPlayer imperialMarch;
         List<SoundPlayer> soundList = new List<SoundPlayer>();
         int trackCounter = 0;
-        public MainWindow win = (MainWindow)Application.Current.MainWindow;
-        public MainWindowPage windowPage = new MainWindowPage();
+
+       
 
         public MainWindowViewModel()
         {
-            windowPage.main2.Content = new StartPage();
+            
+            
+         
             PopulateSongList();
             soundList[trackCounter].PlayLooping();
             SoundOffCommand = new RelayCommand(SoundOff);

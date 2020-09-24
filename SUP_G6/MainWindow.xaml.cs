@@ -34,7 +34,7 @@ namespace SUP_G6
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainWindowViewModel();
+            
             
 
             //soundList.Add (starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
