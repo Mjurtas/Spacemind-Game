@@ -40,7 +40,6 @@ namespace SUP_G6.Views
 
         #region Variables
 
-        int numberOfTries = 1;
         Panel currentGuessRow;
         Panel nextGuessRow;
 
@@ -60,6 +59,54 @@ namespace SUP_G6.Views
                 guess.SetValue(colorId, position);
             }
             return guess;
+        }
+
+        public void DetermineActivePanel() 
+        {
+            switch (viewModel.NumberOfTries)
+            {
+                case 0:
+                    currentGuessRow = stp1;
+                    nextGuessRow = stp2;
+                    break;
+                case 1:
+                    currentGuessRow = stp2;
+                    nextGuessRow = stp3;
+                    break;
+                case 2:
+                    currentGuessRow = stp3;
+                    nextGuessRow = stp4;
+                    break;
+                case 3:
+                    currentGuessRow = stp4;
+                    nextGuessRow = stp5;
+                    break;
+                case 4:
+                    currentGuessRow = stp5;
+                    nextGuessRow = stp6;
+                    break;
+                case 5:
+                    currentGuessRow = stp6;
+                    nextGuessRow = stp7;
+                    break;
+                case 6:
+                    currentGuessRow = stp7;
+                    nextGuessRow = stp8;
+                    break;
+                case 7:
+                    currentGuessRow = stp8;
+                    nextGuessRow = stp9;
+                    break;
+                case 8:
+                    currentGuessRow = stp9;
+                    nextGuessRow = stp10;
+                    break;
+                case 9:
+                    currentGuessRow = stp10;
+                    break;
+                default:
+                    break;
+            }
         }
 
         #endregion
@@ -182,119 +229,32 @@ namespace SUP_G6.Views
 
         #endregion
 
-        #region Event Handler for Guess Button
+        #region Event Handler for Buttons
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn = ButtonFeedback.ChangeButton(btn);
             ButtonFeedback.ButtonFeedbackDelay(btn, 2500);
-
-            GameLogic.NumbersOfTriesLeft(numberOfTries);
-            switch (numberOfTries)
-            {
-                case 1:
-                    currentGuessRow = stp1;
-                    nextGuessRow = stp2;
-                    break;
-                case 2:
-                    currentGuessRow = stp2;
-                    nextGuessRow = stp3;
-                    break;
-                case 3:
-                    currentGuessRow = stp3;
-                    nextGuessRow = stp4;
-                    break;
-                case 4:
-                    currentGuessRow = stp4;
-                    nextGuessRow = stp5;
-                    break;
-                case 5:
-                    currentGuessRow = stp5;
-                    nextGuessRow = stp6;
-                    break;
-                case 6:
-                    currentGuessRow = stp6;
-                    nextGuessRow = stp7;
-                    break;
-                case 7:
-                    currentGuessRow = stp7;
-                    nextGuessRow = stp8;
-                    break;
-                case 8:
-                    currentGuessRow = stp8;
-                    nextGuessRow = stp9;
-                    break;
-                case 9:
-                    currentGuessRow = stp9;
-                    nextGuessRow = stp10;
-                    break;
-                case 10:
-                    currentGuessRow = stp10;
-                    break;
-                default:
-                    break;
-            }
+            DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {
                     viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
                     MakeNextGuessAvailable(nextGuessRow);
-                    numberOfTries++;
-
             }
             else
             {
                 MessageBox.Show($"{viewModel.ToMessageBox}");
             }
-
-            //var btn = sender as Button;
-            //btn.FontSize = 50;
-            //ButtonFeedback(btn, 2500);
         }
-        #endregion
-
-        #region Check Avatars In First Wrap Panel
-        private bool CheckFirstWrapPanel(Panel currentPanel)
-        {
-            if (currentPanel.Children.Count >= 1)
-            {
-                currentPanel.AllowDrop = false;
-                currentPanel.Background = Brushes.LightGray;
-                foreach (MasterPeg peg in currentPanel.Children)
-                {
-                    peg.IsEnabled = false;
-                }
-                return true;
-            }
-            return false;
-        }
-        #endregion
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn = ButtonFeedback.ChangeButton(btn);
             ButtonFeedback.ButtonFeedbackDelay(btn, 500);
-
-            switch (numberOfTries)
-            {
-                case 1:
-                    currentGuessRow = stp1;
-                    nextGuessRow = stp2;
-                    break;
-            }
-            if (CheckFirstWrapPanel(currentGuessRow) && numberOfTries == 1)
-            {
-                
-                viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
-                currentGuessRow.Children.Clear();
-                MakeNextGuessAvailable(currentGuessRow);
-            }
-            else
-            {
-                viewModel.Guess = ExtractGuessFromUIPanel(nextGuessRow);
-                nextGuessRow.Children.Clear();
-                MakeNextGuessAvailable(nextGuessRow);
-            }
-        } 
+            DetermineActivePanel();
+            currentGuessRow.Children.Clear();
+        }
+        #endregion
     }
 }

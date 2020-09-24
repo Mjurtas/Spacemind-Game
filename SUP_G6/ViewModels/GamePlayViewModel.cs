@@ -121,27 +121,17 @@ namespace SUP_G6.ViewModels
 
         private void ExecuteGuess()
         {
-            //int[] testkod = new int[] { 1, 2, 3, 4 };
-
-            //EnableButton();
             if (Guess != null)
             {
-               
-              
-                    var feedback = GameLogic.Feedback(SecretCode, Guess);
-                    SetFeedbackPegs(feedback);
-                    NumberOfTries += 1;
+                var feedback = GameLogic.Feedback(SecretCode, Guess);
+                SetFeedbackPegs(feedback);
+                NumberOfTries += 1;
                 Guess = null;
-                
-                
             }
             else
             {
                 ToMessageBox = "You must use 4 avatars for acceptable guess";
             }
-
-          
-
         }
 
         public async void EnableButton()
