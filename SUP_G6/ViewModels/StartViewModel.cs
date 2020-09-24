@@ -46,8 +46,7 @@ namespace SUP_G6.ViewModels
         public void ChangePageToCreatePlayerPage()
         {
             var page = new CreatePlayerPage();
-
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+           ((MainWindow)Application.Current.MainWindow).Main.Content = page;
 
         }
 

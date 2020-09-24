@@ -265,14 +265,14 @@
             </Grid>
 
             <!-- Replay and Guess Buttons -->
-            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="7" Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonReset , FallbackValue=igen}" Width="200" Height="75" Margin="0 0 0 5" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Click="ResetButton_Click" ClickMode="Press"/>
+            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="8" Grid.RowSpan="1" Grid.ColumnSpan="1">
+                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonReset , FallbackValue=igen}" Width="200" Height="75" Margin="0 0 0 5" FontSize="25" Click="ResetButton_Click" ClickMode="Press"/>
             </Viewbox>
-            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="2" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" ClickMode="Press"/>
+            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="1" Grid.ColumnSpan="1">
+                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="25" FontWeight="Bold" ClickMode="Press"/>
             </Viewbox>
-            <Viewbox Stretch="Fill" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" Grid.RowSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonEndGame, FallbackValue=avlsuta}" Command="{Binding EndGameCommand}" Width="200" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" ClickMode="Press"/>
+            <Viewbox Stretch="Fill" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1">
+                <Button Style="{StaticResource ButtonTest}"   BorderThickness="0" BorderBrush="Black" Content="{Binding ButtonEndGame, FallbackValue=avlsuta}" FontSize="20" Command="{Binding EndGameCommand}" Width="200"  ClickMode="Press"/>
             </Viewbox>
 
             <!--Panel för vinst-->

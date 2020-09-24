@@ -43,9 +43,11 @@ namespace SUP_G6.ViewModels
         public ICommand SoundOffCommand { get; set; }
         public ICommand SoundOnCommand { get; set; }
         public ICommand PreviousSongCommand { get; set; }
-        public ICommand NextSongCommand { get; set; }        
+        public ICommand NextSongCommand { get; set; }
         #endregion
 
+
+        #region SoundPlayer-logic
         private void PopulateSongList()
         {
             soundList.Add(starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
@@ -91,14 +93,12 @@ namespace SUP_G6.ViewModels
                 {
                     trackCounter = 0;
                     soundList[trackCounter].Play();
-
                 }
 
                 else
                 {
                     trackCounter++;
                     soundList[trackCounter].Play();
-
                 }
             }
 
@@ -140,10 +140,10 @@ namespace SUP_G6.ViewModels
                 }
 
             }
-           
-
 
         }
+        #endregion
+
 
 
     }

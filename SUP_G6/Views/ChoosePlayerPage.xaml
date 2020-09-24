@@ -32,10 +32,10 @@
             </StackPanel>
             <StackPanel Orientation="Vertical"  Margin="0, 180, 0, 0" >
                 <ListBox Style="{StaticResource StarWarsListBoxFont}" x:Name="playerListbox" HorizontalAlignment="Center" Background="Black" SelectedItem="{Binding Player, Mode=TwoWay}" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" VerticalAlignment="Top"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
-
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Center">
                 <Button Style="{StaticResource ButtonTemplate}" Command="{Binding StartGameCommand}" Content="{Binding PlayGameButton, FallbackValue=spela}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0"  FontWeight="Bold" FontSize="22"/>
                 <Button Style="{StaticResource ButtonTemplate}" Command="{Binding BackButtonCommand}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" FontSize="22" FontWeight="Bold"/>
-
+                </WrapPanel>
             </StackPanel>
         </Grid>
     </Grid>
