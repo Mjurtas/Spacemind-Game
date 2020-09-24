@@ -247,13 +247,19 @@ namespace SUP_G6.Views
             }
         }
 
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
             var btn = sender as Button;
             btn = ButtonFeedback.ChangeButton(btn);
             ButtonFeedback.ButtonFeedbackDelay(btn, 500);
             DetermineActivePanel();
-            currentGuessRow.Children.Clear();
+
+            int lastItem = currentGuessRow.Children.Count - 1;
+            if(lastItem >= 0)
+            {
+                currentGuessRow.Children.RemoveAt(lastItem);
+            }
+            
         }
         #endregion
     }
