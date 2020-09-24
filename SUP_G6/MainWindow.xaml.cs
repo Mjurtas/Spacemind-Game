@@ -30,7 +30,7 @@ namespace SUP_G6
         SoundPlayer imperialMarch;
         List<SoundPlayer> soundList = new List<SoundPlayer>();
 
-        int trackCounter = 0;
+       
         
         public MainWindow()
         {
@@ -38,9 +38,6 @@ namespace SUP_G6
             var page = new StartPage();
             Main.Content = page;
 
-            //var myPlayer = new System.Media.SoundPlayer();
-            //myPlayer.SoundLocation = @"c:\Music\starwars.wav";
-            //myPlayer.PlayLooping();
 
             soundList.Add (starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
             soundList.Add(CantinaBand = new SoundPlayer(Properties.Resources.cantinaband));
@@ -54,24 +51,26 @@ namespace SUP_G6
         
 
         
-        bool sound = true;
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
+        //bool sound = true;
+        //private void Button_Click(object sender, RoutedEventArgs e)
+        //{
             
-            if (sound == true)
-            {
-                soundList[trackCounter].Stop();
-                sound = false;
+        //    if (sound == true)
+        //    {
+        //        soundList[trackCounter].Stop();
+        //        sound = false;
                 
-            }
+        //    }
 
-            else if (sound == false)
-            {
-                soundList[trackCounter].PlayLooping();
-                sound = true;
+        //    else if (sound == false)
+        //    {
+        //        soundList[trackCounter].PlayLooping();
+        //        sound = true;
                
-            }
-        }
+        //    }
+        //}
+
+        int trackCounter = 0;
         private void btnSoundOff_Click(object sender, RoutedEventArgs e)
         {
             soundList[trackCounter].Stop();
@@ -88,46 +87,58 @@ namespace SUP_G6
         }
 
 
-
-
-
-
         private void btnNextSong_Click(object sender, RoutedEventArgs e)
         {
             var lastIndex = soundList.Count() - 1;
-            if (trackCounter == (int)lastIndex)
+            if (btnTurnSoundOff.Visibility == Visibility.Visible)
             {
-                trackCounter = 0;
-                soundList[trackCounter].PlayLooping();
+                if (trackCounter == (int)lastIndex)
+                {
+                    trackCounter = 0;
+                    soundList[trackCounter].PlayLooping();
+                }
+
+                else
+                {
+                    trackCounter++;
+                    soundList[trackCounter].PlayLooping();
+                }
+
             }
 
             else
             {
                 trackCounter++;
-                soundList[trackCounter].PlayLooping();
             }
+            
 
         }
 
         private void btnPrevSong_Click(object sender, RoutedEventArgs e)
         {
-            if (trackCounter == 0)
+            if (btnTurnSoundOff.Visibility == Visibility.Visible)
             {
-                trackCounter = soundList.Count();
-                trackCounter--;
-                soundList[trackCounter].PlayLooping();
-            }
+                if (trackCounter == 0)
+                {
+                    trackCounter = soundList.Count();
+                    trackCounter--;
+                    soundList[trackCounter].PlayLooping();
+                }
 
+                else
+                {
+                    trackCounter--;
+                    soundList[trackCounter].PlayLooping();
+                }
+            }
             else
             {
                 trackCounter--;
-                soundList[trackCounter].PlayLooping();
             }
+
+           
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
 
-        }
     }
 }

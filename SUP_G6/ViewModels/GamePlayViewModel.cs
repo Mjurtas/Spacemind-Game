@@ -24,11 +24,10 @@ namespace SUP_G6.ViewModels
     class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
         #region constructor
-        SoundPlayer snd;
+      
         public GamePlayViewModel(Player player, Level level)
         {
-            snd = new SoundPlayer(Properties.Resources.cantinaband);
-            snd.PlayLooping();
+         
 
             GuessCommand = new RelayCommand(ExecuteGuess);
             this.player = player;
@@ -46,6 +45,7 @@ namespace SUP_G6.ViewModels
 
 
         #region Public Properties
+        SoundPlayer snd;
         public int[] Guess { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
@@ -215,7 +215,7 @@ namespace SUP_G6.ViewModels
             else if (NumberOfTries == 10)
             {
                 dispatcherTimer.Stop();
-                snd.Stop();
+                
                 LosePanelVisibility = true;
             }
 
@@ -229,8 +229,7 @@ namespace SUP_G6.ViewModels
 
         public void GoBackToStartPage()
         {
-            snd = new SoundPlayer(Properties.Resources.starwars);
-            snd.Play();
+            
             var page = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
@@ -270,11 +269,14 @@ namespace SUP_G6.ViewModels
         #region End Game Method
         public void EndGame()
         {
-            snd = new SoundPlayer(Properties.Resources.starwars);
-            snd.Play();
-            var page = new StartPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            if (MessageBox.Show("Do you want to end the game and return to the Start Page?", "End Game", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var page = new StartPage();
+                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            }
         }
+            
+          
         #endregion
 
 
