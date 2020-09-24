@@ -13,7 +13,7 @@ using Npgsql;
 
 namespace SUP_G6.ViewModels
 {
-    public class CreatePlayerViewModel : MainWindowViewModel
+    public class CreatePlayerViewModel 
     {
         #region Properties
         public string Name { get; set; }
