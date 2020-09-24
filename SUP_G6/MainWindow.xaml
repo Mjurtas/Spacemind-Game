@@ -40,24 +40,24 @@
                gif:ImageBehavior.AnimatedSource="/Assets/Images/Starfield (2).gif"
                Source="/Assets/Images/Starfield (2).gif" />
 
-            <!--<WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 20, 40, 0" >
-                <Button  x:Name="btnPrevSong"   Background="Black" BorderThickness="0" Visibility="Visible" Grid.Column="4" Margin="0, 0,20, 0" Click="btnPrevSong_Click">
+            <WrapPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0, 20, 40, 0" >
+                <Button  x:Name="btnPrevSong" Command="{Binding PreviousSongCommand}"  Background="Black" BorderThickness="0" Visibility="Visible" Grid.Column="4" Margin="0, 0,20, 0">
                     <Image Source="\Assets\Images\bak.png" Height="15" Width="19" ></Image>
                 </Button>
-                <Button  x:Name="btnTurnSoundOff" Background="Black" BorderThickness="0" Click="btnSoundOff_Click">
+                <Button  x:Name="btnTurnSoundOff" Command="{Binding SoundOffCommand}" Visibility="{Binding TurnSoundOff}" Background="Black" BorderThickness="0">
                     <Image Source="\Assets\Images\sound.png" Height="15" Width="19"></Image>
                 </Button>
-                <Button  x:Name="btnTurnSoundOn" Background="Black" BorderThickness="0" Visibility="Collapsed" Click="btnSoundOn_Click">
+                <Button  x:Name="btnTurnSoundOn" Command="{Binding SoundOnCommand}" Visibility="{Binding TurnSoundOn}"  Background="Black" BorderThickness="0">
                     <Image Source="\Assets\Images\off.png" Height="15" Width="19"></Image>
                 </Button>
-                <Button x:Name="btnNextSong" Background="Black" BorderThickness="0" Visibility="Visible"  Margin="20, 0, 0, 0" Click="btnNextSong_Click">
+                <Button x:Name="btnNextSong" Command="{Binding NextSongCommand}" Background="Black" BorderThickness="0" Visibility="Visible"  Margin="20, 0, 0, 0">
                     <Image Source="\Assets\Images\fram.png" Height="15" Width="19"></Image>
                 </Button>
 
-            </WrapPanel>-->
+            </WrapPanel>
 
             <StackPanel>
-                <Frame x:Name="Main" Source="Views/MainWindowPage.xaml" NavigationUIVisibility="Hidden">
+                <Frame x:Name="Main" Source="Views/StartPage.xaml" NavigationUIVisibility="Hidden">
 
                 </Frame>
 

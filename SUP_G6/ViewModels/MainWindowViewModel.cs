@@ -69,25 +69,37 @@ namespace SUP_G6.ViewModels
         private void NextSong()
         {
             var lastIndex = soundList.Count() - 1;
-            if (TurnSoundOff == Visibility.Visible)
+            if (TurnSoundOn == Visibility.Visible)
             {
                 if (trackCounter == (int)lastIndex)
                 {
                     trackCounter = 0;
-                    soundList[trackCounter].PlayLooping();
+                    
                 }
 
                 else
                 {
                     trackCounter++;
-                    soundList[trackCounter].PlayLooping();
+                   
                 }
 
             }
 
             else
             {
-                trackCounter++;
+                if (trackCounter == (int)lastIndex)
+                {
+                    trackCounter = 0;
+                    soundList[trackCounter].Play();
+
+                }
+
+                else
+                {
+                    trackCounter++;
+                    soundList[trackCounter].Play();
+
+                }
             }
 
 
@@ -95,25 +107,40 @@ namespace SUP_G6.ViewModels
 
         private void PrevSong()
         {
-            if (TurnSoundOff == Visibility.Visible)
+            if (TurnSoundOn == Visibility.Visible)
             {
                 if (trackCounter == 0)
                 {
                     trackCounter = soundList.Count();
                     trackCounter--;
-                    soundList[trackCounter].PlayLooping();
+                    
                 }
 
                 else
                 {
                     trackCounter--;
-                    soundList[trackCounter].PlayLooping();
                 }
             }
+
             else
             {
-                trackCounter--;
+                if (trackCounter == 0)
+                {
+                    trackCounter = soundList.Count();
+                    trackCounter--;
+                    soundList[trackCounter].Play();
+
+
+                }
+
+                else
+                {
+                    trackCounter--;
+                    soundList[trackCounter].Play();
+                }
+
             }
+           
 
 
         }
