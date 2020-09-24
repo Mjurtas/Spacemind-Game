@@ -23,16 +23,21 @@ namespace SUP_G6.ViewModels
         public string RadioButtonEasy { get; set; } = "easy";
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
+        public string BackButton { get; set; } = "back to start";
         #endregion
 
         #region ICommand
         public ICommand StartGameCommand { get; set; }
+        public ICommand BackButtonCommand { get; set; }
+
         #endregion
 
         public SelectLevelViewModel(Player player)
         {
             this.Player = player;
             StartGameCommand = new RelayCommand(StartGame);
+            BackButtonCommand = new RelayCommand(BackToStart);
+
         }
 
         public void CreateGame()
@@ -60,6 +65,11 @@ namespace SUP_G6.ViewModels
                 var page = new GamePlayPage(Player, level);
                 ((MainWindow)Application.Current.MainWindow).Main.Content = page;
             }
+        }
+        private void BackToStart()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
     }
 }

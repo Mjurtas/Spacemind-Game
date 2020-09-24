@@ -19,15 +19,21 @@ namespace SUP_G6.ViewModels
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
         public Player Player { get; set; }
         public Level Level { get; set; }
+        public string PlayGameButton { get; set; } = "play game";
+        public string BackToStartButton { get; set; } = "back";
         #endregion
 
         #region ICommand
         public ICommand StartGameCommand { get; set; }
+        public ICommand BackButtonCommand { get; set; }
+
         #endregion
 
         public ChoosePlayerViewModel()
         {         
             StartGameCommand = new RelayCommand(StartGame);
+            BackButtonCommand = new RelayCommand(BackToStart);
+
         }
 
 
@@ -40,10 +46,13 @@ namespace SUP_G6.ViewModels
                 var page = new SelectLevelPage(player);
                 ((MainWindow) Application.Current.MainWindow).Main.Content = page;
             }
-
+            
             // ELSE SATS-om man ej väljer spelare
-
-          
-        }       
+        }
+        private void BackToStart()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
+        }
     }
 }
