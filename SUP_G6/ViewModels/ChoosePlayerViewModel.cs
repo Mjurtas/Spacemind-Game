@@ -7,34 +7,52 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace SUP_G6.ViewModels
 {
     public class ChoosePlayerViewModel
     {
+        #region Properties
         public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
+        public Player Player { get; set; }
         public Level Level { get; set; }
-        public bool EasyRadioButton { get; set; } = true;
-        public bool MediumRadioButton { get; set; } = false;
-        public bool HardRadioButton { get; set; } = false;
+        public string PlayGameButton { get; set; } = "play game";
+        public string BackToStartButton { get; set; } = "back";
+        #endregion
 
-        public void CreateGame()
+        #region ICommand
+        public ICommand StartGameCommand { get; set; }
+        public ICommand BackButtonCommand { get; set; }
+
+        #endregion
+
+        public ChoosePlayerViewModel()
+        {         
+            StartGameCommand = new RelayCommand(StartGame);
+            BackButtonCommand = new RelayCommand(BackToStart);
+
+        }
+
+
+        public void StartGame()
         {
-            if (EasyRadioButton)
-            {
-                Level = Level.Easy;
-            }
-            else if (MediumRadioButton)
-            {
-                Level = Level.Medium;
-            }
-            else
-            {
-                Level = Level.Hard;
-            }
+            Player player = Player;
 
+            if (player != null)
+            {               
+                var page = new SelectLevelPage(player);
+                ((MainWindow) Application.Current.MainWindow).Main.Content = page;
+            }
+            
+            // ELSE SATS-om man ej väljer spelare
+        }
+        private void BackToStart()
+        {
+            var page1 = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
     }
 }

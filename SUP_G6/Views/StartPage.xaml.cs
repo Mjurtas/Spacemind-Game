@@ -19,54 +19,12 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class StartPage : Page
     {
+        StartViewModel viewModel;
         public StartPage()
         {
             InitializeComponent();
-            DataContext = new StartViewModel();
-        }
-
-
-
-        
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ChangePageToHighScorePage();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            ChangePageToCreatePlayerPage();
-        }
-
-        private void ChangePageToCreatePlayerPage()
-        {
-            var page1 = new CreatePlayerPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
-
-        }
-
-        private void ChangePageToHighScorePage()
-        {
-            var page1 = new HighScorePage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
-        }
-
-        public void ChangePageToChoosePlayerPage()
-        {
-            var page = new ChoosePlayerPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-            ChangePageToChoosePlayerPage();
-        }
-
-        private void Button_Click_3(object sender, RoutedEventArgs e)
-        {
-            var page = new GameRulesPage();
-            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
-        }
+            viewModel = new StartViewModel();
+            DataContext = viewModel;
+        }        
     }
 }

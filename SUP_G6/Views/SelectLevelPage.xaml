@@ -1,0 +1,50 @@
+﻿<Page x:Class="SUP_G6.Views.SelectLevelPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SUP_G6.Views"
+      xmlns:converter="clr-namespace:SUP_G6.Converter"
+      mc:Ignorable="d" 
+      Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }" 
+      Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converter:RatioConverter}, ConverterParameter='0.9' }"
+      Title="SelectLevelPage">
+
+    <Page.Resources>
+        <converter:RatioConverter x:Key="RatioConverter"/>
+    </Page.Resources>
+    <Grid>
+        <Border
+            Background="Black"
+            CornerRadius="70"
+            Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
+            Opacity="0.5"
+            ></Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.ColumnSpan="3" Style="{StaticResource StarWarsFont}" Content="Choose your level" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00" Opacity="1"/>
+            <StackPanel Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <RadioButton GroupName="Level" x:Name="easyRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15" VerticalContentAlignment="Center" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="mediumRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding MediumRadioButton}" Content="{Binding RadioButtonMedium, FallbackValue=medium}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+                <RadioButton GroupName="Level" x:Name="hardRadioButton" Style="{StaticResource StarWarsRadioButtonFont}" Padding="15"  VerticalContentAlignment="Center" IsChecked="{Binding HardRadioButton}" Content="{Binding RadioButtonHard,FallbackValue=svårt}" FontSize="36" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Grid.Row="3" Grid.Column="1">
+                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonPlayGame, FallbackValue=Spela}" Command="{Binding StartGameCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" FontWeight="Bold" FontSize="22"/>
+                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackButton, FallbackValue=tillbaka}"  Command="{Binding BackButtonCommand}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" FontSize="22" FontWeight="Bold"/>
+            </StackPanel>
+            
+        </Grid>
+    </Grid>
+
+</Page>

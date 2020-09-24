@@ -61,6 +61,26 @@ namespace SUP_G6.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] babyyoda2 {
+            get {
+                object obj = ResourceManager.GetObject("babyyoda2", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] bak {
+            get {
+                object obj = ResourceManager.GetObject("bak", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
         /// </summary>
         public static System.IO.UnmanagedMemoryStream cantinaband {
@@ -72,9 +92,78 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] darth1 {
+            get {
+                object obj = ResourceManager.GetObject("darth1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] fram {
+            get {
+                object obj = ResourceManager.GetObject("fram", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Icon_metro_exit {
+            get {
+                object obj = ResourceManager.GetObject("Icon_metro_exit", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream imperial {
+            get {
+                return ResourceManager.GetStream("imperial", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] imperial_march_ringtone {
             get {
                 object obj = ResourceManager.GetObject("imperial_march_ringtone", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] off {
+            get {
+                object obj = ResourceManager.GetObject("off", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] sound {
+            get {
+                object obj = ResourceManager.GetObject("sound", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Starfield__2_ {
+            get {
+                object obj = ResourceManager.GetObject("Starfield__2_", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -105,6 +194,15 @@ namespace SUP_G6.Properties {
         public static System.IO.UnmanagedMemoryStream starwars {
             get {
                 return ResourceManager.GetStream("starwars", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream win_fanfare {
+            get {
+                return ResourceManager.GetStream("win_fanfare", resourceCulture);
             }
         }
     }

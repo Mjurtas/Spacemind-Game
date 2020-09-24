@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Media;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -17,6 +18,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace SUP_G6.Views
 {
@@ -33,11 +35,11 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
+            
         }
 
         #region Variables
 
-        int numberOfTries = 1;
         Panel currentGuessRow;
         Panel nextGuessRow;
 
@@ -59,7 +61,56 @@ namespace SUP_G6.Views
             return guess;
         }
 
+        public void DetermineActivePanel() 
+        {
+            switch (viewModel.NumberOfTries)
+            {
+                case 0:
+                    currentGuessRow = stp1;
+                    nextGuessRow = stp2;
+                    break;
+                case 1:
+                    currentGuessRow = stp2;
+                    nextGuessRow = stp3;
+                    break;
+                case 2:
+                    currentGuessRow = stp3;
+                    nextGuessRow = stp4;
+                    break;
+                case 3:
+                    currentGuessRow = stp4;
+                    nextGuessRow = stp5;
+                    break;
+                case 4:
+                    currentGuessRow = stp5;
+                    nextGuessRow = stp6;
+                    break;
+                case 5:
+                    currentGuessRow = stp6;
+                    nextGuessRow = stp7;
+                    break;
+                case 6:
+                    currentGuessRow = stp7;
+                    nextGuessRow = stp8;
+                    break;
+                case 7:
+                    currentGuessRow = stp8;
+                    nextGuessRow = stp9;
+                    break;
+                case 8:
+                    currentGuessRow = stp9;
+                    nextGuessRow = stp10;
+                    break;
+                case 9:
+                    currentGuessRow = stp10;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         #endregion
+
 
         #region Handle Guesses
 
@@ -178,65 +229,37 @@ namespace SUP_G6.Views
 
         #endregion
 
-        #region Event Handler for Guess Button
-        private void Button_Click(object sender, RoutedEventArgs e)
+        #region Event Handler for Buttons
+        private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
-            GameLogic.NumbersOfTriesLeft(numberOfTries);
-            switch (numberOfTries)
-            {
-                case 1:
-                    currentGuessRow = stp1;
-                    nextGuessRow = stp2;
-                    break;
-                case 2:
-                    currentGuessRow = stp2;
-                    nextGuessRow = stp3;
-                    break;
-                case 3:
-                    currentGuessRow = stp3;
-                    nextGuessRow = stp4;
-                    break;
-                case 4:
-                    currentGuessRow = stp4;
-                    nextGuessRow = stp5;
-                    break;
-                case 5:
-                    currentGuessRow = stp5;
-                    nextGuessRow = stp6;
-                    break;
-                case 6:
-                    currentGuessRow = stp6;
-                    nextGuessRow = stp7;
-                    break;
-                case 7:
-                    currentGuessRow = stp7;
-                    nextGuessRow = stp8;
-                    break;
-                case 8:
-                    currentGuessRow = stp8;
-                    nextGuessRow = stp9;
-                    break;
-                case 9:
-                    currentGuessRow = stp9;
-                    nextGuessRow = stp10;
-                    break;
-                case 10:
-                    currentGuessRow = stp10;
-                    break;
-                default:
-                    break;
-            }
+            var btn = sender as Button;
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 2500);
+            DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {
                     viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
                     MakeNextGuessAvailable(nextGuessRow);
-                    numberOfTries++;
-
             }
             else
             {
                 MessageBox.Show($"{viewModel.ToMessageBox}");
             }
+        }
+
+        private void DeleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var btn = sender as Button;
+            btn = ButtonFeedback.ChangeButton(btn);
+            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
+            DetermineActivePanel();
+
+            int lastItem = currentGuessRow.Children.Count - 1;
+            if(lastItem >= 0)
+            {
+                currentGuessRow.Children.RemoveAt(lastItem);
+            }
+            
         }
         #endregion
     }

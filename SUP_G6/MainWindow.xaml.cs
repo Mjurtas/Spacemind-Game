@@ -25,22 +25,18 @@ namespace SUP_G6
     /// </summary>
     public partial class MainWindow : Window
     {
-        SoundPlayer snd;
+
+  
+
         public MainWindow()
         {
             InitializeComponent();
-            var page = new StartPage();
-            Main.Content = page;
-
-            //var myPlayer = new System.Media.SoundPlayer();
-            //myPlayer.SoundLocation = @"c:\Music\starwars.wav";
-            //myPlayer.PlayLooping();
-
-            snd = new SoundPlayer(Properties.Resources.starwars);
-            snd.Play();
-
+            DataContext = new MainWindowViewModel();
         }
 
 
+
+
+    
     }
 }

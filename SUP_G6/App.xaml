@@ -28,5 +28,50 @@
 
             </Setter>
         </Style>
+
+        <Style x:Key="StarWarsRadioButtonFont" TargetType="RadioButton">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi">
+                
+            </Setter>
+        </Style>
+        <Style x:Key="StarWarsTextFont" TargetType="TextBox">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi">
+
+            </Setter>
+        </Style>
+        <Style x:Key="StarWarsTextBlockFont" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi">
+
+            </Setter>
+        </Style>
+        <Style x:Key="StarWarsListBoxFont" TargetType="ListBox">
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi">
+
+            </Setter>
+        </Style>
+
+        <Style x:Key="ButtonTest" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="Yellow"/>
+            <Setter Property="TextElement.FontFamily" Value="/Assets/Fonts/#Star Jedi"/>
+            <Setter Property="Height" Value="71"/>
+            <Setter Property="Width" Value="285"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" BorderBrush="Red" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" >
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
     </Application.Resources>
 </Application>

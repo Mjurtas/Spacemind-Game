@@ -21,23 +21,21 @@
             CornerRadius="70"
             Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
-            Opacity="1"
+            Opacity="0.5"
             >
 
         </Border>
         <Grid  Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }">
-            <Image Source="/Views/yodatext.png" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.7' }" Width="559" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            <Image Source="/Views/yodatext.png" Width="400" Height="400" HorizontalAlignment="Right" Margin="0 0 70 0">  <!--Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.7' }"  VerticalAlignment="Bottom" HorizontalAlignment="Right"--> </Image>
             <StackPanel MaxHeight="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }" Orientation="Vertical">
                 <Label Style="{StaticResource StarWarsFont}" Content="Choose your player" HorizontalAlignment="Center" Margin="0 0 0 0" FontSize="80" FontWeight="Bold"  Foreground="#FFF4FF00"/>
             </StackPanel>
             <StackPanel Orientation="Vertical"  Margin="0, 180, 0, 0" >
-                <ListBox x:Name="playerListbox" HorizontalAlignment="Center" Background="Black" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" VerticalAlignment="Top"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
-                <StackPanel Margin="0 20 0 0" HorizontalAlignment="Center">
-                    <RadioButton GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="EASY" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                    <RadioButton GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="MEDIUM" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                    <RadioButton GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="HARD" FontSize="24" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"/>
-                </StackPanel>
-                <Button Style="{StaticResource ButtonTemplate}" Content="PLAY GAME" Command="" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0" Click="Button_Click"  FontWeight="Bold" FontSize="22"/>
+                <ListBox Style="{StaticResource StarWarsListBoxFont}" x:Name="playerListbox" HorizontalAlignment="Center" Background="Black" SelectedItem="{Binding Player, Mode=TwoWay}" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" VerticalAlignment="Top"  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Width="300"/>
+                <WrapPanel Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding StartGameCommand}" Content="{Binding PlayGameButton, FallbackValue=spela}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" Margin="0 20 0 0"  FontWeight="Bold" FontSize="22"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding BackButtonCommand}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.07' }" Width="285" FontSize="22" FontWeight="Bold"/>
+                </WrapPanel>
             </StackPanel>
         </Grid>
     </Grid>

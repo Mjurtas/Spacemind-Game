@@ -8,9 +8,9 @@ namespace SUP_G6.Other
 {
     public static class GameLogic
     {
+        private static Random random = new Random();
         public static int[] GenerateSecretCode(DataTypes.Level level)
         {
-            Random random = new Random();
             int numberOfDifferentValues;
             switch (level)
             {
@@ -39,10 +39,10 @@ namespace SUP_G6.Other
 
         public static PegPosition[] Feedback(int[] secretCode, int[] guess)
         {
-            
+
             //skapar listan med feedback
             PegPosition[] feedbackList = new PegPosition[4];
-            
+
             //om den hemliga koden stämmer med gissningen helt så körs denna kod
             if (guess == secretCode)
             {
@@ -111,6 +111,7 @@ namespace SUP_G6.Other
                     }
                 }
             }
+            feedbackList = ShufflePegPositions(feedbackList);
             return feedbackList;
         }
 
@@ -119,5 +120,13 @@ namespace SUP_G6.Other
             numberOfGuesses = 10 - numberOfGuesses;
             return numberOfGuesses;
         }
+
+        public static PegPosition[] ShufflePegPositions(PegPosition[] pegPositions)
+        {
+            
+            PegPosition[] shuffledPegPositions = pegPositions.OrderBy(x => random.Next(1, 5)).ToArray();
+            return shuffledPegPositions;
+        }
+
     }
 }

@@ -1,11 +1,12 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SUP_G6.Models
 {
-    public class GameResult
+    public class GameResult : IExistInDatabase
     {
         public int GameId { get; set; }
 
@@ -22,18 +23,14 @@ namespace SUP_G6.Models
         public Level Level { get; set; }
 
         public bool Win { get; set; }
+        public string DisplayName { get; set; }
+        public Int64 DisplayCount { get; set; }
 
         public override string ToString()
         {
-            return $"Name: {PlayerName}              Tries: {Tries}                 Time: {GetTime()}             Level  {Level}";
+            return $" {PlayerName} \t\t{ElapsedTimeInSeconds}  \t\t {Tries}  ";
         }
 
-        private object GetTime()
-        {
-            var minutes = new DateTime((long)ElapsedTimeInSeconds);
-            var seconds = new DateTime((long)ElapsedTimeInSeconds);
 
-            return $"{minutes} {seconds}";
-        }
     }
 }

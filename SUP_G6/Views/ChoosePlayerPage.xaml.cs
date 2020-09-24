@@ -24,32 +24,10 @@ namespace SUP_G6.Views
  
     public partial class ChoosePlayerPage : Page
     {
-        ChoosePlayerViewModel viewModel;
         public ChoosePlayerPage()
         {
             InitializeComponent();
-            viewModel = new ChoosePlayerViewModel();
-            DataContext = viewModel;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ChangePageToGamePlayPage();
-        }
-
-        private void ChangePageToGamePlayPage()
-        {
-            Player player = (Player)playerListbox.SelectedItem;
-
-            if(player != null)
-            {
-                viewModel.CreateGame();
-                Level level = viewModel.Level;
-                var page = new GamePlayPage(player, level);
-                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
-            }
-        }
-
-       
+            DataContext = new ChoosePlayerViewModel();
+        }     
     }
 }

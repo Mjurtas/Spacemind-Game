@@ -14,39 +14,65 @@ using System.Windows.Shapes;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Media;
+using System.Windows;
+using System.Windows.Threading;
+using SUP_G6.Views;
+using System.Threading.Tasks;
 
 namespace SUP_G6.ViewModels
 {
     class GamePlayViewModel : BaseViewModel.BaseViewModel, INotifyPropertyChanged
     {
-        SoundPlayer snd;
+        #region constructor
+      
         public GamePlayViewModel(Player player, Level level)
         {
-            snd = new SoundPlayer(Properties.Resources.cantinaband);
-            snd.PlayLooping();
+         
 
             GuessCommand = new RelayCommand(ExecuteGuess);
             this.player = player;
             this.level = level;
             SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode(level);
-           
-            _stopWatch = new Stopwatch();
-            _stopWatch.Start();
-        }
+            CreateTimer();
 
-        #region Public Propertys
+            RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
+            BackToStartCommand = new RelayCommand(GoBackToStartPage);
+            ResetButtonCommand = new RelayCommand(ResetButton);
+            EndGameCommand = new RelayCommand(EndGame);
+        }
+        #endregion
+
+
+        #region Public Properties
+        SoundPlayer snd;
         public int[] Guess { get; set; }
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
-        public bool HardLevel { get; set; } = false;
-        private Stopwatch _stopWatch;
+        public bool HardLevel { get; set; } = false;       
+        public double TimeLabel { get; set; } = 0;
         public Player player;
         public Level level;
-        public string ToMessageBox { get; set; }
+        public string ToMessageBox { get; set; } = "You must use 4 avatars for acceptable guess";
         public int NumberOfTries { get; set; } = 0;
         public bool WinPanelVisibility { get; set; } = false;
         public bool LosePanelVisibility { get; set; } = false;
+        public static object Stopwatch1 { get; private set; }
+        public string LabelTries { get; set; } = "tries";
+        public string LabelTime { get; set; } = "time";
+        public string ButtonGuess { get; set; } = "guess!";
+        public string ButtonDelete { get; set; } = "delete";
+        public string ButtonEndGame { get; set; } = "exit";
+        public bool IsGuessButtonEnabled { get; set; } = true;
+         #endregion
+
+        #region ICommands        
+        public ICommand RestartGameCommand { get; set; }
+        public ICommand BackToStartCommand { get; set; }
+        public ICommand GuessCommand { get; set; }
+        public ICommand ResetButtonCommand { get; set; }
+        public ICommand EndGameCommand { get; set; }
+
         #endregion
 
         #region Feedback-pegs Properties
@@ -57,7 +83,7 @@ namespace SUP_G6.ViewModels
         #endregion
 
         #region Set Level Visibility
-
+        
         public void SetLevelVisibility()
         {
             if (level == Level.Medium)
@@ -75,29 +101,44 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
+        #region Timer
+        DispatcherTimer dispatcherTimer;
+        public void CreateTimer()
+        {
+            dispatcherTimer = new DispatcherTimer();
+            dispatcherTimer.Tick += new EventHandler(DispatcherTimer_Tick);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 1);
+            dispatcherTimer.Start();
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            TimeLabel++;
+        }
+        #endregion
 
         #region Command for Guess Button
-        public ICommand GuessCommand { get; set; }
-        public static object Stopwatch1 { get; private set; }
 
         private void ExecuteGuess()
         {
-            int[] testkod = new int[] { 1, 2, 3, 4 };
-            
             if (Guess != null)
             {
-                ToMessageBox = "";
-                var feedback = GameLogic.Feedback(SecretCode, Guess );
+                var feedback = GameLogic.Feedback(SecretCode, Guess);
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
+                Guess = null;
             }
             else
             {
-                ToMessageBox = "Du måste gissa minst fyra färger";
+                ToMessageBox = "You must use 4 avatars for acceptable guess";
             }
+        }
 
-          
-
+        public async void EnableButton()
+        {
+            IsGuessButtonEnabled = false;
+            await Task.Delay(2000);
+            IsGuessButtonEnabled = true;
         }
 
         #endregion
@@ -146,36 +187,58 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
+        #region Check Win and EndPageNavigation
+
         public void CheckWin(ObservableCollection<PegPosition> feedbackPegs)
         {
 
-            if (!feedbackPegs.Contains(PegPosition.CorrectColorWrongPosition) || !feedbackPegs.Contains(PegPosition.TotallyWrong))
+            if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) && !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
-                _stopWatch.Stop();
+                dispatcherTimer.Stop();
                 CreateNewGameResult();
+                snd = new SoundPlayer(Properties.Resources.win_fanfare);
+                snd.Play();
                 WinPanelVisibility = true;
 
             }
 
-            else if (NumberOfTries > 10)
+            else if (NumberOfTries == 10)
             {
+                dispatcherTimer.Stop();
+                
                 LosePanelVisibility = true;
             }
 
 
         }
+        public void ReloadGamePlayPage()
+        {
+            var page = new GamePlayPage(player, level);
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
 
-        #region VM till DB
+        public void GoBackToStartPage()
+        {
+            
+            var page = new StartPage();
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+        }
+        #endregion
+
+        #region DataBase Communication
 
         private void CreateNewGameResult()
+
         {
+
+            
             GameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
                 Level = this.level,
                 Win = true,
-                ElapsedTimeInSeconds = _stopWatch.Elapsed.TotalSeconds,
+                ElapsedTimeInSeconds = Math.Round(TimeLabel, 2),
                 Tries = this.NumberOfTries
                 
             };
@@ -184,6 +247,26 @@ namespace SUP_G6.ViewModels
             
         }
 
+        #endregion
+
+        #region Reset Button Method
+        private void ResetButton()
+        {
+
+        }
+        #endregion
+
+        #region End Game Method
+        public void EndGame()
+        {
+            if (MessageBox.Show("Do you want to end the game and return to the Start Page?", "End Game", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                var page = new StartPage();
+                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
+            }
+        }
+            
+          
         #endregion
 
 

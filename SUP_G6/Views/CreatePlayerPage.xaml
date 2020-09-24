@@ -22,18 +22,41 @@
             Opacity="0.50"
             >
 
-
         </Border>
-        <StackPanel>
-            <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" Margin="0 200 0 40" FontSize="60" FontWeight="Bold" Foreground="Yellow"/>
-            <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" TextWrapping="Wrap" Width="120" BorderBrush="Yellow" BorderThickness="2"/>
 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Viewbox Margin="0, 50, 0, 0" Stretch="Fill"  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center">
+                <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Yellow"/>
+            </Viewbox>
+            <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" HorizontalAlignment="Center">
+                <Label Style="{StaticResource StarWarsFont}" Content="Name" HorizontalAlignment="Center" Width="279" FontSize="22"/>
+            <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" Style="{StaticResource StarWarsTextFont}" MaxLength="8" HorizontalContentAlignment="Center" TextWrapping="Wrap" Background="Black" Width="279" BorderBrush="Yellow" BorderThickness="2" Height="44" FontSize="25" Foreground="Yellow"/>
 
         </StackPanel>
-        <StackPanel>
-            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="Create player" Height="71" Width="285" Margin="0 400 0 10" FontSize="22" FontWeight="Bold" />
-            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Content="Back" Height="71" Width="285" Click="BtnGoBackToStart_Click" FontSize="22" FontWeight="Bold"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalAlignment="Center" >
+            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnCreatePlayer" Command="{Binding CreatePlayerCommand}" Content="{Binding CreatePlayerButton, FallbackValue=skapa spelare}" Height="71" Width="285" Margin="0 10 0 10" FontSize="22" FontWeight="Bold" />
+            <Button Style="{StaticResource ButtonTemplate}" x:Name="BtnGoBackToStart" Command="{Binding BackButtonCommand}" Content="{Binding BackButton, FallbackValue=tillbaka}" Height="71" Width="285" FontSize="22" FontWeight="Bold"/>
         </StackPanel>
-
+            
+        <Image Source="/Views/babyyoda2.png" Width="400" Height="400" Margin="0 40 110 0 " Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="4"/>
+            
+        </Grid>
     </Grid>
 </Page>
