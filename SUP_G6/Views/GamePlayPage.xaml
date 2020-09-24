@@ -83,24 +83,34 @@
                 <local1:Peg7 Grid.Row="0"/>
                 <local1:Peg8 Grid.Row="1"/>
             </Grid>
-            <WrapPanel Grid.Column="2" Grid.ColumnSpan="4" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <StackPanel Grid.ColumnSpan="1" VerticalAlignment="Center" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center">
+
+            <Viewbox Stretch="None" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Left">
                 <Ellipse  Height="15" Width="15" Fill="Green" VerticalAlignment="Center"/>
-                <Label Content=" = Right avatar and right spot, good job! " Foreground="Yellow" VerticalAlignment="Center"/>
-                </StackPanel>
-            <StackPanel  Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center">
+                </Viewbox>
+                
+                <Viewbox Stretch="Uniform" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
+                    <Label Content="    =Right avatar and right spot, good job! " Foreground="Yellow" VerticalAlignment="Center"/>
+                </Viewbox>
+           
+                <Viewbox Stretch="None" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left">
                 <Ellipse  Height="15" Width="15" Fill="Yellow"/>
-                <Label Content="    = You chose the right avatar, but the wrong spot! Almost there!   " Foreground="Yellow" VerticalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel  Grid.ColumnSpan="1" VerticalAlignment="Center" Grid.Column="5" Orientation="Horizontal" HorizontalAlignment="Center">
+                </Viewbox>
+
+                <Viewbox Stretch="Uniform" Grid.Column="3" Grid.ColumnSpan="2">
+                    <Label Content="   =You chose the right avatar, but the wrong spot! Almost there!   " Foreground="Yellow" VerticalAlignment="Center"/>
+                </Viewbox>
+                
+            <Viewbox Stretch="None" Grid.ColumnSpan="1" VerticalAlignment="Center" Grid.Column="5" HorizontalAlignment="Left">
             <Ellipse  Height="15" Width="15" Stroke="Yellow"/>
-                <Label Content="    = No way José, try again!" Foreground="Yellow" VerticalAlignment="Center"/>
-            </StackPanel>
-            </WrapPanel>
+            </Viewbox>
+
+                <Viewbox Stretch="Uniform" Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="5">
+                    <Label Content="    = No way José, try again!" Foreground="Yellow" VerticalAlignment="Center"/>
+                </Viewbox>
 
 
 
-            <!-- Spelplanen -->
+                <!-- Spelplanen -->
             <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
                AllowDrop="True"
                DragOver="panel_DragOver"
