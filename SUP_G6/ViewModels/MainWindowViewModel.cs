@@ -1,4 +1,5 @@
-﻿using SUP_G6.ViewModels.BaseViewModel;
+﻿using SUP_G6.Models;
+using SUP_G6.ViewModels.BaseViewModel;
 using SUP_G6.Views;
 using System;
 using System.Collections.Generic;
@@ -7,19 +8,22 @@ using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using static System.Windows.Application;
 
 namespace SUP_G6.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel.BaseViewModel
     {
+       
         SoundPlayer starwarsMainTheme;
         SoundPlayer CantinaBand;
         SoundPlayer imperialMarch;
         List<SoundPlayer> soundList = new List<SoundPlayer>();
         int trackCounter = 0;
 
-       
+       MediaPlayer player = new MediaPlayer();
+        
 
         public MainWindowViewModel()
         {
@@ -50,6 +54,7 @@ namespace SUP_G6.ViewModels
         #region SoundPlayer-logic
         private void PopulateSongList()
         {
+            
             soundList.Add(starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
             soundList.Add(CantinaBand = new SoundPlayer(Properties.Resources.cantinaband));
             soundList.Add(imperialMarch = new SoundPlayer(Properties.Resources.imperial));
