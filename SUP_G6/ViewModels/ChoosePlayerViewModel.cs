@@ -66,7 +66,10 @@ namespace SUP_G6.ViewModels
                 ((MainWindow) Application.Current.MainWindow).Main.Content = page;
             }
             
-            // ELSE SATS-om man ej väljer spelare
+            else
+            {
+                MessageBox.Show($"Listen to Yoda, choose a player..");
+            }
         }
         private void BackToStart()
         {
