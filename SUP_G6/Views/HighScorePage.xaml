@@ -101,7 +101,9 @@
                 <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit2}" Foreground="Black" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="7" Grid.Column="7" />
             </StackPanel>
 
-            <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="Yellow"/>
+            <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="Yellow">
+                <Label Content="1" />
+            </StackPanel>
 
             <Viewbox Stretch="Uniform" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="2">
                 <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center" VerticalAlignment="Bottom" ></Label>

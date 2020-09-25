@@ -299,11 +299,11 @@
             </Viewbox>
             <Viewbox Stretch="Fill" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1">
                 <Button    FontSize="20" Command="{Binding EndGameCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
-                    <Image Source="\Assets\Images\icon metro-exit.png" Height="95" Width="200" ></Image>
+                    <Image Source="\Assets\Images\ExitIcon.png" Height="95" Width="200" ></Image>
                 </Button>
                
             </Viewbox>
-            <Label Content="Exit" Foreground="Yellow" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" />
+            
 
             <!--Panel för vinst-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">

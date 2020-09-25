@@ -14,7 +14,9 @@
     <None Remove="Assets\Fonts\Starjout.ttf" />
     <None Remove="Assets\Images\babyyoda2.png" />
     <None Remove="Assets\Images\bak.png" />
+    <None Remove="Assets\Images\ClearIcon.png" />
     <None Remove="Assets\Images\darth1.png" />
+    <None Remove="Assets\Images\ExitIcon.png" />
     <None Remove="Assets\Images\fram.png" />
     <None Remove="Assets\Images\Icon metro-exit.png" />
     <None Remove="Assets\Images\off.png" />
@@ -26,6 +28,7 @@
     <None Remove="Assets\Images\peg6av.png" />
     <None Remove="Assets\Images\peg7av.png" />
     <None Remove="Assets\Images\peg8av.png" />
+    <None Remove="Assets\Images\SearchIcon.png" />
     <None Remove="Assets\Images\sound.png" />
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
@@ -37,6 +40,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\Images\ClearIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\ExitIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Images\Icon metro-exit.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -62,6 +71,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\peg8av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\SearchIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Views\darthRanked.png">
