@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using SUP_G6.Models;
@@ -111,7 +112,7 @@ namespace SUP_G6.Other
                     }
                 }
             }
-            feedbackList = ShufflePegPositions(feedbackList);
+            Array.Sort(feedbackList);
             return feedbackList;
         }
 
@@ -119,14 +120,7 @@ namespace SUP_G6.Other
         {
             numberOfGuesses = 10 - numberOfGuesses;
             return numberOfGuesses;
-        }
-
-        public static PegPosition[] ShufflePegPositions(PegPosition[] pegPositions)
-        {
-            
-            PegPosition[] shuffledPegPositions = pegPositions.OrderBy(x => random.Next(1, 5)).ToArray();
-            return shuffledPegPositions;
-        }
+        }       
 
     }
 }

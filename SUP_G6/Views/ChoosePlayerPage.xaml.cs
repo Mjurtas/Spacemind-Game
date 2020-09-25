@@ -28,6 +28,11 @@ namespace SUP_G6.Views
         {
             InitializeComponent();
             DataContext = new ChoosePlayerViewModel();
-        }     
+        }
+
+        private void TextBox_GotFocus(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

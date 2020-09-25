@@ -96,17 +96,46 @@ namespace SUP_G6.Other
             }
         }
 
-        public static IEnumerable<Player> GetPlayers()
+        public static ObservableCollection<Player> GetPlayers()
         {
             string stmt = "select player_id, name from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Player player = null;
-                List<Player> players = new List<Player>();
+                ObservableCollection<Player> players = new ObservableCollection<Player>();
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            player = new Player
+                            {
+                                Id = (int)reader["player_id"],
+                                Name = (string)reader["name"]
+                            };
+                            players.Add(player);
+                        }
+                    }
+                }
+                return players;
+            }
+        }
+
+        public static ObservableCollection<Player> GetPlayersByName(string name)
+        {
+            string stmt = "select player_id, name from player where name = @name";
+
+            using (var conn = new NpgsqlConnection(connectionString))
+            {
+                Player player = null;
+                ObservableCollection<Player> players = new ObservableCollection<Player>();
+                conn.Open();
+                using (var command = new NpgsqlCommand(stmt, conn))
+                {
+                    command.Parameters.AddWithValue("name", name);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
