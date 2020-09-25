@@ -121,16 +121,12 @@ namespace SUP_G6.ViewModels
 
         public void UpdateHighScoreList(string listType)
         {
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
+            //HighScoreList = new ObservableCollection<IExistInDatabase>();
+            //HighScoreList.Clear();
             if (listType == "GameResult")
             {
-                foreach (var gameResult in ListOfGameResults)
-                {
-                    HighScoreList.Add(gameResult);
-                }
-                HighScoreColumn2 = "Time";
-                HighScoreColumn3 = "Tries";
+                var gameResults = DataBaseLogic.GetGameResults().OrderByDescending(gr => ((GameResult)gr).Score).Take(5);
+                HighScoreList = new ObservableCollection<IExistInDatabase>(gameResults);
             }
             else
             {

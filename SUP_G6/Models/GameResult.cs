@@ -19,12 +19,18 @@ namespace SUP_G6.Models
         public double ElapsedTimeInSeconds { get; set; }
 
         public long ElapsedTicks { get; set; }
-     
+
         public Level Level { get; set; }
 
         public bool Win { get; set; }
         public string DisplayName { get; set; }
         public Int64 DisplayCount { get; set; }
+        public int Score { get; internal set; }
+
+        public void CalculateScore()
+        {
+            Score = 10000 - Tries * 500 + (int)Math.Round(ElapsedTimeInSeconds) * 5;
+        }
 
         public override string ToString()
         {

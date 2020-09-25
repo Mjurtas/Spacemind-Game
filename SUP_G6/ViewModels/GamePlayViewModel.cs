@@ -64,7 +64,7 @@ namespace SUP_G6.ViewModels
         public string ButtonDelete { get; set; } = "delete";
         public string ButtonEndGame { get; set; } = "exit";
         public bool IsGuessButtonEnabled { get; set; } = true;
-         #endregion
+        #endregion
 
         #region ICommands        
         public ICommand RestartGameCommand { get; set; }
@@ -127,7 +127,7 @@ namespace SUP_G6.ViewModels
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
                 Guess = null;
-            }
+                            }
             else
             {
                 ToMessageBox = "You must use 4 avatars for acceptable guess";
@@ -228,10 +228,8 @@ namespace SUP_G6.ViewModels
         #region DataBase Communication
 
         private void CreateNewGameResult()
-
         {
-
-            
+            // 1. Skapar spelresultat
             GameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
@@ -240,11 +238,12 @@ namespace SUP_G6.ViewModels
                 Win = true,
                 ElapsedTimeInSeconds = Math.Round(TimeLabel, 2),
                 Tries = this.NumberOfTries
-                
             };
 
-            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
-            
+            gameResult.CalculateScore();
+
+            // 2. Sparar till databas
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);            
         }
 
         #endregion
