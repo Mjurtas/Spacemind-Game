@@ -35,6 +35,7 @@ namespace SUP_G6.ViewModels
             SetLevelVisibility();
             SecretCode = GameLogic.GenerateSecretCode(level);
             CreateTimer();
+            CreateTimerForScore();
 
             RestartGameCommand = new RelayCommand(ReloadGamePlayPage);
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
@@ -46,11 +47,12 @@ namespace SUP_G6.ViewModels
 
         #region Public Properties
         SoundPlayer snd;
-        public int[] Guess { get; set; }
+        public int[] Guess { get; set; } 
         public int[] SecretCode { get; set; }
         public bool MediumLevel { get; set; } = false;
         public bool HardLevel { get; set; } = false;       
         public double TimeLabel { get; set; } = 0;
+       
         public Player player;
         public Level level;
         public string ToMessageBox { get; set; } = "You must use 4 avatars for acceptable guess";
@@ -64,7 +66,12 @@ namespace SUP_G6.ViewModels
         public string ButtonDelete { get; set; } = "delete";
         public string ButtonEndGame { get; set; } = "exit";
         public bool IsGuessButtonEnabled { get; set; } = true;
-         #endregion
+        public int ScoreTimerCount { get; set; } = 0; // Updates every 20ms
+        public int DefaultScore { get; set; } = 10000; 
+        public int TotalScore { get; set; }
+        public int EndGameScorePresenter { get; set; }
+
+        #endregion
 
         #region ICommands        
         public ICommand RestartGameCommand { get; set; }
@@ -103,6 +110,7 @@ namespace SUP_G6.ViewModels
 
         #region Timer
         DispatcherTimer dispatcherTimer;
+        DispatcherTimer scoreTimer;
         public void CreateTimer()
         {
             dispatcherTimer = new DispatcherTimer();
@@ -111,11 +119,48 @@ namespace SUP_G6.ViewModels
             dispatcherTimer.Start();
         }
 
+        public void CreateTimerForScore()
+        {
+            if (WinPanelVisibility == false)
+            {
+                scoreTimer = new DispatcherTimer();
+                scoreTimer.Tick += new EventHandler(ScoreTimer_Tick);
+                scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 50);
+                scoreTimer.Start();
+            }
+
+            else
+            {
+                scoreTimer.Tick += new EventHandler(ScorePresenter_Tick);
+                
+                scoreTimer.Start();
+            }
+        }
+
+        private void ScoreTimer_Tick(object sender, EventArgs e)
+        {
+            ScoreTimerCount++;
+        }
+
+        private async void ScorePresenter_Tick(object sender, EventArgs e)
+        {
+            TotalScore = DefaultScore - (NumberOfTries * ScoreTimerCount);
+
+            while (EndGameScorePresenter < TotalScore)
+            {
+                await Task.Delay(1);
+                EndGameScorePresenter++;
+                
+            }
+        }
+
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
             TimeLabel++;
         }
         #endregion
+
+
 
         #region Command for Guess Button
 
@@ -199,6 +244,7 @@ namespace SUP_G6.ViewModels
                 snd = new SoundPlayer(Properties.Resources.win_fanfare);
                 snd.Play();
                 WinPanelVisibility = true;
+                CreateTimerForScore();
 
             }
 
@@ -231,16 +277,15 @@ namespace SUP_G6.ViewModels
 
         {
 
-            
+
             GameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
                 Level = this.level,
                 Win = true,
-                ElapsedTimeInSeconds = Math.Round(TimeLabel, 2),
-                Tries = this.NumberOfTries
-                
+                ElapsedTimeInSeconds = TimeLabel,
+                Tries = TotalScore
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);

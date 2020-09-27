@@ -224,6 +224,38 @@
         </Style>
 <!-- End of codesnippet from Stack overflow-->
 
+        <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    
+                    <ControlTemplate TargetType="{x:Type TextBox}">
+                        <Grid>
+                            
+
+                            <Border BorderBrush="Yellow" BorderThickness="1"></Border>
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="5,0,0,0" VerticalAlignment="Center" />
+                            <Label Margin="5,0,0,0" x:Name="WaterMarkLabel" Content="{TemplateBinding Tag}" VerticalAlignment="Center"
+                               Visibility="Collapsed" Foreground="Yellow" FontFamily="#Star Jedi"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <MultiTrigger>
+                                <MultiTrigger.Conditions>
+                                    <Condition Property="Text" Value=""/>
+                                </MultiTrigger.Conditions>
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Visible"/>
+                            </MultiTrigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="Yellow"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Visibility" TargetName="WaterMarkLabel" Value="Collapsed"/>
+                            </Trigger>
+                            
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
 
     </Application.Resources>

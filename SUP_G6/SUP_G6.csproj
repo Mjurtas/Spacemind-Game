@@ -19,6 +19,9 @@
     <None Remove="Assets\Images\ExitIcon.png" />
     <None Remove="Assets\Images\fram.png" />
     <None Remove="Assets\Images\Icon metro-exit.png" />
+    <None Remove="Assets\Images\MedalBronze.png" />
+    <None Remove="Assets\Images\MedalGold.png" />
+    <None Remove="Assets\Images\MedalSilver.png" />
     <None Remove="Assets\Images\off.png" />
     <None Remove="Assets\Images\peg1av.png" />
     <None Remove="Assets\Images\peg2av.png" />
@@ -47,6 +50,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\Icon metro-exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalBronze.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalGold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalSilver.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\peg1av.png">

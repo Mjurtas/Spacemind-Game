@@ -105,7 +105,7 @@
                     <RowDefinition />
                 </Grid.RowDefinitions>
                
-                <TextBox   Style="{StaticResource StarWarsTextFont}" Text="{Binding SearchPlayerInput, Mode=TwoWay}" FontFamily="#Star wars-jedi" Grid.ColumnSpan="4" Grid.Column="2" Background="Transparent" Foreground="Yellow" BorderBrush="Yellow" FontStretch="Medium"  FontSize="24" HorizontalContentAlignment="Center" BorderThickness="1" CaretBrush="Yellow"  />
+                <TextBox   Style="{StaticResource MyWaterMarkStyle}" Text="{Binding SearchPlayerInput, Mode=TwoWay}" Tag="Search player..." FontFamily="#Star wars-jedi" Grid.ColumnSpan="4" Grid.Column="2" Background="Transparent" Foreground="Yellow" BorderBrush="Yellow" FontStretch="Medium"  FontSize="24" HorizontalContentAlignment="Center" BorderThickness="1" CaretBrush="Yellow"  />
                 
 
                     <Button Command="{Binding SearchPlayerCommand}" Grid.Column="6"  Background="Transparent" BorderThickness="0" >

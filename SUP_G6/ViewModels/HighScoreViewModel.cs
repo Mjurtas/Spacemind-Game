@@ -68,6 +68,8 @@ namespace SUP_G6.ViewModels
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
 
+        public bool DiligentWrapPanel { get; set; } = false;
+        public bool ScoreWrapPanel { get; set; } = false;
         #endregion
 
         #region List of GameResults and Players
@@ -144,6 +146,8 @@ namespace SUP_G6.ViewModels
         }
         public void SortByTime()
         {
+            ScoreWrapPanel = true;
+            DiligentWrapPanel = false;
             Unit1 = "seconds";
             Unit2 = "tries";
             SetLevelFromRadioButton();
@@ -165,6 +169,8 @@ namespace SUP_G6.ViewModels
         }
         public void GetDiligentPlayers()
         {
+            ScoreWrapPanel = false;
+            DiligentWrapPanel = true;
             Unit1 = " played";
             Unit2 = "times";
             SetLevelFromRadioButton();
