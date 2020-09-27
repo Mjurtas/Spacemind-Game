@@ -41,18 +41,13 @@ namespace SUP_G6.ViewModels
         public string ButtonTries { get; set; } = "tries";
         public string ButtonMostPlayed { get; set; } = "most played";
         public string ButtonBack { get; set; } = "back";
-        public string Unit1 { get; set; } = "seconds";
-        public string Unit2 { get; set; } = "tries";
+
 
         //RadioButton content properties
         public string RadioButtonEasy { get; set; } = "easy";
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
 
-        //Labels over HighScoreTable content properties
-        public string HighScoreColumn1 { get; set; } = "Name";
-        public string HighScoreColumn2 { get; set; } = "Time";
-        public string HighScoreColumn3 { get; set; } = "Tries";
 
         // Different conditions when sorting highscorelist
         public bool SortHighScoreStandard { get; set; } = false;
@@ -68,8 +63,8 @@ namespace SUP_G6.ViewModels
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
 
-        public bool DiligentWrapPanel { get; set; } = false;
-        public bool ScoreWrapPanel { get; set; } = false;
+        public bool DiligentSortingVisibility { get; set; } = false;
+        public bool ScoreSortingVisibility { get; set; } = false;
         #endregion
 
         #region List of GameResults and Players
@@ -83,6 +78,7 @@ namespace SUP_G6.ViewModels
         public HighScoreViewModel()
         {
             ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
+            ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
             UpdateHighScoreList("GameResult");
             SortByTimeCommand = new RelayCommand(SortByTime);
             SortByTriesCommand = new RelayCommand(SortByTries);
@@ -131,8 +127,7 @@ namespace SUP_G6.ViewModels
                 {
                     HighScoreList.Add(gameResult);
                 }
-                HighScoreColumn2 = "Time";
-                HighScoreColumn3 = "Tries";
+             
             }
             else
             {
@@ -140,16 +135,14 @@ namespace SUP_G6.ViewModels
                 {
                     HighScoreList.Add(player);
                 }
-                HighScoreColumn2 = "Games played";
-                HighScoreColumn3 = " ";
+                
             }
         }
         public void SortByTime()
         {
-            ScoreWrapPanel = true;
-            DiligentWrapPanel = false;
-            Unit1 = "seconds";
-            Unit2 = "tries";
+            ScoreSortingVisibility = true;
+            DiligentSortingVisibility = false;
+            
             SetLevelFromRadioButton();
             Sort = "time";
             listType = "GameResult";
@@ -159,8 +152,7 @@ namespace SUP_G6.ViewModels
 
         public void SortByTries()
         {
-            Unit1 = "seconds";
-            Unit2 = "tries";
+          
             SetLevelFromRadioButton();
             Sort = "tries";
             listType = "GameResult";
@@ -169,10 +161,9 @@ namespace SUP_G6.ViewModels
         }
         public void GetDiligentPlayers()
         {
-            ScoreWrapPanel = false;
-            DiligentWrapPanel = true;
-            Unit1 = " played";
-            Unit2 = "times";
+            ScoreSortingVisibility = false;
+            DiligentSortingVisibility = true;
+        
             SetLevelFromRadioButton();
             listType = "Player";
             ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
