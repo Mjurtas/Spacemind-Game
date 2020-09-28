@@ -29,7 +29,7 @@ namespace SUP_G6.Models
 
         public void CalculateScore()
         {
-            Score = 10000 - Tries * 500 + (int)Math.Round(ElapsedTimeInSeconds) * 5;
+            Score = 10000 - Tries * 1000 + (int)Math.Round(ElapsedTimeInSeconds) * 7;
         }
 
         public override string ToString()

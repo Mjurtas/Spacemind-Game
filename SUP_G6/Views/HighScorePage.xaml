@@ -12,27 +12,5 @@
       Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={local2:RatioConverter}, ConverterParameter='0.9' }"
       Title="GamePlayPage">
     <Page.Resources>
-        <local2:RatioConverter x:Key="RatioConverter"/>
-        <local3:HighScoreDataTemplateSelector x:Key="HighScoreDataTemplateSelector"></local3:HighScoreDataTemplateSelector>
-        <DataTemplate x:Key="GameResultDataTemplate" DataType="{x:Type local4:GameResult}">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding PlayerName}"></TextBlock>
-                <TextBlock Text="{Binding Score}"></TextBlock>
-            </StackPanel>
-        </DataTemplate>
-
-        <DataTemplate x:Key="DiligentPlayerDataTemplate" DataType="{x:Type local4:GameResult}">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding PlayerName}"></TextBlock>
-                <TextBlock Text="{Binding Score}"></TextBlock>
-            </StackPanel>
-        </DataTemplate>
+        
     </Page.Resources>
-
-    <ListBox Style="{StaticResource StarWarsListBoxFont}" 
-             ItemsSource="{Binding HighScoreList}"
-             ItemTemplateSelector="{StaticResource ResourceKey=HighScoreDataTemplateSelector}"
-             Width="500"
-             Height="500"
-             Background="Black"/>
-</Page>
