@@ -110,81 +110,197 @@
                     <Label Content="    = No way José, try again!" Foreground="Yellow" VerticalAlignment="Center"/>
                 </Viewbox>
 
-           
 
-                <!-- Spelplanen -->
-            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-               AllowDrop="True"
+
+            <!-- Spelplanen -->
+            <Grid x:Name="p1" Grid.Column="2" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
-               Drop="panel_Drop" Background="LightYellow" >
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="p2" Grid.Column="3" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="p3" Grid.Column="4" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="p4" Grid.Column="5" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
 
-            </WrapPanel>
+            <!--rad 2-->
+            <Grid x:Name="p5" Grid.Column="2" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p6" Grid.Column="3" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p7" Grid.Column="4" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p8" Grid.Column="5" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray">
-            </WrapPanel>
+            <!--rad 3-->
 
-            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray">
-            </WrapPanel>
+            <Grid x:Name="p9" Grid.Column="2" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p10" Grid.Column="3" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p11" Grid.Column="4" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p12" Grid.Column="5" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--rad 4-->
 
-            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <Grid x:Name="p13" Grid.Column="2" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p14" Grid.Column="3" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p15" Grid.Column="4" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p16" Grid.Column="5" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--rad 5-->
 
-            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <Grid x:Name="p17" Grid.Column="2" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p18" Grid.Column="3" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p19" Grid.Column="4" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p20" Grid.Column="5" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--rad 6-->
 
-            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <Grid x:Name="p21" Grid.Column="2" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p22" Grid.Column="3" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p23" Grid.Column="4" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p24" Grid.Column="5" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--rad 7-->
+
+            <Grid x:Name="p25" Grid.Column="2" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p26" Grid.Column="3" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p27" Grid.Column="4" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p28" Grid.Column="5" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+
+            <!--rad 8-->
+
+            <Grid x:Name="p29" Grid.Column="2" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p30" Grid.Column="3" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p31" Grid.Column="4" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p32" Grid.Column="5" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+
+            <!--rad 9-->
+
+            <Grid x:Name="p33" Grid.Column="2" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p34" Grid.Column="3" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p35" Grid.Column="4" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p36" Grid.Column="5" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+
+            <!--rad 10-->
+
+            <Grid x:Name="p37" Grid.Column="2" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p38" Grid.Column="3" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p39" Grid.Column="4" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="p40" Grid.Column="5" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
 
-            
 
             <!-- Number of Tries -->
             <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2"  Visibility="{Binding GamePlayPageVisibility}" >
@@ -294,9 +410,6 @@
             
 
             <!-- Delete, Exit and Guess Buttons -->
-            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="8" Grid.RowSpan="1" Grid.ColumnSpan="1"  Visibility="{Binding GamePlayPageVisibility}">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonDelete , FallbackValue=igen}" Width="200" Height="75" Margin="0 0 0 5" FontSize="25" Click="DeleteButton_Click" ClickMode="Press"/>
-            </Viewbox>
             <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="1" Grid.ColumnSpan="1"  Visibility="{Binding GamePlayPageVisibility}">
                 <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="25" FontWeight="Bold" ClickMode="Press"/>
             </Viewbox>
