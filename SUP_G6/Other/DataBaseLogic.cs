@@ -40,7 +40,7 @@ namespace SUP_G6.Other
 
         public static int AddGameResult(GameResult gameResult)
         {
-            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
+            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time, totalscore ) values (@Id, @Tries, @Win, @Level, @Time, @TotalScore) returning game_id;";
 
 
             using (var conn = new NpgsqlConnection(connectionString))
@@ -57,6 +57,7 @@ namespace SUP_G6.Other
                     command.Parameters.AddWithValue("Win", gameResult.Win);
                     command.Parameters.AddWithValue("level", gameResult.Level);
                     command.Parameters.AddWithValue("time", gameResult.ElapsedTimeInSeconds);
+                    command.Parameters.AddWithValue("totalscore", gameResult.TotalScore);
                     int id = (int)command.ExecuteScalar();
                     return id;
                 }
@@ -190,7 +191,7 @@ namespace SUP_G6.Other
                 conn.TypeMapper.MapEnum<Level>("level");
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
-                    command.Parameters.AddWithValue("level", level);
+                    command.Parameters.AddWithValue("level",level);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -217,9 +218,9 @@ namespace SUP_G6.Other
 
 
 
-        public static ObservableCollection<GameResult> GetGameResults()
+        public static ObservableCollection<GameResult> GetGameResults(Level level)
         {
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id where win = true";
+            string stmt = "select game_id, player.player_id, player.name, tries, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore ASC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -230,6 +231,7 @@ namespace SUP_G6.Other
                 conn.TypeMapper.MapEnum<Level>("level");
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
+                    command.Parameters.AddWithValue("level", level);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -242,7 +244,9 @@ namespace SUP_G6.Other
                                 //ElapsedTimeInSeconds=(double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
-                                Level = (Level)reader["level"]
+                                Level = (Level)reader["level"],
+                       
+                                TotalScore = (int)reader["totalscore"]
                             };
                             gameResults.Add(gameResult);
                         }
@@ -255,14 +259,14 @@ namespace SUP_G6.Other
         public static ObservableCollection<GameResult> GetGameResultsBy(Level level, string sort)
         {
             string stmt = "";
-            if (sort == "time")
-            {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY time ASC, tries ASC LIMIT 3;";
-            }
-            else if (sort == "tries")
-            {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
-            }
+            //if (sort == "time")
+            //{
+                 stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY totalscore ASC, tries ASC LIMIT 3;";
+            //}
+            //else if (sort == "tries")
+            //{
+            //    stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
+            //}
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 GameResult gameResult = null;
@@ -281,7 +285,8 @@ namespace SUP_G6.Other
                             {
                                 DisplayName = (string)reader["name"],
                                 DisplayCount = (int)reader["tries"],
-                                ElapsedTimeInSeconds = (double)reader["time"]
+                                ElapsedTimeInSeconds = (double)reader["time"],
+                                TotalScore = (int)reader["totalscore"]
                             };
                             gameResults.Add(gameResult);
                         }

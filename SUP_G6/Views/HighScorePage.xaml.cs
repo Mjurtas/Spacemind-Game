@@ -54,5 +54,10 @@ namespace SUP_G6.Views
             button.Foreground = Brushes.Black;
             button.Background = Brushes.Yellow;
         }
+
+        private void easyRadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

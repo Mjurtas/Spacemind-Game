@@ -18,7 +18,11 @@ namespace SUP_G6.Models
 
         public double ElapsedTimeInSeconds { get; set; }
 
-        public long ElapsedTicks { get; set; }
+        public int TotalScore { get; set; }
+
+        public string TotalScoreString { get; set; } 
+
+       
      
         public Level Level { get; set; }
 
@@ -26,10 +30,9 @@ namespace SUP_G6.Models
         public string DisplayName { get; set; }
         public Int64 DisplayCount { get; set; }
 
-        public override string ToString()
-        {
-            return $" {PlayerName} \t\t{ElapsedTimeInSeconds}  \t\t {Tries}  ";
-        }
+
+
+     
 
 
     }
