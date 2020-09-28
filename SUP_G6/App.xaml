@@ -222,6 +222,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
 <!-- End of codesnippet from Stack overflow-->
 
         <Style x:Key="MyWaterMarkStyle" TargetType="{x:Type TextBox}">

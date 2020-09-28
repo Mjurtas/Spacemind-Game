@@ -30,14 +30,14 @@ namespace SUP_G6.ViewModels
         public ICommand ShowDiligentPlayersCommand { get; set; }
         public ICommand ViewStartPageCommand { get; set; }
         public ICommand SortHighScoreCommand { get; set; }
-        public ICommand SortHighScoreListByEasyCommand { get; set; }
-        public ICommand SortHighScoreListByMediumCommand { get; set; }
-        public ICommand SortHighScoreListByHardCommand { get; set; }
+        public ICommand SortByEasyCommand{ get; set; }
+        public ICommand SortByMediumCommand { get; set; }
+        public ICommand SortByHardCommand { get; set; }
         #endregion
 
         #region Properties
         //Button content properties
-        public string ButtonTime { get; set; } = "time";
+        public string ButtonTime { get; set; } = "score";
         public string ButtonTries { get; set; } = "tries";
         public string ButtonMostPlayed { get; set; } = "most played";
         public string ButtonBack { get; set; } = "back";
@@ -64,7 +64,7 @@ namespace SUP_G6.ViewModels
         public bool HardRadioButton { get; set; } = false;
 
         public bool DiligentSortingVisibility { get; set; } = false;
-        public bool ScoreSortingVisibility { get; set; } = false;
+        public bool ScoreSortingVisibility { get; set; } = true;
         #endregion
 
         #region List of GameResults and Players
@@ -74,115 +74,139 @@ namespace SUP_G6.ViewModels
         public ObservableCollection<IExistInDatabase> HighScoreList { get; set; }
         #endregion
 
+        public EventHandler RadioEvent { get; set; } 
+
+
         // Relays for ICommands
         public HighScoreViewModel()
         {
-            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
-            ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
-            UpdateHighScoreList("GameResult");
+            ListOfGameResults = DataBaseLogic.GetGameResults(Level);
+            
+            //UpdateHighScoreList("GameResult");
             SortByTimeCommand = new RelayCommand(SortByTime);
-            SortByTriesCommand = new RelayCommand(SortByTries);
+      
             ShowDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
             ViewStartPageCommand = new RelayCommand(ViewStartPage);
-            SortHighScoreListByEasyCommand = new RelayCommand(UpdateHighSCoreAfterLevelRadioButton);
-            SortHighScoreListByMediumCommand = new RelayCommand(UpdateHighSCoreAfterLevelRadioButton);
-            SortHighScoreListByHardCommand = new RelayCommand(UpdateHighSCoreAfterLevelRadioButton);
+            SortByEasyCommand = new RelayCommand(SetLevelFromRadioButton);
+            SortByMediumCommand = new RelayCommand(SetLevelFromRadioButton);
+            SortByHardCommand = new RelayCommand(SetLevelFromRadioButton);
         }
 
+        
+        
+    
         #region RadioButton Method - Sort by level
 
         public void SetLevelFromRadioButton()
         {
+            if (ScoreSortingVisibility == true)
+            { 
             if (EasyRadioButton)
             {
                 Level = Level.Easy;
+                   
+
+               
             }
             else if (MediumRadioButton)
             {
-                Level = Level.Medium;
+                Level = Level.Medium;        
             }
             else
             {
-                Level = Level.Hard;
+                Level = Level.Hard;    
             }
+                ListOfGameResults = DataBaseLogic.GetGameResults(Level);
+            }
+
+
+            if (ScoreSortingVisibility == false)
+            {
+                if (EasyRadioButton)
+                {
+                    Level = Level.Easy;
+
+
+
+                }
+                else if (MediumRadioButton)
+                {
+                    Level = Level.Medium;
+                }
+                else
+                {
+                    Level = Level.Hard;
+                }
+                ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
+            }
+
         }
 
         #endregion
 
         #region Sorting HighScore Methods
+        public void SortByTime()
+        {
+            ScoreSortingVisibility = true;
+            DiligentSortingVisibility = false;
+            SetLevelFromRadioButton();
+            
+
+        }
+
+        public void GetDiligentPlayers()
+        {
+
+            ScoreSortingVisibility = false;
+            DiligentSortingVisibility = true;
+            SetLevelFromRadioButton();
+            
+
+        }
+
+
 
         /* Enables sorting of highscorelists. IExistInDataBase makes it possible to
          keep both GameResults and Players in same list since both classes inherit from
          the interface.*/
 
-        public string listType = "GameResult";
+        //public string listType = "GameResult";
 
-        public void UpdateHighScoreList(string listType)
-        {
-            HighScoreList = new ObservableCollection<IExistInDatabase>();
-            HighScoreList.Clear();
-            if (listType == "GameResult")
-            {
-                foreach (var gameResult in ListOfGameResults)
-                {
-                    HighScoreList.Add(gameResult);
-                }
-             
-            }
-            else
-            {
-                foreach (var player in ListOfDiligentPlayers)
-                {
-                    HighScoreList.Add(player);
-                }
-                
-            }
-        }
-        public void SortByTime()
-        {
-            ScoreSortingVisibility = true;
-            DiligentSortingVisibility = false;
-            
-            SetLevelFromRadioButton();
-            Sort = "time";
-            listType = "GameResult";
-            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
-            UpdateHighScoreList(listType);
-        }
+        //public void UpdateHighScoreList(string listType)
+        //{
+        //    HighScoreList = new ObservableCollection<IExistInDatabase>();
+        //    HighScoreList.Clear();
+        //    if (listType == "GameResult")
+        //    {
+        //        foreach (var gameResult in ListOfGameResults)
+        //        {
+        //            HighScoreList.Add(gameResult);
+        //        }
 
-        public void SortByTries()
-        {
-          
-            SetLevelFromRadioButton();
-            Sort = "tries";
-            listType = "GameResult";
-            ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
-            UpdateHighScoreList(listType);
-        }
-        public void GetDiligentPlayers()
-        {
-            ScoreSortingVisibility = false;
-            DiligentSortingVisibility = true;
-        
-            SetLevelFromRadioButton();
-            listType = "Player";
-            ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
-            UpdateHighScoreList(listType);
-        }
+        //    }
+        //    else
+        //    {
+        //        foreach (var player in ListOfDiligentPlayers)
+        //        {
+        //            HighScoreList.Add(player);
+        //        }
 
-        public void UpdateHighSCoreAfterLevelRadioButton()
-        {
-            SetLevelFromRadioButton();
-            UpdateHighScoreList(listType);
-            if (listType == "Player")
-            {
-                ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
-            }
-            else
-            {
-                ListOfGameResults = DataBaseLogic.GetGameResultsBy(Level, Sort);
-            }
-        }
+        //    }
+        //}
+
+        //public void UpdateHighSCoreAfterLevelRadioButton()
+        //{
+        //    SetLevelFromRadioButton();
+        //    UpdateHighScoreList(listType);
+        //    if (listType == "Player")
+        //    {
+        //        ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
+        //    }
+        //    else
+        //    {
+        //        ListOfGameResults = DataBaseLogic.GetGameResults(Level);
+        //    }
+        //}
         #endregion
 
         public void ViewStartPage()

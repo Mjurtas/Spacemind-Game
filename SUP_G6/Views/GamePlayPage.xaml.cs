@@ -28,28 +28,78 @@ namespace SUP_G6.Views
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
-        
+
         public GamePlayPage(Player player, Level level)
         {
-           
+
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
-            
+            AddPanelList();
         }
-
         #region Variables
-
-        Panel currentGuessRow;
-        Panel nextGuessRow;
-
+        List<Panel> Panels = new List<Panel>();
+        List<Panel> currentGuessRow = new List<Panel>();
+        List<Panel> nextGuessRow = new List<Panel>();
         #endregion
 
         #region Helper function(s)
 
-        public static int[] ExtractGuessFromUIPanel(Panel guessPanel)
+        public void AddPanelList()
         {
-            UIElementCollection guessedPegs = guessPanel.Children;
+            Panels.Add(p1);
+            Panels.Add(p2);
+            Panels.Add(p3);
+            Panels.Add(p4);
+            Panels.Add(p5);
+            Panels.Add(p6);
+            Panels.Add(p7);
+            Panels.Add(p8);
+            Panels.Add(p9);
+            Panels.Add(p10);
+            Panels.Add(p11);
+            Panels.Add(p12);
+            Panels.Add(p13);
+            Panels.Add(p14);
+            Panels.Add(p15);
+            Panels.Add(p16);
+            Panels.Add(p17);
+            Panels.Add(p18);
+            Panels.Add(p19);
+            Panels.Add(p20);
+            Panels.Add(p21);
+            Panels.Add(p22);
+            Panels.Add(p23);
+            Panels.Add(p24);
+            Panels.Add(p25);
+            Panels.Add(p26);
+            Panels.Add(p27);
+            Panels.Add(p28);
+            Panels.Add(p29);
+            Panels.Add(p30);
+            Panels.Add(p31);
+            Panels.Add(p32);
+            Panels.Add(p33);
+            Panels.Add(p34);
+            Panels.Add(p35);
+            Panels.Add(p36);
+            Panels.Add(p37);
+            Panels.Add(p38);
+            Panels.Add(p39);
+            Panels.Add(p40);
+        }
+
+        public int[] NewExtraction()
+        {
+            Panel firstPanel = Panels[viewModel.NumberOfTries * 4];
+            Panel secondPanel = Panels[viewModel.NumberOfTries * 4 + 1];
+            Panel thirdPanel = Panels[viewModel.NumberOfTries * 4 + 2];
+            Panel fourthPanel = Panels[viewModel.NumberOfTries * 4 + 3];
+            List<UIElement> guessedPegs = new List<UIElement>();
+            guessedPegs.Add(firstPanel.Children[0]);
+            guessedPegs.Add(secondPanel.Children[0]);
+            guessedPegs.Add(thirdPanel.Children[0]);
+            guessedPegs.Add(fourthPanel.Children[0]);
             int[] guess = new int[4];
 
             foreach (MasterPeg peg in guessedPegs)
@@ -61,52 +111,18 @@ namespace SUP_G6.Views
             return guess;
         }
 
-        public void DetermineActivePanel() 
+        public void DetermineActivePanel()
         {
-            switch (viewModel.NumberOfTries)
-            {
-                case 0:
-                    currentGuessRow = stp1;
-                    nextGuessRow = stp2;
-                    break;
-                case 1:
-                    currentGuessRow = stp2;
-                    nextGuessRow = stp3;
-                    break;
-                case 2:
-                    currentGuessRow = stp3;
-                    nextGuessRow = stp4;
-                    break;
-                case 3:
-                    currentGuessRow = stp4;
-                    nextGuessRow = stp5;
-                    break;
-                case 4:
-                    currentGuessRow = stp5;
-                    nextGuessRow = stp6;
-                    break;
-                case 5:
-                    currentGuessRow = stp6;
-                    nextGuessRow = stp7;
-                    break;
-                case 6:
-                    currentGuessRow = stp7;
-                    nextGuessRow = stp8;
-                    break;
-                case 7:
-                    currentGuessRow = stp8;
-                    nextGuessRow = stp9;
-                    break;
-                case 8:
-                    currentGuessRow = stp9;
-                    nextGuessRow = stp10;
-                    break;
-                case 9:
-                    currentGuessRow = stp10;
-                    break;
-                default:
-                    break;
-            }
+            currentGuessRow.Clear();
+            currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4]);
+            currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 1]);
+            currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 2]);
+            currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 3]);
+            nextGuessRow.Clear();
+            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 4]);
+            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 5]);
+            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 6]);
+            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 7]);
         }
 
         #endregion
@@ -114,25 +130,34 @@ namespace SUP_G6.Views
 
         #region Handle Guesses
 
-        private bool IsGuessDone(Panel currentPanel)
+        private bool IsGuessDone(List<Panel> currentPanel)
         {
-            if (currentPanel.Children.Count == 4)
+            for (int i = 0; i < currentPanel.Count; i++)
             {
-                currentPanel.AllowDrop = false;
-                currentPanel.Background = Brushes.LightGray;
-                foreach (MasterPeg peg in currentPanel.Children)
+                if (currentPanel[0].Children.Count > 0 && currentPanel[1].Children.Count > 0 && currentPanel[2].Children.Count > 0 && currentPanel[3].Children.Count > 0)
                 {
-                    peg.IsEnabled = false;
+                    currentPanel[i].AllowDrop = false;
+                    currentPanel[i].Background = Brushes.LightGray;
+                    foreach (MasterPeg peg in currentPanel[i].Children)
+                    {
+                        peg.IsEnabled = false;
+                    }
                 }
-                return true;
+                else
+                {
+                    return false;
+                }
             }
-            return false;
+            return true;
         }
 
-        private void MakeNextGuessAvailable(Panel GuessRow)
+        private void MakeNextGuessAvailable(List<Panel> GuessRow)
         {
-            GuessRow.AllowDrop = true;
-            GuessRow.Background = Brushes.LightYellow;
+            for (int i = 0; i < GuessRow.Count; i++)
+            {
+                GuessRow[i].AllowDrop = true;
+                GuessRow[i].Background = Brushes.LightYellow;
+            }
         }
 
         #endregion
@@ -211,15 +236,8 @@ namespace SUP_G6.Views
                                         peg = new Peg6();
                                         break;
                                 }
-                                if (_panel.Children.Count < 4)
-                                {
-                                    _panel.Children.Add(peg);
-                                }
-                                else
-                                {
-                                    _panel.Children.Clear();
-                                    _panel.Children.Add(peg);
-                                }
+                                _panel.Children.Clear();
+                                _panel.Children.Add(peg);
                             }
                         }
                     }
@@ -238,28 +256,13 @@ namespace SUP_G6.Views
             DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {
-                    viewModel.Guess = ExtractGuessFromUIPanel(currentGuessRow);
-                    MakeNextGuessAvailable(nextGuessRow);
+                viewModel.Guess = NewExtraction();
+                MakeNextGuessAvailable(nextGuessRow);
             }
             else
             {
                 MessageBox.Show($"{viewModel.ToMessageBox}");
             }
-        }
-
-        private void DeleteButton_Click(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            btn = ButtonFeedback.ChangeButton(btn);
-            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
-            DetermineActivePanel();
-
-            int lastItem = currentGuessRow.Children.Count - 1;
-            if(lastItem >= 0)
-            {
-                currentGuessRow.Children.RemoveAt(lastItem);
-            }
-            
         }
         #endregion
     }
