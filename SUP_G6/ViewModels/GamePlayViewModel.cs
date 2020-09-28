@@ -140,14 +140,14 @@ namespace SUP_G6.ViewModels
             {
                 scoreTimer = new DispatcherTimer();
                 scoreTimer.Tick += new EventHandler(ScoreTimer_Tick);
-                scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 50);
+                scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 415);
                 scoreTimer.Start();
             }
 
             else
             {
                 scoreTimer.Tick += new EventHandler(ScorePresenter_Tick);
-                
+                scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
                 scoreTimer.Start();
             }
         }
@@ -282,11 +282,12 @@ namespace SUP_G6.ViewModels
             if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) && !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
                 dispatcherTimer.Stop();
-                CreateNewGameResult();
+                
                 snd = new SoundPlayer(Properties.Resources.win_fanfare);
                 snd.Play();
                 WinPanelVisibility = true;
                 CreateTimerForScore();
+                CreateNewGameResult();
 
             }
 
@@ -327,7 +328,7 @@ namespace SUP_G6.ViewModels
                 Level = this.level,
                 Win = true,
                 ElapsedTimeInSeconds = TimeLabel,
-                Tries = TotalScore,
+                Tries = NumberOfTries,
                 TotalScore = this.TotalScore
             };
 

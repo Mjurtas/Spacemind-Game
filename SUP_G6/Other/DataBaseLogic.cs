@@ -220,7 +220,7 @@ namespace SUP_G6.Other
 
         public static ObservableCollection<GameResult> GetGameResults(Level level)
         {
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore ASC LIMIT 3" ;
+            string stmt = "select game_id, player.player_id, player.name, tries, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
