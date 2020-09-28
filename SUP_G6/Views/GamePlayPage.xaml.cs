@@ -134,7 +134,7 @@ namespace SUP_G6.Views
         {
             for (int i = 0; i < currentPanel.Count; i++)
             {
-                if (currentPanel[i].Children.Count > 0)
+                if (currentPanel[0].Children.Count > 0 && currentPanel[1].Children.Count > 0 && currentPanel[2].Children.Count > 0 && currentPanel[3].Children.Count > 0)
                 {
                     currentPanel[i].AllowDrop = false;
                     currentPanel[i].Background = Brushes.LightGray;
