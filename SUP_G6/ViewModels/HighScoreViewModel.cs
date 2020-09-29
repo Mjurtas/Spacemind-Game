@@ -69,7 +69,7 @@ namespace SUP_G6.ViewModels
 
         #region List of GameResults and Players
         /* Recieves data from DataBase*/
-        public ObservableCollection<GameResult> ListOfGameResults { get; set; }
+        public ObservableCollection<IExistInDatabase> ListOfGameResults { get; set; }
         public ObservableCollection<Player> ListOfDiligentPlayers { get; set; }
         public ObservableCollection<IExistInDatabase> HighScoreList { get; set; }
         #endregion
@@ -103,18 +103,15 @@ namespace SUP_G6.ViewModels
             { 
             if (EasyRadioButton)
             {
-                Level = Level.Easy;
-                   
-
-               
+                    Level = Level.Easy;       
             }
             else if (MediumRadioButton)
             {
-                Level = Level.Medium;        
+                    Level = Level.Medium;
             }
             else
             {
-                Level = Level.Hard;    
+                    Level = Level.Hard;   
             }
                 ListOfGameResults = DataBaseLogic.GetGameResults(Level);
             }
@@ -125,9 +122,6 @@ namespace SUP_G6.ViewModels
                 if (EasyRadioButton)
                 {
                     Level = Level.Easy;
-
-
-
                 }
                 else if (MediumRadioButton)
                 {

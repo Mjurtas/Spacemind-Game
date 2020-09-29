@@ -40,6 +40,21 @@ namespace SUP_G6.ViewModels
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
             ResetButtonCommand = new RelayCommand(ResetButton);
             EndGameCommand = new RelayCommand(EndGame);
+            ShowHintCommand = new RelayCommand(ShowHint);
+        }
+
+        private void ShowHint()
+        {
+            switch (HelpPanelVisibility)
+            {
+                case Visibility.Visible:
+                    HelpPanelVisibility = Visibility.Collapsed;
+                    break;
+                case Visibility.Collapsed:
+                    HelpPanelVisibility = Visibility.Visible;
+                    break;
+
+            }
         }
         #endregion
 
@@ -67,12 +82,13 @@ namespace SUP_G6.ViewModels
         public int CountDownLabel { get; set; } = 3;
         public bool IsGuessButtonEnabled { get; set; } = true;
         public int ScoreTimerCount { get; set; } = 0; // Updates every 50ms
-        public int DefaultScore { get; set; } = 10000; 
+
         public int TotalScore { get; set; }
         public int EndGameScorePresenter { get; set; }
 
         public Visibility GamePlayPageVisibility { get; set; } = Visibility.Collapsed;
         public Visibility CountDownLabelVisibility { get; set; } = Visibility.Visible;
+        public Visibility HelpPanelVisibility { get; set; } = Visibility.Collapsed;
 
 
         #endregion
@@ -83,6 +99,7 @@ namespace SUP_G6.ViewModels
         public ICommand GuessCommand { get; set; }
         public ICommand ResetButtonCommand { get; set; }
         public ICommand EndGameCommand { get; set; }
+        public ICommand ShowHintCommand { get; set; }
 
         #endregion
 
@@ -136,20 +153,10 @@ namespace SUP_G6.ViewModels
 
         public void CreateTimerForScore()
         {
-            if (WinPanelVisibility == false)
-            {
                 scoreTimer = new DispatcherTimer();
                 scoreTimer.Tick += new EventHandler(ScoreTimer_Tick);
                 scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 415);
                 scoreTimer.Start();
-            }
-
-            else
-            {
-                scoreTimer.Tick += new EventHandler(ScorePresenter_Tick);
-                scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
-                scoreTimer.Start();
-            }
         }
 
         private void ScoreTimer_Tick(object sender, EventArgs e)
@@ -157,13 +164,22 @@ namespace SUP_G6.ViewModels
             ScoreTimerCount++;
         }
 
-        private async void ScorePresenter_Tick(object sender, EventArgs e)
+
+        // Timer för animering vid WinPage
+
+        public void CreateTimerForPresentingScore()
         {
-            TotalScore = DefaultScore - (NumberOfTries * ScoreTimerCount);
+            scoreTimer.Tick += new EventHandler(ScorePresenter_Tick);
+            scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
+            scoreTimer.Start();
+        }
+    
+        private void ScorePresenter_Tick(object sender, EventArgs e)
+        { 
 
             while (EndGameScorePresenter < TotalScore)
             {
-                await Task.Delay(1);
+               
                 EndGameScorePresenter++;
 
             }
@@ -210,9 +226,11 @@ namespace SUP_G6.ViewModels
         {
             if (Guess != null)
             {
+                
                 var feedback = GameLogic.Feedback(SecretCode, Guess);
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
+
                 Guess = null;
             }
             else
@@ -282,12 +300,14 @@ namespace SUP_G6.ViewModels
             if (!feedbackPegs.Skip(NumberOfTries*4).Contains(PegPosition.CorrectColorWrongPosition) && !feedbackPegs.Skip(NumberOfTries * 4).Contains(PegPosition.TotallyWrong))
             {
                 dispatcherTimer.Stop();
-                
+                scoreTimer.Stop();
+                SetTotalScore();
+                CreateNewGameResult();
                 snd = new SoundPlayer(Properties.Resources.win_fanfare);
                 snd.Play();
                 WinPanelVisibility = true;
-                CreateTimerForScore();
-                CreateNewGameResult();
+                CreateTimerForPresentingScore();
+                
 
             }
 
@@ -300,6 +320,12 @@ namespace SUP_G6.ViewModels
 
 
         }
+
+        private void SetTotalScore()
+        {
+           TotalScore = 10000 - (NumberOfTries * ScoreTimerCount);
+        }
+
         public void ReloadGamePlayPage()
         {
             var page = new GamePlayPage(player, level);
@@ -330,6 +356,8 @@ namespace SUP_G6.ViewModels
                 ElapsedTimeInSeconds = TimeLabel,
                 Tries = NumberOfTries,
                 TotalScore = this.TotalScore
+               
+              
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);

@@ -56,8 +56,8 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <!-- Färgplupparna -->
-            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4">
+            
+            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -65,43 +65,30 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <local1:Peg1 Grid.Row="0"/>
-                <local1:Peg2 Grid.Row="1"/>
-                <local1:Peg3 Grid.Row="2"/>
-                <local1:Peg4 Grid.Row="3"/>
+                <local1:Peg2 Grid.Row="1" />
+                    <local1:Peg3 Grid.Row="2" />
+                <local1:Peg4 Grid.Row="3" />
             </Grid>
+            <Grid  Visibility="{Binding GamePlayVisibility}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
             <Grid Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local1:Peg5 Grid.Row="0"/>
-                <local1:Peg6 Grid.Row="1"/>
+                <local1:Peg5 Grid.Row="0" />
+                <local1:Peg6 Grid.Row="1" />
             </Grid>
-            <Grid Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
+            </Grid>
+            <Grid Visibility="{Binding HardLevel,  Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local1:Peg7 Grid.Row="0"/>
-                <local1:Peg8 Grid.Row="1"/>
+                <local1:Peg7 Grid.Row="0" />
+                <local1:Peg8 Grid.Row="1"  />
             </Grid>
-
-            <!-- Tooltips -->
-            <Viewbox ToolTip="Drag 4 avatars over to the yellow row and &#x0a;click the 'Guess!' button to make your guess.&#x0a;Green, yellow and black pegs provide feedback." Grid.Column="2">
-                <Label Content="Hints" Foreground="Yellow"/>
-            </Viewbox>
             
-            <Viewbox ToolTip="Right avatar and right spot, good job!" Stretch="None" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Center">
-                <Ellipse  Height="30" Width="30" Fill="Green" VerticalAlignment="Center"/>
-            </Viewbox>
 
-            <Viewbox ToolTip="You chose the right avatar, but the wrong spot! Almost there!" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4" >
-                <Ellipse  Height="30" Width="30" Fill="Yellow"/>
-            </Viewbox>
-           
-            <Viewbox ToolTip="No way José, try again!" Stretch="None" VerticalAlignment="Center" Grid.Column="5" HorizontalAlignment="Center">
-                <Ellipse  Height="30" Width="30" Stroke="Yellow" Fill="Black"/>
-            </Viewbox>
            
             <!-- Spelplanen -->
             <!-- Rad 1 -->
@@ -390,7 +377,7 @@
             </Grid>
 
 
-            <!-- Exit and Guess Buttons -->
+            <!-- Exit, Help and Guess Buttons -->
             <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="1" Grid.ColumnSpan="1"  Visibility="{Binding GamePlayPageVisibility}">
                 <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="25" FontWeight="Bold" ClickMode="Press"/>
             </Viewbox>
@@ -398,6 +385,13 @@
                 <Button    FontSize="20" Command="{Binding EndGameCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
                     <Image Source="\Assets\Images\ExitIcon.png" Height="95" Width="200" ></Image>
                 </Button>
+                
+            </Viewbox>
+            <Viewbox Stretch="Uniform" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" >
+                <Button    FontSize="20" Command="{Binding ShowHintCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
+                    <Image Source="\Assets\Images\HelpIconCircle.png" Height="95" Width="200" ></Image>
+                </Button>
+
             </Viewbox>
 
             <!--Panel för vinst-->
@@ -439,11 +433,45 @@
                     <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
-            <Grid Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="10" >
+            
+            <!-- Hint panel-->
+
+            <Grid  Background="Black"  Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="6" Opacity="0.8" Visibility="{Binding HelpPanelVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource StarWarsFont}" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Hints" Foreground="Yellow" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.03'}"/>
+
+           
+
+
+                <Ellipse  Height="30" Width="30" Fill="Green" VerticalAlignment="Center" Grid.Row="2"/>
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": Right avatar and right spot, good job!" Foreground="Yellow" />
+                <Ellipse  Height="30" Width="30" Fill="Yellow" Grid.Row="3"/>
+                <Label   FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": Right avatar, but wrong spot!" Foreground="Yellow" />
+                <Ellipse  Height="30" Width="30" Stroke="Yellow" Fill="Black" Grid.Row="4"/>
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": No way José, try again!" Foreground="Yellow" />
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="10" >
                 <Viewbox Stretch="Fill" Visibility="{Binding VisibilityCountDown}">
-                    <Label Content="{Binding CountDownLabel, FallbackValue=3}" Style="{StaticResource StarWarsFont}" Visibility="{Binding CountDownLabelVisibility}"  />
+                    <Label Content="{Binding CountDownLabel, FallbackValue=3}" Style="{StaticResource StarWarsFont}" Visibility="{Binding CountDownLabelVisibility, FallbackValue=Collapsed}"  />
                 </Viewbox>
             </Grid>
+            
         </Grid>
     </Border>
 </Page>

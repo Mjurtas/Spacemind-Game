@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using System;
 using System.Collections.Generic;
@@ -220,14 +221,14 @@ namespace SUP_G6.Other
 
 
 
-        public static ObservableCollection<GameResult> GetGameResults(Level level)
+        public static ObservableCollection<IExistInDatabase> GetGameResults(Level level)
         {
             string stmt = "select game_id, player.player_id, player.name, tries, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 GameResult gameResult = null;
-                ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
+                ObservableCollection<IExistInDatabase> gameResults = new ObservableCollection<IExistInDatabase>();
 
                 conn.Open();
                 conn.TypeMapper.MapEnum<Level>("level");
@@ -243,11 +244,10 @@ namespace SUP_G6.Other
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
                                 PlayerName = (string)reader["name"],
-                                //ElapsedTimeInSeconds=(double)reader["time"],
+                                //ElapsedTimeInSeconds = (double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (Level)reader["level"],
-                       
                                 TotalScore = (int)reader["totalscore"]
                             };
                             gameResults.Add(gameResult);
