@@ -13,7 +13,8 @@ namespace SUP_G6.Other
     public static class DataBaseLogic
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["dbServer"].ConnectionString;
-#region CREATE
+
+        #region CREATE
         #region CREATE PLAYER
         public static int AddPlayer(Player player)
         {
@@ -125,7 +126,8 @@ namespace SUP_G6.Other
 
         public static ObservableCollection<Player> GetPlayersByName(string name)
         {
-            string stmt = "select player_id, name from player where name = @name";
+            string stmt = "select player_id, name from player where name like @name";
+            name = name + '%';
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
