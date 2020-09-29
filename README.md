@@ -1,3 +1,5 @@
+![Spacemind logo](./spacemind_logo)
+
 # Spacemind
 A Mastermind game with a Star Wars theme.
 
