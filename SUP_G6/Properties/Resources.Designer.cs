@@ -151,6 +151,66 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] peg1av {
+            get {
+                object obj = ResourceManager.GetObject("peg1av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg2av {
+            get {
+                object obj = ResourceManager.GetObject("peg2av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg3av {
+            get {
+                object obj = ResourceManager.GetObject("peg3av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg4av {
+            get {
+                object obj = ResourceManager.GetObject("peg4av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg5av {
+            get {
+                object obj = ResourceManager.GetObject("peg5av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg6av {
+            get {
+                object obj = ResourceManager.GetObject("peg6av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] peg7av {
             get {
                 object obj = ResourceManager.GetObject("peg7av", resourceCulture);
@@ -161,9 +221,29 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] peg7av1 {
+            get {
+                object obj = ResourceManager.GetObject("peg7av1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] peg8av {
             get {
                 object obj = ResourceManager.GetObject("peg8av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg8av1 {
+            get {
+                object obj = ResourceManager.GetObject("peg8av1", resourceCulture);
                 return ((byte[])(obj));
             }
         }
