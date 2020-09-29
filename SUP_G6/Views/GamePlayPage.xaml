@@ -86,36 +86,25 @@
                 <local1:Peg8 Grid.Row="1"/>
             </Grid>
 
+            <!-- Tooltips -->
             <Viewbox ToolTip="Drag 4 avatars over to the yellow row and &#x0a;click the 'Guess!' button to make your guess.&#x0a;Green, yellow and black pegs provide feedback." Grid.Column="2">
                 <Label Content="Hints" Foreground="Yellow"/>
             </Viewbox>
+            
             <Viewbox ToolTip="Right avatar and right spot, good job!" Stretch="None" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Center">
                 <Ellipse  Height="30" Width="30" Fill="Green" VerticalAlignment="Center"/>
             </Viewbox>
 
-            <!--<Viewbox ToolTip="Right avatar and right spot, good job!" Stretch="Uniform" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
-                    <Label Content="" Foreground="Yellow" VerticalAlignment="Center"/>
-            </Viewbox>-->
-
             <Viewbox ToolTip="You chose the right avatar, but the wrong spot! Almost there!" Stretch="None" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4" >
                 <Ellipse  Height="30" Width="30" Fill="Yellow"/>
             </Viewbox>
-
-            <!--<Viewbox Stretch="Uniform" Grid.Column="3" Grid.ColumnSpan="2">
-                    <Label Content="   =You chose the right avatar, but the wrong spot! Almost there!   " Foreground="Yellow" VerticalAlignment="Center"/>
-                </Viewbox>-->
-
+           
             <Viewbox ToolTip="No way José, try again!" Stretch="None" VerticalAlignment="Center" Grid.Column="5" HorizontalAlignment="Center">
                 <Ellipse  Height="30" Width="30" Stroke="Yellow" Fill="Black"/>
             </Viewbox>
-
-            <!--<Viewbox Stretch="Uniform" Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="5">
-                    <Label Content="    = No way José, try again!" Foreground="Yellow" VerticalAlignment="Center"/>
-                </Viewbox>-->
-
-
-
+           
             <!-- Spelplanen -->
+            <!-- Rad 1 -->
             <Grid x:Name="p1" Grid.Column="2" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow">
@@ -133,7 +122,7 @@
                Drop="panel_Drop" Background="LightYellow">
             </Grid>
 
-            <!--rad 2-->
+            <!-- Rad 2-->
             <Grid x:Name="p5" Grid.Column="2" Grid.Row="2" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -151,8 +140,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 3-->
-
+            <!-- Rad 3-->
             <Grid x:Name="p9" Grid.Column="2" Grid.Row="3" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -170,8 +158,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 4-->
-
+            <!-- Rad 4-->
             <Grid x:Name="p13" Grid.Column="2" Grid.Row="4" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -189,8 +176,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 5-->
-
+            <!-- Rad 5-->
             <Grid x:Name="p17" Grid.Column="2" Grid.Row="5" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -208,8 +194,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 6-->
-
+            <!-- Rad 6-->
             <Grid x:Name="p21" Grid.Column="2" Grid.Row="6" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -227,8 +212,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 7-->
-
+            <!--Rad 7-->
             <Grid x:Name="p25" Grid.Column="2" Grid.Row="7" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -246,8 +230,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 8-->
-
+            <!--Rad 8-->
             <Grid x:Name="p29" Grid.Column="2" Grid.Row="8" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -265,8 +248,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 9-->
-
+            <!-- Rad 9-->
             <Grid x:Name="p33" Grid.Column="2" Grid.Row="9" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -284,8 +266,7 @@
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
-            <!--rad 10-->
-
+            <!-- Rad 10-->
             <Grid x:Name="p37" Grid.Column="2" Grid.Row="10" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
@@ -318,14 +299,12 @@
             </StackPanel>
 
             <!-- Feedbackpluppar -->
-
             <Grid Grid.Column="6" Grid.Row="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[0], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[0], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[1], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[1], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[2], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[2], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[3], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[3], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
 
@@ -335,84 +314,83 @@
                     <Ellipse Fill="{Binding FeedbackPegs[5], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[5], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[6], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[6], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[7], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[7], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="3">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[8], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[8], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[9], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[9], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[10], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[10], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[11], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[11], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid    Grid.Column="6" Grid.Row="4">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[12], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[12], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[13], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[13], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[14], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[14], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[15], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[15], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[16], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[16], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[17], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[17], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[18], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[18], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[19], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[19], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid   Grid.Column="6" Grid.Row="6">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[20], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[20], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[21], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[21], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[22], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[22], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[23], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[23], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="7">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[24], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[24], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[25], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[25], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[26], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[26], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[27], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[27], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid   Grid.Column="6" Grid.Row="8">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[28], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[29], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[29], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[30], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[30], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[31], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[31], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="9">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[32], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[32], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[33], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[33], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[34], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[34], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[35], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[35], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid Grid.Column="6" Grid.Row="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[36], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[36], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[37], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[38], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
 
 
-            <!-- Delete, Exit and Guess Buttons -->
+            <!-- Exit and Guess Buttons -->
             <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="1" Grid.ColumnSpan="1"  Visibility="{Binding GamePlayPageVisibility}">
                 <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="25" FontWeight="Bold" ClickMode="Press"/>
             </Viewbox>
@@ -420,9 +398,7 @@
                 <Button    FontSize="20" Command="{Binding EndGameCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
                     <Image Source="\Assets\Images\ExitIcon.png" Height="95" Width="200" ></Image>
                 </Button>
-
             </Viewbox>
-
 
             <!--Panel för vinst-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
@@ -468,7 +444,6 @@
                     <Label Content="{Binding CountDownLabel, FallbackValue=3}" Style="{StaticResource StarWarsFont}" Visibility="{Binding CountDownLabelVisibility}"  />
                 </Viewbox>
             </Grid>
-
         </Grid>
     </Border>
 </Page>
