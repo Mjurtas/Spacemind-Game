@@ -36,7 +36,7 @@ The secret code will consist of 8 avatars.
 
 ### Start Menu
 #### Create Player
-To create a new player, simply click “CREATE PLAYER”, type a name in the textbox, and then click “CREATE”.
+To create a new player, simply click “CREATE PLAYER”, type a name in the textbox, and then click “CREATE PLAYER”.
 #### Choose Player
 Back for more? To play with an already existing player, click “choose PLAYER”, select a player from the list, a difficulty setting, and then click “PLAY GAME”.
 #### Highscore
@@ -54,7 +54,7 @@ The project is created with:
 * WpfAnimatedGif version: 2.0.0
 
 ## Launch
-Build and run in Visual Studio 2019
+Build and run in Visual Studio 2019.
 
 ## License
 No copyright infringement intended.
