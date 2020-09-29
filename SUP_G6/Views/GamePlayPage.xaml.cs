@@ -130,10 +130,13 @@ namespace SUP_G6.Views
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 2]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 3]);
             nextGuessRow.Clear();
-            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 4]);
-            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 5]);
-            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 6]);
-            nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 7]);
+            if (viewModel.NumberOfTries < 9) 
+            {
+                nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 4]);
+                nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 5]);
+                nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 6]);
+                nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 7]);
+            }
         }
 
         #endregion
