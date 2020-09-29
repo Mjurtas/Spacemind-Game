@@ -2,13 +2,18 @@
 A Mastermind game with a Star Wars theme.
 
 ## Table of Contents
-[General Info](#General-Info)
+[General Info](#general-info)
 
-[Technologies](#Technologies)
+[Technologies](#technologies)
 
-[Launch](#Launch)
+[Launch](#launch)
 
 ## General Info
+This 
+I kursen Systemutvecklingsprojekt (IK0086) har vi fått i uppdrag att i en projektgrupp ta fram ett spel där spelaren skall gissa ett av datorn genererat mönster av tal/färg/dylikt. 
+
+ Uppgiften ämnar att dels utveckla våra kunskaper i programmering och databashantering, men även i hur ett systemutvecklingsprojekt kan planeras och genomföras med slutanvändaren i fokus. Vi skall även få ökad kunskap i hur man använder GitHub för versionshantering och hur man upprättar ett strukturerat och lättläst repo med informativa commitmeddelanden och olika branches. Programmets kod bör följa MVVM (Model, View, ViewModel) -arkitekturen och i högsta möjliga mån efterfölja Clean Code-principerna. 
+
 
 ## Technologies
 The project is created with:
