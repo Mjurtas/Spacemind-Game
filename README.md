@@ -1,11 +1,11 @@
 # Spacemind
 
 ## Table of Contents
-*[General Info](#General-Info)
+[General Info](#General-Info)
 
-*[Technologies](#Technologies)
+[Technologies](#Technologies)
 
-*[Launch](#Launch)
+[Launch](#Launch)
 
 ## General Info
 
