@@ -124,8 +124,12 @@
     <Content Include="Assets\Images\sound.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Images\peg7av.png" />
-    <Content Include="Assets\Images\peg8av.png" />
+    <Content Include="Assets\Images\peg7av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg8av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\Images\Starfield (2).gif" />
     <Resource Include="Resources\oth24.cur" />
     <Resource Include="Views\babyyoda2.png" />
