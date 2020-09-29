@@ -313,9 +313,9 @@ namespace SUP_G6.ViewModels
 
             else if (NumberOfTries == 9)
             {
-                dispatcherTimer.Stop();
-                
+                dispatcherTimer.Stop();                
                 LosePanelVisibility = true;
+                CreateLosingGameResult();
             }
 
 
@@ -345,8 +345,6 @@ namespace SUP_G6.ViewModels
         private void CreateNewGameResult()
 
         {
-
-
             GameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
@@ -362,6 +360,22 @@ namespace SUP_G6.ViewModels
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
             
+        }
+
+        private void CreateLosingGameResult()
+        {
+            GameResult gameResult = new GameResult()
+            {
+                PlayerId = player.Id,
+                PlayerName = player.Name,
+                Level = this.level,
+                Win = false,
+                ElapsedTimeInSeconds = TimeLabel,
+                Tries = NumberOfTries,
+                TotalScore = 0
+            };
+            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
+
         }
 
         #endregion
