@@ -47,47 +47,58 @@ namespace SUP_G6.Views
 
         public void AddPanelList()
         {
-            Panels.Add(p1);
-            Panels.Add(p2);
-            Panels.Add(p3);
-            Panels.Add(p4);
-            Panels.Add(p5);
-            Panels.Add(p6);
-            Panels.Add(p7);
-            Panels.Add(p8);
-            Panels.Add(p9);
-            Panels.Add(p10);
-            Panels.Add(p11);
-            Panels.Add(p12);
-            Panels.Add(p13);
-            Panels.Add(p14);
-            Panels.Add(p15);
-            Panels.Add(p16);
-            Panels.Add(p17);
-            Panels.Add(p18);
-            Panels.Add(p19);
-            Panels.Add(p20);
-            Panels.Add(p21);
-            Panels.Add(p22);
-            Panels.Add(p23);
-            Panels.Add(p24);
-            Panels.Add(p25);
-            Panels.Add(p26);
-            Panels.Add(p27);
-            Panels.Add(p28);
-            Panels.Add(p29);
-            Panels.Add(p30);
-            Panels.Add(p31);
-            Panels.Add(p32);
-            Panels.Add(p33);
-            Panels.Add(p34);
-            Panels.Add(p35);
-            Panels.Add(p36);
-            Panels.Add(p37);
-            Panels.Add(p38);
-            Panels.Add(p39);
-            Panels.Add(p40);
-        }
+            foreach (UIElement p in MasterGrid.Children)
+            {
+                if (p.GetType() == typeof(Grid))
+                {
+                    var q = (Panel)p;
+                    if (q.Name.StartsWith('p'))
+                    {
+                        Panels.Add(q);
+                    }
+                }
+            }       
+                    //Panels.Add(p1);
+                    //Panels.Add(p2);
+                    //Panels.Add(p3);
+                    //Panels.Add(p4);
+                    //Panels.Add(p5);
+                    //Panels.Add(p6);
+                    //Panels.Add(p7);
+                    //Panels.Add(p8);
+                    //Panels.Add(p9);
+                    //Panels.Add(p10);
+                    //Panels.Add(p11);
+                    //Panels.Add(p12);
+                    //Panels.Add(p13);
+                    //Panels.Add(p14);
+                    //Panels.Add(p15);
+                    //Panels.Add(p16);
+                    //Panels.Add(p17);
+                    //Panels.Add(p18);
+                    //Panels.Add(p19);
+                    //Panels.Add(p20);
+                    //Panels.Add(p21);
+                    //Panels.Add(p22);
+                    //Panels.Add(p23);
+                    //Panels.Add(p24);
+                    //Panels.Add(p25);
+                    //Panels.Add(p26);
+                    //Panels.Add(p27);
+                    //Panels.Add(p28);
+                    //Panels.Add(p29);
+                    //Panels.Add(p30);
+                    //Panels.Add(p31);
+                    //Panels.Add(p32);
+                    //Panels.Add(p33);
+                    //Panels.Add(p34);
+                    //Panels.Add(p35);
+                    //Panels.Add(p36);
+                    //Panels.Add(p37);
+                    //Panels.Add(p38);
+                    //Panels.Add(p39);
+                    //Panels.Add(p40);
+                }
 
         public int[] NewExtraction()
         {
