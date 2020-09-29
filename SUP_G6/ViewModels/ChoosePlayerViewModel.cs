@@ -51,6 +51,7 @@ namespace SUP_G6.ViewModels
         {
             if (SearchPlayerInput != "")
             {
+                SearchPlayerInput = SearchPlayerInput.ToLower();
                 Players = DataBaseLogic.GetPlayersByName(SearchPlayerInput);
             }
             
