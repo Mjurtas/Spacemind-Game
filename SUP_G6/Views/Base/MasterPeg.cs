@@ -1,8 +1,10 @@
 ﻿using SUP_G6.DataTypes;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Resources;
 
 namespace SUP_G6
 {
@@ -33,7 +35,45 @@ namespace SUP_G6
 
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                
             }
+        }
+
+        public Cursor GetCursor()
+        {
+            StreamResourceInfo sriCurs;
+            switch (ColorId)
+            {
+                case 1:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
+                    break;
+                case 2:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg2av.cur", UriKind.Relative));
+                    break;
+                case 3:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg3av.cur", UriKind.Relative));
+                    break;
+                case 4:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg4av.cur", UriKind.Relative));
+                    break;
+                case 5:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg5av.cur", UriKind.Relative));
+                    break;
+                case 6:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg6av.cur", UriKind.Relative));
+                    break;
+                case 7:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg7av.cur", UriKind.Relative));
+                    break;
+                case 8:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg8av.cur", UriKind.Relative));
+                    break;
+                default:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
+                    break;
+            }
+            Cursor peg = new Cursor(sriCurs.Stream);
+            return peg;
         }
 
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
@@ -43,15 +83,15 @@ namespace SUP_G6
             // DragOver event handler.
             if (e.Effects.HasFlag(DragDropEffects.Copy))
             {
-                Mouse.SetCursor(Cursors.Cross);
+                Mouse.SetCursor(GetCursor());
             }
             else if (e.Effects.HasFlag(DragDropEffects.Move))
             {
-                Mouse.SetCursor(Cursors.Pen);
+                Mouse.SetCursor(GetCursor());
             }
             else
             {
-                Mouse.SetCursor(Cursors.No);
+                Mouse.SetCursor(GetCursor());
             }
             e.Handled = true;
         }

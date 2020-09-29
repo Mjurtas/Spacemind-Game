@@ -17,8 +17,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.IO;
+using System.Windows.Resources;
 
 namespace SUP_G6.Views
 {
@@ -264,6 +265,8 @@ namespace SUP_G6.Views
         #region Event Handler for Buttons
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
+            //StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
+            //this.Cursor = new Cursor(sriCurs.Stream);
             var btn = sender as Button;
             btn = ButtonFeedback.ChangeButton(btn);
             ButtonFeedback.ButtonFeedbackDelay(btn, 2500);

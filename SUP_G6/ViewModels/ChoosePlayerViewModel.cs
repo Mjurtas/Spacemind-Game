@@ -62,7 +62,7 @@ namespace SUP_G6.ViewModels
             Player player = Player;
 
             if (player != null)
-            {               
+            {
                 var page = new SelectLevelPage(player);
                 ((MainWindow) Application.Current.MainWindow).Main.Content = page;
             }

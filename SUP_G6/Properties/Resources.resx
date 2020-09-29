@@ -145,6 +145,36 @@
   <data name="off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\off.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="peg1av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg1av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg2av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg2av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg3av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg3av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg4av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg4av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg5av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg5av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg6av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg6av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg7av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\peg7av.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg7av1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg7av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg8av" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\peg8av.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="peg8av1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\views\cursors\peg8av.cur;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

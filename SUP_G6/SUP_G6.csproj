@@ -36,6 +36,14 @@
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
     <None Remove="Views\babyyoda2.png" />
+    <None Remove="Views\Cursors\peg1av.cur" />
+    <None Remove="Views\Cursors\peg2av.cur" />
+    <None Remove="Views\Cursors\peg3av.cur" />
+    <None Remove="Views\Cursors\peg4av.cur" />
+    <None Remove="Views\Cursors\peg5av.cur" />
+    <None Remove="Views\Cursors\peg6av.cur" />
+    <None Remove="Views\Cursors\peg7av.cur" />
+    <None Remove="Views\Cursors\peg8av.cur" />
     <None Remove="Views\darthRanked.png" />
     <None Remove="Views\darthWelcome.png" />
     <None Remove="Views\resizedyoda.png" />
@@ -79,12 +87,6 @@
     <Content Include="Assets\Images\peg6av.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Images\peg7av.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Assets\Images\peg8av.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Assets\Images\SearchIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -117,8 +119,18 @@
     <Content Include="Assets\Images\sound.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Images\peg7av.png" />
+    <Content Include="Assets\Images\peg8av.png" />
     <Resource Include="Assets\Images\Starfield (2).gif" />
     <Resource Include="Views\babyyoda2.png" />
+    <Resource Include="Views\Cursors\peg1av.cur" />
+    <Resource Include="Views\Cursors\peg2av.cur" />
+    <Resource Include="Views\Cursors\peg3av.cur" />
+    <Resource Include="Views\Cursors\peg4av.cur" />
+    <Resource Include="Views\Cursors\peg5av.cur" />
+    <Resource Include="Views\Cursors\peg6av.cur" />
+    <Resource Include="Views\Cursors\peg7av.cur" />
+    <Resource Include="Views\Cursors\peg8av.cur" />
     <Resource Include="Views\darthWelcome.png" />
     <Resource Include="Views\resizedyoda.png" />
     <Resource Include="Views\yodatext.png" />
