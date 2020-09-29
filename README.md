@@ -11,14 +11,14 @@ A Mastermind game with a Star Wars theme.
 [Launch](#launch)
 
 ## General Info
-This game is a projekt made for the course *Systemutvecklingsprojek(IK086G)* autumn 2020. The program is written in C# on the .net platform, and uses postgresql as a database to store data on players and their game results.
+This game is a projekt made for the course *Systemutvecklingsprojek(IK086G)* autumn 2020. The program is written in C# on the .net platform with the GUI is written using Windows Platform Foundation(WPF). On the backend it uses a database to store data on players and their game results using Postgresql as a database manager. The game has a drag-and-drop interface to allow the player to drag a number of avatars onto the game board. There is also a sound player to play music from a list of sound files while the game runs. 
 
 ## Game Rules
 
 ### How to Play
 The computer will create a secret code consisting of four avatars. The goal of the game is to guess the secret code in 10 tries or less. The player may drag any of the coloured pegs to the game board to make a consisting of four avatars, and then press the Guess button. The computer will provide feedback on the guess with four smaller pegs to the right, one for each avatar:
 
-*  A Green feedback peg means the avatar is the correct avatar and in the right position.
+* A Green feedback peg means the avatar is the correct avatar and in the right position.
 * A Yellow feedback peg means the avatar is the correct avatar but in the wrong position.
 * A Black feedback peg means the avatar is neither the right avatar nor the correct position.
 
