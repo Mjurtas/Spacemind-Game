@@ -4,7 +4,7 @@ A Mastermind game with a Star Wars theme.
 ## Table of Contents
 [General Info](#general-info)
 
-[Game Rules](#game_rules)
+[Game Rules](#game-rules)
 
 [Technologies](#technologies)
 
