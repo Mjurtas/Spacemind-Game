@@ -40,6 +40,21 @@ namespace SUP_G6.ViewModels
             BackToStartCommand = new RelayCommand(GoBackToStartPage);
             ResetButtonCommand = new RelayCommand(ResetButton);
             EndGameCommand = new RelayCommand(EndGame);
+            ShowHintCommand = new RelayCommand(ShowHint);
+        }
+
+        private void ShowHint()
+        {
+            switch (HelpPanelVisibility)
+            {
+                case Visibility.Visible:
+                    HelpPanelVisibility = Visibility.Collapsed;
+                    break;
+                case Visibility.Collapsed:
+                    HelpPanelVisibility = Visibility.Visible;
+                    break;
+
+            }
         }
         #endregion
 
@@ -73,6 +88,7 @@ namespace SUP_G6.ViewModels
 
         public Visibility GamePlayPageVisibility { get; set; } = Visibility.Collapsed;
         public Visibility CountDownLabelVisibility { get; set; } = Visibility.Visible;
+        public Visibility HelpPanelVisibility { get; set; } = Visibility.Collapsed;
 
 
         #endregion
@@ -83,6 +99,7 @@ namespace SUP_G6.ViewModels
         public ICommand GuessCommand { get; set; }
         public ICommand ResetButtonCommand { get; set; }
         public ICommand EndGameCommand { get; set; }
+        public ICommand ShowHintCommand { get; set; }
 
         #endregion
 
