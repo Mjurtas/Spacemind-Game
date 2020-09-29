@@ -14,7 +14,7 @@ namespace SUP_G6.Models
 
         public string PlayerName { get; set; }
 
-        public int Tries { get; set; } = 0;
+        public int Tries { get; set; }
 
         public double ElapsedTimeInSeconds { get; set; }
         public int TotalScore { get; set; }
