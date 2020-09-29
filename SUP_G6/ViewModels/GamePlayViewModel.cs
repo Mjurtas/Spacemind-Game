@@ -291,7 +291,7 @@ namespace SUP_G6.ViewModels
 
             }
 
-            else if (NumberOfTries == 10)
+            else if (NumberOfTries == 9)
             {
                 dispatcherTimer.Stop();
                 

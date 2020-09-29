@@ -26,7 +26,7 @@
             Opacity="0.9"
             >
         
-        <Grid>
+        <Grid x:Name="MasterGrid">
 
             <!-- Rad- och kolumndefinitioner -->
             <Grid.ColumnDefinitions>
@@ -460,7 +460,7 @@
                     <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
-            <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="11" >
+            <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="11" >
                 <Viewbox Stretch="Fill" Visibility="{Binding VisibilityCountDown}">
                 <Label Content="{Binding CountDownLabel, FallbackValue=3}" Style="{StaticResource StarWarsFont}" Visibility="{Binding CountDownLabelVisibility}"  />
                 </Viewbox>
