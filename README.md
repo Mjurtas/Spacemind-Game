@@ -4,16 +4,16 @@ A Mastermind game with a Star Wars theme.
 ## Table of Contents
 [General Info](#general-info)
 
+[Game Rules](#game_rules)
+
 [Technologies](#technologies)
 
 [Launch](#launch)
 
 ## General Info
-This 
-I kursen Systemutvecklingsprojekt (IK0086) har vi fått i uppdrag att i en projektgrupp ta fram ett spel där spelaren skall gissa ett av datorn genererat mönster av tal/färg/dylikt. 
+This game is a projekt made for the course *Systemutvecklingsprojek(IK086G)* autumn 2020. The program is written in C# on the .net platform, and uses postgresql as a database to store data on players and their game results.
 
- Uppgiften ämnar att dels utveckla våra kunskaper i programmering och databashantering, men även i hur ett systemutvecklingsprojekt kan planeras och genomföras med slutanvändaren i fokus. Vi skall även få ökad kunskap i hur man använder GitHub för versionshantering och hur man upprättar ett strukturerat och lättläst repo med informativa commitmeddelanden och olika branches. Programmets kod bör följa MVVM (Model, View, ViewModel) -arkitekturen och i högsta möjliga mån efterfölja Clean Code-principerna. 
-
+## Game Rules
 
 ## Technologies
 The project is created with:
