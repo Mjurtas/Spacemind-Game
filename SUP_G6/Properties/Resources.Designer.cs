@@ -151,6 +151,26 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] peg7av {
+            get {
+                object obj = ResourceManager.GetObject("peg7av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] peg8av {
+            get {
+                object obj = ResourceManager.GetObject("peg8av", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] sound {
             get {
                 object obj = ResourceManager.GetObject("sound", resourceCulture);
