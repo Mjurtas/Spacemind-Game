@@ -15,6 +15,33 @@ This game is a projekt made for the course *Systemutvecklingsprojek(IK086G)* aut
 
 ## Game Rules
 
+### How to Play
+The computer will create a secret code consisting of four avatars. The goal of the game is to guess the secret code in 10 tries or less. The player may drag any of the coloured pegs to the game board to make a consisting of four avatars, and then press the Guess button. The computer will provide feedback on the guess with four smaller pegs to the right, one for each avatar:
+
+*  A Green feedback peg means the avatar is the correct avatar and in the right position.
+* A Yellow feedback peg means the avatar is the correct avatar but in the wrong position.
+* A Black feedback peg means the avatar is neither the right avatar nor the correct position.
+
+This will continue until you have spent all of the 10 guesses or until the code is cracked.
+
+### Difficulty Levels
+#### Easy
+The secret code will consist of 4 avatars.
+#### Medium
+The secret code will consist of 6 avatars.
+#### Hard
+The secret code will consist of 8 avatars.
+
+### Start Menu
+#### Create Player
+To create a new player, simply click “CREATE PLAYER”, type a name in the textbox, and then click “CREATE”.
+#### Choose Player
+Back for more? To play with an already existing player, click “choose PLAYER”, select a player from the list, a difficulty setting, and then click “PLAY GAME”.
+#### Highscore
+This page will present the best 3 players of any category.
+#### Game Rules
+See a page of game rules for the game. 
+
 ## Technologies
 The project is created with:
 * .net Core version: 3.1
