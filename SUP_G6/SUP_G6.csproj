@@ -36,6 +36,7 @@
     <None Remove="Assets\Images\sound.png" />
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
+    <None Remove="Resources\oth24.cur" />
     <None Remove="Views\babyyoda2.png" />
     <None Remove="Views\Cursors\peg1av.cur" />
     <None Remove="Views\Cursors\peg2av.cur" />
@@ -126,6 +127,7 @@
     <Content Include="Assets\Images\peg7av.png" />
     <Content Include="Assets\Images\peg8av.png" />
     <Resource Include="Assets\Images\Starfield (2).gif" />
+    <Resource Include="Resources\oth24.cur" />
     <Resource Include="Views\babyyoda2.png" />
     <Resource Include="Views\Cursors\peg1av.cur" />
     <Resource Include="Views\Cursors\peg2av.cur" />
