@@ -154,34 +154,34 @@ namespace SUP_G6.Other
                 return players;
             }
         }
-        public static ObservableCollection<Player> GetDiligentPlayers()
-        {
-            string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id GROUP BY game_result.player_id, player.name ORDER BY COUNT DESC LIMIT 3; ";
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                Player player = null;
-                ObservableCollection<Player> diligentPlayers = new ObservableCollection<Player>();
+        //public static ObservableCollection<Player> GetDiligentPlayers()
+        //{
+        //    string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id GROUP BY game_result.player_id, player.name ORDER BY COUNT DESC LIMIT 3; ";
+        //    using (var conn = new NpgsqlConnection(connectionString))
+        //    {
+        //        Player player = null;
+        //        ObservableCollection<Player> diligentPlayers = new ObservableCollection<Player>();
 
-                conn.Open();
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            player = new Player()
-                            {
-                                Id = (int)reader["player_id"],
-                                Name = (string)reader["name"],
-                                NumberOfGamesPlayed = (Int64)reader["COUNT"]
-                            };
-                            diligentPlayers.Add(player);
-                        }
-                    }
-                }
-                return new ObservableCollection<Player>(diligentPlayers);
-            }
-        }
+        //        conn.Open();
+        //        using (var command = new NpgsqlCommand(stmt, conn))
+        //        {
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    player = new Player()
+        //                    {
+        //                        Id = (int)reader["player_id"],
+        //                        Name = (string)reader["name"],
+        //                        NumberOfGamesPlayed = (Int64)reader["COUNT"]
+        //                    };
+        //                    diligentPlayers.Add(player);
+        //                }
+        //            }
+        //        }
+        //        return new ObservableCollection<Player>(diligentPlayers);
+        //    }
+        //}
         public static ObservableCollection<Player> GetDiligentPlayersOnLevel(Level level)
         {
             string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id WHERE game_result.level = @level GROUP BY game_result.player_id, player.name, game_result.level ORDER BY COUNT DESC LIMIT 3;";
@@ -223,7 +223,7 @@ namespace SUP_G6.Other
 
         public static ObservableCollection<IExistInDatabase> GetGameResults(Level level)
         {
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
+            string stmt = "select game_id, player.player_id, player.name, tries, time, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
@@ -244,7 +244,7 @@ namespace SUP_G6.Other
                                 GameId = (int)reader["game_id"],
                                 PlayerId = (int)reader["player_id"],
                                 PlayerName = (string)reader["name"],
-                                //ElapsedTimeInSeconds = (double)reader["time"],
+                                ElapsedTimeInSeconds = (double)reader["time"],
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (Level)reader["level"],
@@ -258,45 +258,45 @@ namespace SUP_G6.Other
             }
         }
 
-        public static ObservableCollection<GameResult> GetGameResultsBy(Level level, string sort)
-        {
-            string stmt = "";
-            //if (sort == "time")
-            //{
-                 stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY totalscore ASC, tries ASC LIMIT 3;";
-            //}
-            //else if (sort == "tries")
-            //{
-            //    stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
-            //}
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                GameResult gameResult = null;
-                ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
+        //public static ObservableCollection<GameResult> GetGameResultsBy(Level level, string sort)
+        //{
+        //    string stmt = "";
+        //    //if (sort == "time")
+        //    //{
+        //         stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY totalscore ASC, tries ASC LIMIT 3;";
+        //    //}
+        //    //else if (sort == "tries")
+        //    //{
+        //    //    stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
+        //    //}
+        //    using (var conn = new NpgsqlConnection(connectionString))
+        //    {
+        //        GameResult gameResult = null;
+        //        ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
 
-                conn.Open();
-                conn.TypeMapper.MapEnum<Level>("level");
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    command.Parameters.AddWithValue("level", level);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            gameResult = new GameResult()
-                            {
-                                DisplayName = (string)reader["name"],
-                                DisplayCount = (int)reader["tries"],
-                                ElapsedTimeInSeconds = (double)reader["time"],
-                                TotalScore = (int)reader["totalscore"]
-                            };
-                            gameResults.Add(gameResult);
-                        }
-                    }
-                }
-                return gameResults;
-            }
-        }
+        //        conn.Open();
+        //        conn.TypeMapper.MapEnum<Level>("level");
+        //        using (var command = new NpgsqlCommand(stmt, conn))
+        //        {
+        //            command.Parameters.AddWithValue("level", level);
+        //            using (var reader = command.ExecuteReader())
+        //            {
+        //                while (reader.Read())
+        //                {
+        //                    gameResult = new GameResult()
+        //                    {
+        //                        DisplayName = (string)reader["name"],
+        //                        DisplayCount = (int)reader["tries"],
+        //                        ElapsedTimeInSeconds = (double)reader["time"],
+        //                        TotalScore = (int)reader["totalscore"]
+        //                    };
+        //                    gameResults.Add(gameResult);
+        //                }
+        //            }
+        //        }
+        //        return gameResults;
+        //    }
+        //}
         #endregion
         #endregion
     }

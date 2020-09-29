@@ -30,5 +30,6 @@ namespace SUP_G6.Views
             DataContext = new ChoosePlayerViewModel();
         }
 
+      
     }
 }

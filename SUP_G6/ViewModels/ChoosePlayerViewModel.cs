@@ -22,6 +22,13 @@ namespace SUP_G6.ViewModels
         public string PlayGameButton { get; set; } = "play game";
         public string BackToStartButton { get; set; } = "back";
         public string SearchPlayerInput { get; set; } = "";
+
+        
+
+        
+        
+
+       
         #endregion
 
         #region ICommand
