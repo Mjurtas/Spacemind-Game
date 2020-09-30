@@ -24,27 +24,33 @@ using System.Windows.Resources;
 namespace SUP_G6.Views
 {
     /// <summary>
-    /// Interaction logic for GamePlayPage.xaml
+    /// Interaction for view specific logic in GamePlayPage.xaml
     /// </summary>
     public partial class GamePlayPage : Page
     {
         private GamePlayViewModel viewModel;
 
+        #region Fields
+
+        List<Panel> Panels = new List<Panel>();
+        List<Panel> currentGuessRow = new List<Panel>();
+        List<Panel> nextGuessRow = new List<Panel>();
+
+        #endregion
+
+        #region Constructor
+
         public GamePlayPage(IPlayer player, Level level)
         {
-
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
             AddPanelList();
         }
-        #region Variables
-        List<Panel> Panels = new List<Panel>();
-        List<Panel> currentGuessRow = new List<Panel>();
-        List<Panel> nextGuessRow = new List<Panel>();
+
         #endregion
 
-        #region Helper function(s)
+        #region Helper functions
 
         public void AddPanelList()
         {
@@ -58,66 +64,24 @@ namespace SUP_G6.Views
                         Panels.Add(q);
                     }
                 }
-            }       
-                    //Panels.Add(p1);
-                    //Panels.Add(p2);
-                    //Panels.Add(p3);
-                    //Panels.Add(p4);
-                    //Panels.Add(p5);
-                    //Panels.Add(p6);
-                    //Panels.Add(p7);
-                    //Panels.Add(p8);
-                    //Panels.Add(p9);
-                    //Panels.Add(p10);
-                    //Panels.Add(p11);
-                    //Panels.Add(p12);
-                    //Panels.Add(p13);
-                    //Panels.Add(p14);
-                    //Panels.Add(p15);
-                    //Panels.Add(p16);
-                    //Panels.Add(p17);
-                    //Panels.Add(p18);
-                    //Panels.Add(p19);
-                    //Panels.Add(p20);
-                    //Panels.Add(p21);
-                    //Panels.Add(p22);
-                    //Panels.Add(p23);
-                    //Panels.Add(p24);
-                    //Panels.Add(p25);
-                    //Panels.Add(p26);
-                    //Panels.Add(p27);
-                    //Panels.Add(p28);
-                    //Panels.Add(p29);
-                    //Panels.Add(p30);
-                    //Panels.Add(p31);
-                    //Panels.Add(p32);
-                    //Panels.Add(p33);
-                    //Panels.Add(p34);
-                    //Panels.Add(p35);
-                    //Panels.Add(p36);
-                    //Panels.Add(p37);
-                    //Panels.Add(p38);
-                    //Panels.Add(p39);
-                    //Panels.Add(p40);
-                }
-
+            }
+        }
+        
         public int[] NewExtraction()
         {
-            Panel firstPanel = Panels[viewModel.NumberOfTries * 4];
-            Panel secondPanel = Panels[viewModel.NumberOfTries * 4 + 1];
-            Panel thirdPanel = Panels[viewModel.NumberOfTries * 4 + 2];
-            Panel fourthPanel = Panels[viewModel.NumberOfTries * 4 + 3];
             List<UIElement> guessedPegs = new List<UIElement>();
-            guessedPegs.Add(firstPanel.Children[0]);
-            guessedPegs.Add(secondPanel.Children[0]);
-            guessedPegs.Add(thirdPanel.Children[0]);
-            guessedPegs.Add(fourthPanel.Children[0]);
+
+            guessedPegs.Add(currentGuessRow[0].Children[0]);
+            guessedPegs.Add(currentGuessRow[1].Children[0]);
+            guessedPegs.Add(currentGuessRow[2].Children[0]);
+            guessedPegs.Add(currentGuessRow[3].Children[0]);
+
             int[] guess = new int[4];
 
-            foreach (MasterPeg peg in guessedPegs)
+            foreach (IPeg peg in guessedPegs)
             {
                 int colorId = peg.ColorId;
-                int position = guessedPegs.IndexOf(peg);
+                int position = guessedPegs.IndexOf((UIElement)peg);
                 guess.SetValue(colorId, position);
             }
             return guess;
@@ -126,11 +90,16 @@ namespace SUP_G6.Views
         public void DetermineActivePanel()
         {
             currentGuessRow.Clear();
+
+            //Adds the last 4 Panels that the player has manipulated to currentGuessRow
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 1]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 2]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 3]);
+
             nextGuessRow.Clear();
+
+            //If the player has any tries left, the next 4 Panels that the player may manipulate gets added to nextGuessRow
             if (viewModel.NumberOfTries < 9) 
             {
                 nextGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 4]);
@@ -142,7 +111,6 @@ namespace SUP_G6.Views
 
         #endregion
 
-
         #region Handle Guesses
 
         private bool IsGuessDone(List<Panel> currentPanel)
@@ -153,7 +121,7 @@ namespace SUP_G6.Views
                 {
                     currentPanel[i].AllowDrop = false;
                     currentPanel[i].Background = Brushes.LightGray;
-                    foreach (MasterPeg peg in currentPanel[i].Children)
+                    foreach (IPeg peg in currentPanel[i].Children)
                     {
                         peg.IsEnabled = false;
                     }
@@ -198,8 +166,7 @@ namespace SUP_G6.Views
 
         private void panel_Drop(object sender, DragEventArgs e)
         {
-            // If an element in the panel has already handled the drop,
-            // the panel should not also handle it.
+            //If an element in the panel has already handled the drop, the panel should not also handle it.
             if (e.Handled == false)
             {
                 Panel _panel = (Panel)sender;
@@ -207,52 +174,50 @@ namespace SUP_G6.Views
 
                 if (_panel != null && _element != null)
                 {
-                    // Get the panel that the element currently belongs to,
-                    // then remove it from that panel and add it the Children of
-                    // the panel that its been dropped on.
+                    //Get the panel that the element currently belongs to and add the children on the panel that its been dropped on.
                     Panel _parent = (Panel)VisualTreeHelper.GetParent(_element);
 
                     if (_parent != null)
                     {
                         if (e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                         {
-                            if (_element is MasterPeg)
+                            if (_element is IPeg)
                             {
-                                var colorId = ((MasterPeg)_element).ColorId;
-                                MasterPeg peg;
+                                var colorId = ((IPeg)_element).ColorId;
+                                IPeg peg;
                                 switch (colorId)
                                 {
                                     case 1:
-                                        peg = new Peg1();
+                                        peg = (IPeg)new Peg1();
                                         break;
                                     case 2:
-                                        peg = new Peg2();
+                                        peg = (IPeg)new Peg2();
                                         break;
                                     case 3:
-                                        peg = new Peg3();
+                                        peg = (IPeg)new Peg3();
                                         break;
                                     case 4:
-                                        peg = new Peg4();
+                                        peg = (IPeg)new Peg4();
                                         break;
                                     case 5:
-                                        peg = new Peg5();
+                                        peg = (IPeg)new Peg5();
                                         break;
                                     case 6:
-                                        peg = new Peg6();
+                                        peg = (IPeg)new Peg6();
                                         break;
                                     case 7:
-                                        peg = new Peg7();
+                                        peg = (IPeg)new Peg7();
                                         break;
                                     case 8:
-                                        peg = new Peg8();
+                                        peg = (IPeg)new Peg8();
                                         break;
 
                                     default:
-                                        peg = new Peg6();
+                                        peg = (IPeg)new Peg6();
                                         break;
                                 }
                                 _panel.Children.Clear();
-                                _panel.Children.Add(peg);
+                                _panel.Children.Add((UIElement)peg);
                             }
                         }
                     }
@@ -262,10 +227,9 @@ namespace SUP_G6.Views
 
         #endregion
 
-        #region Event Handler for Buttons
+        #region Event Handler for Guess Button
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
-
             DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {

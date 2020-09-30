@@ -26,9 +26,6 @@ namespace SUP_G6
     /// </summary>
     public partial class MainWindow : Window
     {
-
-  
-
         public MainWindow()
         {
             InitializeComponent();
@@ -36,11 +33,6 @@ namespace SUP_G6
             StreamResourceInfo sriCurs = Application.GetResourceStream(
             new Uri("Resources/oth24.cur", UriKind.Relative));
             this.Cursor = new Cursor(sriCurs.Stream);
-        }
-
-
-
-
-    
+        }   
     }
 }
