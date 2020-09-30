@@ -45,14 +45,14 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
-            AddPanelList();
+            AddPanelsToList();
         }
 
         #endregion
 
         #region Helper functions
 
-        public void AddPanelList()
+        public void AddPanelsToList()
         {
             foreach (UIElement element in MasterGrid.Children)
             {
