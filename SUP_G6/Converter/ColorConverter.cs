@@ -20,7 +20,7 @@ namespace SUP_G6.Converter
                 case PegPosition.CorrectColorWrongPosition:
                     return new SolidColorBrush(Colors.Yellow);
                 case PegPosition.TotallyWrong:
-                    return new SolidColorBrush(Colors.Black); /*new SolidColorBrush(Colors.Red);*/
+                    return new SolidColorBrush(Colors.Black); 
             };
             return new SolidColorBrush(Colors.Blue);
         }

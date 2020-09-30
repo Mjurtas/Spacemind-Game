@@ -15,21 +15,9 @@ namespace SUP_G6.ViewModels
 {
     public class MainWindowViewModel : BaseViewModel.BaseViewModel
     {
-       
-        SoundPlayer starwarsMainTheme;
-        SoundPlayer CantinaBand;
-        SoundPlayer imperialMarch;
-        List<SoundPlayer> soundList = new List<SoundPlayer>();
-        int trackCounter = 0;
-
-       MediaPlayer player = new MediaPlayer();
-        
-
+        #region Constructor
         public MainWindowViewModel()
         {
-            
-            
-         
             PopulateSongList();
             soundList[trackCounter].PlayLooping();
             SoundOffCommand = new RelayCommand(SoundOff);
@@ -37,10 +25,11 @@ namespace SUP_G6.ViewModels
             PreviousSongCommand = new RelayCommand(PrevSong);
             NextSongCommand = new RelayCommand(NextSong);
         }
+        #endregion
 
         #region Public Properties
-        public Visibility TurnSoundOff { get; set; } = Visibility.Visible;
-        public Visibility TurnSoundOn { get; set; } = Visibility.Collapsed;
+        public Visibility TurnSoundOffIcon { get; set; } = Visibility.Visible;
+        public Visibility TurnSoundOnIcon { get; set; } = Visibility.Collapsed;
         #endregion
 
         #region ICommands
@@ -52,7 +41,14 @@ namespace SUP_G6.ViewModels
 
 
         #region SoundPlayer-logic
-        private void PopulateSongList()
+
+        int trackCounter = 0;
+        SoundPlayer starwarsMainTheme;
+        SoundPlayer CantinaBand;
+        SoundPlayer imperialMarch;
+        List<SoundPlayer> soundList = new List<SoundPlayer>();
+        
+        private void PopulateSongList() //Adds tracks to soundList and is called on start-up.
         {
             
             soundList.Add(starwarsMainTheme = new SoundPlayer(Properties.Resources.starwars));
@@ -62,34 +58,31 @@ namespace SUP_G6.ViewModels
         private void SoundOff()
         {
             soundList[trackCounter].Stop();
-            TurnSoundOff = Visibility.Collapsed;
-            TurnSoundOn = Visibility.Visible;
+            TurnSoundOffIcon = Visibility.Collapsed;
+            TurnSoundOnIcon = Visibility.Visible;
         }
         private void SoundOn()
         {
             soundList[trackCounter].Play();
-            TurnSoundOn = Visibility.Collapsed;
-            TurnSoundOff = Visibility.Visible;
+            TurnSoundOnIcon = Visibility.Collapsed;
+            TurnSoundOffIcon = Visibility.Visible;
         }
-
 
         private void NextSong()
         {
             var lastIndex = soundList.Count() - 1;
-            if (TurnSoundOn == Visibility.Visible)
+            if (TurnSoundOnIcon == Visibility.Visible)
             {
                 if (trackCounter == (int)lastIndex)
                 {
                     trackCounter = 0;
-                    
+               
                 }
-
                 else
                 {
                     trackCounter++;
                    
                 }
-
             }
 
             else
@@ -106,21 +99,17 @@ namespace SUP_G6.ViewModels
                     soundList[trackCounter].Play();
                 }
             }
-
-
         }
 
         private void PrevSong()
         {
-            if (TurnSoundOn == Visibility.Visible)
+            if (TurnSoundOnIcon == Visibility.Visible)
             {
                 if (trackCounter == 0)
                 {
                     trackCounter = soundList.Count();
-                    trackCounter--;
-                    
+                    trackCounter--;                  
                 }
-
                 else
                 {
                     trackCounter--;
@@ -134,8 +123,6 @@ namespace SUP_G6.ViewModels
                     trackCounter = soundList.Count();
                     trackCounter--;
                     soundList[trackCounter].Play();
-
-
                 }
 
                 else
@@ -148,8 +135,6 @@ namespace SUP_G6.ViewModels
 
         }
         #endregion
-
-
 
     }
 }
