@@ -15,7 +15,7 @@ A Mastermind game with a Star Wars theme.
 [License](#license)
 
 ## General Info
-This game is a project made for the course *Systemutvecklingsprojek(IK086G)* autumn 2020. The program is written in C# on the .net platform with the GUI is written using Windows Platform Foundation(WPF). On the backend it uses a database to store data on players and their game results using Postgresql as a database manager. The game has a drag-and-drop interface to allow the player to drag a number of avatars onto the game board. There is also a sound player to play music from a list of sound files while the game runs. 
+This game is a project made for the course *Systemutvecklingsprojek(IK086G)* autumn 2020. The program is written in C# on the .net platform with the GUI is written using Windows Platform Foundation(WPF). On the backend it uses a database to store data on players and their game results using Postgresql as a database manager. The game has a drag-and-drop interface to allow the player to drag a number of avatars onto the game board. There is also a sound player to play music from a list of sound files while the game runs. The music can be muted.
 
 ## Game Rules
 
