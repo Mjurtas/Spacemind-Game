@@ -352,7 +352,7 @@ namespace SUP_G6.ViewModels
                 Level = this.level,
                 Win = true,
                 ElapsedTimeInSeconds = TimeLabel,
-                Tries = NumberOfTries,
+                Tries = NumberOfTries+1,
                 TotalScore = this.TotalScore
                
               
@@ -371,7 +371,7 @@ namespace SUP_G6.ViewModels
                 Level = this.level,
                 Win = false,
                 ElapsedTimeInSeconds = TimeLabel,
-                Tries = NumberOfTries,
+                Tries = NumberOfTries+1,
                 TotalScore = 0
             };
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);

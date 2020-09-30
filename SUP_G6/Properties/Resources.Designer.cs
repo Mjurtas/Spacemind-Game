@@ -92,9 +92,9 @@ namespace SUP_G6.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] darth1 {
+        public static byte[] darthRanked {
             get {
-                object obj = ResourceManager.GetObject("darth1", resourceCulture);
+                object obj = ResourceManager.GetObject("darthRanked", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -303,6 +303,16 @@ namespace SUP_G6.Properties {
         public static System.IO.UnmanagedMemoryStream win_fanfare {
             get {
                 return ResourceManager.GetStream("win_fanfare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] yodatext {
+            get {
+                object obj = ResourceManager.GetObject("yodatext", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }

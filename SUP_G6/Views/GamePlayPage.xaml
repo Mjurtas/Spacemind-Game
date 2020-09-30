@@ -275,13 +275,13 @@
 
             <!-- Number of Tries -->
             <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2"  Visibility="{Binding GamePlayPageVisibility}" >
-                <Label Style="{StaticResource StarWarsFont}"  Content="{Binding LabelTries, FallbackValue=försök}" Grid.Column="2" Grid.Row="0" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}"  Content="{Binding TriesLabel, FallbackValue=försök}" Grid.Column="2" Grid.Row="0" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
                 <Label Style="{StaticResource StarWarsFont}" Content="{Binding NumberOfTries}" Grid.Column="3" Grid.Row="0" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             </StackPanel>
 
             <!-- Time -->
             <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding GamePlayPageVisibility}"  >
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding LabelTime, FallbackValue=tid}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=tid}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
                 <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" ContentStringFormat=" {0} sec" Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </StackPanel>
 
@@ -396,9 +396,9 @@
 
             <!--Panel för vinst-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
-                <Label Style="{StaticResource StarWarsFont}" Content="CoNGRATuLATioNS" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding CongratsLabel, FallbackValue=grattis}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding SecretCodeLabel, FallbackValue=kodenvar}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
                     <Ellipse  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[0], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[1], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[2], Converter={StaticResource EndGamePegsColorConverter}}"/>
@@ -406,34 +406,34 @@
                 </WrapPanel>
                 
                 <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0" Orientation="Horizontal">
-                    <Label Style="{StaticResource StarWarsFont}" Content="Tries" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TriesLabel, FallbackValue=försök}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding NumberOfTries}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
-                    <Label Style="{StaticResource StarWarsFont}" Content="Time" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=tid}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0">
-                    <Label Style="{StaticResource StarWarsFont}" Content="Score: " HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding ScoreLabel, FallbackValue=poäng}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding EndGameScorePresenter}" ContentStringFormat=" {0} pts" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=börjaom}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
 
             <!--Panel för förlust-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding LosePanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
-                <Label Style="{StaticResource StarWarsFont}" Content="GAME ovER" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding GameOverLabel, FallbackValue=youloose}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding SecretCodeLabel, FallbackValue=kodenvar}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
                     <Ellipse  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[0], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[1], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[2], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[3], Converter={StaticResource EndGamePegsColorConverter}}"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=börjaom}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
             
@@ -456,17 +456,17 @@
                     <RowDefinition />
                     
                 </Grid.RowDefinitions>
-                <Label Style="{StaticResource StarWarsFont}" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="Hints" Foreground="Yellow" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.03'}"/>
+                <Label Style="{StaticResource StarWarsFont}" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="{Binding HintsLabel, FallbackValue=hjälp}" Foreground="Yellow" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.03'}"/>
 
            
 
 
                 <Ellipse  Height="30" Width="30" Fill="Green" VerticalAlignment="Center" Grid.Row="2"/>
-                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": Right avatar and right spot, good job!" Foreground="Yellow" />
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding GreenPegHint, FallbackValue=rätt}" Foreground="Yellow" />
                 <Ellipse  Height="30" Width="30" Fill="Yellow" Grid.Row="3"/>
-                <Label   FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": Right avatar, but wrong spot!" Foreground="Yellow" />
+                <Label   FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding YellowPegHint, FallbackValue=nära}" Foreground="Yellow" />
                 <Ellipse  Height="30" Width="30" Stroke="Yellow" Fill="Black" Grid.Row="4"/>
-                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content=": No way José, try again!" Foreground="Yellow" />
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding BlackPegHint, FallbackValue=fel}" Foreground="Yellow" />
 
             </Grid>
             <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="10" >
