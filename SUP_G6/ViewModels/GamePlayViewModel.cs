@@ -19,6 +19,7 @@ using System.Windows.Threading;
 using SUP_G6.Views;
 using System.Threading.Tasks;
 using SUP_G6.Interface;
+using System.Threading;
 
 namespace SUP_G6.ViewModels
 {
@@ -84,7 +85,7 @@ namespace SUP_G6.ViewModels
         public int EndGameScorePresenter { get; set; }
         public int NumberOfTries { get; set; } = 0;
         public int ScoreTimerCount { get; set; } = 0; // Updates every 50ms
-        public int TotalScore { get; set; }
+        public double TotalScore { get; set; }
 
         public double TimeLabel { get; set; } = 0;
 
@@ -194,20 +195,21 @@ namespace SUP_G6.ViewModels
         public void CreateTimerForPresentingScore()
         {
             scoreTimer.Tick += new EventHandler(ScorePresenter_Tick);
-            scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 20);
+            scoreTimer.Interval = new TimeSpan(0, 0, 0, 0, 1);
             scoreTimer.Start();
         }
     
         //Updating the property that is binded in Win Panel until it matches TotalScore
         private void ScorePresenter_Tick(object sender, EventArgs e)
-        { 
+        {
 
-            while (EndGameScorePresenter < TotalScore)
+            if (EndGameScorePresenter < TotalScore)
             {
-               
-                EndGameScorePresenter++;
-
+                EndGameScorePresenter += 33;
             }
+            
+            
+
         }
 
         //Timer for countdown pre-gameplay.
@@ -338,7 +340,7 @@ namespace SUP_G6.ViewModels
 
         private void SetTotalScore()
         {
-           TotalScore = 10000 - (NumberOfTries * ScoreTimerCount);
+           TotalScore = 10000 - (((NumberOfTries + 1) * ScoreTimerCount) * 0.7);
         }
 
         #region Win/Lose Panel Navigation Methods
@@ -371,8 +373,8 @@ namespace SUP_G6.ViewModels
                 Level = this.level,
                 Win = Win,
                 ElapsedTimeInSeconds = TimeLabel,
-                Tries = NumberOfTries+1,
-                TotalScore = this.TotalScore
+                Tries = NumberOfTries + 1,
+                TotalScore = Math.Round(this.TotalScore, 0)
             };
 
             gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
