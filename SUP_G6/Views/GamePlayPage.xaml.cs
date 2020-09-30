@@ -54,14 +54,14 @@ namespace SUP_G6.Views
 
         public void AddPanelList()
         {
-            foreach (UIElement p in MasterGrid.Children)
+            foreach (UIElement element in MasterGrid.Children)
             {
-                if (p.GetType() == typeof(Grid))
+                if (element.GetType() == typeof(Grid))
                 {
-                    var q = (Panel)p;
-                    if (q.Name.StartsWith('p'))
+                    var panel = (Panel)element;
+                    if (panel.Name.StartsWith('p'))
                     {
-                        Panels.Add(q);
+                        Panels.Add(panel);
                     }
                 }
             }

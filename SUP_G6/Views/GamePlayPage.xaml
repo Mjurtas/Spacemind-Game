@@ -94,181 +94,181 @@
 
             <!-- Spelplanen -->
             <!-- Rad 1 -->
-            <Grid x:Name="p1" Grid.Column="2" Grid.Row="1" AllowDrop="True"
+            <Grid x:Name="pos1" Grid.Column="2" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow">
             </Grid>
-            <Grid x:Name="p2" Grid.Column="3" Grid.Row="1" AllowDrop="True"
+            <Grid x:Name="pos2" Grid.Column="3" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow">
             </Grid>
-            <Grid x:Name="p3" Grid.Column="4" Grid.Row="1" AllowDrop="True"
+            <Grid x:Name="pos3" Grid.Column="4" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow">
             </Grid>
-            <Grid x:Name="p4" Grid.Column="5" Grid.Row="1" AllowDrop="True"
+            <Grid x:Name="pos4" Grid.Column="5" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightYellow">
             </Grid>
 
             <!-- Rad 2-->
-            <Grid x:Name="p5" Grid.Column="2" Grid.Row="2" AllowDrop="False"
+            <Grid x:Name="pos5" Grid.Column="2" Grid.Row="2" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p6" Grid.Column="3" Grid.Row="2" AllowDrop="False"
+            <Grid x:Name="pos6" Grid.Column="3" Grid.Row="2" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p7" Grid.Column="4" Grid.Row="2" AllowDrop="False"
+            <Grid x:Name="pos7" Grid.Column="4" Grid.Row="2" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p8" Grid.Column="5" Grid.Row="2" AllowDrop="False"
+            <Grid x:Name="pos8" Grid.Column="5" Grid.Row="2" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 3-->
-            <Grid x:Name="p9" Grid.Column="2" Grid.Row="3" AllowDrop="False"
+            <Grid x:Name="pos9" Grid.Column="2" Grid.Row="3" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p10" Grid.Column="3" Grid.Row="3" AllowDrop="False"
+            <Grid x:Name="pos10" Grid.Column="3" Grid.Row="3" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p11" Grid.Column="4" Grid.Row="3" AllowDrop="False"
+            <Grid x:Name="pos11" Grid.Column="4" Grid.Row="3" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p12" Grid.Column="5" Grid.Row="3" AllowDrop="False"
+            <Grid x:Name="pos12" Grid.Column="5" Grid.Row="3" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 4-->
-            <Grid x:Name="p13" Grid.Column="2" Grid.Row="4" AllowDrop="False"
+            <Grid x:Name="pos13" Grid.Column="2" Grid.Row="4" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p14" Grid.Column="3" Grid.Row="4" AllowDrop="False"
+            <Grid x:Name="pos14" Grid.Column="3" Grid.Row="4" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p15" Grid.Column="4" Grid.Row="4" AllowDrop="False"
+            <Grid x:Name="pos15" Grid.Column="4" Grid.Row="4" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p16" Grid.Column="5" Grid.Row="4" AllowDrop="False"
+            <Grid x:Name="pos16" Grid.Column="5" Grid.Row="4" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 5-->
-            <Grid x:Name="p17" Grid.Column="2" Grid.Row="5" AllowDrop="False"
+            <Grid x:Name="pos17" Grid.Column="2" Grid.Row="5" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p18" Grid.Column="3" Grid.Row="5" AllowDrop="False"
+            <Grid x:Name="pos18" Grid.Column="3" Grid.Row="5" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p19" Grid.Column="4" Grid.Row="5" AllowDrop="False"
+            <Grid x:Name="pos19" Grid.Column="4" Grid.Row="5" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p20" Grid.Column="5" Grid.Row="5" AllowDrop="False"
+            <Grid x:Name="pos20" Grid.Column="5" Grid.Row="5" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 6-->
-            <Grid x:Name="p21" Grid.Column="2" Grid.Row="6" AllowDrop="False"
+            <Grid x:Name="pos21" Grid.Column="2" Grid.Row="6" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p22" Grid.Column="3" Grid.Row="6" AllowDrop="False"
+            <Grid x:Name="pos22" Grid.Column="3" Grid.Row="6" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p23" Grid.Column="4" Grid.Row="6" AllowDrop="False"
+            <Grid x:Name="pos23" Grid.Column="4" Grid.Row="6" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p24" Grid.Column="5" Grid.Row="6" AllowDrop="False"
+            <Grid x:Name="pos24" Grid.Column="5" Grid.Row="6" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!--Rad 7-->
-            <Grid x:Name="p25" Grid.Column="2" Grid.Row="7" AllowDrop="False"
+            <Grid x:Name="pos25" Grid.Column="2" Grid.Row="7" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p26" Grid.Column="3" Grid.Row="7" AllowDrop="False"
+            <Grid x:Name="pos26" Grid.Column="3" Grid.Row="7" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p27" Grid.Column="4" Grid.Row="7" AllowDrop="False"
+            <Grid x:Name="pos27" Grid.Column="4" Grid.Row="7" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p28" Grid.Column="5" Grid.Row="7" AllowDrop="False"
+            <Grid x:Name="pos28" Grid.Column="5" Grid.Row="7" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!--Rad 8-->
-            <Grid x:Name="p29" Grid.Column="2" Grid.Row="8" AllowDrop="False"
+            <Grid x:Name="pos29" Grid.Column="2" Grid.Row="8" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p30" Grid.Column="3" Grid.Row="8" AllowDrop="False"
+            <Grid x:Name="pos30" Grid.Column="3" Grid.Row="8" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p31" Grid.Column="4" Grid.Row="8" AllowDrop="False"
+            <Grid x:Name="pos31" Grid.Column="4" Grid.Row="8" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p32" Grid.Column="5" Grid.Row="8" AllowDrop="False"
+            <Grid x:Name="pos32" Grid.Column="5" Grid.Row="8" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 9-->
-            <Grid x:Name="p33" Grid.Column="2" Grid.Row="9" AllowDrop="False"
+            <Grid x:Name="pos33" Grid.Column="2" Grid.Row="9" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p34" Grid.Column="3" Grid.Row="9" AllowDrop="False"
+            <Grid x:Name="pos34" Grid.Column="3" Grid.Row="9" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p35" Grid.Column="4" Grid.Row="9" AllowDrop="False"
+            <Grid x:Name="pos35" Grid.Column="4" Grid.Row="9" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p36" Grid.Column="5" Grid.Row="9" AllowDrop="False"
+            <Grid x:Name="pos36" Grid.Column="5" Grid.Row="9" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
 
             <!-- Rad 10-->
-            <Grid x:Name="p37" Grid.Column="2" Grid.Row="10" AllowDrop="False"
+            <Grid x:Name="pos37" Grid.Column="2" Grid.Row="10" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p38" Grid.Column="3" Grid.Row="10" AllowDrop="False"
+            <Grid x:Name="pos38" Grid.Column="3" Grid.Row="10" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p39" Grid.Column="4" Grid.Row="10" AllowDrop="False"
+            <Grid x:Name="pos39" Grid.Column="4" Grid.Row="10" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
-            <Grid x:Name="p40" Grid.Column="5" Grid.Row="10" AllowDrop="False"
+            <Grid x:Name="pos40" Grid.Column="5" Grid.Row="10" AllowDrop="False"
                DragOver="panel_DragOver"
                Drop="panel_Drop" Background="LightGray">
             </Grid>
