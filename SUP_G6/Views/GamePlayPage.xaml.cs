@@ -24,7 +24,7 @@ using System.Windows.Resources;
 namespace SUP_G6.Views
 {
     /// <summary>
-    /// Interaction for view specifik logic in GamePlayPage.xaml
+    /// Interaction for view specific logic in GamePlayPage.xaml
     /// </summary>
     public partial class GamePlayPage : Page
     {
