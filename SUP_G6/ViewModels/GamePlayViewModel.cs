@@ -18,6 +18,7 @@ using System.Windows;
 using System.Windows.Threading;
 using SUP_G6.Views;
 using System.Threading.Tasks;
+using SUP_G6.Interface;
 
 namespace SUP_G6.ViewModels
 {
@@ -32,7 +33,7 @@ namespace SUP_G6.ViewModels
         DispatcherTimer scoreTimer;
         DispatcherTimer countDownTimer;
 
-        public Player player;
+        public IPlayer player;
         public Level level;
 
         public ObservableCollection<bool> feedbackPegsVisibility = new ObservableCollection<bool>();
@@ -42,7 +43,7 @@ namespace SUP_G6.ViewModels
 
         #region Constructor
 
-        public GamePlayViewModel(Player player, Level level)
+        public GamePlayViewModel(IPlayer player, Level level)
         {
 
             CreateTimerForCountDown();

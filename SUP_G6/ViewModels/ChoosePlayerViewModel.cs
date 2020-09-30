@@ -10,6 +10,7 @@ using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using SUP_G6.Interface;
 
 namespace SUP_G6.ViewModels
 {
@@ -31,7 +32,7 @@ namespace SUP_G6.ViewModels
 
         #region Properties
 
-        public ObservableCollection<Player> Players { get; set; } = DataBaseLogic.GetPlayers();
+        public ObservableCollection<IPlayer> Players { get; set; } = DataBaseLogic.GetPlayers();
         public Player Player { get; set; }
         public Level Level { get; set; }
 

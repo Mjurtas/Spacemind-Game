@@ -30,7 +30,7 @@ namespace SUP_G6.Views
     {
         private GamePlayViewModel viewModel;
 
-        public GamePlayPage(Player player, Level level)
+        public GamePlayPage(IPlayer player, Level level)
         {
 
             InitializeComponent();
@@ -265,11 +265,7 @@ namespace SUP_G6.Views
         #region Event Handler for Buttons
         private void GuessButton_Click(object sender, RoutedEventArgs e)
         {
-            //StreamResourceInfo sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
-            //this.Cursor = new Cursor(sriCurs.Stream);
-            var btn = sender as Button;
-            btn = ButtonFeedback.ChangeButton(btn);
-            ButtonFeedback.ButtonFeedbackDelay(btn, 2500);
+
             DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {
