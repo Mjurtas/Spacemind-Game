@@ -36,7 +36,7 @@ namespace SUP_G6.ViewModels
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
         public string BackButton { get; set; } = "back to start";
-        public string ChoosePlayerLabel { get; set; } = "choose your player";
+        public string ChooseLevelLabel { get; set; } = "choose level";
         #endregion
         #endregion
 
