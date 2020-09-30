@@ -87,9 +87,11 @@
                 <local1:Peg7 Grid.Row="0" />
                 <local1:Peg8 Grid.Row="1"  />
             </Grid>
-            
 
-           
+            <Label Content="{Binding TotalScore}" Style="{StaticResource StarWarsFont}" Grid.ColumnSpan="3" />
+            <Label Content="{Binding ScoreTimerCount}" Style="{StaticResource StarWarsFont}" Grid.Row="1"/>
+
+
             <!-- Spelplanen -->
             <!-- Rad 1 -->
             <Grid x:Name="p1" Grid.Column="2" Grid.Row="1" AllowDrop="True"

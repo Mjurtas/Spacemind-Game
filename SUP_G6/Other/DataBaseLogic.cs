@@ -220,7 +220,7 @@ namespace SUP_G6.Other
                                 Tries = (int)reader["tries"],
                                 Win = (bool)reader["win"],
                                 Level = (Level)reader["level"],
-                                TotalScore = (int)reader["totalscore"]
+                                TotalScore = (double)reader["totalscore"]
                             };
 
                             gameResults.Add(gameResult);

@@ -29,7 +29,7 @@ namespace SUP_G6.ViewModels
 
         #region Properties
 
-        public Player Player { get; set; }
+        public IPlayer Player { get; set; }
         public string Name { get; set; }
 
         #region Content Bindings
@@ -56,11 +56,11 @@ namespace SUP_G6.ViewModels
         {
             if (Name.Length > 9)
             {
-                MessageBox.Show($"You hit the maxmum length! Baby Yoda says you need a shorter name");
+                MessageBox.Show($"You hit the maximum length! Baby Yoda says you need a shorter name");
             }
             if (Name != null)
             {
-                Player player = new Player
+                IPlayer player = new Player
                 {
                     Name = Name.ToLower()  //The font convert text to ToUpper but doesnt render capitalized letters well in inputsstrings.
                 };
@@ -93,7 +93,7 @@ namespace SUP_G6.ViewModels
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
 
-        private void ToChooseLevelPage(Player player)
+        private void ToChooseLevelPage(IPlayer player)
         {
             var page = new SelectLevelPage(player);
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
