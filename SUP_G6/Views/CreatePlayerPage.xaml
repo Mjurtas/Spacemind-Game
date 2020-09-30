@@ -43,10 +43,10 @@
             </Grid.RowDefinitions>
 
             <Viewbox Margin="0, 50, 0, 0" Stretch="Fill"  Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center">
-                <Label Style="{StaticResource StarWarsFont}" Content="CREATE PLAYER" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Yellow"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding CreatePlayerLabel, FallbackValue=skapaspelare}" HorizontalAlignment="Center" FontWeight="Bold" Foreground="Yellow"/>
             </Viewbox>
             <StackPanel Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="2" HorizontalAlignment="Center">
-                <Label Style="{StaticResource StarWarsFont}" Content="Name" HorizontalAlignment="Center" Width="279" FontSize="22"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding NameLabel, FallbackValue=namn}" HorizontalAlignment="Center" Width="279" FontSize="22"/>
             <TextBox x:Name="text" Text="{Binding Name, Mode=TwoWay}" Style="{StaticResource StarWarsTextFont}" MaxLength="8" HorizontalContentAlignment="Center" TextWrapping="Wrap" Background="Black" Width="279" BorderBrush="Yellow" BorderThickness="2" Height="44" FontSize="25" Foreground="Yellow"/>
 
         </StackPanel>

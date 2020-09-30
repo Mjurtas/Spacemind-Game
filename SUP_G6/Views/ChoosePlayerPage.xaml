@@ -53,7 +53,7 @@
             <Image Source="/Assets/Images/yodatext.png" Width="400" Height="400" HorizontalAlignment="Right" VerticalAlignment="Top"  Margin="0 0 70 0" Grid.Column="2" Grid.RowSpan="5" Grid.Row="1"></Image>
 
 
-            <Label Style="{StaticResource StarWarsFont}" Content="Choose your player" HorizontalAlignment="Center"  FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3"  Foreground="#FFF4FF00"/>
+            <Label Style="{StaticResource StarWarsFont}" Content="{Binding ChoosePlayerLabel, FallbackValue=väljspelare}" HorizontalAlignment="Center"  FontSize="60" FontWeight="Bold" Grid.ColumnSpan="3"  Foreground="#FFF4FF00"/>
 
             <ListBox Style="{StaticResource ListBoxStyle1}" x:Name="playerListbox"  Background="Black" SelectedItem="{Binding Player, Mode=TwoWay}" ItemsSource="{Binding Players}" Foreground="Yellow" BorderBrush="Yellow" BorderThickness="2" Grid.Column="1" Grid.Row="2"/>
 
