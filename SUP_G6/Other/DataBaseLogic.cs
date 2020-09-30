@@ -41,7 +41,7 @@ namespace SUP_G6.Other
 
         /* Adds gameresult by when game is finished*/
 
-        public static int AddGameResult(GameResult gameResult)
+        public static int AddGameResult(GameResult gameResult) 
         {
             string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time, totalscore ) values (@Id, @Tries, @Win, @Level, @Time, @TotalScore) returning game_id;";
 

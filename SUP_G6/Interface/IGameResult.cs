@@ -1,12 +1,12 @@
 ﻿using SUP_G6.DataTypes;
-using SUP_G6.Interface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
-namespace SUP_G6.Models
+namespace SUP_G6.Interface
 {
-    public class GameResult : IGameResult, IExistInDatabase
+    interface IGameResult
     {
         public int GameId { get; set; }
 
@@ -27,13 +27,5 @@ namespace SUP_G6.Models
         public string DisplayName { get; set; }
 
         public Int64 DisplayCount { get; set; }
-   
-     
-
-
-
-     
-
-
     }
 }

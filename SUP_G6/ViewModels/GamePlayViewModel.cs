@@ -35,6 +35,7 @@ namespace SUP_G6.ViewModels
 
         public IPlayer player;
         public Level level;
+        public IGameResult gameResult;
 
         public ObservableCollection<bool> feedbackPegsVisibility = new ObservableCollection<bool>();
         public ObservableCollection<PegPosition> feedbackPegs = new ObservableCollection<PegPosition>();
@@ -364,7 +365,7 @@ namespace SUP_G6.ViewModels
         private void CreateNewGameResult()
 
         {
-            GameResult gameResult = new GameResult()
+            IGameResult gameResult = new GameResult()
             {
                 PlayerId = player.Id,
                 PlayerName = player.Name,
@@ -375,7 +376,7 @@ namespace SUP_G6.ViewModels
                 TotalScore = this.TotalScore
             };
 
-            gameResult.GameId = DataBaseLogic.AddGameResult(gameResult);
+            gameResult.GameId = DataBaseLogic.AddGameResult((GameResult)gameResult);
             
         }
 
