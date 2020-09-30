@@ -119,7 +119,7 @@
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="babyyoda2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Views\babyyoda2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>..\assets\images\babyyoda2.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="bak" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bak.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -129,6 +129,9 @@
   </data>
   <data name="darth1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\assets\images\darth1.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="darthRanked" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\darthranked.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="fram" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fram.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -192,5 +195,8 @@
   </data>
   <data name="win_fanfare" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\win-fanfare.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="yodatext" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\assets\images\yodatext.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
