@@ -1,4 +1,5 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -8,7 +9,7 @@ using System.Windows.Resources;
 
 namespace SUP_G6
 {
-    public class MasterPeg : UserControl
+    public class MasterPeg : UserControl,  IPeg
     {
         #region Properties
         public int ColorId { get; set; }
@@ -188,6 +189,36 @@ namespace SUP_G6
             base.OnDragLeave(e);
             // Undo the preview that was applied in OnDragEnter.
             //    circleUI.Fill = _previousFill;
+        }
+
+        public void OnMouseMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnGiveFeedback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDrop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragOver()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragEnter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragLeave()
+        {
+            throw new NotImplementedException();
         }
     }
 }
