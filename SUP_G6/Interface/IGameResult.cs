@@ -18,7 +18,7 @@ namespace SUP_G6.Interface
 
         public double ElapsedTimeInSeconds { get; set; }
 
-        public int TotalScore { get; set; }
+        public double TotalScore { get; set; }
 
         public Level Level { get; set; }
 
