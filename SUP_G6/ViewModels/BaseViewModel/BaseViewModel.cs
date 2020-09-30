@@ -11,13 +11,19 @@ namespace SUP_G6.ViewModels.BaseViewModel
     public class BaseViewModel : INotifyPropertyChanged
 
     {
+        #region Event Handlers
+
         public event PropertyChangedEventHandler PropertyChanged;
 
-     
+        #endregion
+
+        #region Property Changed Method
 
         protected void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        #endregion
     }
 }
