@@ -1,4 +1,5 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using SUP_G6.ViewModels.BaseViewModel;
 using SUP_G6.Views;
@@ -13,17 +14,30 @@ namespace SUP_G6.ViewModels
 {
     class SelectLevelViewModel
     {
+        #region Constructor
+        public SelectLevelViewModel(IPlayer player)
+        {
+            this.Player = player;
+            StartGameCommand = new RelayCommand(StartGame);
+            BackButtonCommand = new RelayCommand(BackToStart);
+        }
+        #endregion
+
         #region Properties
-        public Player Player { get; set; }
+        public IPlayer Player { get; set; }
         public Level Level { get; set; }
         public bool EasyRadioButton { get; set; } = true;
         public bool MediumRadioButton { get; set; } = false;
         public bool HardRadioButton { get; set; } = false;
+
+        #region ContentBindings
         public string ButtonPlayGame { get; set; } = "play game";
         public string RadioButtonEasy { get; set; } = "easy";
         public string RadioButtonMedium { get; set; } = "medium";
         public string RadioButtonHard { get; set; } = "hard";
         public string BackButton { get; set; } = "back to start";
+        public string ChoosePlayerLabel { get; set; } = "choose your player";
+        #endregion
         #endregion
 
         #region ICommand
@@ -32,14 +46,9 @@ namespace SUP_G6.ViewModels
 
         #endregion
 
-        public SelectLevelViewModel(Player player)
-        {
-            this.Player = player;
-            StartGameCommand = new RelayCommand(StartGame);
-            BackButtonCommand = new RelayCommand(BackToStart);
+        #region SelectLevelMethods
 
-        }
-
+        // Sets chosen level and passes it to GamePlayPage along with chosen player.
         public void CreateGame()
         {
             if (EasyRadioButton)
@@ -71,5 +80,6 @@ namespace SUP_G6.ViewModels
             var page1 = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
+        #endregion
     }
 }

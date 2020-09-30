@@ -15,22 +15,7 @@ namespace SUP_G6.ViewModels
     public class StartViewModel : BaseViewModel.BaseViewModel
     {
 
-        #region ICommands
-        public ICommand CreatePlayerPageCommand { get; set; }
-        public ICommand ChoosePlayerPageCommand { get; set; }
-        public ICommand ViewHighScorePageCommand { get; set; }
-        public ICommand ViewGameRulesPageCommand { get; set; }
-        #endregion
-
-        #region Properties
-        public string CreatePlayerButton { get; set; } = "create player";
-        public string ChoosePlayerButton { get; set; } = "choose player";
-        public string ViewHighScoreButton { get; set; } = "view highscore";
-        public string ViewGameRulesButton { get; set; } = "game rules";
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        #endregion
-
+        #region Constructor
         public StartViewModel()
         {
             CreatePlayerPageCommand = new RelayCommand(ChangePageToCreatePlayerPage);
@@ -38,10 +23,26 @@ namespace SUP_G6.ViewModels
             ViewHighScorePageCommand = new RelayCommand(ChangePageToHighScorePage);
             ViewGameRulesPageCommand = new RelayCommand(ChangePageToGameRulesPage);
         }
+        #endregion
+
+        #region Properties
+        public string CreatePlayerButton { get; set; } = "create player";
+        public string ChoosePlayerButton { get; set; } = "choose player";
+        public string ViewHighScoreButton { get; set; } = "view highscore";
+        public string ViewGameRulesButton { get; set; } = "game rules";
+        public string SpaceMindLabel { get; set; } = "spacemind";
+
+
+        #endregion
+
+        #region ICommands
+        public ICommand CreatePlayerPageCommand { get; set; }
+        public ICommand ChoosePlayerPageCommand { get; set; }
+        public ICommand ViewHighScorePageCommand { get; set; }
+        public ICommand ViewGameRulesPageCommand { get; set; }
+        #endregion
 
         #region ChangePageMethods
-
-        
 
         public void ChangePageToCreatePlayerPage()
         {
@@ -68,17 +69,6 @@ namespace SUP_G6.ViewModels
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
         #endregion
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

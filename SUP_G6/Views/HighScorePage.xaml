@@ -77,7 +77,7 @@
 <!-- Start of Player 1 XAML-->
            
             <!-- #1 Grid for sorting score-highscore-->
-            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Visible}">
+            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -101,7 +101,7 @@
             
             <!-- #1 Grid for sorting diligentplayer-highscore-->
 
-            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Hidden}">
+            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Hidden}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -122,7 +122,7 @@
             
 <!-- Player 2 XAML-->
 
-            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Visible}">
+            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -144,7 +144,7 @@
                 <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[1].Tries, FallbackValue=Tries}"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
 
-            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Hidden}">
+            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Hidden}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -166,7 +166,7 @@
             <!-- Player 3 XAML-->
 
 
-            <Grid  Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Visible}">
+            <Grid  Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -188,7 +188,7 @@
                 <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[2].Tries, FallbackValue=Tries}"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
             </Grid>
 
-            <Grid   Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Visible}">
+            <Grid   Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Visible}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition />
                     <ColumnDefinition />
@@ -208,7 +208,7 @@
             </Grid>
             
             <!-- end -->
-            <Label Style="{StaticResource StarWarsFont}" Content="Highscore" Foreground="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.05'}" Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+            <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighscoreLabel,FallbackValue=poänglista}" Foreground="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.05'}" Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"/>
 
 
             
@@ -220,7 +220,7 @@
 
 
             <Viewbox Stretch="Uniform" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="2">
-                <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center" VerticalAlignment="Bottom" ></Label>
+                <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="{Binding SortByLabel, FallbackValue=sortera}" HorizontalAlignment="Center" VerticalAlignment="Bottom" ></Label>
             </Viewbox>
             <WrapPanel Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="9" HorizontalAlignment="Center">
                 <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" Command="{Binding SortByEasyCommand}" GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" VerticalContentAlignment="Center"/>
@@ -233,7 +233,7 @@
             </Viewbox>
           
             <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="250" Height="75" ClickMode="Press"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="250" Height="75" ClickMode="Press"/>
             </Viewbox>
 
             <Viewbox Stretch="Fill" Grid.Column="8" Grid.Row="1">

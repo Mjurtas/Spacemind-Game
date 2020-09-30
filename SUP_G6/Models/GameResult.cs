@@ -17,14 +17,15 @@ namespace SUP_G6.Models
         public int Tries { get; set; }
 
         public double ElapsedTimeInSeconds { get; set; }
+
         public int TotalScore { get; set; }
 
-    
-     
         public Level Level { get; set; }
 
         public bool Win { get; set; }
+
         public string DisplayName { get; set; }
+
         public Int64 DisplayCount { get; set; }
    
      

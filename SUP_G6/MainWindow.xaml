@@ -44,10 +44,10 @@
                 <Button  x:Name="btnPrevSong" Command="{Binding PreviousSongCommand}"  Background="Black" BorderThickness="0" Visibility="Visible" Grid.Column="4" Margin="0, 0,20, 0">
                     <Image Source="\Assets\Images\bak.png" Height="15" Width="19" Stretch="UniformToFill" ></Image>
                 </Button>
-                <Button   x:Name="btnTurnSoundOff" Command="{Binding SoundOffCommand}" Visibility="{Binding TurnSoundOff}" Background="Black" BorderThickness="0">
+                <Button   x:Name="btnTurnSoundOff" Command="{Binding SoundOffCommand}" Visibility="{Binding TurnSoundOffIcon}" Background="Black" BorderThickness="0">
                     <Image Source="\Assets\Images\sound.png" Height="15" Width="19"></Image>
                 </Button>
-                <Button x:Name="btnTurnSoundOn" Command="{Binding SoundOnCommand}" Visibility="{Binding TurnSoundOn}"  Background="Black" BorderThickness="0">
+                <Button x:Name="btnTurnSoundOn" Command="{Binding SoundOnCommand}" Visibility="{Binding TurnSoundOnIcon, FallbackValue=Collapsed}"  Background="Black" BorderThickness="0">
                     <Image Source="\Assets\Images\off.png" Height="15" Width="19"></Image>
                 </Button>
                 <Button  x:Name="btnNextSong" Command="{Binding NextSongCommand}" Background="Black" BorderThickness="0" Visibility="Visible"  Margin="20, 0, 0, 0">

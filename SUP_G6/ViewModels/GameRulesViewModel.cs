@@ -60,7 +60,6 @@ namespace SUP_G6.ViewModels
 
         public void ViewStartPage()
         {
-
             var page = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
