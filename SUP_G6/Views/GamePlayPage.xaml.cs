@@ -114,10 +114,10 @@ namespace SUP_G6.Views
             guessedPegs.Add(fourthPanel.Children[0]);
             int[] guess = new int[4];
 
-            foreach (MasterPeg peg in guessedPegs)
+            foreach (IPeg peg in guessedPegs)
             {
                 int colorId = peg.ColorId;
-                int position = guessedPegs.IndexOf(peg);
+                int position = guessedPegs.IndexOf((UIElement)peg);
                 guess.SetValue(colorId, position);
             }
             return guess;
@@ -153,7 +153,7 @@ namespace SUP_G6.Views
                 {
                     currentPanel[i].AllowDrop = false;
                     currentPanel[i].Background = Brushes.LightGray;
-                    foreach (MasterPeg peg in currentPanel[i].Children)
+                    foreach (IPeg peg in currentPanel[i].Children)
                     {
                         peg.IsEnabled = false;
                     }
@@ -216,10 +216,10 @@ namespace SUP_G6.Views
                     {
                         if (e.AllowedEffects.HasFlag(DragDropEffects.Copy))
                         {
-                            if (_element is MasterPeg)
+                            if (_element is IPeg)
                             {
-                                var colorId = ((MasterPeg)_element).ColorId;
-                                MasterPeg peg;
+                                var colorId = ((IPeg)_element).ColorId;
+                                IPeg peg;
                                 switch (colorId)
                                 {
                                     case 1:
@@ -252,7 +252,7 @@ namespace SUP_G6.Views
                                         break;
                                 }
                                 _panel.Children.Clear();
-                                _panel.Children.Add(peg);
+                                _panel.Children.Add((UIElement)peg);
                             }
                         }
                     }
