@@ -16,13 +16,16 @@ namespace SUP_G6
         public Level LevelVisibility { get; set; }
         #endregion
 
+        #region Constructor
         public MasterPeg()
         {
             Height = 50;
             Name = "Peg";
             Width = 50;
         }
+        #endregion
 
+        #region Drag and drop methods
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
@@ -97,7 +100,6 @@ namespace SUP_G6
             e.Handled = true;
         }
 
-
         protected override void OnDrop(DragEventArgs e)
         {
             base.OnDrop(e);
@@ -130,7 +132,6 @@ namespace SUP_G6
             }
             e.Handled = true;
         }
-
 
         protected override void OnDragOver(DragEventArgs e)
         {
@@ -191,6 +192,9 @@ namespace SUP_G6
             //    circleUI.Fill = _previousFill;
         }
 
+        #endregion
+
+        #region Error handling for interface IPeg
         public void OnMouseMove()
         {
             throw new NotImplementedException();
@@ -220,5 +224,6 @@ namespace SUP_G6
         {
             throw new NotImplementedException();
         }
+        #endregion
     }
 }
