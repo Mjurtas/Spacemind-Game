@@ -318,11 +318,11 @@ namespace SUP_G6.ViewModels
                 dispatcherTimer.Stop();
                 scoreTimer.Stop();
                 SetTotalScore();
+                Win = true;
                 CreateNewGameResult();
                 snd = new SoundPlayer(Properties.Resources.win_fanfare);
                 snd.Play();
                 WinPanelVisibility = true;
-                Win = true;
                 CreateTimerForPresentingScore();
             }
 
