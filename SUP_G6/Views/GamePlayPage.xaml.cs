@@ -80,9 +80,9 @@ namespace SUP_G6.Views
 
             foreach (IPeg peg in guessedPegs)
             {
-                int colorId = peg.ColorId;
+                int pegId = peg.PegId;
                 int position = guessedPegs.IndexOf((UIElement)peg);
-                guess.SetValue(colorId, position);
+                guess.SetValue(pegId, position);
             }
             return guess;
         }
@@ -183,9 +183,9 @@ namespace SUP_G6.Views
                         {
                             if (_element is IPeg)
                             {
-                                var colorId = ((IPeg)_element).ColorId;
+                                var pegId = ((IPeg)_element).PegId;
                                 IPeg peg;
-                                switch (colorId)
+                                switch (pegId)
                                 {
                                     case 1:
                                         peg = (IPeg)new Peg1();

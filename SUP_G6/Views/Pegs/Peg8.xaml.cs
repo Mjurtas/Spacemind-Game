@@ -36,7 +36,7 @@ namespace SUP_G6
                 Fill = imageSource
                 
             };
-            ColorId = 8;
+            PegId = 8;
             LevelVisibility = Level.Hard;
             master.Children.Add(ellipse);
         }
