@@ -36,7 +36,7 @@ namespace SUP_G6.ViewModels
                                         "1. A Green feedback peg means the avatar is the correct avatar and in the right position.\n" +
                                         "2. A Yellow feedback peg means the avatar is the correct avatar but in the wrong position.\n" +
                                         "3. A Black feedback peg means the avatar is neither the right avatar nor the correct position.\n \n" +
-                                        "This will continue until you have spent all of the 10 guesses or until the code is cracked.\n \n" +
+                                        "This will continue until you have spent all of the 10 guesses or until the code is cracked. An avatar can occur more than once in the secret code.\n \n" +
                                         "== Difficulty Levels ==\n \n" +
                                         "EASY\n" +
                                         "The secret code will consist of 4 avatars. \n \n" +
