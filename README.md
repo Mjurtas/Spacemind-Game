@@ -26,7 +26,7 @@ The computer will create a secret code consisting of four avatars. The goal of t
 * A Yellow feedback peg means the avatar is the correct avatar but in the wrong position.
 * A Black feedback peg means the avatar is neither the right avatar nor the correct position.
 
-This will continue until you have spent all of the 10 guesses or until the code is cracked.
+This will continue until you have spent all of the 10 guesses or until the code is cracked. An avatar can occur more than once in the secret code.
 
 ### Difficulty Levels
 #### Easy
