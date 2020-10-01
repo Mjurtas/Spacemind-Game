@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SUP_G6.Models
 {
-    public class GameResult : IGameResult, IExistInDatabase
+    public class GameResult : IGameResult
     {
         public int GameId { get; set; }
 
@@ -27,13 +27,5 @@ namespace SUP_G6.Models
         public string DisplayName { get; set; }
 
         public Int64 DisplayCount { get; set; }
-   
-     
-
-
-
-     
-
-
     }
 }

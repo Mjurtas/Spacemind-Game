@@ -38,7 +38,7 @@ namespace SUP_G6.Other
             return generatedCode;
         }
 
-        public static PegPosition[] Feedback(int[] secretCode, int[] guess)
+        public static PegPosition[] CheckGuessAndSetFeedback(int[] secretCode, int[] guess)
         {
 
             //skapar listan med feedback
@@ -114,13 +114,6 @@ namespace SUP_G6.Other
             }
             Array.Sort(feedbackList);
             return feedbackList;
-        }
-
-        public static int NumbersOfTriesLeft(int numberOfGuesses)
-        {
-            numberOfGuesses = 10 - numberOfGuesses;
-            return numberOfGuesses;
-        }       
-
+        }     
     }
 }

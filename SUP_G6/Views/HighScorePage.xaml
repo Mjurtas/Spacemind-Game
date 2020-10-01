@@ -229,7 +229,7 @@
             </WrapPanel>
 
             <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="4">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="150" Height="75"  ClickMode="Press"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByScoreCommand}" Content="{Binding ButtonScore, FallbackValue=tid}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="150" Height="75"  ClickMode="Press"/>
             </Viewbox>
           
             <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2">

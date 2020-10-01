@@ -71,34 +71,6 @@ namespace SUP_G6.Other
 
         #region READ
         #region READ PLAYER
-
-        public static IPlayer GetPlayer(int id)
-        {
-            string stmt = "select player_id, name from player where player_id=@player_id";
-
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                Player player = null;
-                conn.Open();
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    command.Parameters.AddWithValue("player_id", id);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            player = new Player
-                            {
-                                Id = (int)reader["player_id"],
-                                Name = (string)reader["name"]
-                            };
-                        }
-                    }
-                }
-                return player;
-            }
-        }
-
         public static ObservableCollection<IPlayer> GetPlayers()
         {
             string stmt = "select player_id, name from player";
@@ -193,14 +165,14 @@ namespace SUP_G6.Other
         #endregion
 
 
-        public static ObservableCollection<IExistInDatabase> GetGameResults(Level level)
+        public static ObservableCollection<IGameResult> GetGameResults(Level level)
         {
             string stmt = "select game_id, player.player_id, player.name, tries, time, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 GameResult gameResult = null;
-                ObservableCollection<IExistInDatabase> gameResults = new ObservableCollection<IExistInDatabase>();
+                ObservableCollection<IGameResult> gameResults = new ObservableCollection<IGameResult>();
 
                 conn.Open();
                 conn.TypeMapper.MapEnum<Level>("level");

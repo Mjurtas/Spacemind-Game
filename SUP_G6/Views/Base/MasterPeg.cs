@@ -12,7 +12,7 @@ namespace SUP_G6
     public class MasterPeg : UserControl,  IPeg
     {
         #region Properties
-        public int ColorId { get; set; }
+        public int PegId { get; set; }
         public Level LevelVisibility { get; set; }
         #endregion
 
@@ -46,7 +46,7 @@ namespace SUP_G6
         public Cursor GetCursor()
         {
             StreamResourceInfo sriCurs;
-            switch (ColorId)
+            switch (PegId)
             {
                 case 1:
                     sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));

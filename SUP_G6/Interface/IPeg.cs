@@ -9,7 +9,7 @@ namespace SUP_G6.Interface
     interface IPeg
     {
         #region Properties
-        public int ColorId { get; set; }
+        public int PegId { get; set; }
         public Level LevelVisibility { get; set; }
         bool IsEnabled { get; set; }
         #endregion

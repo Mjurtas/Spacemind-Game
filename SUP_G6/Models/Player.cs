@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SUP_G6.Models
 {
-    public class Player : IPlayer, IExistInDatabase
+    public class Player : IPlayer
     {
         public int Id { get; set; }
         public string Name { get; set; }

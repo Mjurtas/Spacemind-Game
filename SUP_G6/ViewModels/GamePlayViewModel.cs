@@ -147,13 +147,11 @@ namespace SUP_G6.ViewModels
             if (level == Level.Medium)
             {
                 MediumLevel = true;
-
             }
             if (level == Level.Hard)
             {
                 MediumLevel = true;
                 HardLevel = true;
-
             }
         }
 
@@ -207,9 +205,6 @@ namespace SUP_G6.ViewModels
             {
                 EndGameScorePresenter += 33;
             }
-            
-            
-
         }
 
         //Timer for countdown pre-gameplay.
@@ -243,11 +238,9 @@ namespace SUP_G6.ViewModels
         {
             if (Guess != null)
             {
-                
-                var feedback = GameLogic.Feedback(SecretCode, Guess);
+                var feedback = GameLogic.CheckGuessAndSetFeedback(SecretCode, Guess);
                 SetFeedbackPegs(feedback);
                 NumberOfTries += 1;
-
                 Guess = null;
             }
             else

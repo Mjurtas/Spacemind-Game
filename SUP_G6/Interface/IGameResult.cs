@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SUP_G6.Interface
 {
-    interface IGameResult
+    public interface IGameResult
     {
         public int GameId { get; set; }
 

@@ -45,27 +45,23 @@ namespace SUP_G6.Views
             InitializeComponent();
             viewModel = new GamePlayViewModel(player, level);
             DataContext = viewModel;
-            AddPanelList();
+            AddPanelsToList();
         }
 
         #endregion
 
         #region Helper functions
 
-        public void AddPanelList()
+        public void AddPanelsToList()
         {
-
-            /* Checks all childrenitems in Main Grid a.k.a "MasterGrid".
-             If the type is Grid, it's casted to a Panel and check the x:name.
-            If it starts with "p" it gets added to the Panels-list. */ 
-            foreach (UIElement p in MasterGrid.Children)
+            foreach (UIElement element in MasterGrid.Children)
             {
-                if (p.GetType() == typeof(Grid))
+                if (element.GetType() == typeof(Grid))
                 {
-                    var q = (Panel)p;
-                    if (q.Name.StartsWith('p'))
+                    var panel = (Panel)element;
+                    if (panel.Name.StartsWith('p'))
                     {
-                        Panels.Add(q);
+                        Panels.Add(panel);
                     }
                 }
             }
@@ -74,9 +70,6 @@ namespace SUP_G6.Views
         public int[] NewExtraction()
         {
             List<UIElement> guessedPegs = new List<UIElement>();
-
-            /* New list to get the current row's guesses.
-             * Returns array with what ID the peg has, and in which panel the peg is placed */
 
             guessedPegs.Add(currentGuessRow[0].Children[0]);
             guessedPegs.Add(currentGuessRow[1].Children[0]);
@@ -87,9 +80,9 @@ namespace SUP_G6.Views
 
             foreach (IPeg peg in guessedPegs)
             {
-                int colorId = peg.ColorId;
+                int pegId = peg.PegId;
                 int position = guessedPegs.IndexOf((UIElement)peg);
-                guess.SetValue(colorId, position);
+                guess.SetValue(pegId, position);
             }
             return guess;
         }
@@ -98,7 +91,6 @@ namespace SUP_G6.Views
         {
             currentGuessRow.Clear();
 
-            /* NumberOfTries is set in ViewModel, and is multiplied by 4 to check which row that should be active. */
             //Adds the last 4 Panels that the player has manipulated to currentGuessRow
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 1]);
@@ -123,7 +115,6 @@ namespace SUP_G6.Views
 
         private bool IsGuessDone(List<Panel> currentPanel)
         {
-            /* Checks if there are one children in each panel in the currentPanel. If so, the guess is submitted and the pabel is disabled for additional pegplacements.*/
             for (int i = 0; i < currentPanel.Count; i++)
             {
                 if (currentPanel[0].Children.Count > 0 && currentPanel[1].Children.Count > 0 && currentPanel[2].Children.Count > 0 && currentPanel[3].Children.Count > 0)
@@ -143,14 +134,12 @@ namespace SUP_G6.Views
             return true;
         }
 
-        private void MakeNextGuessAvailable(List<Panel> nextGuessRow)
+        private void MakeNextGuessAvailable(List<Panel> GuessRow)
         {
-
-            // Is called when "IsGuessDown()" returns true and enables the next row for drag N drop.
-            for (int i = 0; i < nextGuessRow.Count; i++)
+            for (int i = 0; i < GuessRow.Count; i++)
             {
-                nextGuessRow[i].AllowDrop = true;
-                nextGuessRow[i].Background = Brushes.LightYellow;
+                GuessRow[i].AllowDrop = true;
+                GuessRow[i].Background = Brushes.LightYellow;
             }
         }
 
@@ -194,9 +183,9 @@ namespace SUP_G6.Views
                         {
                             if (_element is IPeg)
                             {
-                                var colorId = ((IPeg)_element).ColorId;
+                                var pegId = ((IPeg)_element).PegId;
                                 IPeg peg;
-                                switch (colorId)
+                                switch (pegId)
                                 {
                                     case 1:
                                         peg = (IPeg)new Peg1();

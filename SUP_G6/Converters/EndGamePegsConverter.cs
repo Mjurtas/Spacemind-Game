@@ -13,8 +13,8 @@ namespace SUP_G6.Converter
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             ImageBrush imageSource = new ImageBrush();
-            var color = value;
-            switch (color)
+            var pegId = value;
+            switch (pegId)
             {
                 case 1:
                      
