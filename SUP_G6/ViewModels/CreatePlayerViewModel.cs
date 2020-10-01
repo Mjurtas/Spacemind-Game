@@ -54,10 +54,7 @@ namespace SUP_G6.ViewModels
 
         public void CreatePlayer()
         {
-            if (Name.Length > 9)
-            {
-                MessageBox.Show($"You hit the maximum length! Baby Yoda says you need a shorter name");
-            }
+          
             if (Name != null)
             {
                 IPlayer player = new Player
@@ -74,11 +71,20 @@ namespace SUP_G6.ViewModels
                 }
                 catch (PostgresException error)
                 {
+             
                     if (error.SqlState == "23505")
                     {
                         MessageBox.Show($"The name {player.Name} already exists. Pick another nickname you must.");
                         Name = "";
                     }
+                }
+            }
+
+            else
+            {
+                if (Name == null)
+                {
+                    MessageBox.Show($"You must enter a nickname, or Baby Yoda will keep staring at you");
                 }
             }
         }

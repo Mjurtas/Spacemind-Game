@@ -88,8 +88,7 @@
                 <local1:Peg8 Grid.Row="1"  />
             </Grid>
 
-            <Label Content="{Binding TotalScore}" Style="{StaticResource StarWarsFont}" Grid.ColumnSpan="3" />
-            <Label Content="{Binding ScoreTimerCount}" Style="{StaticResource StarWarsFont}" Grid.Row="1"/>
+            
 
 
             <!-- Spelplanen -->
@@ -408,18 +407,18 @@
                 </WrapPanel>
                 
                 <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0" Orientation="Horizontal">
-                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TriesLabel, FallbackValue=försök}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TriesLabel, FallbackValue=tries}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding NumberOfTries}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
-                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=tid}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
-                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=time}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" ContentStringFormat=" {0] sec" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" Grid.ColumnSpan="3" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0">
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding ScoreLabel, FallbackValue=poäng}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding EndGameScorePresenter}" ContentStringFormat=" {0} pts" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=börjaom}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=restard}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=back}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
 

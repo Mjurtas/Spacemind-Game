@@ -85,7 +85,7 @@ namespace SUP_G6.ViewModels
         public int CountDownLabel { get; set; } = 3;
         public int EndGameScorePresenter { get; set; }
         public int NumberOfTries { get; set; } = 0;
-        public int ScoreTimerCount { get; set; } = 0; // Updates every 50ms
+        public int ScoreTimerCount { get; set; } = 0; // Updates every 1ms
         public double TotalScore { get; set; }
 
         public double TimeLabel { get; set; } = 0;
@@ -102,8 +102,7 @@ namespace SUP_G6.ViewModels
         #region Content Bindings
 
         public string ToMessageBox { get; set; } = "You must use 4 avatars for acceptable guess";
-        public string LabelTries { get; set; } = "tries";
-        public string LabelTime { get; set; } = "time";
+     
         public string ButtonGuess { get; set; } = "guess!";
         public string ButtonDelete { get; set; } = "delete";
         public string ButtonEndGame { get; set; } = "exit";
@@ -115,8 +114,8 @@ namespace SUP_G6.ViewModels
         public string BackToStartButton { get; set; } = "back to start";
         public string GameOverLabel { get; set; } = "game over";
         public string ScoreLabel { get; set; } = "score: ";
-        public string TimeTextLabel { get; set; } = "time";
-        public string TriesLabel { get; set; } = "tries";
+        public string TimeTextLabel { get; set; } = "  time: ";
+        public string TriesLabel { get; set; } = "tries: ";
         public string SecretCodeLabel { get; set; } = "The secretcode was:";
         public string CongratsLabel { get; set; } = "congratulations";
 

@@ -54,6 +54,10 @@ namespace SUP_G6.Views
 
         public void AddPanelList()
         {
+
+            /* Checks all childrenitems in Main Grid a.k.a "MasterGrid".
+             If the type is Grid, it's casted to a Panel and check the x:name.
+            If it starts with "p" it gets added to the Panels-list. */ 
             foreach (UIElement p in MasterGrid.Children)
             {
                 if (p.GetType() == typeof(Grid))
@@ -70,6 +74,9 @@ namespace SUP_G6.Views
         public int[] NewExtraction()
         {
             List<UIElement> guessedPegs = new List<UIElement>();
+
+            /* New list to get the current row's guesses.
+             * Returns array with what ID the peg has, and in which panel the peg is placed */
 
             guessedPegs.Add(currentGuessRow[0].Children[0]);
             guessedPegs.Add(currentGuessRow[1].Children[0]);
@@ -91,6 +98,7 @@ namespace SUP_G6.Views
         {
             currentGuessRow.Clear();
 
+            /* NumberOfTries is set in ViewModel, and is multiplied by 4 to check which row that should be active. */
             //Adds the last 4 Panels that the player has manipulated to currentGuessRow
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4]);
             currentGuessRow.Add(Panels[viewModel.NumberOfTries * 4 + 1]);
@@ -115,6 +123,7 @@ namespace SUP_G6.Views
 
         private bool IsGuessDone(List<Panel> currentPanel)
         {
+            /* Checks if there are one children in each panel in the currentPanel. If so, the guess is submitted and the pabel is disabled for additional pegplacements.*/
             for (int i = 0; i < currentPanel.Count; i++)
             {
                 if (currentPanel[0].Children.Count > 0 && currentPanel[1].Children.Count > 0 && currentPanel[2].Children.Count > 0 && currentPanel[3].Children.Count > 0)
@@ -134,12 +143,14 @@ namespace SUP_G6.Views
             return true;
         }
 
-        private void MakeNextGuessAvailable(List<Panel> GuessRow)
+        private void MakeNextGuessAvailable(List<Panel> nextGuessRow)
         {
-            for (int i = 0; i < GuessRow.Count; i++)
+
+            // Is called when "IsGuessDown()" returns true and enables the next row for drag N drop.
+            for (int i = 0; i < nextGuessRow.Count; i++)
             {
-                GuessRow[i].AllowDrop = true;
-                GuessRow[i].Background = Brushes.LightYellow;
+                nextGuessRow[i].AllowDrop = true;
+                nextGuessRow[i].Background = Brushes.LightYellow;
             }
         }
 
