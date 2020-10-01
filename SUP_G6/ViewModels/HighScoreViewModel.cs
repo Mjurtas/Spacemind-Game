@@ -28,7 +28,7 @@ namespace SUP_G6.ViewModels
         public HighScoreViewModel()
         {
             ListOfGameResults = DataBaseLogic.GetGameResults(Level);
-            SortByTimeCommand = new RelayCommand(SortByTime);
+            SortByScoreCommand = new RelayCommand(SortByScore);
             SortByDiligentPlayersCommand = new RelayCommand(GetDiligentPlayers);
             ViewStartPageCommand = new RelayCommand(ViewStartPage);
             SortByEasyCommand = new RelayCommand(SetLevelFromRadioButton);
@@ -38,7 +38,7 @@ namespace SUP_G6.ViewModels
         #endregion 
 
         #region ICommands
-        public ICommand SortByTimeCommand { get; set; }
+        public ICommand SortByScoreCommand { get; set; }
         public ICommand SortByNameCommand { get; set; }
         public ICommand SortByTriesCommand { get; set; }
         public ICommand SortByDiligentPlayersCommand { get; set; }
@@ -53,7 +53,7 @@ namespace SUP_G6.ViewModels
 
         #region ContentBindings
         //Button content properties
-        public string ButtonTime { get; set; } = "score";
+        public string ButtonScore { get; set; } = "score";
         public string ButtonTries { get; set; } = "tries";
         public string ButtonMostPlayed { get; set; } = "most played";
         public string ButtonBack { get; set; } = "back";
@@ -68,12 +68,6 @@ namespace SUP_G6.ViewModels
         public string HighscoreLabel { get; set; } = "highscore";   
         #endregion
 
-        // Different conditions when sorting highscorelist
-        public bool SortHighScoreStandard { get; set; } = false;
-        public bool SortHighScoreByName { get; set; } = true;
-        public bool SortHighScoreByTries { get; set; } = false;
-
-
          /*Set true or false on Easy/Medium/Hard and sorts highscore-lists
          based on user selection*/
         public Level Level { get; set; } = Level.Easy;
@@ -86,7 +80,7 @@ namespace SUP_G6.ViewModels
         public Visibility ScoreSortingVisibility { get; set; } = Visibility.Visible;
         
         /* Recieves data from DataBase*/
-        public ObservableCollection<IExistInDatabase> ListOfGameResults { get; set; }
+        public ObservableCollection<IGameResult> ListOfGameResults { get; set; }
         public ObservableCollection<IPlayer> ListOfDiligentPlayers { get; set; }
  
         #endregion
@@ -135,18 +129,17 @@ namespace SUP_G6.ViewModels
                 }
                 ListOfDiligentPlayers = DataBaseLogic.GetDiligentPlayersOnLevel(Level);
             }
-
         }
 
         #endregion
 
         #region Sorting HighScore Methods
 
-        public void SortByTime()
+        public void SortByScore()
         {
             ScoreSortingVisibility = Visibility.Visible;
             DiligentSortingVisibility = Visibility.Collapsed;
-            SetLevelFromRadioButton();   
+            SetLevelFromRadioButton();
         }
 
         public void GetDiligentPlayers()

@@ -13,7 +13,6 @@
     <Page.Resources>
         <local2:ColorConverter x:Key="ColorConverter"/>
         <local2:VisibilityConverter x:Key="VisibilityConverter"/>
-        <local2:LevelVisibilityConverter x:Key="LevelVisibilityConverter" />
         <local2:RatioConverter x:Key="RatioConverter"/>
         <local2:EndGamePegsConverter x:Key="EndGamePegsColorConverter"/>
     </Page.Resources>
@@ -70,7 +69,7 @@
                 <local1:Peg4 Grid.Row="3" />
             </Grid>
             <Grid  Visibility="{Binding GamePlayVisibility}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
-            <Grid Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
+            <Grid Visibility="{Binding MediumLevel, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -79,7 +78,7 @@
                 <local1:Peg6 Grid.Row="1" />
             </Grid>
             </Grid>
-            <Grid Visibility="{Binding HardLevel,  Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
+            <Grid Visibility="{Binding HardLevel,  Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>

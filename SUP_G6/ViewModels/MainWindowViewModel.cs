@@ -39,7 +39,6 @@ namespace SUP_G6.ViewModels
         public ICommand NextSongCommand { get; set; }
         #endregion
 
-
         #region SoundPlayer-logic
 
         int trackCounter = 0;
