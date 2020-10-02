@@ -60,9 +60,9 @@ namespace SUP_G6.Views
             If it starts with "p" it gets added to the Panels-list. */ 
             foreach (UIElement p in MasterGrid.Children)
             {
-                if (element.GetType() == typeof(Grid))
+                if (p.GetType() == typeof(Grid))
                 {
-                    var panel = (Panel)element;
+                    var panel = (Panel)p;
                     if (panel.Name.StartsWith('p'))
                     {
                         Panels.Add(panel);
