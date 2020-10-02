@@ -13,19 +13,10 @@ using Npgsql;
 
 namespace SUP_G6.ViewModels
 {
+    //ViewModel that handles the users wish to create a player
     public class CreatePlayerViewModel 
     {
-        #region Properties
-        public string Name { get; set; }
-        public Player Player { get; set; }
-        public string CreatePlayerButton { get; set; } = "create player";
-        public string BackButton { get; set; } = "back";
-        #endregion
-
-        #region ICommand
-        public ICommand CreatePlayerCommand { get; set; }
-        public ICommand BackButtonCommand { get; set; }
-        #endregion
+        #region Constructor
 
         public CreatePlayerViewModel()
         {
@@ -34,49 +25,86 @@ namespace SUP_G6.ViewModels
             BackButtonCommand = new RelayCommand(BackToStart);
         }
 
+        #endregion
+
+        #region Properties
+
+        public IPlayer Player { get; set; }
+        public string Name { get; set; }
+
+        #region Content Bindings
+
+        public string BackButton { get; set; } = "back";
+        public string CreatePlayerButton { get; set; } = "create player";
+        public string CreatePlayerLabel { get; set; } = "create player";
+        public string NameLabel { get; set; } = "name";
+
+        #endregion
+
+        #endregion
+
+        #region ICommand
+
+        public ICommand BackButtonCommand { get; set; }
+        public ICommand CreatePlayerCommand { get; set; }
+
+        #endregion
+
+        #region Create Player Method
+
+        public void CreatePlayer()
+        {
+          
+            if (Name != null)
+            {
+                IPlayer player = new Player
+                {
+                    Name = Name.ToLower()  //The font convert text to ToUpper but doesnt render capitalized letters well in inputsstrings.
+                };
+
+                Player = player;
+
+                try
+                {
+                    Player.Id = DataBaseLogic.AddPlayer(player);
+                    ToChooseLevelPage(player);
+                }
+                catch (PostgresException error)
+                {
+             
+                    if (error.SqlState == "23505")
+                    {
+                        MessageBox.Show($"The name {player.Name} already exists. Pick another nickname you must.");
+                        Name = "";
+                    }
+                }
+            }
+
+            else
+            {
+                if (Name == null)
+                {
+                    MessageBox.Show($"You must enter a nickname, or Baby Yoda will keep staring at you");
+                }
+            }
+        }
+
+        #endregion
+
+        #region Navigation Methods
+
         private void BackToStart()
         {
             var page1 = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
 
-        public void CreatePlayer()
+        private void ToChooseLevelPage(IPlayer player)
         {
-            if (Name.Length > 9)
-            {
-                MessageBox.Show($"Maximum ");
-                    
-            }
-            if (Name != null)
-            {
-                Player player = new Player
-                {
-
-                    Name = this.Name.ToLower()  //The font convert text to ToUpper but doesnt render capitalized letters well in inputsstrings.
-
-                };
-
-                Player = player;
-                //Player.Id = DataBaseLogic.AddPlayer(player);
-                try
-                {
-                    Player.Id = DataBaseLogic.AddPlayer(player);
-                    var page = new SelectLevelPage(player);
-                    ((MainWindow)Application.Current.MainWindow).Main.Content = page;
-                   
-                }
-                catch (PostgresException error)
-                {
-                    if (error.SqlState == "23505")
-                    {
-                        MessageBox.Show($"The name {player.Name} already exists. Pick another nickname.");
-                        this.Name = "";
-                    }
-                }
-
-                
-            }
+            var page = new SelectLevelPage(player);
+            ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }
 
+        #endregion
     }
 }

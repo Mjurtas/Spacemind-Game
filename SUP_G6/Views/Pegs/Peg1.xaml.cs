@@ -37,7 +37,7 @@ namespace SUP_G6
 
            
 
-            ColorId = 1;
+            PegId = 1;
             LevelVisibility = Level.Easy;
             master.Children.Add(ellipse);
         }

@@ -28,31 +28,36 @@ namespace SUP_G6.Views
                     
         }
        
-        private void TimeButton_Click(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            btn = ButtonFeedback.ChangeButton(btn);
-            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
-        }
+        //private void TimeButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var btn = sender as Button;
+        //    btn = ButtonFeedback.ChangeButton(btn);
+        //    ButtonFeedback.ButtonFeedbackDelay(btn, 500);
+        //}
 
-        private void TriesButton_Click(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            btn = ButtonFeedback.ChangeButton(btn);
-            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
-        }
+        //private void TriesButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var btn = sender as Button;
+        //    btn = ButtonFeedback.ChangeButton(btn);
+        //    ButtonFeedback.ButtonFeedbackDelay(btn, 500);
+        //}
 
-        private void MostPlayedButton_Click(object sender, RoutedEventArgs e)
-        {
-            var btn = sender as Button;
-            btn = ButtonFeedback.ChangeButton(btn);
-            ButtonFeedback.ButtonFeedbackDelay(btn, 500);
-        }
+        //private void MostPlayedButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var btn = sender as Button;
+        //    btn = ButtonFeedback.ChangeButton(btn);
+        //    ButtonFeedback.ButtonFeedbackDelay(btn, 500);
+        //}
 
-        public void ButtonChange(Button button)
-        {
-            button.Foreground = Brushes.Black;
-            button.Background = Brushes.Yellow;
-        }
+        //public void ButtonChange(Button button)
+        //{
+        //    button.Foreground = Brushes.Black;
+        //    button.Background = Brushes.Yellow;
+        //}
+
+        //private void easyRadioButton_Checked(object sender, RoutedEventArgs e)
+        //{
+
+        //}
     }
 }

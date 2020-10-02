@@ -11,6 +11,7 @@
       Title="GamePlayPage">
     <Page.Resources>
         <local2:RatioConverter x:Key="RatioConverter"/>
+        <local2:VisibilityConverter x:Key="VisibilityConverter" />
     </Page.Resources>
 
     <Grid>
@@ -49,81 +50,194 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
+
+            <DockPanel  Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="4" Grid.RowSpan="4">
+                <Border BorderBrush="Yellow" BorderThickness="3">
             
-            <Label Style="{StaticResource StarWarsFont}" Content="Highscore" Foreground="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.05'}" Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+                
+           
+                </Border>
+            </DockPanel>
+            <DockPanel  Grid.Column="6" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="3">
+                <Border BorderBrush="Yellow" BorderThickness="3">
+                    <StackPanel >
 
-            <Label Style="{StaticResource StarWarsFont}" Content="1" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-            <Label Style="{StaticResource StarWarsFont}" Content="2" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-            <Label Style="{StaticResource StarWarsFont}" Content="3" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="4" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-
-
-            <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[0].DisplayName, FallbackValue=Name}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-
-            <!--Rad 1 på Highscore 1-->
-            <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[0].ElapsedTimeInSeconds, FallbackValue=Has}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="4" Grid.Column="4" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit1}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="4" Grid.Column="5" />
-
-            </StackPanel>
-            <!--Rad 2 på Highscore 1-->
-            <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[0].DisplayCount}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="5" Grid.Column="4" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit2}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="5" Grid.Column="5" />
-            </StackPanel>
+                    </StackPanel>
+                </Border>
+            </DockPanel>
+            <DockPanel  Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="5" Grid.RowSpan="3">
+                <Border BorderBrush="Yellow" BorderThickness="3">
+                   
+                </Border>
+            </DockPanel>
             
-            <!--Namn för Highscore 2 & 3-->
-            <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[1].DisplayName, FallbackValue=Name}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
-            <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[2].DisplayName, FallbackValue=Name}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Grid.Row="5" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+            <Image Source="/Assets/Images/MedalGold.png" Grid.Column="4" Grid.ColumnSpan="2" Grid.Row="2"></Image>
+            <Image Source="/Assets/Images/MedalSilver.png" Grid.Column="2" Grid.ColumnSpan="2" Grid.Row="3" ></Image>
+            <Image Source="/Assets/Images/MedalBronze.png" Grid.Column="6" Grid.Row="3" Grid.ColumnSpan="2"></Image>
+<!-- Start of Player 1 XAML-->
+           
+            <!-- #1 Grid for sorting score-highscore-->
+            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <!--Rad 1 för Highscore 2-->
-            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[1].ElapsedTimeInSeconds, FallbackValue=Has}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="6" Grid.Column="2" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit1}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="6" Grid.Column="3" />
 
-               </StackPanel>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[0].PlayerName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[0].TotalScore, FallbackValue=n/a}" ContentStringFormat=" {0} pts" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Time:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Tries:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[0].ElapsedTimeInSeconds, FallbackValue=n/a}" ContentStringFormat=" {0} sec" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[0].Tries, FallbackValue=n/a}"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
             
-            <!--Rad 2 gör Highscore 2-->
-            <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[1].DisplayCount}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="7" Grid.Column="3" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit2}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="7" Grid.Column="3" />
-            </StackPanel>
-            
-            <!--Rad 1 för Highscore 3-->
-            <StackPanel Orientation="Horizontal" Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[2].ElapsedTimeInSeconds, FallbackValue=Has}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="6" Grid.Column="6" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit1}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.023'}" Grid.Row="6" Grid.Column="7" />
+            <!-- #1 Grid for sorting diligentplayer-highscore-->
 
-            </StackPanel>
-            
-            <!--Rad 2 för Highscore 3-->
-            <StackPanel Orientation="Horizontal" Grid.Row="7" Grid.Column="6" Grid.ColumnSpan="2" Background="Yellow">
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighScoreList[2].DisplayCount}" Foreground="Black" Background="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="7" Grid.Column="6" />
-                <Label Style="{StaticResource StarWarsFont}" Content="{Binding Unit2}" Foreground="Black" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Grid.Row="7" Grid.Column="7" />
-            </StackPanel>
+            <Grid  Grid.Column="4" Grid.Row="3" Grid.RowSpan="5" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Hidden}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="6" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="2" Background="Yellow"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[0].DisplayName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="has played" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[0].DisplayCount, FallbackValue=n/a}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.05'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="times" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Grid>
+            
+<!-- Player 2 XAML-->
+
+            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[1].PlayerName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[1].TotalScore}" ContentStringFormat=" {0} pts"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Time:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Tries:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[1].ElapsedTimeInSeconds, FallbackValue=n/a}" ContentStringFormat=" {0} sec"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[1].Tries, FallbackValue=n/a}"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <Grid  Grid.Column="2" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Hidden}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[1].DisplayName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="has played" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[1].DisplayCount, FallbackValue=n/a}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="times" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Grid>
+            
+            <!-- Player 3 XAML-->
+
+
+            <Grid  Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding ScoreSortingVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[2].PlayerName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[2].TotalScore,FallbackValue =n/a}" ContentStringFormat=" {0} pts" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Time:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="Tries:"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[2].ElapsedTimeInSeconds, FallbackValue=n/a}" ContentStringFormat=" {0} sec"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfGameResults[2].Tries, FallbackValue=n/a}"  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.018'}" Foreground="Yellow" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="1" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <Grid   Grid.Column="6" Grid.Row="4" Grid.RowSpan="4" Grid.ColumnSpan="2" Visibility="{Binding DiligentSortingVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[2].DisplayName, FallbackValue=n/a}" Foreground="Yellow" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}"  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center"/>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="has played" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="{Binding ListOfDiligentPlayers[2].DisplayCount, FallbackValue=n/a}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+                <Label  Style ="{StaticResource StarWarsFont}" Content="times" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Foreground="Yellow" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
+            </Grid>
+            
+            <!-- end -->
+            <Label Style="{StaticResource StarWarsFont}" Content="{Binding HighscoreLabel,FallbackValue=highscore}" Foreground="Yellow" FontWeight="Bold" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.05'}" Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="2" HorizontalAlignment="Center"/>
+
+
+            
+
+
+
+
+
+
 
             <Viewbox Stretch="Uniform" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="2">
-                <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="Sort by" HorizontalAlignment="Center" VerticalAlignment="Bottom" ></Label>
+                <Label Style="{StaticResource StarWarsFont}" Foreground="Yellow" FontSize="20" Content="{Binding SortByLabel, FallbackValue=sortera}" HorizontalAlignment="Center" VerticalAlignment="Bottom" ></Label>
             </Viewbox>
             <WrapPanel Grid.Column="3" Grid.ColumnSpan="4" Grid.Row="9" HorizontalAlignment="Center">
-                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" VerticalContentAlignment="Center" Command="{Binding SortHighScoreListByEasyCommand}"/>
-                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="{Binding RadioButtonMedium, FallbackValue=mellan}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"  VerticalContentAlignment="Center" Command="{Binding SortHighScoreListByMediumCommand}"/>
-                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="{Binding RadioButtonHard, FallbackValue=svårt}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"  VerticalContentAlignment="Center" Command="{Binding SortHighScoreListByHardCommand}"/>
+                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" Command="{Binding SortByEasyCommand}" GroupName="Level" x:Name="easyRadioButton" IsChecked="{Binding EasyRadioButton}" Content="{Binding RadioButtonEasy, FallbackValue=lätt}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow" VerticalContentAlignment="Center"/>
+                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" Command="{Binding SortByMediumCommand}" GroupName="Level" x:Name="mediumRadioButton" IsChecked="{Binding MediumRadioButton}" Content="{Binding RadioButtonMedium, FallbackValue=mellan}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"  VerticalContentAlignment="Center"/>
+                <RadioButton Style="{StaticResource StarWarsRadioButtonFont}" Command="{Binding SortByHardCommand}" GroupName="Level" x:Name="hardRadioButton" IsChecked="{Binding HardRadioButton}" Content="{Binding RadioButtonHard, FallbackValue=svårt}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" BorderBrush="Yellow" Foreground="Yellow"  VerticalContentAlignment="Center" />
             </WrapPanel>
 
-            <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="3">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTimeCommand}" Content="{Binding ButtonTime, FallbackValue=tid}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Width="150" Height="75"  ClickMode="Press"/>
+            <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="4">
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByScoreCommand}" Content="{Binding ButtonScore, FallbackValue=tid}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="150" Height="75"  ClickMode="Press"/>
             </Viewbox>
-            <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="4" HorizontalAlignment="Right">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByTriesCommand}" Content="{Binding ButtonTries, FallbackValue=försök}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Width="150" Height="75"  ClickMode="Press"/>
-            </Viewbox>
+          
             <Viewbox Stretch="Uniform" Grid.Row="10" Grid.Column="5" Grid.ColumnSpan="2">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ShowDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" Width="250" Height="75" ClickMode="Press"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding SortByDiligentPlayersCommand}" Content="{Binding ButtonMostPlayed, FallbackValue=spelat}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="250" Height="75" ClickMode="Press"/>
             </Viewbox>
 
             <Viewbox Stretch="Fill" Grid.Column="8" Grid.Row="1">
-                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="{Binding ButtonBack, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.025'}" Width="150" Height="75"/>
+                <Button Style="{StaticResource ButtonTemplate}" Command="{Binding ViewStartPageCommand}" Content="{Binding ButtonBack, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Width="150" Height="75"/>
             </Viewbox>
         </Grid>
 

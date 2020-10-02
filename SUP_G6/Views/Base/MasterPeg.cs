@@ -1,25 +1,31 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Resources;
 
 namespace SUP_G6
 {
-    public class MasterPeg : UserControl
+    public class MasterPeg : UserControl,  IPeg
     {
         #region Properties
-        public int ColorId { get; set; }
+        public int PegId { get; set; }
         public Level LevelVisibility { get; set; }
         #endregion
 
+        #region Constructor
         public MasterPeg()
         {
             Height = 50;
             Name = "Peg";
             Width = 50;
         }
+        #endregion
 
+        #region Drag and drop methods
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
@@ -33,7 +39,45 @@ namespace SUP_G6
 
                 // Inititate the drag-and-drop operation.
                 DragDrop.DoDragDrop(this, data, DragDropEffects.Copy | DragDropEffects.Move);
+                
             }
+        }
+
+        public Cursor GetCursor()
+        {
+            StreamResourceInfo sriCurs;
+            switch (PegId)
+            {
+                case 1:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
+                    break;
+                case 2:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg2av.cur", UriKind.Relative));
+                    break;
+                case 3:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg3av.cur", UriKind.Relative));
+                    break;
+                case 4:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg4av.cur", UriKind.Relative));
+                    break;
+                case 5:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg5av.cur", UriKind.Relative));
+                    break;
+                case 6:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg6av.cur", UriKind.Relative));
+                    break;
+                case 7:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg7av.cur", UriKind.Relative));
+                    break;
+                case 8:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg8av.cur", UriKind.Relative));
+                    break;
+                default:
+                    sriCurs = Application.GetResourceStream(new Uri("Views/Cursors/peg1av.cur", UriKind.Relative));
+                    break;
+            }
+            Cursor peg = new Cursor(sriCurs.Stream);
+            return peg;
         }
 
         protected override void OnGiveFeedback(GiveFeedbackEventArgs e)
@@ -43,19 +87,18 @@ namespace SUP_G6
             // DragOver event handler.
             if (e.Effects.HasFlag(DragDropEffects.Copy))
             {
-                Mouse.SetCursor(Cursors.Cross);
+                Mouse.SetCursor(GetCursor());
             }
             else if (e.Effects.HasFlag(DragDropEffects.Move))
             {
-                Mouse.SetCursor(Cursors.Pen);
+                Mouse.SetCursor(GetCursor());
             }
             else
             {
-                Mouse.SetCursor(Cursors.No);
+                Mouse.SetCursor(GetCursor());
             }
             e.Handled = true;
         }
-
 
         protected override void OnDrop(DragEventArgs e)
         {
@@ -89,7 +132,6 @@ namespace SUP_G6
             }
             e.Handled = true;
         }
-
 
         protected override void OnDragOver(DragEventArgs e)
         {
@@ -149,5 +191,39 @@ namespace SUP_G6
             // Undo the preview that was applied in OnDragEnter.
             //    circleUI.Fill = _previousFill;
         }
+
+        #endregion
+
+        #region Error handling for interface IPeg
+        public void OnMouseMove()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnGiveFeedback()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDrop()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragOver()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragEnter()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void OnDragLeave()
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
     }
 }

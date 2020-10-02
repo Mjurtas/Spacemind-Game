@@ -1,5 +1,6 @@
 ﻿using Npgsql;
 using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,11 @@ namespace SUP_G6.Other
     public static class DataBaseLogic
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["dbServer"].ConnectionString;
-#region CREATE
+
+        #region CREATE
         #region CREATE PLAYER
-        public static int AddPlayer(Player player)
+
+        public static int AddPlayer(IPlayer player)
         {
             string stmt = "INSERT INTO player(name) values (@name) returning player_id;";
 
@@ -38,9 +41,9 @@ namespace SUP_G6.Other
 
         /* Adds gameresult by when game is finished*/
 
-        public static int AddGameResult(GameResult gameResult)
+        public static int AddGameResult(GameResult gameResult) 
         {
-            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time ) values (@Id, @Tries, @Win, @Level, @Time) returning game_id;";
+            string stmt = $"INSERT INTO game_result (player_id, tries, win, level, time, totalscore ) values (@Id, @Tries, @Win, @Level, @Time, @TotalScore) returning game_id;";
 
 
             using (var conn = new NpgsqlConnection(connectionString))
@@ -57,6 +60,7 @@ namespace SUP_G6.Other
                     command.Parameters.AddWithValue("Win", gameResult.Win);
                     command.Parameters.AddWithValue("level", gameResult.Level);
                     command.Parameters.AddWithValue("time", gameResult.ElapsedTimeInSeconds);
+                    command.Parameters.AddWithValue("totalscore", gameResult.TotalScore);
                     int id = (int)command.ExecuteScalar();
                     return id;
                 }
@@ -67,41 +71,14 @@ namespace SUP_G6.Other
 
         #region READ
         #region READ PLAYER
-        public static Player GetPlayer(int id)
-        {
-            string stmt = "select player_id, name from player where player_id=@player_id";
-
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                Player player = null;
-                conn.Open();
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    command.Parameters.AddWithValue("player_id", id);
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            player = new Player
-                            {
-                                Id = (int)reader["player_id"],
-                                Name = (string)reader["name"]
-                            };
-                        }
-                    }
-                }
-                return player;
-            }
-        }
-
-        public static IEnumerable<Player> GetPlayers()
+        public static ObservableCollection<IPlayer> GetPlayers()
         {
             string stmt = "select player_id, name from player";
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Player player = null;
-                List<Player> players = new List<Player>();
+                ObservableCollection<IPlayer> players = new ObservableCollection<IPlayer>();
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
@@ -114,6 +91,7 @@ namespace SUP_G6.Other
                                 Id = (int)reader["player_id"],
                                 Name = (string)reader["name"]
                             };
+
                             players.Add(player);
                         }
                     }
@@ -121,47 +99,51 @@ namespace SUP_G6.Other
                 return players;
             }
         }
-        public static ObservableCollection<Player> GetDiligentPlayers()
+
+        public static ObservableCollection<IPlayer> GetPlayersByName(string name)
         {
-            string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id GROUP BY game_result.player_id, player.name ORDER BY COUNT DESC LIMIT 3; ";
+            string stmt = "select player_id, name from player where name like @name";
+            name = name + '%';
+
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Player player = null;
-                ObservableCollection<Player> diligentPlayers = new ObservableCollection<Player>();
-
+                ObservableCollection<IPlayer> players = new ObservableCollection<IPlayer>();
                 conn.Open();
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
+                    command.Parameters.AddWithValue("name", name);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            player = new Player()
+                            player = new Player
                             {
                                 Id = (int)reader["player_id"],
-                                Name = (string)reader["name"],
-                                NumberOfGamesPlayed = (Int64)reader["COUNT"]
+                                Name = (string)reader["name"]
                             };
-                            diligentPlayers.Add(player);
+
+                            players.Add(player);
                         }
                     }
                 }
-                return new ObservableCollection<Player>(diligentPlayers);
+                return players;
             }
         }
-        public static ObservableCollection<Player> GetDiligentPlayersOnLevel(Level level)
+
+        public static ObservableCollection<IPlayer> GetDiligentPlayersOnLevel(Level level)
         {
             string stmt = "SELECT game_result.player_id, player.name, COUNT(game_result.player_id) FROM game_result INNER JOIN player ON game_result.player_id = player.player_id WHERE game_result.level = @level GROUP BY game_result.player_id, player.name, game_result.level ORDER BY COUNT DESC LIMIT 3;";
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 Player player = null;
-                ObservableCollection<Player> diligentPlayers = new ObservableCollection<Player>();
+                ObservableCollection<IPlayer> diligentPlayers = new ObservableCollection<IPlayer>();
 
                 conn.Open();
                 conn.TypeMapper.MapEnum<Level>("level");
                 using (var command = new NpgsqlCommand(stmt, conn))
                 {
-                    command.Parameters.AddWithValue("level", level);
+                    command.Parameters.AddWithValue("level",level);
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -172,72 +154,25 @@ namespace SUP_G6.Other
                                 DisplayName = (string)reader["name"],
                                 DisplayCount = (Int64)reader["COUNT"]
                             };
+
                             diligentPlayers.Add(player);
                         }
                     }
                 }
-                return new ObservableCollection<Player>(diligentPlayers);
+                return new ObservableCollection<IPlayer>(diligentPlayers);
             }
         }
         #endregion
 
 
-
-        #region READ GAME RESULT
-
-
-
-
-        public static ObservableCollection<GameResult> GetGameResults()
+        public static ObservableCollection<IGameResult> GetGameResults(Level level)
         {
-            string stmt = "select game_id, player.player_id, player.name, tries, win, level from game_result inner join player ON game_result.player_id=player.player_id where win = true";
+            string stmt = "select game_id, player.player_id, player.name, tries, time, win, level, totalscore from game_result inner join player ON game_result.player_id=player.player_id where win = true and level = @level ORDER BY totalscore DESC LIMIT 3" ;
 
             using (var conn = new NpgsqlConnection(connectionString))
             {
                 GameResult gameResult = null;
-                ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
-
-                conn.Open();
-                conn.TypeMapper.MapEnum<Level>("level");
-                using (var command = new NpgsqlCommand(stmt, conn))
-                {
-                    using (var reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            gameResult = new GameResult()
-                            {
-                                GameId = (int)reader["game_id"],
-                                PlayerId = (int)reader["player_id"],
-                                PlayerName = (string)reader["name"],
-                                //ElapsedTimeInSeconds=(double)reader["time"],
-                                Tries = (int)reader["tries"],
-                                Win = (bool)reader["win"],
-                                Level = (Level)reader["level"]
-                            };
-                            gameResults.Add(gameResult);
-                        }
-                    }
-                }
-                return gameResults;
-            }
-        }
-
-        public static ObservableCollection<GameResult> GetGameResultsBy(Level level, string sort)
-        {
-            string stmt = "";
-            if (sort == "time")
-            {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY time ASC, tries ASC LIMIT 3;";
-            }
-            else if (sort == "tries")
-            {
-                stmt = "SELECT player.name, tries, time FROM game_result INNER JOIN player ON game_result.player_id=player.player_id WHERE win = true AND level = @level ORDER BY tries ASC, time ASC LIMIT 3;";
-            }
-            using (var conn = new NpgsqlConnection(connectionString))
-            {
-                GameResult gameResult = null;
-                ObservableCollection<GameResult> gameResults = new ObservableCollection<GameResult>();
+                ObservableCollection<IGameResult> gameResults = new ObservableCollection<IGameResult>();
 
                 conn.Open();
                 conn.TypeMapper.MapEnum<Level>("level");
@@ -250,10 +185,16 @@ namespace SUP_G6.Other
                         {
                             gameResult = new GameResult()
                             {
-                                DisplayName = (string)reader["name"],
-                                DisplayCount = (int)reader["tries"],
-                                ElapsedTimeInSeconds = (double)reader["time"]
+                                GameId = (int)reader["game_id"],
+                                PlayerId = (int)reader["player_id"],
+                                PlayerName = (string)reader["name"],
+                                ElapsedTimeInSeconds = (double)reader["time"],
+                                Tries = (int)reader["tries"],
+                                Win = (bool)reader["win"],
+                                Level = (Level)reader["level"],
+                                TotalScore = (double)reader["totalscore"]
                             };
+
                             gameResults.Add(gameResult);
                         }
                     }
@@ -261,7 +202,8 @@ namespace SUP_G6.Other
                 return gameResults;
             }
         }
-        #endregion
+
+
         #endregion
     }
 }

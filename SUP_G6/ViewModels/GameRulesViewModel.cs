@@ -29,6 +29,7 @@ namespace SUP_G6.ViewModels
         }
 
         #region Properties
+        public string GameRulesLabel { get; set; } = "game rules";
         public string BackButton { get; set; } = "BACK";
         public string GameRules { get; set; } = "== How To Play ==\n \n" +
                                         "The computer will create a secret code consisting of four avatars. The goal of the game is to guess the secret code in 10 tries or less. The player may drag any of the coloured pegs to the game board to make a consisting of four avatars, and then press the Guess button. The computer will provide feedback on the guess with four smaller pegs to the right, one for each avatar:\n \n" +
@@ -60,7 +61,6 @@ namespace SUP_G6.ViewModels
 
         public void ViewStartPage()
         {
-
             var page = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page;
         }

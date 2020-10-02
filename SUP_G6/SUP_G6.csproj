@@ -14,9 +14,14 @@
     <None Remove="Assets\Fonts\Starjout.ttf" />
     <None Remove="Assets\Images\babyyoda2.png" />
     <None Remove="Assets\Images\bak.png" />
-    <None Remove="Assets\Images\darth1.png" />
+    <None Remove="Assets\Images\ClearIcon.png" />
+    <None Remove="Assets\Images\ExitIcon.png" />
     <None Remove="Assets\Images\fram.png" />
+    <None Remove="Assets\Images\HelpIconCircle.png" />
     <None Remove="Assets\Images\Icon metro-exit.png" />
+    <None Remove="Assets\Images\MedalBronze.png" />
+    <None Remove="Assets\Images\MedalGold.png" />
+    <None Remove="Assets\Images\MedalSilver.png" />
     <None Remove="Assets\Images\off.png" />
     <None Remove="Assets\Images\peg1av.png" />
     <None Remove="Assets\Images\peg2av.png" />
@@ -26,18 +31,43 @@
     <None Remove="Assets\Images\peg6av.png" />
     <None Remove="Assets\Images\peg7av.png" />
     <None Remove="Assets\Images\peg8av.png" />
+    <None Remove="Assets\Images\SearchIcon.png" />
     <None Remove="Assets\Images\sound.png" />
     <None Remove="Assets\Images\Starfield %282%29.gif" />
     <None Remove="Assets\Music\starwars.wav" />
-    <None Remove="Views\babyyoda2.png" />
+    <None Remove="Resources\oth24.cur" />
+    <None Remove="Views\Cursors\peg1av.cur" />
+    <None Remove="Views\Cursors\peg2av.cur" />
+    <None Remove="Views\Cursors\peg3av.cur" />
+    <None Remove="Views\Cursors\peg4av.cur" />
+    <None Remove="Views\Cursors\peg5av.cur" />
+    <None Remove="Views\Cursors\peg6av.cur" />
+    <None Remove="Views\Cursors\peg7av.cur" />
+    <None Remove="Views\Cursors\peg8av.cur" />
     <None Remove="Views\darthRanked.png" />
-    <None Remove="Views\darthWelcome.png" />
-    <None Remove="Views\resizedyoda.png" />
     <None Remove="Views\yodatext.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Assets\Images\ClearIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\ExitIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\HelpIconCircle.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assets\Images\Icon metro-exit.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalBronze.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalGold.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\MedalSilver.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\peg1av.png">
@@ -58,13 +88,10 @@
     <Content Include="Assets\Images\peg6av.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Images\peg7av.png">
+    <Content Include="Assets\Images\SearchIcon.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\Images\peg8av.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Views\darthRanked.png">
+    <Content Include="Assets\Images\darthRanked.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -79,11 +106,9 @@
     <Resource Include="Assets\Fonts\Starjedi.ttf" />
     <Resource Include="Assets\Fonts\Starjout.ttf" />
     <Resource Include="Assets\Images\babyyoda2.png" />
-    <Resource Include="Assets\Images\background.jpg" />
     <Content Include="Assets\Images\bak.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Assets\Images\darth1.png" />
     <Content Include="Assets\Images\fram.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -93,11 +118,23 @@
     <Content Include="Assets\Images\sound.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\Images\peg7av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Images\peg8av.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Assets\Images\Starfield (2).gif" />
-    <Resource Include="Views\babyyoda2.png" />
-    <Resource Include="Views\darthWelcome.png" />
-    <Resource Include="Views\resizedyoda.png" />
-    <Resource Include="Views\yodatext.png" />
+    <Resource Include="Resources\oth24.cur" />
+    <Resource Include="Views\Cursors\peg1av.cur" />
+    <Resource Include="Views\Cursors\peg2av.cur" />
+    <Resource Include="Views\Cursors\peg3av.cur" />
+    <Resource Include="Views\Cursors\peg4av.cur" />
+    <Resource Include="Views\Cursors\peg5av.cur" />
+    <Resource Include="Views\Cursors\peg6av.cur" />
+    <Resource Include="Views\Cursors\peg7av.cur" />
+    <Resource Include="Views\Cursors\peg8av.cur" />
+    <Resource Include="Assets\Images\yodatext.png" />
   </ItemGroup>
 
   <ItemGroup>

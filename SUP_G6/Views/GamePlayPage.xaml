@@ -13,10 +13,10 @@
     <Page.Resources>
         <local2:ColorConverter x:Key="ColorConverter"/>
         <local2:VisibilityConverter x:Key="VisibilityConverter"/>
-        <local2:LevelVisibilityConverter x:Key="LevelVisibilityConverter" />
         <local2:RatioConverter x:Key="RatioConverter"/>
         <local2:EndGamePegsConverter x:Key="EndGamePegsColorConverter"/>
     </Page.Resources>
+
     <Border
             Background="Black"
             CornerRadius="70"
@@ -24,7 +24,8 @@
             Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.8' }"
             Opacity="0.9"
             >
-        <Grid>
+
+        <Grid x:Name="MasterGrid">
 
             <!-- Rad- och kolumndefinitioner -->
             <Grid.ColumnDefinitions>
@@ -54,8 +55,8 @@
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
-            <!-- Färgplupparna -->
-            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4">
+            
+            <Grid Grid.Column="1" Grid.Row="1" Grid.RowSpan ="4" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -63,148 +64,234 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <local1:Peg1 Grid.Row="0"/>
-                <local1:Peg2 Grid.Row="1"/>
-                <local1:Peg3 Grid.Row="2"/>
-                <local1:Peg4 Grid.Row="3"/>
+                <local1:Peg2 Grid.Row="1" />
+                    <local1:Peg3 Grid.Row="2" />
+                <local1:Peg4 Grid.Row="3" />
             </Grid>
-            <Grid Visibility="{Binding MediumLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
+            <Grid  Visibility="{Binding GamePlayVisibility}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
+            <Grid Visibility="{Binding MediumLevel, Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Grid.Row="5" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local1:Peg5 Grid.Row="0"/>
-                <local1:Peg6 Grid.Row="1"/>
+                <local1:Peg5 Grid.Row="0" />
+                <local1:Peg6 Grid.Row="1" />
             </Grid>
-            <Grid Visibility="{Binding HardLevel, Converter={StaticResource LevelVisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
+            </Grid>
+            <Grid Visibility="{Binding HardLevel,  Converter={StaticResource VisibilityConverter}}" Grid.Column="1" Grid.Row="7" Grid.RowSpan ="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <local1:Peg7 Grid.Row="0"/>
-                <local1:Peg8 Grid.Row="1"/>
+                <local1:Peg7 Grid.Row="0" />
+                <local1:Peg8 Grid.Row="1"  />
             </Grid>
 
-            <Viewbox Stretch="None" VerticalAlignment="Center" Grid.Column="2" HorizontalAlignment="Left">
-                <Ellipse  Height="15" Width="15" Fill="Green" VerticalAlignment="Center"/>
-                </Viewbox>
-                
-                <Viewbox Stretch="Uniform" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right">
-                    <Label Content="    =Right avatar and right spot, good job! " Foreground="Yellow" VerticalAlignment="Center"/>
-                </Viewbox>
-           
-                <Viewbox Stretch="None" Grid.ColumnSpan="2" VerticalAlignment="Center" Grid.Column="3" HorizontalAlignment="Left">
-                <Ellipse  Height="15" Width="15" Fill="Yellow"/>
-                </Viewbox>
-
-                <Viewbox Stretch="Uniform" Grid.Column="3" Grid.ColumnSpan="2">
-                    <Label Content="   =You chose the right avatar, but the wrong spot! Almost there!   " Foreground="Yellow" VerticalAlignment="Center"/>
-                </Viewbox>
-                
-            <Viewbox Stretch="None" Grid.ColumnSpan="1" VerticalAlignment="Center" Grid.Column="5" HorizontalAlignment="Left">
-            <Ellipse  Height="15" Width="15" Stroke="Yellow"/>
-            </Viewbox>
-
-                <Viewbox Stretch="Uniform" Grid.Row="0" Grid.ColumnSpan="1" Grid.Column="5">
-                    <Label Content="    = No way José, try again!" Foreground="Yellow" VerticalAlignment="Center"/>
-                </Viewbox>
+            
 
 
-
-                <!-- Spelplanen -->
-            <WrapPanel x:Name="stp1" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-               AllowDrop="True"
+            <!-- Spelplanen -->
+            <!-- Rad 1 -->
+            <Grid x:Name="pos1" Grid.Column="2" Grid.Row="1" AllowDrop="True"
                DragOver="panel_DragOver"
-               Drop="panel_Drop" Background="LightYellow" >
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="pos2" Grid.Column="3" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="pos3" Grid.Column="4" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
+            <Grid x:Name="pos4" Grid.Column="5" Grid.Row="1" AllowDrop="True"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightYellow">
+            </Grid>
 
-            </WrapPanel>
+            <!-- Rad 2-->
+            <Grid x:Name="pos5" Grid.Column="2" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos6" Grid.Column="3" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos7" Grid.Column="4" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos8" Grid.Column="5" Grid.Row="2" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp2" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray">
-            </WrapPanel>
+            <!-- Rad 3-->
+            <Grid x:Name="pos9" Grid.Column="2" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos10" Grid.Column="3" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos11" Grid.Column="4" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos12" Grid.Column="5" Grid.Row="3" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp3" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray">
-            </WrapPanel>
+            <!-- Rad 4-->
+            <Grid x:Name="pos13" Grid.Column="2" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos14" Grid.Column="3" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos15" Grid.Column="4" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos16" Grid.Column="5" Grid.Row="4" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp4" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!-- Rad 5-->
+            <Grid x:Name="pos17" Grid.Column="2" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos18" Grid.Column="3" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos19" Grid.Column="4" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos20" Grid.Column="5" Grid.Row="5" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp5" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!-- Rad 6-->
+            <Grid x:Name="pos21" Grid.Column="2" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos22" Grid.Column="3" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos23" Grid.Column="4" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos24" Grid.Column="5" Grid.Row="6" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp6" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--Rad 7-->
+            <Grid x:Name="pos25" Grid.Column="2" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos26" Grid.Column="3" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos27" Grid.Column="4" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos28" Grid.Column="5" Grid.Row="7" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp7" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!--Rad 8-->
+            <Grid x:Name="pos29" Grid.Column="2" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos30" Grid.Column="3" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos31" Grid.Column="4" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos32" Grid.Column="5" Grid.Row="8" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp8" Grid.Column="2" Grid.Row="8" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!-- Rad 9-->
+            <Grid x:Name="pos33" Grid.Column="2" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos34" Grid.Column="3" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos35" Grid.Column="4" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos36" Grid.Column="5" Grid.Row="9" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp9" Grid.Column="2" Grid.Row="9" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
+            <!-- Rad 10-->
+            <Grid x:Name="pos37" Grid.Column="2" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos38" Grid.Column="3" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos39" Grid.Column="4" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
+            <Grid x:Name="pos40" Grid.Column="5" Grid.Row="10" AllowDrop="False"
+               DragOver="panel_DragOver"
+               Drop="panel_Drop" Background="LightGray">
+            </Grid>
 
-            <WrapPanel x:Name="stp10" Grid.Column="2" Grid.Row="10" Grid.ColumnSpan="4" ItemWidth="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.104' }" ItemHeight="45"
-           AllowDrop="False"
-           DragOver="panel_DragOver"
-           Drop="panel_Drop"
-                   Background="LightGray" >
-            </WrapPanel>
 
-            <!-- Spelknappen -->
-            <WrapPanel Grid.Column="7" Grid.Row="1" ItemWidth="75" ItemHeight="45"/>
 
             <!-- Number of Tries -->
-            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="3" Grid.RowSpan="2" >
-                <TextBlock Style="{StaticResource StarWarsTextBlockFont}"  Text="{Binding LabelTries, FallbackValue=försök}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
-                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding NumberOfTries}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="0" Grid.ColumnSpan="2"  Visibility="{Binding GamePlayPageVisibility}" >
+                <Label Style="{StaticResource StarWarsFont}"  Content="{Binding TriesLabel, FallbackValue=försök}" Grid.Column="2" Grid.Row="0" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding NumberOfTries}" Grid.Column="3" Grid.Row="0" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
             </StackPanel>
 
             <!-- Time -->
-            <StackPanel Orientation="Vertical" Grid.Column="7" Grid.Row="5" Grid.RowSpan="2" >
-                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding LabelTime, FallbackValue=tid}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextWrapping="Wrap" TextAlignment="Center"/>
-                <TextBlock Style="{StaticResource StarWarsTextBlockFont}" Text="{Binding TimeLabel}" Grid.Column="7" Grid.Row="3" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" TextAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="4" Grid.Row="0" Grid.ColumnSpan="2" Visibility="{Binding GamePlayPageVisibility}"  >
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=tid}" Grid.Column="7" Grid.Row="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" ContentStringFormat=" {0} sec" Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="2" Foreground="#FFF2FC08" FontSize="20" FontWeight="Bold" HorizontalContentAlignment="Center"/>
             </StackPanel>
 
             <!-- Feedbackpluppar -->
-
             <Grid Grid.Column="6" Grid.Row="1">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[0], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[0], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[1], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[1], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[2], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[2], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[3], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[3], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
 
@@ -214,136 +301,180 @@
                     <Ellipse Fill="{Binding FeedbackPegs[5], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[5], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[6], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[6], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[7], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[7], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="3">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[8], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[8], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[9], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[9], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[10], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[10], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[11], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[11], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid    Grid.Column="6" Grid.Row="4">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[12], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[12], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[13], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[13], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[14], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[14], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[15], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[15], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="5">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[16], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[16], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[17], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[17], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[18], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[18], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[19], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[19], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid   Grid.Column="6" Grid.Row="6">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[20], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[20], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[21], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[21], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[22], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[22], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[23], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[23], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="7">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[24], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[24], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[25], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[25], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[26], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[26], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[27], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[27], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid   Grid.Column="6" Grid.Row="8">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[28], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[28], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[29], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[29], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[30], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[30], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[31], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[31], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid  Grid.Column="6" Grid.Row="9">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[32], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[32], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[33], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[33], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[34], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[34], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[35], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[35], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
+            
             <Grid Grid.Column="6" Grid.Row="10">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center"  >
                     <Ellipse Fill="{Binding FeedbackPegs[36], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Left" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[36], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[37], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[37], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0"/>
                     <Ellipse Fill="{Binding FeedbackPegs[38], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[38], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
                     <Ellipse Fill="{Binding FeedbackPegs[39], Converter={StaticResource ColorConverter}, FallbackValue=Black}" VerticalAlignment="Center" HorizontalAlignment="Center" Height="15" Stroke="Yellow" Width="15" Visibility="{Binding FeedbackPegsVisibility[39], FallbackValue=Collapsed, Converter={StaticResource VisibilityConverter}}" Margin="0, 0, 5, 0" />
-
                 </StackPanel>
             </Grid>
 
-            <!-- Replay and Guess Buttons -->
-            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="8" Grid.RowSpan="1" Grid.ColumnSpan="1">
-                <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonDelete , FallbackValue=igen}" Width="200" Height="75" Margin="0 0 0 5" FontSize="25" Click="DeleteButton_Click" ClickMode="Press"/>
-            </Viewbox>
-            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="9"  Grid.RowSpan="1" Grid.ColumnSpan="1">
+
+            <!-- Exit, Help and Guess Buttons -->
+            <Viewbox Stretch="Fill" Grid.Column="7" Grid.Row="4"  Grid.RowSpan="2" Grid.ColumnSpan="2"  Visibility="{Binding GamePlayPageVisibility}">
                 <Button Style="{StaticResource ButtonTemplate}" Content="{Binding ButtonGuess, FallbackValue=gissa}"  Click="GuessButton_Click" Margin="0 5 0 0" Command="{Binding GuessCommand}" IsEnabled="{Binding IsGuessButtonEnabled}"  Height="75" Width="200" FontSize="25" FontWeight="Bold" ClickMode="Press"/>
             </Viewbox>
-            <Viewbox Stretch="Fill" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1">
+            <Viewbox Stretch="Fill" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" >
                 <Button    FontSize="20" Command="{Binding EndGameCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
-                    <Image Source="\Assets\Images\icon metro-exit.png" Height="95" Width="200" ></Image>
+                    <Image Source="\Assets\Images\ExitIcon.png" Height="95" Width="200" ></Image>
                 </Button>
-               
+                
             </Viewbox>
-            <Label Content="Exit" Foreground="Yellow" Grid.Column="8" Grid.ColumnSpan="1" Grid.Row="2" Grid.RowSpan="1" HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" />
+            <Viewbox Stretch="Uniform" Grid.Column="7" Grid.ColumnSpan="1" Grid.Row="1" Grid.RowSpan="1" >
+                <Button    FontSize="20" Command="{Binding ShowHintCommand}" Width="200"  ClickMode="Press" Background="Black" BorderThickness="0" BorderBrush="Black">
+                    <Image Source="\Assets\Images\HelpIconCircle.png" Height="95" Width="200" ></Image>
+                </Button>
+
+            </Viewbox>
 
             <!--Panel för vinst-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding WinPanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
-                <Label Style="{StaticResource StarWarsFont}" Content="CoNGRATuLATioNS" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding CongratsLabel, FallbackValue=grattis}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding SecretCodeLabel, FallbackValue=kodenvar}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
                     <Ellipse  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[0], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[1], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[2], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[3], Converter={StaticResource EndGamePegsColorConverter}}"/>
                 </WrapPanel>
-                <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0">
-                    <Label Style="{StaticResource StarWarsFont}" Content="Tries" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                
+                <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0" Orientation="Horizontal">
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TriesLabel, FallbackValue=tries}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                     <Label Style="{StaticResource StarWarsFont}" Content="{Binding NumberOfTries}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeTextLabel, FallbackValue=time}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" ContentStringFormat=" {0] sec" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" Grid.ColumnSpan="3" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 10 0 0">
-                    <Label Style="{StaticResource StarWarsFont}" Content="Time" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
-                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding TimeLabel}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding ScoreLabel, FallbackValue=poäng}" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding EndGameScorePresenter}" ContentStringFormat=" {0} pts" HorizontalAlignment="Left" Margin="0 0 0 0" FontSize="25" FontWeight="Bold"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=restard}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=back}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
 
             <!--Panel för förlust-->
             <StackPanel Background="Black"  Grid.Column="2" Grid.ColumnSpan="6" Grid.Row="2" Grid.RowSpan="8" Visibility="{Binding LosePanelVisibility, Converter={StaticResource VisibilityConverter}, FallbackValue=Collapsed}">
-                <Label Style="{StaticResource StarWarsFont}" Content="GAME ovER" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
+                <Label Style="{StaticResource StarWarsFont}" Content="{Binding GameOverLabel, FallbackValue=youloose}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="50" FontWeight="Bold"/>
                 <WrapPanel HorizontalAlignment="Center">
-                    <Label Style="{StaticResource StarWarsFont}" Content="The secretcode was:" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
+                    <Label Style="{StaticResource StarWarsFont}" Content="{Binding SecretCodeLabel, FallbackValue=kodenvar}" HorizontalAlignment="Center" Margin="0 5 0 0" FontSize="25" FontWeight="Bold"/>
                     <Ellipse  Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[0], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[1], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[2], Converter={StaticResource EndGamePegsColorConverter}}"/>
                     <Ellipse Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.06' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.04' }" Fill="{Binding SecretCode[3], Converter={StaticResource EndGamePegsColorConverter}}"/>
                 </WrapPanel>
                 <WrapPanel HorizontalAlignment="Center" Margin="0 30 0 0">
-                    <Button Style="{StaticResource ButtonTemplate}" Content="RESTART game" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
-                    <Button Style="{StaticResource ButtonTemplate}" Content="BACK To START" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding RestartGameButton, FallbackValue=börjaom}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding RestartGameCommand}"/>
+                    <Button Style="{StaticResource ButtonTemplate}" Content="{Binding BackToStartButton, FallbackValue=tillbaka}" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.02'}" FontWeight="Bold" Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={StaticResource RatioConverter}, ConverterParameter='0.1' }" Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.25' }" Command="{Binding BackToStartCommand}"/>
                 </WrapPanel>
             </StackPanel>
+            
+            <!-- Hint panel-->
+
+            <Grid  Background="Black"  Grid.Column="2" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="6" Opacity="0.8" Visibility="{Binding HelpPanelVisibility, FallbackValue=Visible}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    
+                </Grid.RowDefinitions>
+                <Label Style="{StaticResource StarWarsFont}" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2" Content="{Binding HintsLabel, FallbackValue=hjälp}" Foreground="Yellow" HorizontalAlignment="Center"  VerticalAlignment="Bottom" FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.03'}"/>
+
+           
+
+
+                <Ellipse  Height="30" Width="30" Fill="Green" VerticalAlignment="Center" Grid.Row="2"/>
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding GreenPegHint, FallbackValue=rätt}" Foreground="Yellow" />
+                <Ellipse  Height="30" Width="30" Fill="Yellow" Grid.Row="3"/>
+                <Label   FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding YellowPegHint, FallbackValue=nära}" Foreground="Yellow" />
+                <Ellipse  Height="30" Width="30" Stroke="Yellow" Fill="Black" Grid.Row="4"/>
+                <Label  FontSize="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={StaticResource RatioConverter}, ConverterParameter='0.01'}" Style="{StaticResource StarWarsFont}" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" VerticalAlignment="Center"  Content="{Binding BlackPegHint, FallbackValue=fel}" Foreground="Yellow" />
+
+            </Grid>
+            <Grid Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="4" Grid.RowSpan="10" >
+                <Viewbox Stretch="Fill" Visibility="{Binding VisibilityCountDown}">
+                    <Label Content="{Binding CountDownLabel, FallbackValue=3}" Style="{StaticResource StarWarsFont}" Visibility="{Binding CountDownLabelVisibility, FallbackValue=Collapsed}"  />
+                </Viewbox>
+            </Grid>
+            
         </Grid>
     </Border>
 </Page>

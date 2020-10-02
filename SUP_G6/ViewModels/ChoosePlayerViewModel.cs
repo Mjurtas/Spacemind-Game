@@ -9,50 +9,95 @@ using System.Text;
 using System.Windows.Controls;
 using System.Windows;
 using System.Windows.Input;
-
+using System.Collections.ObjectModel;
+using SUP_G6.Interface;
 
 namespace SUP_G6.ViewModels
 {
-    public class ChoosePlayerViewModel
+    //ViewModel to handle that the user selects player
+    public class ChoosePlayerViewModel : BaseViewModel.BaseViewModel
     {
-        #region Properties
-        public List<Player> Players { get; set; } = (List<Player>)DataBaseLogic.GetPlayers();
-        public Player Player { get; set; }
-        public Level Level { get; set; }
-        public string PlayGameButton { get; set; } = "play game";
-        public string BackToStartButton { get; set; } = "back";
-        #endregion
-
-        #region ICommand
-        public ICommand StartGameCommand { get; set; }
-        public ICommand BackButtonCommand { get; set; }
-
-        #endregion
+        #region Constructor
 
         public ChoosePlayerViewModel()
-        {         
+        {
             StartGameCommand = new RelayCommand(StartGame);
             BackButtonCommand = new RelayCommand(BackToStart);
+            SearchPlayerCommand = new RelayCommand(SearchPlayer);
+            ClearPlayerSearchCommand = new RelayCommand(ClearPlayerSearch);
 
         }
 
+        #endregion
+
+        #region Properties
+
+        public ObservableCollection<IPlayer> Players { get; set; } = DataBaseLogic.GetPlayers();
+        public Player Player { get; set; }
+        public Level Level { get; set; }
+
+        #region Content Bindings
+
+        public string BackToStartButton { get; set; } = "back";
+        public string PlayGameButton { get; set; } = "play game";
+        public string SearchPlayerInput { get; set; } = "";
+        public string ChoosePlayerLabel { get; set; } = "choose player";
+
+        #endregion
+
+        #endregion
+
+        #region ICommand
+
+        public ICommand BackButtonCommand { get; set; }
+        public ICommand ClearPlayerSearchCommand { get; set; }
+        public ICommand SearchPlayerCommand { get; set; }
+        public ICommand StartGameCommand { get; set; }
+
+        #endregion
+
+        #region Search Player Methods
+
+        private void SearchPlayer()
+        {
+            if (SearchPlayerInput != "")
+            {
+                SearchPlayerInput = SearchPlayerInput.ToLower();
+                Players = DataBaseLogic.GetPlayersByName(SearchPlayerInput);
+            }
+        }
+
+        private void ClearPlayerSearch()
+        {
+            SearchPlayerInput = "";
+            Players = DataBaseLogic.GetPlayers();
+        }
+
+        #endregion
+
+        #region Navigation Methods
 
         public void StartGame()
         {
             Player player = Player;
 
             if (player != null)
-            {               
+            {
                 var page = new SelectLevelPage(player);
-                ((MainWindow) Application.Current.MainWindow).Main.Content = page;
+                ((MainWindow)Application.Current.MainWindow).Main.Content = page;
             }
-            
-            // ELSE SATS-om man ej väljer spelare
+            else
+            {
+                MessageBox.Show($"Listen to Yoda, choose a player..");
+            }
         }
+
         private void BackToStart()
         {
             var page1 = new StartPage();
             ((MainWindow)Application.Current.MainWindow).Main.Content = page1;
         }
+
+        #endregion
     }
 }

@@ -28,6 +28,8 @@ namespace SUP_G6.Views
         {
             InitializeComponent();
             DataContext = new ChoosePlayerViewModel();
-        }     
+        }
+
+      
     }
 }

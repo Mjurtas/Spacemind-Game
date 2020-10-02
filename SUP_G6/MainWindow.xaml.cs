@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Media;
 using System.IO;
+using System.Windows.Resources;
 
 namespace SUP_G6
 {
@@ -25,18 +26,13 @@ namespace SUP_G6
     /// </summary>
     public partial class MainWindow : Window
     {
-
-  
-
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
-        }
-
-
-
-
-    
+            StreamResourceInfo sriCurs = Application.GetResourceStream(
+            new Uri("Resources/oth24.cur", UriKind.Relative));
+            this.Cursor = new Cursor(sriCurs.Stream);
+        }   
     }
 }

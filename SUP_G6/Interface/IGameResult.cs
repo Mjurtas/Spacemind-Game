@@ -1,12 +1,12 @@
 ﻿using SUP_G6.DataTypes;
-using SUP_G6.Interface;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
-namespace SUP_G6.Models
+namespace SUP_G6.Interface
 {
-    public class GameResult : IGameResult
+    public interface IGameResult
     {
         public int GameId { get; set; }
 

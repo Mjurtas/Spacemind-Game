@@ -1,4 +1,5 @@
 ﻿using SUP_G6.DataTypes;
+using SUP_G6.Interface;
 using SUP_G6.Models;
 using SUP_G6.ViewModels;
 using System;
@@ -21,7 +22,7 @@ namespace SUP_G6.Views
     /// </summary>
     public partial class SelectLevelPage : Page
     {
-        public SelectLevelPage(Player player)
+        public SelectLevelPage(IPlayer player)
         {
             InitializeComponent();
             DataContext=new SelectLevelViewModel(player);
