@@ -71,7 +71,7 @@ namespace SUP_G6.Views
             }
         }
         
-        public int[] NewExtraction()
+        public int[] ExtractGuessFromCurrentGuessRow()
         {
             List<UIElement> guessedPegs = new List<UIElement>();
 
@@ -244,7 +244,7 @@ namespace SUP_G6.Views
             DetermineActivePanel();
             if (IsGuessDone(currentGuessRow))
             {
-                viewModel.Guess = NewExtraction();
+                viewModel.Guess = ExtractGuessFromCurrentGuessRow();
                 MakeNextGuessAvailable(nextGuessRow);
             }
             else
